@@ -197,6 +197,8 @@
 %% ----------------------------------------------------------------------
 
 \RequirePackage{listings} % Typeset source code listings
+\usepackage{tabularx}
+\usepackage{booktabs} % for nice rules
 
 \lstset{
   basicstyle=\ttfamily\footnotesize,  % Style of the font that is used for the code
