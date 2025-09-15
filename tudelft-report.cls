@@ -115,10 +115,10 @@
 
 %% Format the subsubsections titles and spacing
 \titleformat{\subsubsection}
-    {\titlestyle\bfseries}
-    {\thesubsubsection.}
-    {5pt}
-    {}
+  {\bfseries\normalsize}   % format: bold + normal size
+  {\thesubsubsection.}     % label
+  {5pt}                    % sep between label and title
+  {}                       % before-code
 \titlespacing*{\subsubsection}{0pt}{\bigskipamount}{0pt}
 
 %% Reduce the vertical white space between chapters in the table of contents
