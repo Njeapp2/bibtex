@@ -104,9 +104,11 @@ nog introductie toevoegen
 
 \\ \textbf{Tidal forcing}
 \\The tidal wave of the Atlantic Ocean influences the hydrodynamics of the lower Paraná delta. As the tidal wave enters the delta ta Río de la Plata, the tide is damped and phased by friction, channel geometry and branching, resulting in a reduced amplitude and an increased in phase delay. Under normal conditions, the influence of the tide on the Paraná River reaches the city of Villa Constitución, which is located 220 km upstream of the river mouth. For storm conditions, the tide can reach the city of Rosario \autocite{balayCAUSESPERIODICITYLARGE}. In order to determine the influence of the tide at Brazo Largo, a reference water level at San Fernando is considered. It is assumed that at San Fernando no tidal damping has occurred, therefore the tidal amplitude at Brazo Largo can be determined using the following relation:
-\[
-A_{\text{Location}} = \alpha \cdot A_{\text{SanFernando}}
-\]
+
+\begin{equation}
+    A_{\text{Location}} = \alpha \cdot A_{\text{SanFernando}}
+\end{equation}
+
 The damping coefficient ($\alpha$) and the tidal delay with respect to San Fernando have been determined by Brok (2022). For Brazo Largo, a damping coefficient of 0.3 and tidal delay of 4 hours were found. These values will be used as reference values when isolating the tide at Brazo Largo. The tidal signal is isolated using hourly water level data for a period of more than 2 years from both Brazo Largo and San Fernando. Table 5.2 shows the tidal constituents  considered and their period.
 
 \begin{table}[h!]
@@ -135,7 +137,8 @@ The damping coefficient ($\alpha$) and the tidal delay with respect to San Ferna
 
 - uitleg hoe het getijde bepaald is
 
-The tidal amplitude and phase of each constituent for San Fernando and Brazo Largo are displayed in Table 5.3. Additionally, the damping coefficient ($\alpha$) and the tide delay are calculated for the different constituents and shown in Table 5.3. The calculated amplitudes show that the tidal dynamics in the delta are dominated by the semi-diurnal M2 constituent with contributions from N2 and O1
+The tidal amplitude and phase of each constituent for San Fernando and Brazo Largo are displayed in Table 5.3. Additionally, the damping coefficient ($\alpha$) and the tide delay are calculated for the different constituents and shown in Table 5.3. The calculated amplitudes show that the delta has mixed tidal dynamics  (semidiurnal-diurnal)
+dominated by the semi-diurnal M2 constituent with contributions from N2, K1 and O1. The overtide M4 plays a minor role. The damping coefficient is consistent across the constituents ranging from 0.23 to 0.33, inditcating that the use of formula 5.3 is valid. The calculated time delay of 4.5 - 5.5 hours is also in line with the time delay calculated by Brok (2022). The overtide M4 
 
 
 \begin{table}[h!]
@@ -204,10 +207,34 @@ In contrast, the El Colorado and Túnel Subfluvial stations exhibit a clear powe
 
 The Paraná Guazu is influenced by both tidal and fluvial controls.
     
-
 - Flow partitioning:
     Gebruik debiet van parana en parana Guazu (zie plot in VScode)
     Gebruik veldwerk metingen om bijdrage rio Ibicuy en rio Talabera te bepalen
+
+\textbf{Flow partitioning}
+The Middle
+
+\begin{figure}[h!]
+    \centering
+    % First subfigure
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/ch5/discharge series.png}
+        \caption{Discharge series obtained from Brazo Largo and Zárate measurement stations}
+        \label{fig:discharge_series}
+    \end{subfigure}
+    \hfill
+    % Second subfigure
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/ch5/flow partition.png}
+        \caption{Flow partition, expressed as the share of total flow that streams into Paraná Guazú}
+        \label{fig:flow_partition}
+    \end{subfigure}
+    
+    \caption{Comparison between (a) discharge series and (b) flow partition of the Paraná Guazú and Paraná de las Palmas}
+\end{figure}
+
 
 
 \section{Sediment transport}
