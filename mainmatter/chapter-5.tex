@@ -101,20 +101,61 @@ However, a rough estimate can be found by calculating the mean annual volume for
 
 \section{Hydrodynamic data}
 nog introductie toevoegen
+
 \\\textbf{Tidal forcing}
-The tidal wave of the Atlantic Ocean influences the hydrodynamics of the lower Paraná delta. As the tidal wave enters the delta ta Río de la Plata, the tide is damped and phased by friction, channel geometry and branching, resulting in a reduced amplitude and an increased in phase delay. Under normal conditions, the influence of the tide on the Paraná River reaches the city of Villa Constitución, which is located 220 km upstream of the river mouth. For storm conditions, the tide can reach the city of Rosario \autocite{causes. \autocite{}
+\\The tidal wave of the Atlantic Ocean influences the hydrodynamics of the lower Paraná delta. As the tidal wave enters the delta ta Río de la Plata, the tide is damped and phased by friction, channel geometry and branching, resulting in a reduced amplitude and an increased in phase delay. Under normal conditions, the influence of the tide on the Paraná River reaches the city of Villa Constitución, which is located 220 km upstream of the river mouth. For storm conditions, the tide can reach the city of Rosario \autocite{balayCAUSESPERIODICITYLARGE}. In order to determine the influence of the tide at Brazo Largo, a reference water level at San Fernando is considered. It is assumed that at San Fernando no tidal damping has occurred, therefore the tidal amplitude at Brazo Largo can be determined using the following relation:
+\[
+A_{\text{Location}} = \alpha \cdot A_{\text{SanFernando}}
+\]
+The damping coefficient ($\alpha$) and the tidal delay with respect to San Fernando have been determined by Brok (2022). For Brazo Largo, a damping coefficient of 0.3 and tidal delay of 4 hours were found. These values will be used as reference values when isolating the tide at Brazo Largo. The tidal signal is isolated using hourly water level data for a period of over 2 years from both Brazo Largo and San Fernando. Table 5.2 shows the tidal constituents that are considered and their period.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lccc}
+\hline
+\textbf{Tidal constituent} & \textbf{Name} & \textbf{Period [h]} \\
+\hline
+\multicolumn{3}{l}{\textit{Semi-diurnal}} \\
+\hspace{1em}Principal lunar & M2 & 12.4206\\
+\hspace{1em}Principal solar & S2 & 12.0000 \\
+\hspace{1em}Lunar elliptical & N2 & 12.6583\\
+\hline
+\multicolumn{3}{l}{\textit{Diurnal}} \\
+\hspace{1em}Lunar-solar declinational & K1 & 23.9345  \\
+\hspace{1em}Principal lunar & O1 & 25.8193  \\
+\hline
+\multicolumn{3}{l}{\textit{Shallow water constituents}} \\
+\hspace{1em}Overtide of M2 (quarter-diurnal) & M4 & 6.2103  \\
+\hline
+\end{tabular}
+\caption{Tidal constituents used to reconstruct the tide \autocite{BRON}.}
+\label{tab:constituents}
+\end{table}
+
+
+
 
 \\- Waterlevel at Brazo Largo
     (misschien het getijde meenemen?)
 \\ - Getijde rond Brazo Largo is berekend aan de hand van waterlevel rond San Fernando. Vergelijk de constituents met die van  het rapport en trek conclusie over invloed getijde.
 
 \textbf{Fluvial forcing}
-\\ - Bepaal discharge - waterlevel relation ($Q = a*h^b$)
+The relationship between fluvial discharge and water level was determined under the assumption of a power-law relationship ($Q = a*h^b$). However, this yielded a weak relation with an $R^2$-value of 0.261. Instead, a linear fit was made and a slightly better result was found, indicating a positive increasing trend. The result and its $R^2$-value of 0.444 are shown in Figure \ref{fig:water level discharge}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{waterlevel_discharge.png}
+    \caption{Water level Discharge relationship}
+    \label{fig:water level discharge}
+\end{figure}
+
+
+
+
 \\ - Vergelijk met discharge bij Brazo Largo
 
 The Paraná Guazu is influenced by both tidal and fluvial controls.
     
-- Discharge at Brazo Largo
 
 - Flow partitioning:
     Gebruik debiet van parana en parana Guazu (zie plot in VScode)
