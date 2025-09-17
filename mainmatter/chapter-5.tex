@@ -107,7 +107,7 @@ nog introductie toevoegen
 \[
 A_{\text{Location}} = \alpha \cdot A_{\text{SanFernando}}
 \]
-The damping coefficient ($\alpha$) and the tidal delay with respect to San Fernando have been determined by Brok (2022). For Brazo Largo, a damping coefficient of 0.3 and tidal delay of 4 hours were found. These values will be used as reference values when isolating the tide at Brazo Largo. The tidal signal is isolated using hourly water level data for a period of over 2 years from both Brazo Largo and San Fernando. Table 5.2 shows the tidal constituents that are considered and their period.
+The damping coefficient ($\alpha$) and the tidal delay with respect to San Fernando have been determined by Brok (2022). For Brazo Largo, a damping coefficient of 0.3 and tidal delay of 4 hours were found. These values will be used as reference values when isolating the tide at Brazo Largo. The tidal signal is isolated using hourly water level data for a period of more than 2 years from both Brazo Largo and San Fernando. Table 5.2 shows the tidal constituents  considered and their period.
 
 \begin{table}[h!]
 \centering
@@ -132,6 +132,31 @@ The damping coefficient ($\alpha$) and the tidal delay with respect to San Ferna
 \label{tab:constituents}
 \end{table}
 
+- uitleg hoe het getijde bepaald is
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/ch5/Tide_Brazo_largo.png}
+    \caption{Reconstructed tide at Brazo Largo}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{table}[h!]
+\centering
+\caption{Amplitude and phase comparison}
+\begin{tabular}{lcccccc}
+\hline
+Constituent & amp\_sf & amp\_bl & $\alpha$ & lag\_hours & phi\_sf [degrees] & phi\_bl [degrees] \\
+\hline
+M2 & 0.252556 & 0.058178 & 0.230357 & 4.449647 & -0.464874 & 1.786061 \\
+S2 & 0.041460 & 0.009899 & 0.238748 & 5.054501 & -2.525642 & 0.120888 \\
+N2 & 0.094422 & 0.022490 & 0.238183 & 4.315835 & -0.546323 & 1.595923 \\
+K1 & 0.118679 & 0.037176 & 0.313247 & 5.181066 & -2.543143 & -1.183031 \\
+O1 & 0.186930 & 0.061275 & 0.327797 & 5.517155 & 2.694069 & -2.246504 \\
+M4 & 0.029745 & 0.005636 & 0.189488 & -1.494826 & -2.608483 & 2.162333 \\
+\hline
+\end{tabular}
+\end{table}
 
 
 
@@ -140,7 +165,10 @@ The damping coefficient ($\alpha$) and the tidal delay with respect to San Ferna
 \\ - Getijde rond Brazo Largo is berekend aan de hand van waterlevel rond San Fernando. Vergelijk de constituents met die van  het rapport en trek conclusie over invloed getijde.
 
 \textbf{Fluvial forcing}
-The relationship between fluvial discharge and water level was determined under the assumption of a power-law relationship ($Q = a*h^b$). However, this yielded a weak relation with an $R^2$-value of 0.261. Instead, a linear fit was made and a slightly better result was found, indicating a positive increasing trend. The result and its $R^2$-value of 0.444 are shown in Figure \ref{fig:water level discharge}.
+
+The relationship between fluvial discharge and water level at Brazo Largo was determined under the assumption of a power-law relationship ($Q = a \cdot h^b$). However, this yielded a weak relation with an $R^2$-value of 0.261. Instead, a linear fit was made and a slightly better result was found, indicating a positive increasing trend. The result and its $R^2$-value of 0.444 are shown in Figure \ref{fig:water level discharge}.
+
+In comparison to the El Colorado and Túnel Subfluvial stations, this result is surprising. When plotting the same relationship, a clear power law dependence appears. 
 
 \begin{figure}
     \centering
@@ -149,10 +177,6 @@ The relationship between fluvial discharge and water level was determined under 
     \label{fig:water level discharge}
 \end{figure}
 
-
-
-
-\\ - Vergelijk met discharge bij Brazo Largo
 
 The Paraná Guazu is influenced by both tidal and fluvial controls.
     
