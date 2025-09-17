@@ -1,7 +1,7 @@
 \chapter{Data Analysis}
 
 \section{Dredging activity}
-This section describes the relevance of dredging to the sediment balance of the designated area, by an estimation of the dredging volumes through different data sources. 
+This section describes the relevance of dredging to the sediment balance of the designated area, by an estimation of the dredging volumes through different data sources. It includes an analysis of the data gathered through AIS and extraction permits. 
 
 
 \subsection{Vessel positioning information (AIS)}
@@ -69,8 +69,6 @@ Altair & 750 & 560 & 3 & 33600 \\
 
 
 \subsection{Extraction permits}
-To avoid adverse impacts on the hydraulic regime from dredging, companies must first obtain permits from the \textit{National Water Institute }(INA). These permits specify the locations and volumes of the proposed dredging activities. The information they provide serves as a reliable estimate of the total material being removed from the river, thereby influencing the sediment balance. Therefore, the permits were analysed for the area of interest.
-
 A total of 33 permits were collected for the Paraná Guazú and 43 for the Ibicuy. On the Paraná Guazú, four permits were issued for channel maintenance, while the remainder concerned sand extraction. For the Ibicuy, all permits were related to extraction activities. The analysis shows that the requested volumes in the Ibicuy are considerably larger than those in the Paraná Guazú, even though the section of the Ibicuy considered here is much shorter in length.
 
 It is important to note that the end dates of contracts are unknown. While the requests specify monthly dredging quantities, they do not indicate the duration of the works. As a result, a detailed quantitative assessment cannot be made. For the present analysis, all requests with fixed monthly volumes are assumed to extend over 12 months, allowing for a comparison between the two river sections, as shown in Figure \ref{fig:yearly dredging volumes}. The second assumption is to record a single value for the requested volume, when information about monthly or yearly occurrence is lacking.
@@ -83,15 +81,38 @@ It is important to note that the end dates of contracts are unknown. While the r
 \end{figure}
 
 \subsection{Estimated sand extraction}
-- Conclusie van 5.1.1 en 5.1.2
+This section draws a conclusion on the sand extraction volumes, such that an estimate is found to apply in the sediment balance. The following uncertainties were considered in determining a representative value:
 
-- Rekenwaarde aannemen [m3 zand/maand] en per jaar
+\begin{itemize}
+    \item Not every vessel in the area is equipped with an AIS transponder, meaning that possibly not all active vessels were identified
+    \item No historical AIS data was available, such that the data was registered for only a short period of time 
+    \item The extraction permits do not mention the duration of the contract
+\end{itemize}
 
+However, a rough estimate can be found by calculating the mean annual volume for the total system of interest (i.e., Ibicuy and Paraná Guazú). To make a comparison with the monthly values in Table \ref{tab:sand_volume}, this yearly value is reduced to a monthly value by dividing by 12 months. The former approach yields the following value for dredged sand volumes:
+
+\begin{equation}
+    V_{sand,yearly} = 1193923 ~m^3
+\end{equation}
+\begin{equation}
+    V_{sand,monthly} = \frac{V_{sand,yearly}}{12} \approx 100000 ~m^3 
+\end{equation}
 
 
 \section{Hydrodynamic data}
-- Waterlevel at Brazo Largo
+nog introductie toevoegen
+\textbf{Tidal forcing}
+The tidal wave of the Atlantic Ocean influences the hydrodynamics of the lower Paraná delta. As the tidal wave enters the delta ta Río de la Plata, the tide is damped and phased by friction, channel geometry and branching, resulting in a reduced amplitude and an increased in phase delay. \autocite{noneChannelNetworkMorphodynamics2022}
+
+\\- Waterlevel at Brazo Largo
     (misschien het getijde meenemen?)
+\\ - Getijde rond Brazo Largo is berekend aan de hand van waterlevel rond San Fernando. Vergelijk de constituents met die van  het rapport en trek conclusie over invloed getijde.
+
+\textbf{Fluvial forcing}
+\\ - Bepaal discharge - waterlevel relation ($Q = a*h^b$)
+\\ - Vergelijk met discharge bij Brazo Largo
+
+The Paraná Guazu is influenced by both tidal and fluvial controls.
     
 - Discharge at Brazo Largo
 
