@@ -102,7 +102,7 @@ However, a rough estimate can be found by calculating the mean annual volume for
 \section{Hydrodynamic data}
 nog introductie toevoegen
 
-\\\textbf{Tidal forcing}
+\\ \textbf{Tidal forcing}
 \\The tidal wave of the Atlantic Ocean influences the hydrodynamics of the lower Paraná delta. As the tidal wave enters the delta ta Río de la Plata, the tide is damped and phased by friction, channel geometry and branching, resulting in a reduced amplitude and an increased in phase delay. Under normal conditions, the influence of the tide on the Paraná River reaches the city of Villa Constitución, which is located 220 km upstream of the river mouth. For storm conditions, the tide can reach the city of Rosario \autocite{balayCAUSESPERIODICITYLARGE}. In order to determine the influence of the tide at Brazo Largo, a reference water level at San Fernando is considered. It is assumed that at San Fernando no tidal damping has occurred, therefore the tidal amplitude at Brazo Largo can be determined using the following relation:
 \[
 A_{\text{Location}} = \alpha \cdot A_{\text{SanFernando}}
@@ -111,6 +111,9 @@ The damping coefficient ($\alpha$) and the tidal delay with respect to San Ferna
 
 \begin{table}[h!]
 \centering
+\caption{Tidal constituents used to reconstruct the tide
+\autocite{BRON}.}
+\label{tab:constituents}
 \begin{tabular}{lccc}
 \hline
 \textbf{Tidal constituent} & \textbf{Name} & \textbf{Period [h]} \\
@@ -128,11 +131,11 @@ The damping coefficient ($\alpha$) and the tidal delay with respect to San Ferna
 \hspace{1em}Overtide of M2 (quarter-diurnal) & M4 & 6.2103  \\
 \hline
 \end{tabular}
-\caption{Tidal constituents used to reconstruct the tide \autocite{BRON}.}
-\label{tab:constituents}
 \end{table}
 
 - uitleg hoe het getijde bepaald is
+
+Figure 5.7 shows the water level time series for a period of 7 days compared to the calculated tidal signal at Brazo Largo. From this figure, it can be seen that the measured water level follows the same tidal oscillations. However, the tide does not explain all the variability of the water level; the measured water level also shows large variability caused by discharge and wind. 
 
 \begin{figure}[H]
     \centering
@@ -141,19 +144,21 @@ The damping coefficient ($\alpha$) and the tidal delay with respect to San Ferna
     \label{fig:placeholder}
 \end{figure}
 
+
+
 \begin{table}[h!]
 \centering
 \caption{Amplitude and phase comparison}
 \begin{tabular}{lcccccc}
 \hline
-Constituent & amp\_sf & amp\_bl & $\alpha$ & lag\_hours & phi\_sf [degrees] & phi\_bl [degrees] \\
+Constituent & $A_{\text{SF}}$ & $A_{\text{BL}}$ & $\alpha$ & tide delay [hr] & $\phi_{\text{SF}}$ [$^\circ$] & $\phi_{\text{BL}}$ [$^\circ$] \\
 \hline
-M2 & 0.252556 & 0.058178 & 0.230357 & 4.449647 & -0.464874 & 1.786061 \\
-S2 & 0.041460 & 0.009899 & 0.238748 & 5.054501 & -2.525642 & 0.120888 \\
-N2 & 0.094422 & 0.022490 & 0.238183 & 4.315835 & -0.546323 & 1.595923 \\
-K1 & 0.118679 & 0.037176 & 0.313247 & 5.181066 & -2.543143 & -1.183031 \\
-O1 & 0.186930 & 0.061275 & 0.327797 & 5.517155 & 2.694069 & -2.246504 \\
-M4 & 0.029745 & 0.005636 & 0.189488 & -1.494826 & -2.608483 & 2.162333 \\
+M2 & 0.253 & 0.058 & 0.230 & 4.450 & -0.465 & 1.786 \\
+S2 & 0.041 & 0.010 & 0.239 & 5.055 & -2.526 & 0.121 \\
+N2 & 0.094 & 0.022 & 0.238 & 4.316 & -0.546 & 1.596 \\
+K1 & 0.119 & 0.037 & 0.313 & 5.181 & -2.543 & -1.183 \\
+O1 & 0.187 & 0.061 & 0.328 & 5.517 & 2.694 & -2.247 \\
+M4 & 0.030 & 0.006 & 0.189 & -1.495 & -2.608 & 2.162 \\
 \hline
 \end{tabular}
 \end{table}
@@ -166,16 +171,29 @@ M4 & 0.029745 & 0.005636 & 0.189488 & -1.494826 & -2.608483 & 2.162333 \\
 
 \textbf{Fluvial forcing}
 
-The relationship between fluvial discharge and water level at Brazo Largo was determined under the assumption of a power-law relationship ($Q = a \cdot h^b$). However, this yielded a weak relation with an $R^2$-value of 0.261. Instead, a linear fit was made and a slightly better result was found, indicating a positive increasing trend. The result and its $R^2$-value of 0.444 are shown in Figure \ref{fig:water level discharge}.
+The relationship between fluvial discharge and water level at Brazo Largo was initially assumed to follow a power-law ($h = a \cdot Q^b$), but this yielded a weak correlation with an $R^2$ of 0.261. A linear fit, however, produced a slightly better result, showing a positive trend with an $R^2$ of 0.444 (Figure \ref{fig:waterleveldischarge}).
 
-In comparison to the El Colorado and Túnel Subfluvial stations, this result is surprising. When plotting the same relationship, a clear power law dependence appears. 
+In contrast, the El Colorado and Túnel Subfluvial stations exhibit a clear power-law dependence. Power-law fits for these stations resulted in higher $R^2$-values of 0.962 and 0.712, respectively, with the El Colorado plot shown in Figure \ref{fig:waterleveldischarge}. Overall, these results suggest that the strength of the water level–discharge relationship decreases as the river flows downstream.
 
-\begin{figure}
+\begin{figure}[h!]
     \centering
-    \includegraphics[width=0.5\linewidth]{waterlevel_discharge.png}
-    \caption{Water level Discharge relationship}
-    \label{fig:water level discharge}
+    % First subfigure
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/ch5/wl discharge El Colorado.png}
+        \label{fig:water level discharge Colorado}
+    \end{subfigure}
+    \hfill
+    % Second subfigure
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/ch5/wl discharge Brazo Largo.png}
+        \label{fig:water level discharge Brazo Largo}
+    \end{subfigure}
+    \caption{Water elevation - discharge relationship for two measurement stations}
+    \label{fig:waterleveldischarge}
 \end{figure}
+
 
 
 The Paraná Guazu is influenced by both tidal and fluvial controls.
@@ -187,6 +205,10 @@ The Paraná Guazu is influenced by both tidal and fluvial controls.
 
 
 \section{Sediment transport}
+From the Brazo Largo measurements, an analysis can be done on the relationship between sediment concentrations and the discharge of the river. Again, a distinction can be made between fine and course sediments. Overall, a powr
+
+
+
 - Bepaal fine sediment-discharge relation bij El Colorado. Reken hiermee door voor het fine sediment concentration bij Brazo Largo
 
 - Bepaal fine sediment concentration op basis van de suspended sediment samples.
@@ -197,5 +219,7 @@ The Paraná Guazu is influenced by both tidal and fluvial controls.
 
 - Set up a sediment balance for the area of interest.
 
+
+- Sediment transport caused by tidal assymetry.
 % \section{Water Quality and Bioorganism Activity?}
 
