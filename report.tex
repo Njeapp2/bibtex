@@ -11,6 +11,7 @@
 \usepackage{booktabs} % For better table formatting
 \usepackage{array}
 \usepackage{makecell}
+\usepackage{tikz}
 \setlist{itemsep=-2pt} % Reducing white space in lists slightly
 \renewcommand{\deg}{\si{\degree}\xspace} % Use \deg easily, everywhere
 
@@ -29,12 +30,18 @@
 
 \subject{CEGM3000: Multidisciplinary Project} % Cover only
 \affiliation{Delft University of Technology} % Cover only
-\coverimage{figures/8442.png} % Aspect ratio of 2:3 (portrait) recommended
-\definecolor{title}{HTML}{4884d6} % Color for cover title
-
+\coverimage{figures/cover-ship.jpg} % Aspect ratio of 2:3 (portrait) recommended
+\definecolor{title}{HTML}{FFFFFF} 
 \makecover
 
-\input{frontmatter/title-report}
+\makeatletter
+
+\makeatother
+
+\makeatother
+
+
+%\input{frontmatter/title-report}
 \input{frontmatter/preface}
 \input{frontmatter/summary}
 
