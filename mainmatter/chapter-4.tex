@@ -120,7 +120,7 @@ Most of the stakeholders do not speak English, which is why colleagues Marina an
     \label{tab:stakeholders}
 \end{table}
 
-\subsection{Field measurements}
+\subsection{Measurement variables and equipment}
 In this subsection the location and type of measurements will be explained. The goal of the field work was to obtain data from critical sections in the study area. These locations were selected in such a way that they were as useful as possible for establishing the sediment balance. Two important locations in the study area are the confluence from the Ibicuy and Paraná Guazú, and that of the Paraná Guazú and Talabera. In these sections, sediment samples and flow measurements were recorded.
 Once this data was gathered, it was analysed and compared to previously obtained data to draw conclusions. 
 
@@ -137,7 +137,7 @@ During the field trip, half of the group worked together with the INA team of em
 % The program of the boat days consisted of going over the indicated critical cross sections (in red on Figure 4.2) a total of 4 times, using the equipment of INA to save the necessary information of the river. 
 
 \subsubsection{Flow velocity}
-The first variable that was measured is the flow velocity profile of the river, recorded by a SonTek RiverSurveyor M9 Acoustic Doppler Current Profiler (ACDP). This device consists of two components both placed on a floating board held next to the boat while advancing. The components are a vertical acoustic echo sounder beam placed on the back end of the floating board, and a rectangle shape box containing a microprocessor that computes the data on the front end of the board, as seen in Figure \ref{fig:sonteknico}.
+The first variable that was measured is the flow velocity profile of the river, recorded by a SonTek RiverSurveyor M9 Acoustic Doppler Current Profiler (ACDP). This device consists of two components both placed on a floating board held next to the boat while advancing. The components are a vertical acoustic echo sounder beam placed on the back end of the floating board, and a rectangle shape box containing a microprocessor that computes the data on the front end of the board, as seen in Figure \ref{fig:sontek}.
 
 \begin{figure}[htbp]
     \centering
@@ -149,14 +149,14 @@ The first variable that was measured is the flow velocity profile of the river, 
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \includegraphics[width=\linewidth, height=7cm]{figures/ch4/sontek.jpg}
-        \caption{Sontek M9 on the boat}
+        \caption{SonTek M9 on the boat}
         \label{fig:sontek}
     \end{subfigure}
     \caption{SonTek M9 installed in the field}
     \label{fig:measurement}
 \end{figure}
 
-The specialty of the SonTek M9 is that it uses multiple acoustic frequencies to find a high resolution range of depths and flow velocities, while still tracking the geo-referenced position of the vessel using GNSS. The flow velocity is the speed of the river in a certain direction. The unit is therefore  [m/s], and is expressed in the form of a vector. The significance of this data is also due to the fact that the velocity is needed to compute the discharge as well.
+The specialty of the SonTek M9 is that it uses multiple acoustic frequencies to find a high resolution range of depths and flow velocities, while still tracking the geo-referenced position of the vessel using GNSS \autocite{advanced river discharge}. The flow velocity is the speed of the river in a certain direction. The unit is therefore  [m/s], and is expressed in the form of a vector. The significance of this data is also due to the fact that the velocity is needed to compute the discharge as well.
 
 \subsubsection{Discharge}
 Once the flow velocity \(\mathbf{v}\) is found, it can be integrated over the depth and the width of the channel (through a cross-section) which in the end yields the discharge \(Q\) of the river at a given location, with a unit of \si{\cubic\metre}/s.
@@ -169,15 +169,22 @@ Once the flow velocity \(\mathbf{v}\) is found, it can be integrated over the de
 \begin{itemize}
     \item \(Q\) is the discharge, expressed in cubic meters per second [m\textsuperscript{3}/s];
     \item \(\mathbf{v}\) is the flow velocity vector, expressed in meters per second [m/s];
-    \item \(A\) is the cross-sectional area of the flow, expressed in square meters [m\textsuperscript{2}];
+    \item \(A\) is the cross-sectional area perpendicular to the flow, expressed in square meters [m\textsuperscript{2}];
     \item \(d\mathbf{A}\) is an infinitesimal area element.
 \end{itemize}
 
-The aim of the field work was to obtain the data of flow velocity and discharge at the three critical points around the bifurcation of interest during different times, one in the morning and in the afternoon. Consequently this would indicate some changes in discharge for different times, flows, circumstances hence solidifying our data base of examples. 
+The number of required measurements of a single cross section is defined by the variability of the measurements. That is, a minimum of two measurements exists, which is sufficient when the second discharge measurement is within 10\% of the first one. In addition, correct operation of the vessel's velocity is essential for reliable discharge results. Therefore, the boat speed should never exceed the flow velocity perpendicular to the cross section under consideration. 
+
+
+
+% The aim of the field work was to obtain the data of flow velocity and discharge at the three critical points around the bifurcation of interest during different times, one in the morning and in the afternoon. Consequently this would indicate some changes in discharge for different times, flows, circumstances hence solidifying our data base of examples. 
+
+
 
 \subsubsection{Suspended sediment}
-Moving on, it is also in our interest to gather data on the suspended sediment of the river. This is done through the capture of water with the help of an APEMA BS6A pump connected to plastic bottles. One lowers a system to a certain dept which then pumps the sediment included water to the pump and stores it in a water bottle.
-These plastic bottles contained the captured water of the river which were sealed in order to be sent to the water quality lab in the hydraulic section on the INA site, as seen in the Figures below.
+Moving on, it is also in our interest to gather data on the suspended sediment concentration of the river. This is done by collecting water with the help of an APEMA BS6A peristaltic pump connected to two plastic tubes. The first tube is short and is used to insert the water into the plastic bottles on the boat. The second tube is long and is connected to a weight, which can be lowered into the river to a certain depth. At the desired depth, the fluid was pumped to the water surface and collected in the plastic bottles.
+
+Then, the samples were sealed in order to be sent to the water quality lab in the hydraulic section on the INA site, as seen in Figure \ref{fig:suspended sediment}. These samples help to indicate the concentration of fine sediments in the channel, at different locations and elevations. The evolution of the concentrations along the study area will be studied in the Chapter \ref{chapter:data analysis}.
 
 \begin{figure}[H]
     \centering
@@ -211,16 +218,16 @@ These plastic bottles contained the captured water of the river which were seale
     \end{subfigure}
 
     \caption{Suspended load field trip}
-    \label{fig:all_four}
+    \label{fig:suspended sediment}
 \end{figure}
 
 
-These samples help to indicate the concentration of sediment in the channel, at different locations. In theory, since it was done at different levels of the river, it could potentially indicate a change in concentration from one point upper at Ibicuy to Brazo Largo in the southern, lower part of the study area. From this data, the group could draw even further conclusions.
+
+% In theory, since it was done at different levels of the river, it could potentially indicate a change in concentration from one point upper at Ibicuy to Brazo Largo in the southern, lower part of the study area. From this data, the group could draw even further conclusions.
 
 \subsubsection{Bed load}
-Moreover, the bed load was a necessary measurement for our analysis. The method used for this parameter is scraping the bottom layer of the channel with a metal shaped container.
-The strategy for this measurement is tying a rope to the metal container, dropping it until it reaches the maximum depth of the location. Then, with help of the current or the boat, the person who holds the rope drags the container along with the horizontal movement which gradually collects sediment from the surface. Once this is done, the rope and the container are pulled up and restored in the boat. The last step is to take out some sediment and put it in a plastic bag.  Later on, the captured sediment was sent to the lab where the soil was dried out to find the components, quality and other parameters of the soil such as porosity which would add up to our results.
-The metal container, as well as the extracts of the sediment samples in the oven are shown below in Figure 4.5. 
+Moreover, the bed load was a necessary measurement for our analysis. The method used for this parameter is scraping the bottom layer of the channel with a metal shaped container. The goal is to retrieve samples that represent the granulometry of the bed at different depths. 
+The strategy for this measurement is tying a rope to the metal container, dropping it until it reaches the maximum depth of the location. Then, with help of the current or the boat, the person who holds the rope drags the container along with the horizontal movement which gradually collects sediment from the surface. Once this is done, the rope and the container are pulled up and restored in the boat. The last step is to collect some sediment and put it in a plastic bag.  Later on, the captured sediment was sent to the lab where the soil was dried out to find the components, quality and other parameters of the soil such as porosity which would add up to our results. The metal container, as well as the extracts of the sediment samples in the oven are shown in Figure \ref{fig:bed load}. 
 
 \begin{figure}[H]
     \centering
@@ -248,24 +255,22 @@ The metal container, as well as the extracts of the sediment samples in the oven
     \end{subfigure}
 
     \caption{Bed Load Measurements}
-    \label{fig:all_four}
+    \label{fig:bed load}
 \end{figure}
 
-The bed load samples collected were all weighed before they were put in the oven. 
-There are 7 samples collected at 4 different locations. The first three locations are the cross sections around the extracting point in the bifurcation of the Rio Parana Guazu with the Rio Talabera. For these three cross sections two samples were taken from the soil, one at 10 meters depth and one at 14-15 meters depth. 
-The last sample was taken at 10 meters of depth in the cross section upstream close to the Puerto Ibicuy.
-The whole collection of the annotated samples can be seen in the Appendix. \ref{appendix:Lab data}.
+The bed load samples were all weighed before they were put in the oven. There are 7 samples collected at 4 different locations. The first three locations are the cross sections around the extracting point in the bifurcation of the Paraná Guazú with the Talabera river. For these three cross sections two samples were taken from the soil, one at 10 meters depth and one at 15 meters depth, approximately. 
+The last sample was taken at 10 meters depth in the cross section upstream close to Puerto Ibicuy. The whole collection of the annotated samples can be seen in Appendix \ref{appendix:Lab data}.
 
 \subsubsection{Bathymetry}
 To find the bathymetry one can use the ADCP or the Garmin echosounder. 
 The bathymetry is the depth of the channel at the position of the boat on a given timestep. Moving over the whole width of the channel yields a longitudinal profile, indicating what depth lies at what coordinates.
-The echosounder is attached to a pole on the side of the boat, and dipped into the water while the boat is moving. This pole is connected to the Garmin screen giving the depth and bathymetry of the channel, as seen in the Figure 4.7 below.
+The echosounder is attached to a pole on the side of the boat, and dipped into the water while the boat is moving. This pole is connected to the Garmin screen giving the depth and bathymetry of the channel, as seen in the Figure \ref{fig:Garmin}. In addition, this screen allows monitoring of possible bed forms in the river bed. The profile was taken on the whole trajectory between Puerto Guazu to Ibicuy in the morning upstream, and downstream on the end of the afternoon. This profile is seen in Figure \ref{fig:measurements day2}.
 
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \includegraphics[width=\linewidth, height=7cm]{figures/ch4/Echosounder.jpg}
-        \caption{echosounder attached to boat}
+        \caption{Echosounder attached to boat}
         \label{fig:sontek}
     \end{subfigure}
     \hfill
@@ -275,13 +280,13 @@ The echosounder is attached to a pole on the side of the boat, and dipped into t
         \label{fig:sontek}
     \end{subfigure}
     \caption{Echosounder and Garmin measurements}
-    \label{fig:measurement}
+    \label{fig:Garmin}
 \end{figure}
 
-The profile was taken on the whole trajectory between Puerto Guazu to Ibicuy in the morning upstream, and downstream on the end of the afternoon. This profile is seen in Figure 4.7 \ref{measurement locations day 2}.
 
 
-\subsubsection{Locations of measurements}
+
+\subsection{Locations of measurements}
 The measurement campaign was divided into two days. The first day, a number of cross sections and sediment samples were recorded at the confluence of the Talabera and the Paraná Guazú. Figure \ref{fig:measurements day1} shows a summary of the performed measurements. In total, three sections were studied with the following measurements per cross section:
 \begin{itemize}
     \item 2 ADCP profiles, yielding bathymetry, discharge and flow velocity
@@ -295,7 +300,6 @@ The measurement campaign was divided into two days. The first day, a number of c
     \caption{Measurement locations Day 1}
     \label{fig:measurements day1}
 \end{figure}
-\label{measurement locations day 2}
 
 The second day, the research area was expanded by going to Puerto Ibicuy. There, some cross sections were measured in the vicinity of the confluence of the Ibicuy and the Paraná Guazú. In addition, the echosounder was active all day long. Its recorded tracks can be found in Figure \ref{fig:measurements day2}. The following results have been found on day 2:
 \begin{itemize}
@@ -316,8 +320,7 @@ The second day, the research area was expanded by going to Puerto Ibicuy. There,
 \section{Setting up the Sediment Balance}
 Using the flow velocity we can derive the concentration of the sediment in the study area. This can be done for several locations in order to get an idea of the quantities of sediment that come in through the Rio Ibicuy. Then the last critical point will help us determine the continuation of the concentration of the sediment in the Rio Parana so that any inconsistencies can be linked with the amount of extracted sand in the intersection of the Parana Guazu and Rio Talabera (in the middle of the three critical points on the right hand side of Figure 4.2).
 
-A mathematical expression/derivation will be explained:
-STEFANOOOOOOOOOOO
+A mathematical expression/derivation will be explained.
 
 \section{Multidisciplinary approach}
 The aim of this report is to present a comprehensive assessment of the sustainability of sand mining in the Paraná River. To capture the full scope of the issue, a multidisciplinary approach is adopted. Accordingly, the impacts of sand mining are examined from several perspectives, reflecting the expertise of the authors:
