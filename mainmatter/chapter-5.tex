@@ -8,16 +8,76 @@
 In this section, analysis on the hydrodynamic variables is performed. This includes relations between water elevations, discharge and sediment concentrations - both through data sources and field measurements. Additionally, tidal effects in the study area are considered. 
 
 \subsection{Conversion to water elevation}
-A uniform approach is needed to describe water levels and depths of the river. Therefore, these variables will be expressed in terms of a reference level, IGN, which is set by the \textit{Instituto Geográfico Nacional}. It is based on sea level measurements from a tide gauge in Mar del Plata, Buenos Aires province. Figure \ref{fig:waterelevationreference} gives an overview of the quantities with respect to an arbitrary measurement station. Here, \textit{d} is the depth as measured by the ADCP or echosounder. 
+A uniform approach is needed to describe water levels and depths of the river. Therefore, these variables will be expressed in terms of a reference level, IGN, which is set by the \textit{Instituto Geográfico Nacional}. It is based on sea level measurements from a tide gauge in Mar del Plata, Buenos Aires province (\cite{ReferenciaVerticalInstituto}). Figure \ref{fig:waterelevationreference} gives an overview of the quantities with respect to an arbitrary measurement station. Here, $d$ is the vertical depth as measured by the ADCP or echosounder. Moreover, each station has a specific distance between its local zero reference and the zero IGN level, which is indicated by $l_{station-IGN}$. Next, values for water level and elevations at the bottom of the river should be expressed in terms of IGN level. Therefore, water elevations and depths expressed in elevation are defined as follows:
 
-\begin{figure}
+\begin{equation}
+    we_{station} = wl_{station} + l_{station-IGN} ~[m~IGN]
+\end{equation}
+
+\begin{equation}
+    d_{el} = we_{station}-d ~[m~IGN]
+\end{equation}
+
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{figures/ch5/waterelevations.png}
     \caption{Water elevation reference}
     \label{fig:waterelevationreference}
 \end{figure}
 
+\subsection{Flow partitioning}
 
+At some point in the Lower Paraná, the river splits into two main tributaries, as shown in Figure \ref{fig:flow partition}. To have an approximation for the distribution of discharge between these rivers, the discharge series are given in Figure \ref{fig:discharge_series}. From these plots, it follows that the majority of the discharge flows into the Paraná Guazú. Figure \ref{fig:flow_partition} represents this ratio and plots a linear fit. As there is no significant increase or decrease, the approximation is made that 78\% of the total discharge upstream of the confluence flows into Paraná Guazú. \citeauthor{reMETODOLOGIAPARAGENERACION2009} report that a linearly increasing trend occurs. Here, more data is used and therefore the approximation of a constant percentage is assumed sufficient. 
+
+In order to further study the liquid flows in the Paraná Guazú, it is noted that estimates for the discharge of Río Ibicuy and Río Talabera are needed. These were collected during the fieldwork, as indicated in Figure \ref{fig:measurements day1} and Figure \ref{fig:measurements day2}.
+
+\begin{figure}[h!]
+    \centering
+    % First subfigure
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/ch5/discharge series.png}
+        \caption{Discharge series obtained from Brazo Largo and Zárate measurement stations}
+        \label{fig:discharge_series}
+    \end{subfigure}
+    \hfill
+    % Second subfigure
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/ch5/flow partition.png}
+        \caption{Flow partition, expressed as the share of total flow that streams into Paraná Guazú}
+        \label{fig:flow_partition}
+    \end{subfigure}
+    
+    \caption{Comparison of discharge divided between Paraná Guazú and Paraná de las Palmas}
+\end{figure}
+
+
+
+\subsection{Fluvial forcing}
+This section describes the discharge quantities throughout the study area and relates them to water level data. The relationship between fluvial discharge and water level at Brazo Largo was initially assumed to follow a power-law ($h = a \cdot Q^b$), but this yielded a weak correlation with an $R^2$ of 0.261. A linear fit, however, produced a slightly better result, showing a positive trend with an $R^2$ of 0.444 (Figure \ref{fig:waterleveldischarge}).
+
+In contrast, the El Colorado and Túnel Subfluvial stations exhibit a clear power-law dependence. Power-law fits for these stations resulted in higher $R^2$-values of 0.962 and 0.712, respectively, with the El Colorado plot shown in Figure \ref{fig:waterleveldischarge}. Overall, these results suggest that the strength of the water level–discharge relationship decreases as the river flows downstream.
+
+\begin{figure}[h!]
+    \centering
+    % First subfigure
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/ch5/wl discharge El Colorado.png}
+        \label{fig:water level discharge Colorado}
+    \end{subfigure}
+    \hfill
+    % Second subfigure
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/ch5/wl discharge Brazo Largo.png}
+        \label{fig:water level discharge Brazo Largo}
+    \end{subfigure}
+    \caption{Water elevation - discharge relationship for two measurement stations}
+    \label{fig:waterleveldischarge}
+\end{figure}
 
 
 
@@ -97,60 +157,6 @@ Figure 5.7 shows the water level time series for a period of 7 days compared to 
     (misschien het getijde meenemen?)
 \\ - Getijde rond Brazo Largo is berekend aan de hand van waterlevel rond San Fernando. Vergelijk de constituents met die van  het rapport en trek conclusie over invloed getijde.
 
-\subsection{Fluvial forcing}
-
-The relationship between fluvial discharge and water level at Brazo Largo was initially assumed to follow a power-law ($h = a \cdot Q^b$), but this yielded a weak correlation with an $R^2$ of 0.261. A linear fit, however, produced a slightly better result, showing a positive trend with an $R^2$ of 0.444 (Figure \ref{fig:waterleveldischarge}).
-
-In contrast, the El Colorado and Túnel Subfluvial stations exhibit a clear power-law dependence. Power-law fits for these stations resulted in higher $R^2$-values of 0.962 and 0.712, respectively, with the El Colorado plot shown in Figure \ref{fig:waterleveldischarge}. Overall, these results suggest that the strength of the water level–discharge relationship decreases as the river flows downstream.
-
-\begin{figure}[h!]
-    \centering
-    % First subfigure
-    \begin{subfigure}[b]{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/ch5/wl discharge El Colorado.png}
-        \label{fig:water level discharge Colorado}
-    \end{subfigure}
-    \hfill
-    % Second subfigure
-    \begin{subfigure}[b]{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/ch5/wl discharge Brazo Largo.png}
-        \label{fig:water level discharge Brazo Largo}
-    \end{subfigure}
-    \caption{Water elevation - discharge relationship for two measurement stations}
-    \label{fig:waterleveldischarge}
-\end{figure}
-
-
-
-\subsection{Flow partitioning}
-
-At some point in the Lower Paraná, the river splits into two main tributaries, as shown in Figure \ref{fig:flow partition}. To have an approximation for the distribution of discharge between these rivers, the discharge series are given in Figure \ref{fig:discharge_series}. From these plots, it follows that the majority of the discharge flows into the Paraná Guazú. Figure \ref{fig:flow_partition} represents this ratio and plots a linear fit. As there is no significant increase or decrease, the approximation is made that 78\% of the total discharge upstream of the confluence flows into Paraná Guazú. \citeauthor{reMETODOLOGIAPARAGENERACION2009} report that a linearly increasing trend occurs. Here, more data is used and therefore the approximation of a constant percentage is applied. 
-
-In order to further study the liquid flows in the Paraná Guazú, it is noted that estimates for the discharge of Río Ibicuy and Río Talabera are needed. These were collected during the fieldwork, as indicated in Figure \ref{fig:fieldwork cross sections}.
-
-\begin{figure}[h!]
-    \centering
-    % First subfigure
-    \begin{subfigure}[b]{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/ch5/discharge series.png}
-        \caption{Discharge series obtained from Brazo Largo and Zárate measurement stations}
-        \label{fig:discharge_series}
-    \end{subfigure}
-    \hfill
-    % Second subfigure
-    \begin{subfigure}[b]{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/ch5/flow partition.png}
-        \caption{Flow partition, expressed as the share of total flow that streams into Paraná Guazú}
-        \label{fig:flow_partition}
-    \end{subfigure}
-    
-    \caption{Comparison between (a) discharge series and (b) flow partition of the Paraná Guazú and Paraná de las Palmas}
-\end{figure}
-
 
 
 \section{Sediment transport}
@@ -177,5 +183,9 @@ From the Brazo Largo measurements, an analysis can be done on the relationship b
 
 
 - Sediment transport caused by tidal assymetry.
-% \section{Water Quality and Bioorganism Activity?}
+
+
+\section{Field work measurements}
+
+
 
