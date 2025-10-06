@@ -30,8 +30,6 @@ A uniform approach is needed to describe water levels and depths of the river. T
 
 At some point in the Lower Paraná, the river splits into two main tributaries, as shown in Figure \ref{fig:flow partition}. To have an approximation for the distribution of discharge between these rivers, the discharge series are given in Figure \ref{fig:discharge_series}. From these plots, it follows that the majority of the discharge flows into the Paraná Guazú. Figure \ref{fig:flow_partition} represents this ratio and plots a linear fit. As there is no significant increase or decrease, the approximation is made that 78\% of the total discharge upstream of the confluence flows into Paraná Guazú. \citeauthor{reMETODOLOGIAPARAGENERACION2009} report that a linearly increasing trend occurs. Here, more data is used and therefore the approximation of a constant percentage is assumed sufficient. 
 
-In order to further study the liquid flows in the Paraná Guazú, it is noted that estimates for the discharge of Río Ibicuy and Río Talabera are needed. These were collected during the fieldwork, as indicated in Figure \ref{fig:measurements day1} and Figure \ref{fig:measurements day2}.
-
 \begin{figure}[h!]
     \centering
     % First subfigure
@@ -53,10 +51,70 @@ In order to further study the liquid flows in the Paraná Guazú, it is noted th
     \caption{Comparison of discharge divided between Paraná Guazú and Paraná de las Palmas}
 \end{figure}
 
+In order to further study the liquid flows in the Paraná Guazú, it is noted that estimates for the discharge of Río Ibicuy and Río Talabera are needed. These were collected during the fieldwork, as indicated in Figure \ref{fig:measurements day1} and Figure \ref{fig:measurements day2}. In addition, an overview of all cross sections with discharge measurements is given in Figure \ref{fig:cross section domain}. The indexing of the cross sections is made in chronological order based on the fieldwork. Note that at the confluence of the Ibicuy and Paraná Guazú, there is no measurement of the component flowing in from the Paraná Gauzú. However, this can be estimated by the equilibrium of discharges in the confluence. The relevant flow measurements of the different cross sections are summarized in Table \ref{tab:discharges fieldwork}. The bathymetries and velocity profiles that result from the ACDP measurements can be found in Appendix \ref{appendix:fieldwork results}, where the output of the \textit{RiverSurveyor} software is given. Note that of each cross section, only one of the two measured sections is given. 
+
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{1.2} % extra row spacing
+    \setlength{\tabcolsep}{8pt}       % extra column spacing
+    \begin{tabular}{llccc}
+        \toprule
+        \textbf{Section} & \textbf{River} & \textbf{Water level [m IGN]} & \textbf{Flow velocity [m/s]} & \textbf{Discharge [$m^3$/s]} \\
+        \midrule
+        1 & Talabera       &  &  & 4402 \\
+        2 & Paraná Guazú   &  &  & 6562 \\
+        3 & Paraná Guazú   &  &  & 10748 \\
+        4 & Ibicuy         &  &  & 2901 \\
+        5 & Paraná Guazú   &  &  & 6758 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Flow properties of fieldwork measurements in different sections}
+    \label{tab:discharges fieldwork}
+\end{table}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/ch5/balance domain.png}
+    \caption{Overview of cross sections with discharge measurements}
+    \label{fig:cross section domain}
+\end{figure}
+
 
 
 \subsection{Fluvial forcing}
-This section describes the discharge quantities throughout the study area and relates them to water level data. The relationship between fluvial discharge and water level at Brazo Largo was initially assumed to follow a power-law ($h = a \cdot Q^b$), but this yielded a weak correlation with an $R^2$ of 0.261. A linear fit, however, produced a slightly better result, showing a positive trend with an $R^2$ of 0.444 (Figure \ref{fig:waterleveldischarge}).
+This section describes the discharge quantities throughout the study area and relates them to water level data. Traditionally, stage-discharge relations are described by rating curves that describe power-law dependencies between variables. This can be written in the following form, with $Q$ the discharge and $h$ the water level or stage:
+
+\begin{equation}
+\label{eq:powerlaw}
+    Q = a \cdot h^b
+\end{equation}
+
+In the expression above, $a$ is a constant and $b$ an index exponent. \textbf{Schmidt and Yen} note several limitations related to these rating curves. For example, discharge measurements typically scatter and therefore do not show a unique relation with the stage. Also, the underlying physics of the open channel are not captured in the rating. Nevertheless, the relation as given in Equation \ref{eq:powerlaw} is used to roughly approximate dependencies between the variables. First, the values in the dataset are log-transformed, after which $R^2$-values are calculated based on a linear fit on the logarithmic values. This procedure is applied to the data of all measurement stations as described in Section \ref{sec:measurementstations}. Figure \ref{fig:correlationmatrices} gives the results for El Colorado and Brazo Largo in the form of correlation matrices. 
+
+\begin{figure}[h!]
+    \centering
+    % First subfigure
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/ch5/logcorrelations Brazo Largo.png}
+        \caption{Correlation matrix of log-transformed data in Brazo Largo}
+        \label{fig:logcorrelation brazo}
+    \end{subfigure}
+    \hfill
+    % Second subfigure
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/ch5/logcorrelations Bermejo.png}
+        \caption{Correlation matrix of log-transformed data in El Colorado}
+        \label{fig:logcorrelation bermejo}
+    \end{subfigure}
+    
+    \caption{Comparison of $R^2$-values at Brazo Largo and El Colorado}
+    \label{fig:correlationmatrices}
+\end{figure}
+
+The relationship between fluvial discharge and water level at Brazo Largo was initially assumed to follow a power-law, but this yielded a weak correlation with an $R^2$ of 0.261. A linear fit, however, produced a slightly better result, showing a positive trend with an $R^2$ of 0.444 (Figure \ref{fig:waterleveldischarge}).
 
 In contrast, the El Colorado and Túnel Subfluvial stations exhibit a clear power-law dependence. Power-law fits for these stations resulted in higher $R^2$-values of 0.962 and 0.712, respectively, with the El Colorado plot shown in Figure \ref{fig:waterleveldischarge}. Overall, these results suggest that the strength of the water level–discharge relationship decreases as the river flows downstream.
 
@@ -65,20 +123,44 @@ In contrast, the El Colorado and Túnel Subfluvial stations exhibit a clear powe
     % First subfigure
     \begin{subfigure}[b]{0.48\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/ch5/wl discharge El Colorado.png}
-        \label{fig:water level discharge Colorado}
-    \end{subfigure}
-    \hfill
-    % Second subfigure
-    \begin{subfigure}[b]{0.48\linewidth}
-        \centering
         \includegraphics[width=\linewidth]{figures/ch5/wl discharge Brazo Largo.png}
         \label{fig:water level discharge Brazo Largo}
+    \hfill
+    % Second subfigure
+    \end{subfigure}
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/ch5/wl discharge El Colorado.png}
+        \label{fig:water level discharge Colorado}
     \end{subfigure}
     \caption{Water elevation - discharge relationship for two measurement stations}
     \label{fig:waterleveldischarge}
 \end{figure}
 
+When extending the analysis to the sediment concentrations, the same trend occurs: in the Bermejo river, fine and course sediment discharges are closely related to large flow events through power-law relations. This behaviour is found to a lesser extent in the lower Paraná, where the correlations are relatively weak. Figure \ref{fig:discharge sediment brazo} shows this relation between sediment concentrations and river discharge for the Brazo Largo station. Overall, a power-law fit seems a good approach to model the relation. The fine sediment concentration is generally higher than the course sediment concentration. In addition, the course sediment concentration increases more significantly for an increasing fluvial discharge. These are general trends, but it has to be stressed that the $R^2$ of both relationships is relatively low.  
+
+
+\begin{figure}[h!]
+    \centering
+    % First subfigure
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/ch5/discharge sediment brazo largo.png}
+        \caption{Fine and course sediment loads in relation to discharge at Brazo Largo}
+        \label{fig:discharge sediment brazo}
+    \end{subfigure}
+    \hfill
+    % Second subfigure
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/ch5/discharge sediment bermejo.png}
+        \caption{Fine and course sediment concentrations in relation to discharge at Bermejo}
+        \label{fig:discharge sediment bermejo}
+    \end{subfigure}
+    
+    \caption{Fine and course sediment loads related to fluvial discharge in two measurement station}
+    \label{fig:sediment loads and discharge}
+\end{figure}
 
 
 
@@ -160,14 +242,7 @@ Figure 5.7 shows the water level time series for a period of 7 days compared to 
 
 
 \section{Sediment transport}
-From the Brazo Largo measurements, an analysis can be done on the relationship between sediment concentrations and the discharge of the river. Again, a distinction can be made between fine and course sediments. Overall, a power-law fit seems a good approach to model the relation, as shown in Figure \ref{fig:sediments discharge}. The fine sediment concentration is generally higher than the course sediment concentration. In addition, the course sediment concentration increases more significantly for an increasing fluvial discharge. These are general trends, but it has to be stressed that the $R^2$ of both relationships is relatively low. 
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{figures/ch5/Discharge sediment relation.png}
-    \caption{Fine and course sediment concentrations in relation to discharge at Brazo Largo}
-    \label{fig:sediments discharge}
-\end{figure}
 
 
 
@@ -186,6 +261,74 @@ From the Brazo Largo measurements, an analysis can be done on the relationship b
 
 
 \section{Field work measurements}
+Laurens schrijven?
+\section{Bank Erosion}
+\subsection{Aqua Monitor}
+In this section the data from the water gains and losses is explained in more detail.
+Recalling the whole period of time available \ref{Aqua Monitor Water Changes 1985-2025}, it is clear that the outer side of the river curves experience a water gain (indicated in blue), and the inside sides of the curves lose water (indicated in green). 
+The location of the camping 'La Blanqueada' is in the outer side of the curve near Puerto Constanza, as seen in the following Figure \ref{fig:Camping Blanqueada}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/ch5/Camping Blanqueada.png}
+    \caption{Location of the Camping La Blanqueada}
+    \label{fig:Camping Blanqueada}
+\end{figure}
+
+The camping's location matches with the blue part of the water gain map, indicating that the water quantity around the shore of the camping has increased. 
+In order to know if this has always been so, or if the water gains in this precise location have been gradually increasing, several maps with closer intervals have been created. 
+
+There are quite a few comments to be made about the maps. 
+
+First of all, blue and green zones stay consistent throughout the years, but when going into detailed time periods they can differ.
+
+There can be variations in shorter time periods such as the period 2005-2015 which indicated more water gains than losses in the deltas surrounding the region of interest.
+
+Another very interesting thing to note is that the flood of 2016 in the Parana Guazu can also be seen through the help of this map, on a time interval of 2015-2017.
+
+Furthermore, droughts are also illustrated quite well with this software. The perfect example would be the long period of drought in 2022 which led some parts of the Parana to be left for dry. With the Parana Guazu's significant depths of over 40 meters this was unlikely to happen but still, this change in water quantity did not go unnoticed by the Deltares software. This can be seen on the Figure of 2020-2022.
+
+Other periods of time are more or less stable and have nothing to report.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.6\textwidth}
+        \includegraphics[width=\linewidth, height=6cm]{figures/ch5/2005-2015.jpg}
+        \caption{Period 2005-2015}
+        \label{fig:sontek}
+    \end{subfigure}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.6\textwidth}
+        \includegraphics[width=\linewidth, height=6cm]{figures/ch5/2015-2017.jpg}
+        \caption{Period 2015-2017}
+        \label{fig:sontek}
+    \end{subfigure}
+\end{figure}
+
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.6\textwidth}
+        \includegraphics[width=\linewidth, height=6cm]{figures/ch5/2020-2022.jpg}
+        \caption{Period 2020-2022}
+        \label{fig:sontek}
+    \end{subfigure}
+    
+    \caption{Water Changes in Different Periods}
+    \label{fig:Water Changes}
+\end{figure}
+
+
+For the sake of these explanations the relevant Figures can be found in the Appendix \ref{Appendix: Satellite Data}.
+
+\subsection{Surface Area Measurements}
+From the Aqua Monitor Software, one could establish which regions were of interest in a broad scope surrounding the Parana Guazu turn near Puerto Constanza. 
+Decreasing the scope leaves us with question marks regarding the actual areas and lengths of land that have been subject to these water gains
+
 
 
 

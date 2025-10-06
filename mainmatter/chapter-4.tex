@@ -28,8 +28,9 @@ Finally, additional data were obtained through our own stakeholder contacts. For
         MarineTraffic & Live AIS vessel data & MarineTraffic \\
         Prefectura Naval Argentina  & Water level measurements & Prefectura Naval Argentina   \\
         Sistema Nacional de Informacíon Hídrica & Water level, discharge, fine and course sediment concentration & SNIH \\
-        AquaMonitor & Deltares tool that represents sedimentation/erosion based on historical satellite imagery & Deltares \\
+        AquaMonitor & Deltares tool that represents water gains and losses based on historical satellite imagery & Deltares, Github, Google Earth Engine \\
         Bathymetry (pdf) & Detailed bathymetries along Paraná river in pdf-format & Secretaría de Transporte \\
+        Google Earth & Tool that gives away satellite imagery of the globe. Can be used for a chosen time period of 1984-now & Google Earth  \\
         \bottomrule
     \end{tabularx}
     \caption{Summary of data sources}
@@ -37,6 +38,7 @@ Finally, additional data were obtained through our own stakeholder contacts. For
 \end{table}
 
 \subsection{SNIH measurement stations}
+\label{sec:measurementstations}
 The measurement stations from the \textit{Sistema Nacional de Informacíon Hídrica} that were used for the data collection are discussed in this section. In order to have accurate estimations of the sediment content in the lower Paraná, it is interesting to consider its origin. As discussed in Section \ref{sec:origin sediment content}, most of the sediments in the middle Paraná originate from the Bermejo river in northern Argentina. A representative measurement station for this river is found near El Colorado, Formosa province. Here, the SNIH reports long series of measurements of water elevation, discharge and sediment concentrations.
 
 Moving downstream, the Bermejo confluences with the Paraguay river. Merely 80 kilometers further downstream, the confluence of the Paraguay and Paraná river is located, near the city of Corrientes. Here, a drastic change in fluvial discharge occurs. Therefore, a station that represents the flow in the Middle Paraná is sought. Approximately 500 kilometers downstream of the confluence, the Túnel Subfluvial station near Santa Fe has a good amount of data. See Figure \ref{fig:rio parana map} for the location of El Colorado and Paraná (near Santa Fe). 
@@ -321,6 +323,60 @@ The second day, the research area was expanded by going to Puerto Ibicuy. There,
 Using the flow velocity we can derive the concentration of the sediment in the study area. This can be done for several locations in order to get an idea of the quantities of sediment that come in through the Rio Ibicuy. Then the last critical point will help us determine the continuation of the concentration of the sediment in the Rio Parana so that any inconsistencies can be linked with the amount of extracted sand in the intersection of the Parana Guazu and Rio Talabera (in the middle of the three critical points on the right hand side of Figure 4.2).
 
 A mathematical expression/derivation will be explained.
+
+\section{Bank Erosion}
+Bank erosion is a recurrent topic in this project. From the introduction, background study, the report has illustrated what bank erosion is, how it can be accentuated by sand mining in the river, and also how it can suck up the land on the riverside. 
+In this section, the methodology will be explained as to how one has studied this matter, and how the data was found to get to conclusions.
+
+During the field trip it was noticed through the interviews that a significant amount of people living along the riverside were affected by bank erosion \ref{chap:interviews}. The group took some pictures from the actual conditions in 2025, so that a comparison could be established once older data was obtained. From what we saw, the land was highly eroded, some trees were on the verge of being in the water, while others were already sucked up by the river. This can be seen in the Figures \ref{bankerosion} below taken during the field trip.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.6\textwidth}
+        \includegraphics[width=\linewidth, height=6cm]{figures/ch4/bankerosioncamping.jpg}
+        \caption{Bank Erosion La Blanqueada}
+        \label{fig:sontek}
+    \end{subfigure}
+    
+    \vspace{0.5cm}
+    
+
+    \begin{subfigure}[b]{0.6\textwidth}
+        \includegraphics[width=\linewidth, height=6cm]{figures/ch4/bankerosioncamping2.jpg}
+        \caption{Bank Erosion Closeup}
+        \label{fig:sontek}
+    \end{subfigure}
+    \caption{Bank Erosion Shots from Field Work}
+    \label{fig:Garmin}
+\end{figure}
+\label{bankerosion}
+
+
+The initial guess from the stakeholders was that the land was eroded up to 30 meters every year which to us; sounded like an impossible number.
+
+Once the fieldwork passed, the comparative study on erosion could begin.
+
+The study started with the Aqua monitor Github code from Deltares which provides an illustrative map of water gains and losses over time. This gave some first insights into the matter.
+
+The satellite database of Deltares was used in Google Earth Engine for different time stamps, starting from 1984. The reason behind this is that the Deltares Aqua Monitor is a tool using Google Earth Engine, containing satellite imagery from 1984 until today. 
+ 
+The choice was made to analyze the data in time batches of 10 years from 1985 until 2005, then in 5 years from 2005 to 2015, and lastly every 2.5 years in the last decade.
+
+A preview of the maps can be seen in Figure \ref{Aqua Monitor Water Changes 1985-2025} below, but the final analysis and conclusions are explained in the next chapter \ref{chapter:data analysis}. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/ch4/1985-2025.jpg}
+    \caption{Aqua Monitor Water Changes 1985-2025}
+    \label{fig:measurements day2}
+\end{figure}
+\label{Aqua Monitor Water Changes 1985-2025}
+
+For more clarity, the green parts of the Figure \ref{Aqua Monitor Water Changes 1985-2025} are water losses and the blue parts are water gains over time.
+
+
+For the whole collection of Figures see Appendix \ref{Appendix: Satellite Data}.
+
 
 \section{Multidisciplinary approach}
 The aim of this report is to present a comprehensive assessment of the sustainability of sand mining in the Paraná River. To capture the full scope of the issue, a multidisciplinary approach is adopted. Accordingly, the impacts of sand mining are examined from several perspectives, reflecting the expertise of the authors:
