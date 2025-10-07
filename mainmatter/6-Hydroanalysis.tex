@@ -1,6 +1,82 @@
-\chapter{Data Analysis}
-\label{chapter:data analysis}
-\section{Dredging activity}
+\chapter{Hydrodynamical and sedimentary analysis}
+\label{chap:hydroanalysis}
+\section{Effect of tides and waves on the water level}
+In addition to the study on the effects of sand mining on the river bed, it is as important to look at the effects of water on the river banks.
+
+\subsection{Tides, waves and currents}
+Relevant to this project, the two situations that contribute to this problem are the elevation of the water level due to the high astronomical tide, and the elevation of the water level/current due to the ship waves.
+
+\subsubsection{Astronomical tides}
+
+The tides are the rise and fall of the water level, in particular the sea level, due to the gravitational force of the moon\autocite{usdepartmentofcommerceTidesCurrents}. As said, the tidal influence is the strongest in the ocean, pulling away the sea from one side of the globe to the other in function of the position of the moon, as seen in Figure 2.5.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/ch2/astronomical.jpg}
+    \caption{Tidal movement due to gravitational force}
+    \label{fig:placeholder}
+\end{figure}
+This gravitational force can also apply to rivers, as long as they are part of, or near a substantial quantity of water mass. Since the region of interest the  Rio Paraná Guazú and Ibicuy are quite near the delta of the Paraná and the river mouth, it is expected to be of significance for the data analysis. This will be treated in section \ref{sec 5.2 Hydrodynamic data}.
+
+\subsubsection{Waves}
+
+The gravitational force not only yields a change in water level, but is also responsible for tidal waves. These are induced by the gravitational pull, in the direction of the moving current. 
+In addition to that, there are also wind waves. These are produced by a striking distance called the fetch, where the wind blows on the surface of the water, gathering energy which translates into a wave. In order to find the significant wave height of this situation, one takes a sample of wave heights from buoys and takes the average of the three highest waves. (formula necessary??)
+
+Given the fact that the river is not straight, the fetch or striking distance is usually quite short, as seen in Figure \ref{Figure 1.1}. This means that the impact of the wind waves is probably quite small. This subject will also be treated in section \ref{sec 5.2 Hydrodynamic data}.
+
+The last part of the waves that will be treated in this subsection are the ship waves. These are created when a ship passes by and pushes away the water to make way for the boat to go forward. This situation initiates three types of waves, primary, secondary, and propeller wash waves\autocite{}, as seen in Figure 2.6 below.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/ch2/afbeelding.png}
+    \caption{Ship Waves}
+    \label{fig:placeholder}
+\end{figure}
+The impact of the secondary wave is the most promiscuous, as one can tell from the frequency plot underneath the sketch.
+
+
+
+\subsubsection{Correlated currents}
+
+Due to changes in water level as well as supplementary waves, a change in current applies. Using the standard values of the Netherlands and the given facts about the size of the ships circulating and the currents in the Rio Paraná Guazú, one could assume the wave height and current amplitudes for our case. This can be reflected once the field measures are known, in a later section \ref{Section 5}.
+The table of the referencing values are as follows:
+
+\begin{table}[H]
+    \centering
+    \caption{Standard values for wave heights and currents in the Netherlands (Data from CUR 197 ``Breuksteen in de praktijk'').}
+    \label{tab:standard_values}
+    \begin{tabular}{lcccc}
+        \toprule
+        \textbf{Location} & \multicolumn{2}{c}{\textbf{Wave heights (m)}} & \multicolumn{2}{c}{\textbf{Currents (m/s)}} \\
+        \cmidrule(lr){2-3} \cmidrule(l){4-5}
+        & \textbf{Wind waves} & \textbf{Ship waves} & \textbf{Natural current} & \textbf{Return current} \\
+        \midrule
+        Lakes          & 0.25 -- 1.00  & 0.10 -- 0.50  & 0.1 -- 0.5  & 0.1 -- 0.25 \\
+        Canals         & 0.10 -- 0.25  & 0.25 -- 0.75  & 0.5 -- 1.0  & 0.5 -- 1.0  \\
+        Rivers         & 0.25 -- 1.00  & 0.25 -- 0.75  & 1.0 -- 2.0  & 0.5 -- 1.0  \\
+        Small waters   & 0.10 -- 0.20  & n.a.          & 0.2 -- 1.0  & n.a.       \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+Understandably, the relevant row for this project is the 'River' category. Hinting to the fact that big ships are usually present in the channel, one might take values towards the upper boundary of the table.
+
+
+\subsection{Effect on the river bed}
+
+There are several ways how the water could have a negative impact on the river bank. In theory the river bank failure may be caused by house placement, water saturation, weight on the river bank, vegetation, and/or tectonic activity, but most of them due to the rise of the water level. The reason behind this is that the river bank is naturally eroded when the water exerts a force on it.
+The river bank is divided in three parts: the toe, the bank and the overbank zone. The toe of the bank is the most susceptible to erosion when in contact with high water levels, which can be seen in the Figure 2.7 below \autocite{australiaRiverbankCollapse}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/ch2/Erosion.png}
+    \caption{Effect of Water on Bank after One Year}
+    \label{fig:placeholder}
+\end{figure}
+
+When the combination of water level with a strong current is highest, the bank zone is affected by the tidal currents or waves. This is because, as seen in the Figure 7.2, water erodes the layer of the bank where the extra water level pushes, creating a dent inside the soil layer.
+Consequently, after some time the upper overbank area has less and less support underneath, becoming thus unstable and partly falling down. 
+Repeating this process takes the river bank further inside the land, increasing the channel width, absorbing the land of the local communities or agricultural fields that live near the river bank.
 
 
 \section{Hydrodynamic data}
@@ -28,7 +104,7 @@ A uniform approach is needed to describe water levels and depths of the river. T
 
 \subsection{Flow partitioning}
 
-At some point in the Lower Paraná, the river splits into two main tributaries, as shown in Figure \ref{fig:flow partition}. To have an approximation for the distribution of discharge between these rivers, the discharge series are given in Figure \ref{fig:discharge_series}. From these plots, it follows that the majority of the discharge flows into the Paraná Guazú. Figure \ref{fig:flow_partition} represents this ratio and plots a linear fit. As there is no significant increase or decrease, the approximation is made that 78\% of the total discharge upstream of the confluence flows into Paraná Guazú. \citeauthor{reMETODOLOGIAPARAGENERACION2009} report that a linearly increasing trend occurs. Here, more data is used and therefore the approximation of a constant percentage is assumed sufficient. 
+At some point in the Lower Paraná, the river splits into two main tributaries, as shown in Figure \ref{fig:flow partition}. To have an approximation for the distribution of discharge between these rivers, the discharge series are given in Figure \ref{fig:discharge_series}. From these plots, it follows that the majority of the discharge flows into the Paraná Guazú. Figure \ref{fig:flow_partition} represents this ratio and plots a linear fit. As there is no significant increase or decrease, the approximation is made that 78\% of the total discharge upstream of the confluence flows into Paraná Guazú. \citeauthor{reMETODOLOGIAPARAGENERACION2009} report that a linearly increasing trend occurs. In this study, more data points are used and therefore the approximation of a constant percentage is assumed sufficient. 
 
 \begin{figure}[h!]
     \centering
@@ -261,8 +337,9 @@ Figure 5.7 shows the water level time series for a period of 7 days compared to 
 
 
 \section{Field work measurements}
-Laurens schrijven?
-\section{Bank Erosion}
+Wie doet dit?
+
+\section{Hydrodynamic effects on the River Banks}
 \subsection{Aqua Monitor}
 In this section the data from the water gains and losses is explained in more detail.
 Recalling the whole period of time available \ref{Aqua Monitor Water Changes 1985-2025}, it is clear that the outer side of the river curves experience a water gain (indicated in blue), and the inside sides of the curves lose water (indicated in green). 
@@ -286,14 +363,14 @@ There can be variations in shorter time periods such as the period 2005-2015 whi
 
 Another very interesting thing to note is that the flood of 2016 in the Parana Guazu can also be seen through the help of this map, on a time interval of 2015-2017.
 
-Furthermore, droughts are also illustrated quite well with this software. The perfect example would be the long period of drought in 2022 which led some parts of the Parana to be left for dry. With the Parana Guazu's significant depths of over 40 meters this was unlikely to happen but still, this change in water quantity did not go unnoticed by the Deltares software. This can be seen on the Figure of 2020-2022.
+Furthermore, droughts are also illustrated quite well with this software. The perfect example would be the long period of drought in 2022 which led some parts of the Parana to be left for dry, as seen in Figure \ref{fig:Discharge Changes in Brazo Largo}. With the Parana Guazu's significant depths of over 40 meters this was unlikely to happen but still, this change in water quantity did not go unnoticed by the Deltares software. This can be seen on the Figure of 2020-2022.
 
 Other periods of time are more or less stable and have nothing to report.
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.6\textwidth}
-        \includegraphics[width=\linewidth, height=6cm]{figures/ch5/2005-2015.jpg}
+    \begin{subfigure}[a]{0.6\textwidth}
+        \includegraphics[width=\linewidth, height=5cm]{figures/ch5/2005-2015.jpg}
         \caption{Period 2005-2015}
         \label{fig:sontek}
     \end{subfigure}
@@ -302,18 +379,16 @@ Other periods of time are more or less stable and have nothing to report.
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.6\textwidth}
-        \includegraphics[width=\linewidth, height=6cm]{figures/ch5/2015-2017.jpg}
+        \includegraphics[width=\linewidth, height=5cm]{figures/ch5/2015-2017.jpg}
         \caption{Period 2015-2017}
         \label{fig:sontek}
     \end{subfigure}
 \end{figure}
 
-
-
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.6\textwidth}
-        \includegraphics[width=\linewidth, height=6cm]{figures/ch5/2020-2022.jpg}
+    \begin{subfigure}[c]{0.6\textwidth}
+        \includegraphics[width=\linewidth, height=5cm]{figures/ch5/2020-2022.jpg}
         \caption{Period 2020-2022}
         \label{fig:sontek}
     \end{subfigure}
@@ -322,14 +397,27 @@ Other periods of time are more or less stable and have nothing to report.
     \label{fig:Water Changes}
 \end{figure}
 
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.6\textwidth}
+        \includegraphics[width=\linewidth, height=5cm]{figures/ch5/dischargepeak.jpg}
+    \end{subfigure}
+    
+    \caption{Discharge Changes in Brazo Largo}
+    \label{fig:Discharge Changes in Brazo Largo}
+\end{figure}
+
 
 For the sake of these explanations the relevant Figures can be found in the Appendix \ref{Appendix: Satellite Data}.
 
 \subsection{Surface Area Measurements}
 From the Aqua Monitor Software, one could establish which regions were of interest in a broad scope surrounding the Parana Guazu turn near Puerto Constanza. 
+
 Decreasing the scope leaves us with question marks regarding the actual areas and lengths of land that have been subject to these water gains. Therefore, it was chosen to investigate further into the details of the coast erosion with Google Earth.
 Using the software's satellite data, one could draw a surface around the area of the Camping La Blanqueada in 2022, the most recent available, and then compare it to historical data. 
 This gives a dataset of historical data from 1985 until 2022 but since the satellite images have been improving with the time, the only relevant data can be taken from 2003 on.
+
+
 Thus, it was chosen to take the difference in surface area from 2022 until 2003. Initially only the East side of the Camping was taken into account due to its matching with the drone pictures taken of the area during the field trip \ref{fig:Bank Erosion shots from field work}. Nevertheless on Google Earth it quickly became obvious that the necessity rose to take the West part of the Camping in consideration as well since its surface was eroded even further.
 
 A summary of the data gathered from this study can be found below. First the Measurement of the East part of the Camping, then the comparison with 2003, 2017, 2018 and then for both sides the added surface lost since 2003.
@@ -363,7 +451,11 @@ A summary of the data gathered from this study can be found below. First the Mea
     \label{fig:surface_comparison}
 \end{figure}
 
-It is known that there was a flood in 2018. This flood was in return responsible for a significant increase of water quantity throughout the region. Consequently this affected certain areas of the channel more than others, in particular the curves of the Parana Guazu such as Puerto Guazu showed in the Figures \ref{fig:Water Changes} as discussed before. 
+It is known that there was a flood in 2016 \autocite{Inundacion}. This flood was in return responsible for a significant increase of water quantity and discharge throughout the region, as seen in Figure \ref{fig:Discharge Changes in Brazo Largo}.
+
+Consequently this affected certain areas of the channel more than others, in particular the curves of the Parana Guazu such as Puerto Guazu showed in the Figures \ref{fig:Water Changes} as discussed before. The negative impacts were highlighted when the high discharge and water quantities dropped back to normal, leaving a part of the bank fragile which then contributed to an accelerated bank erosion.
+
+
 
 This argument can once again be solidified by the drastic increase of erosion in between those time periods. After this flood event, the rate of erosion decreased again.
 
@@ -389,10 +481,133 @@ Lastly, both sides of the Camping and the difference between 2003 and 2022 can b
 
 The complete comparison with all accessible historical data was documented in the Appendix \ref{Appendix: Satellite Data}.
 
-Moreover, values of the surface areas, perimeters, and further quantifications can be found in Chapter \ref{chap:results}.
+Moreover, values of the surface areas, perimeters, and further quantification's can be found in the next subsection
 
+\subsection{Quantitative Results}
 
+Following the analysis it is relevant to state the quantitative results, as well as what to conclude from it. 
 
+First, the surface was recent surface was
+calculated based on the 2022 map on Google Earth as of Figure \ref{fig:All Changes of the Surface in Camping}.
 
+Then, the illustrations follow of this area of 2022
+applied onto the other years of historical data until 1985. All these images can be found in the Appendix \ref{Appendix: Satellite Data}. However, the relevant years of change, 2017-2018, as well as the last sharp satellite image in 2003 are shown below.
 
+\begin{figure}[H]
+    \centering
+    % First row of subfigures
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\linewidth, height =5cm]{figures/appendix-g/opp2022.png}
+        \caption{2022}
+        \label{fig:second}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\linewidth, height =5cm]{figures/appendix-g/opp2017.png}
+        \caption{2017}
+        \label{fig:second}
+    \end{subfigure}
     
+
+    % Second row of subfigures (add some vertical space)
+    \vspace{0.5cm}
+
+    % Second row of subfigures
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\linewidth, height =5cm]{figures/appendix-g/opp2018.png}
+        \caption{2018}
+        \label{fig:second}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\linewidth, height =5cm]{figures/appendix-g/opp2003.png}
+        \caption{2003}
+        \label{fig:second}
+    \end{subfigure}
+
+    \caption{All Changes of the Surface in Camping}
+    \label{fig:All Changes of the Surface in Camping}
+\end{figure}
+
+After that, the same principle is applied for the second part of the camping which was not measured during the field trip, but seemed to be relevant based on the Google Earth study.
+
+The surface areas and perimeters of the Camping La Blanqueada have been measured with Google Maps. The leftover piece of land which was present in 2003 but has been eroded since then is also traced as a surface area in a distinct colour \ref{fig:All Surface Losses Camping}. 
+
+\begin{figure}[H]
+    \centering
+    % Second row of subfigures
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\linewidth, height =5cm]{figures/appendix-g/delen2022.png}
+        \caption{second part camping 2022}
+        \label{fig:second}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\linewidth, height =5cm]{figures/appendix-g/delen2003.png}
+        \caption{second part camping 2003}
+        \label{fig:second}
+    \end{subfigure}
+
+    \caption{All Surface Losses in Camping }
+    \label{fig:All Surface Losses Camping}
+\end{figure}
+
+The values of these areas can be found in the Table \ref{Table: Surface Recap Camping La Blanqueada in 2022}.
+
+\begin{table}[h]
+\centering
+\caption{Surface Recap Camping La Blanqueada in 2022}
+\label{tab:Surface Lost Camping La Blanqueada in 2022}
+\begin{tabular}{l l l S[table-format=5.2] S[table-format=5.2]}
+\toprule
+\textbf{Location} & \textbf{Category} & \textbf{Colour} & \textbf{Perimeter (m)} & \textbf{Area (m²)} \\
+\midrule
+East Part & Actual & Yellow & 1520.46 & 88494.3 \\
+East Part & Lost & Red & 786.84 & 15328.31 \\
+West Part & Actual & Blue & 1203.31 & 71231.39 \\
+West Part & Lost & Orange & 815.58 & 16179.99 \\
+\bottomrule
+\label{Table: Surface Recap Camping La Blanqueada in 2022}
+\end{tabular}
+\end{table}
+
+From the values in Table G.2, one can calculate the rate of change in the last 20 years or so with the help of the following formula.
+
+$\text{Loss Ratio} = \frac{\text{Loss}}{\text{Total Surface}}$
+
+Consequently:
+
+$\text{Loss Ratio} = \frac{\text{Loss}}{\text{Surface in 2022 + Loss}}$
+
+Applying this to both sides of the Camping gives:
+
+$\text{Loss Ratio (East)} = \frac{15328.31}{88494.3 + 15328.31}$
+$=$ $\frac{15328.31}{103822.61} = 0.1476$ 
+
+$\text{Loss Ratio (West)} = \frac{16179.99}{71231.39 + 16179.99}$ $=$
+$\frac{16179.99}{87411.38} = 0.1851 $ 
+
+Together, these results can are found in the Table \ref{Table:Loss Ratio for Camping La Blanqueada in 2022} .
+
+\begin{table}[h]
+\centering
+\caption{Loss Ratio for Camping La Blanqueada in 2022}
+\label{tab:LossRatio}
+\begin{tabular}{l c}
+\toprule
+\textbf{Location} & \textbf{Loss Ratio (\%)} \\
+\midrule
+East Part & 14.76 \\
+West Part & 18.51 \\
+\bottomrule
+\label{Table:Loss Ratio for Camping La Blanqueada in 2022}
+\end{tabular}
+\end{table}
+
+
+
+
+-erosion due to natural climate?
+-accelerated due to flooding the most. 
+-waves of the ships contribute a bit still (from mike maybe?)
+-worst factor is climate change. example of flood 2018 eroded soo much more than the boats. 
