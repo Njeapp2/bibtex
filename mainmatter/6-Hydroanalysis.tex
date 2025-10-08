@@ -25,15 +25,33 @@ In addition to that, there are also wind waves. These are produced by a striking
 
 Given that the river is not straight, the fetch or striking distance is usually quite short, as seen in Figure \ref{Figure 1.1}. This means that the impact of the wind waves is probably quite small. This subject will also be treated in section \ref{sec 5.2 Hydrodynamic data}.
 
-The last part of the waves that will be treated in this subsection are the ship waves. These are created when a ship passes by and pushes away the water to make way for the boat to go forward. This situation initiates three types of waves, primary, secondary, and propeller wash waves, as seen in Figure \ref{fig:Ship Waves} below \autocite{Lecture12Ships}.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\linewidth]{figures/ch2/shipwaves.png}
-    \caption{Ship Waves}
-    \label{fig:Ship Waves}
-\end{figure}
+The last part of the waves that will be treated in this subsection are the ship waves. These are created when a ship passes by and pushes away the water to make way for the boat to go forward. This situation initiates three types of waves, primary, secondary, and propeller wash waves, as seen in Figure \ref{Fig:Ship Waves Effect on Water and Bank} below \autocite{Lecture12Ships}.
+
 The impact of the secondary wave is the most promiscuous, as one can tell from the frequency plot underneath the sketch.
 
+\begin{figure}[H]
+    \centering
+    % First subfigure
+    \begin{subfigure}[a]{0.48\linewidth}
+        \centering
+        \includegraphics[width=0.5\linewidth]{figures/ch2/shipwaves.png}
+        \caption{Ship Waves}
+        \label{fig:Ship Waves}
+    \end{subfigure}
+    
+    \vspace{0.5cm}
+    
+    % Second subfigure
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=0.5\linewidth]{figures/ch2/shipsecond.png}
+        \caption{Propeller Wash Wave}
+        \label{fig:Prop Wash Wave}
+    \end{subfigure}
+    
+    \caption{Ship Waves Effect on Water and Bank}
+    \label{Fig:Ship Waves Effect on Water and Bank}
+\end{figure}
 
 
 \subsubsection{Correlated currents}
@@ -62,17 +80,40 @@ The table of the referencing values are as follows:
 
 Understandably, the relevant row for this project is the 'River' category. Hinting to the fact that big ships are usually present in the channel, one might take values towards the upper boundary of the table.
 
+\subsection{Loads and Impacts due to Ships}
+Following the information about tides, waves and currents one might ask what type of forces these contain and what how the loads could be quantified. This can be done with the help of wave theory. 
+
+The first relevant parameters to take into account are the ship waves in rivers. These are assumed to be between 0.25 and 0.75 meters tall. Based on observations during the field trip, the value of 0.5 meter wave height is chosen as the cargo's do not travel with a speed significant enough to reach a height of 0.75 m \ref{tab:standard_values}. 
+In addition to that, the current coming from the ship, both natural and return are also relevant. Since the Natural current is relevant in this case, the value of 1.5 [m/s] will serve as a reference for further calculations.
+This gives the following parameters:
+
+\begin{table}[H]
+    \centering
+    \caption{Parameters for Wave Impact Calculation}
+    \label{tab:Parameters for Wave Impact Calculation}
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Location} & \textbf{Ship wave height: H (m)} & \textbf{Natural current: u (m/s)} \\
+        \midrule
+        Rivers & 0.25 -- 1.00 & 1.0 -- 2.0 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+Next, one can calculate the force of the wave, assuming that the wave signal given by the boat is uniform, and a few repetitions. 
+This leaves us with the theory of waves \autocite{}. 
 
 \subsection{Effect on the river bed}
 \label{chap 6: effect on the river bed}
 There are several ways how the water could have a negative impact on the river bank. In theory the river bank failure may be caused by house placement, water saturation, weight on the river bank, vegetation, and/or tectonic activity, but most of them due to the rise of the water level. The reason behind this is that the river bank is naturally eroded when the water exerts a force on it.
-The river bank is divided in three parts: the toe, the bank and the overbank zone. The toe of the bank is the most susceptible to erosion when in contact with high water levels, which can be seen in the Figure 2.7 below \autocite{australiaRiverbankCollapse}.
+The river bank is divided in three parts: the toe, the bank and the overbank zone. The toe of the bank is the most susceptible to erosion when in contact with high water levels, which can be seen in the Figure \ref{fig:Effect of Water on Bank after One Year} below \autocite{australiaRiverbankCollapse}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{figures/ch2/Erosion.png}
     \caption{Effect of Water on Bank after One Year}
-    \label{fig:placeholder}
+    \label{fig:Effect of Water on Bank after One Year}
 \end{figure}
 
 When the combination of water level with a strong current is highest, the bank zone is affected by the tidal currents or waves. This is because, as seen in the Figure 7.2, water erodes the layer of the bank where the extra water level pushes, creating a dent inside the soil layer.
@@ -303,13 +344,13 @@ Figure 5.7 shows the water level time series for a period of 7 days compared to 
     \centering
     \includegraphics[width=1\linewidth]{figures/ch5/Tide_Brazo_largo.png}
     \caption{Calculated tide at Brazo Largo for a period of 7 days.}
-    \label{fig:placeholder}
+    \label{fig:period 7}
 \end{figure}
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{figures/ch5/Tide_BL_2y.png}
     \caption{Calculated tide at Brazo Largo for a period of 2 years.}
-    \label{fig:placeholder}
+    \label{fig:period 2}
 \end{figure}
 
 - Waterlevel at Brazo Largo
@@ -373,7 +414,7 @@ Other periods of time are more or less stable and have nothing to report.
     \begin{subfigure}[a]{0.6\textwidth}
         \includegraphics[width=\linewidth, height=5cm]{figures/ch5/2005-2015.jpg}
         \caption{Period 2005-2015}
-        \label{fig:sontek}
+        \label{fig:Period 2005-2015}
     \end{subfigure}
 \end{figure}
 
@@ -382,7 +423,7 @@ Other periods of time are more or less stable and have nothing to report.
     \begin{subfigure}[b]{0.6\textwidth}
         \includegraphics[width=\linewidth, height=5cm]{figures/ch5/2015-2017.jpg}
         \caption{Period 2015-2017}
-        \label{fig:sontek}
+        \label{fig:Period 2015-2017}
     \end{subfigure}
 \end{figure}
 
@@ -391,7 +432,7 @@ Other periods of time are more or less stable and have nothing to report.
     \begin{subfigure}[c]{0.6\textwidth}
         \includegraphics[width=\linewidth, height=5cm]{figures/ch5/2020-2022.jpg}
         \caption{Period 2020-2022}
-        \label{fig:sontek}
+        \label{fig:Period 2020-2022}
     \end{subfigure}
     
     \caption{Water Changes in Different Periods}
@@ -428,7 +469,7 @@ A summary of the data gathered from this study can be found below. First the Mea
     \begin{subfigure}[b]{0.45\textwidth} % Adjusted width to fit both images side by side
         \includegraphics[width=\linewidth, height=5cm]{figures/appendix-g/opp2022.png}
         \caption{Surface Data for 2022}
-        \label{fig:surface2022}
+        \label{fig:surface2022.2}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth} % Adjusted width to fit both images side by side
@@ -446,7 +487,7 @@ A summary of the data gathered from this study can be found below. First the Mea
     \begin{subfigure}[b]{0.45\textwidth} % Adjusted width to fit both images side by side
         \includegraphics[width=\linewidth, height=5cm]{figures/appendix-g/verlorenopp2003.png}
         \caption{Surface Data for 2003}
-        \label{fig:surface2003}
+        \label{fig:surface2003.2}
     \end{subfigure}
     \caption{Comparison of Surface Data}
     \label{fig:surface_comparison}
@@ -467,13 +508,13 @@ Lastly, both sides of the Camping and the difference between 2003 and 2022 can b
     \begin{subfigure}[b]{0.45\textwidth} % Adjusted width to fit both images side by side
         \includegraphics[width=\linewidth, height=5cm]{figures/appendix-g/delen2003.png}
         \caption{Surface Data for 2003}
-        \label{fig:surface2003}
+        \label{fig:surface2003.1}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth} % Adjusted width to fit both images side by side
         \includegraphics[width=\linewidth, height=5cm]{figures/appendix-g/delen2022.png}
         \caption{Surface Data for 2022}
-        \label{fig:surface2022}
+        \label{fig:surface2022.1}
     \end{subfigure}
     \caption{Comparison of Lost Surface Data}
     \label{fig:surfacelost_comparison}
