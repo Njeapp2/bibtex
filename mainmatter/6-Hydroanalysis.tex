@@ -198,7 +198,7 @@ Repeating this process takes the river bank further inside the land, increasing 
 
 
 \section{Hydrodynamic data}
-\label{sec 5.2 Hydrodynamic data}
+\label{sec:Hydrodynamic data}
 In this section, analysis on the hydrodynamic variables is performed. This includes relations between water elevations, discharge and sediment concentrations - both through data sources and field measurements. Additionally, tidal effects in the study area are considered. 
 
 \subsection{Conversion to water elevation}
@@ -308,6 +308,18 @@ When extending the analysis to the sediment concentrations, the same trend occur
     \caption{Fine and course sediment loads related to fluvial discharge in two measurement station}
     \label{fig:sediment loads and discharge}
 \end{figure}
+
+
+\subsubsection{Estimated suspended load}
+Gebruik fine sediment relatie van Santa Fe (paper Mariano) voor recente data
+
+\subsubsection{Estimated course sediment load}
+Gebruik Engelund-Hansen met relevante aannames, op basis van velocity time series 
+
+
+
+
+
 
 \subsection{Correlation between variables}
 The approach of defining the relations between measured flow variables is as follows. First, the values in the dataset are log-transformed, after which $R^2$-values are calculated based on a linear fit on the logarithmic values. This procedure is applied to the variables of all measurement stations as described in Section \ref{sec:measurementstations}. Figure \ref{fig:correlationmatrices} gives the results for El Colorado and Brazo Largo in the form of correlation matrices. It stands out that correlations in the Bermejo are very high for all variables. This indicates that the power-law assumption is suitable for describing the dependencies between these variables. Subsequently, it is found that correlations for the Brazo Largo are much smaller. This is also the case for the Zárate station on the Paraná de las Palmas. As this river is also located in the Lower Paraná, this behaviour is expected. 
@@ -422,27 +434,10 @@ Figure 5.7 shows the water level time series for a period of 7 days compared to 
 
 
 
-\section{Sediment transport}
-
-
-
-
-- Bepaal fine sediment-discharge relation bij El Colorado. Reken hiermee door voor het fine sediment concentration bij Brazo Largo
-
-- Bepaal fine sediment concentration op basis van de suspended sediment samples.
-
-- Coarse sediment concentration wordt bepaald met de Engelund-Hansen formule
-
-- Vergelijk dit met de bedload metingen van het veldwerk
-
-- Set up a sediment balance for the area of interest.
-
-
-- Sediment transport caused by tidal assymetry.
-
-
 \section{Field work measurements}
-This section describes the results of the field campaign introduced in Section \ref{sec:field study}. The measurements are compared to the results found in Section \ref{sec:}
+This section describes the results of the field campaign introduced in Section \ref{sec:field study}. The measurements are compared to the results found in Section \ref{sec:Hydrodynamic data}.
+
+
 \subsection{Water level and discharge}
 In order to further study the liquid flows in the Paraná Guazú, it is noted that estimates for the discharge of Río Ibicuy and Río Talabera are needed. These were collected during the fieldwork, as indicated in Figure \ref{fig:measurements day1} and Figure \ref{fig:measurements day2}. In addition, an overview of all cross sections with water level and discharge measurements is given in Figure \ref{fig:cross section domain}. The indexing of the cross sections is made in chronological order based on the fieldwork. Note that at the confluence of the Ibicuy and Paraná, there is no measurement of the component flowing in from the Paraná. However, this can be estimated by the equilibrium of discharges in the confluence. The relevant flow measurements of the different cross sections are summarized in Table \ref{tab:discharges fieldwork}. Note that the water levels are recorded at Brazo Largo and Ibicuy, depending on the location and time of each measurement. For Section 5, the water level is linearly interpolated between the stations. Also, the velocity and discharge values are mean values. The bathymetries and velocity profiles that result from the ACDP measurements can be found in Appendix \ref{appendix:fieldwork results}, where the output of the \textit{RiverSurveyor} software is given. Note that of each cross section, only one of the two measured sections is given. 
 
@@ -475,7 +470,22 @@ In order to further study the liquid flows in the Paraná Guazú, it is noted th
 
 
 \subsection{Suspended sediment load}
-In this section, the measured suspended sediment concentrations and the measured flow velocity profiles will be analysed in order to calculate the total suspended sediment flux. Section 
+In this section, the measured suspended sediment concentrations and flow velocity profiles are analysed in order to calculate the total suspended sediment flux. The sediment concentrations were obtained by lowering an intake tube connected to a rope and a weight into the water, as described in Section \ref{Measurement variables and equipment}. By assuming a constant angle of the rope at the different depths in a cross section and measuring the length of the rope, the depth at which the measurements were taken could be determined. The measured suspended sediment concentrations at different depths are shown in Figure \ref{fig:Measured suspended sediment concentrations}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/ch6/Measured_SSC.png}
+    \caption{Measured suspended sediment concentrations.}
+    \label{fig:Measured suspended sediment concentrations}
+\end{figure}
+
+The Acoustic Doppler Current Profiler (ADCP) measures the flow velocity and depth across a river cross section by dividing the measurements into vertical bins for every ensemble. This data can be used to create a flow velocity field for the whole cross section and to create a velocity profile for multiple locations along the cross section. These velocity profiles are used to determine the Law of the Wall fit, see formula 
+
+\begin{equation}
+    {u} = \left( \frac{y}{y_0} \right)^{1/n}
+    
+    \label{Law of the Wall}
+\end{equation}
 
 \subsection{Grain size distribution of bed load samples}
 During the fieldwork, data was collected on the Paraná River over a period of two days. Seven samples were collected from the riverbed at four different cross-sections. Samples were collected at depths of 10 and 15 metres. The first number refers to the cross-section and the second number refers to a depth of 10 or 15 metres. The locations where the samples were collected are presented in figure \ref{fig:measurements day1} and \ref{fig:measurements day2}. Sample 3-1 was quite large, so it was decided to treat it as two different samples (3-1A \& B). 
@@ -491,7 +501,24 @@ When processing the samples, it was decided to start with a 0.5 mm sieve size fo
 
 Figure \ref{fig:Cumu} clearly shows that 1-2 and 2-2 are sand samples and the other samples are clay and silt samples. During the test there is also looked at possible organic materials. When seeing something that could be organic, the sample was tested with hydrochloric acid to see if this was the case. It was never the case that there were organic particles.
 
-From figure \ref{fig:Cumu} can be seen that the change of finding sand is much bigger on 15 meters depth than on 10 meters depth. This could indicate that the deeper the riverbed is, the higher the change is of finding sand. 
+From figure \ref{fig:Cumu} can be seen that the change of finding sand is much bigger on 15 meters depth than on 10 meters depth. This could indicate that the deeper the riverbed is, the higher the change is of finding sand. Since there are no samples available on our part of the river this can't be investigated directly. But INA has, earlier this year, recovered multiple samples in the river around Rosario. Two of those samples where of a great depth of 30 meters. Together with our sand samples and a grain size distribution of Ottawa fracking sand this is presented in Figure \ref{fig:rd}. As can be read in Section \ref{sec: fracking in argentina} the demand of fracking is getting more during the years, which rises the question if the sand in the river can also be used for these practices. That's why some data about fracking sand from Section \ref{sec:Charact. of fs}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures//ch6/references_distribution.png}
+    \caption{CGZD of multiple samples with homogeneous demand lines \autocite{bensonFracSandUnited2015}}
+    \label{fig:rd}
+\end{figure}
+
+As can be seen from Figure \ref{fig:rd}, the average particle size of the sand tends to increase with recovering depth. This pattern likely reflects natural sediment sorting processes, where finer particles are carried further by the current, while coarser grains settle in deeper or higher-energy parts of the channel. Such a trend is consistent, yet it should not be assumed to hold universally across all river systems.
+
+It is important to emphasize that the data supporting this observation were collected outside the section of the river that falls within our area of interest. Consequently, before drawing any firm conclusions, it is essential to conduct targeted sampling and grain-size analysis within our own study area. Only by verifying these local conditions can we confirm whether the same coarsening trend applies here as well.
+
+When we relate these findings to the requirements for sand used in hydraulic fracturing (fracking), it becomes apparent that even with the observed increase in grain size, the river sand does not yet meet the necessary specifications. Fracking sand requires a very uniform grain-size distribution to ensure consistent permeability and mechanical strength within the proppant pack. At least 90\% of the particle sizes must fall within a defined size range—represented by the black boundary lines in the accompanying figure.
+Furthermore, this acceptable range tends to widen as the target grain size increases, reflecting a broader tolerance for larger particles. However, even with this widening range, the natural river sands under consideration still display too much variability in grain size to be classified as suitable fracking sand without additional processing or sieving.
+
+
+
 
 \section{Sediment Balance}
 
@@ -501,7 +528,7 @@ In this section the data from the water gains and losses is explained in more de
 Recalling the whole period of time available \ref{Aqua Monitor Water Changes 1985-2025}, it is clear that the outer side of the river curves experience a water gain (indicated in blue), and the inside sides of the curves lose water (indicated in green). 
 The location of the camping 'La Blanqueada' is in the outer side of the curve near Puerto Constanza, as seen in the following Figure \ref{fig:Camping Blanqueada}.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{figures/ch5/Camping Blanqueada.png}
     \caption{Location of the Camping La Blanqueada}
