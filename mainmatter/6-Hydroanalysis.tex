@@ -102,7 +102,7 @@ This gives the following parameters:
 
 \subsubsection{Wave Load}
 Next, one can calculate the force of the wave, assuming that the wave signal given by the boat is uniform, and at about 10 repetitions 100 meters from the shore
-This leaves us with the theory of waves \autocite{week 2.2} which states that there are two types of waves you can get energy from:
+This leaves us with the theory of waves \autocite{} which states that there are two types of waves you can get energy from:
 There are two types of waves for which we can calculate energy.
 
 \begin{itemize}
@@ -114,17 +114,17 @@ Wave energy is a specific energy and it's calculated per unit of horizontal area
 
 The formula (equation) to calculate wave power is:
 
-\[
-\boxed{E_{pw} = \left(\frac{1}{8}\right) \cdot \rho \cdot g \cdot H_{m0}^2}
-\]
+$$
+{E_{pw} = \left(\frac{1}{8}\right) \cdot \rho \cdot g \cdot H_{m0}^2}
+$$
 
-\[
-\boxed{E_{rw} = \left(\frac{1}{16}\right) \cdot \rho \cdot g \cdot H_{m0}^2}
-\]
+$$
+{E_{rw} = \left(\frac{1}{16}\right) \cdot \rho \cdot g \cdot H_{m0}^2}
+$$
 
 \noindent where:
 \begin{itemize}
-    \item \(p\) is the density of river water: 1000 [kg/m\textsuperscript{3}];
+    \item $\rho$ : is the density of fresh water: 1000 [kg/m\textsuperscript{3}];
     \item \(\mathbf{v}\) is the flow velocity vector, expressed in meters per second [m/s];
     \item \(H_m0\) is the wave height: 0.50 [m];
     \item \(g\) is the gravitational constant: 9.81 [m/s\textsuperscript{2}]
@@ -134,19 +134,51 @@ From the situation we have, on a small interval of time, the ship waves can be a
 
 Filling the parameters in the equation yields: 
 
-$
-E_{pw} = \left(\frac{1}{8}\right) \cdot 1000 \cdot 9.81 \cdot (0.25)^2
-$
-$
-E_{pw} = 76.64 \, \text{J/m}^2 = 0.7664 \, \text{kN/m}
-$
+$$
+E_{pw} = \frac{1}{8} \cdot 1000 \cdot 9.81 \cdot (0.25)^2 = 76.64 \, \text{J/m}^2
+$$
 
-For every wave coming from the boat, in reality this load has to be times 10 for every time a boat passes by.
+Converting units gives:
+$$
+{F_w}= 0.7664 \, \text{[kN/m]}
+$$
+For every wave coming from the boat, this load has to be summed times 10. This has to be applied every time a boat passes by.
 
 Based on the fact that there are 6 boats a day that pass, one might assume $ E_{pw} = 45.98  \, \text{kN/m}$ per day. 
 
 \subsubsection{Current Load}
-For the current load, one might use the drag equation\ref{}
+For the current load, one might use the drag equation\ref{offshore}
+because it can be used to calculate the force exerted by a current on a vertical structure:
+
+$$
+F_c = \frac{1}{2} \rho C_d A u^2
+$$
+
+\noindent where:
+\begin{itemize}
+    \item \textbf{$ F_c $}: Force exerted by the current [N]
+    \item \textbf{$ \rho $}: Density of freshwater: 1000 [kg/m$^3$]
+    \item \textbf{$ C_d $}: Drag coefficient, for a vertical wall: 1.2 [-]
+    \item \textbf{$ A $}: Exposed area:  [m$^2$]
+    \item \textbf{$ u $}: Current velocity: 1.5 [m/s]
+\end{itemize}
+
+To be able to calculate the force of the current on the bank, one needs to establish the exposed area [m$^2$]. Since we do not know exactly how long the bank is we could calculate with A = 1 [m$^2$] to find a Force illustrated per meter length of the bank.
+
+Filling in these parameters gives:
+
+$$
+F_c = \frac{1}{2} 1000*1.2* 1.5^2 = 1.350 \text{[kN/m]}
+$$
+This also occurs for a short period of time, but 6 times a day.
+
+Hence, the total load effect of the ship waves on the bank would be:
+
+$$
+F = F_w + F_c = 1.350*6 + 45.98 = 54.08 \text{[kN/m]}
+$$
+
+This value can later be used when calculating solutions for bank protection. 
 
 \subsection{Effect on the river bed}
 \label{chap 6: effect on the river bed}
@@ -213,72 +245,19 @@ At some point in the Lower Paraná, the river splits into two main tributaries, 
     \caption{Comparison of discharge divided between Paraná Guazú and Paraná de las Palmas}
 \end{figure}
 
-In order to further study the liquid flows in the Paraná Guazú, it is noted that estimates for the discharge of Río Ibicuy and Río Talabera are needed. These were collected during the fieldwork, as indicated in Figure \ref{fig:measurements day1} and Figure \ref{fig:measurements day2}. In addition, an overview of all cross sections with discharge measurements is given in Figure \ref{fig:cross section domain}. The indexing of the cross sections is made in chronological order based on the fieldwork. Note that at the confluence of the Ibicuy and Paraná Guazú, there is no measurement of the component flowing in from the Paraná Gauzú. However, this can be estimated by the equilibrium of discharges in the confluence. The relevant flow measurements of the different cross sections are summarized in Table \ref{tab:discharges fieldwork}. The bathymetries and velocity profiles that result from the ACDP measurements can be found in Appendix \ref{appendix:fieldwork results}, where the output of the \textit{RiverSurveyor} software is given. Note that of each cross section, only one of the two measured sections is given. 
-
-\begin{table}[H]
-    \centering
-    \renewcommand{\arraystretch}{1.2} % extra row spacing
-    \setlength{\tabcolsep}{8pt}       % extra column spacing
-    \begin{tabular}{llccc}
-        \toprule
-        \textbf{Section} & \textbf{River} & \textbf{Water level [m IGN]} & \textbf{Flow velocity [m/s]} & \textbf{Discharge [$m^3$/s]} \\
-        \midrule
-        1 & Talabera       &  &  & 4402 \\
-        2 & Paraná Guazú   &  &  & 6562 \\
-        3 & Paraná Guazú   &  &  & 10748 \\
-        4 & Ibicuy         &  &  & 2901 \\
-        5 & Paraná Guazú   &  &  & 6758 \\
-        \bottomrule
-    \end{tabular}
-    \caption{Flow properties of fieldwork measurements in different sections}
-    \label{tab:discharges fieldwork}
-\end{table}
 
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{figures/ch5/balance domain.png}
-    \caption{Overview of cross sections with discharge measurements}
-    \label{fig:cross section domain}
-\end{figure}
-
-
-
-\subsection{Fluvial forcing}
-This section describes the discharge quantities throughout the study area and relates them to water level data. Traditionally, stage-discharge relations are described by rating curves that describe power-law dependencies between variables. This can be written in the following form, with $Q$ the discharge and $h$ the water level or stage:
+\subsection{Water elevations and discharge}
+This section describes the discharge observed in the measurement stations and relates it to water elevation data. Traditionally, stage-discharge relations are described by rating curves that describe power-law dependencies between variables. This can be written in the following form, with $Q$ the discharge and $h$ the water level or stage:
 
 \begin{equation}
 \label{eq:powerlaw}
     Q = a \cdot h^b
 \end{equation}
 
-In the expression above, $a$ is a constant and $b$ an index exponent. \textbf{Schmidt and Yen} note several limitations related to these rating curves. For example, discharge measurements typically scatter and therefore do not show a unique relation with the stage. Also, the underlying physics of the open channel are not captured in the rating. Nevertheless, the relation as given in Equation \ref{eq:powerlaw} is used to roughly approximate dependencies between the variables. First, the values in the dataset are log-transformed, after which $R^2$-values are calculated based on a linear fit on the logarithmic values. This procedure is applied to the data of all measurement stations as described in Section \ref{sec:measurementstations}. Figure \ref{fig:correlationmatrices} gives the results for El Colorado and Brazo Largo in the form of correlation matrices. 
+In the expression above, $a$ is a constant and $b$ an index exponent. \citeauthor{schmidtStageDischargeRelationshipOpen2011} note several limitations related to these rating curves. For example, discharge measurements typically scatter and therefore do not show a unique relation with the stage. Also, the underlying physics of the open channel are not captured in the rating. Nevertheless, the relation as given in Equation \ref{eq:powerlaw} is used to roughly approximate dependencies between the variables. 
 
-\begin{figure}[h!]
-    \centering
-    % First subfigure
-    \begin{subfigure}[b]{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/ch5/logcorrelations Brazo Largo.png}
-        \caption{Correlation matrix of log-transformed data in Brazo Largo}
-        \label{fig:logcorrelation brazo}
-    \end{subfigure}
-    \hfill
-    % Second subfigure
-    \begin{subfigure}[b]{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/ch5/logcorrelations Bermejo.png}
-        \caption{Correlation matrix of log-transformed data in El Colorado}
-        \label{fig:logcorrelation bermejo}
-    \end{subfigure}
-    
-    \caption{Comparison of $R^2$-values at Brazo Largo and El Colorado}
-    \label{fig:correlationmatrices}
-\end{figure}
-
-The relationship between fluvial discharge and water level at Brazo Largo was initially assumed to follow a power-law, but this yielded a weak correlation with an $R^2$ of 0.261. A linear fit, however, produced a slightly better result, showing a positive trend with an $R^2$ of 0.444 (Figure \ref{fig:waterleveldischarge}).
-
-In contrast, the El Colorado and Túnel Subfluvial stations exhibit a clear power-law dependence. Power-law fits for these stations resulted in higher $R^2$-values of 0.962 and 0.712, respectively, with the El Colorado plot shown in Figure \ref{fig:waterleveldischarge}. Overall, these results suggest that the strength of the water level–discharge relationship decreases as the river flows downstream.
+The relationship between fluvial discharge and water level at Brazo Largo yields a relatively weak correlation with an $R^2$ of 0.365. This is shown in Figure \ref{fig:water level discharge Brazo Largo}. Alternatively, a linear fit was assumed which produced a slightly better result, showing a positive trend with an $R^2$ of 0.444. In contrast, the El Colorado and Túnel Subfluvial stations exhibit a clear power-law dependence. Power-law fits for these stations resulted in higher $R^2$-values of 0.962 and 0.712, respectively, with the El Colorado plot shown in Figure \ref{fig:water level discharge Colorado}. Overall, these results suggest that the strength of the water level–discharge relationship decreases as the river flows downstream.
 
 \begin{figure}[h!]
     \centering
@@ -286,6 +265,7 @@ In contrast, the El Colorado and Túnel Subfluvial stations exhibit a clear powe
     \begin{subfigure}[b]{0.48\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures/ch5/wl discharge Brazo Largo.png}
+        \caption{Stage-discharge relation in Brazo Largo}
         \label{fig:water level discharge Brazo Largo}
     \hfill
     % Second subfigure
@@ -294,12 +274,15 @@ In contrast, the El Colorado and Túnel Subfluvial stations exhibit a clear powe
         \centering
         \includegraphics[width=\linewidth]{figures/ch5/wl discharge El Colorado.png}
         \label{fig:water level discharge Colorado}
+        \caption{Stage-discharge relation in El Colorado}
     \end{subfigure}
     \caption{Water elevation - discharge relationship for two measurement stations}
     \label{fig:waterleveldischarge}
 \end{figure}
 
-When extending the analysis to the sediment concentrations, the same trend occurs: in the Bermejo river, fine and course sediment discharges are closely related to large flow events through power-law relations. This behaviour is found to a lesser extent in the lower Paraná, where the correlations are relatively weak. Figure \ref{fig:discharge sediment brazo} shows this relation between sediment concentrations and river discharge for the Brazo Largo station. Overall, a power-law fit seems a good approach to model the relation. The fine sediment concentration is generally higher than the course sediment concentration. In addition, the course sediment concentration increases more significantly for an increasing fluvial discharge. These are general trends, but it has to be stressed that the $R^2$ of both relationships is relatively low.  
+
+\subsection{Sediment loads}
+When extending the analysis to the sediment concentrations, the same trend occurs: in the Bermejo river, fine and course sediment discharges are closely related to large flow events through power-law relations. This behaviour is found to a lesser extent in the lower Paraná, where the correlations are relatively weak. Figure \ref{fig:discharge sediment brazo} shows this relation between sediment concentrations and river discharge for the Brazo Largo station. Overall, a power-law fit seems a good approach to model the relation. The fine sediment concentration is generally higher than the course sediment concentration. In addition, the course sediment concentration increases more significantly for an increasing fluvial discharge. These are general trends, but it has to be stressed that the $R^2$ of both relationships is relatively low. As a comparison, the same variables are related for the Bermejo river in Figure \ref{fig:discharge sediment bermejo}. 
 
 
 \begin{figure}[h!]
@@ -324,9 +307,47 @@ When extending the analysis to the sediment concentrations, the same trend occur
     \label{fig:sediment loads and discharge}
 \end{figure}
 
+\subsection{Correlation between variables}
+The approach of defining the relations between measured flow variables is as follows. First, the values in the dataset are log-transformed, after which $R^2$-values are calculated based on a linear fit on the logarithmic values. This procedure is applied to the variables of all measurement stations as described in Section \ref{sec:measurementstations}. Figure \ref{fig:correlationmatrices} gives the results for El Colorado and Brazo Largo in the form of correlation matrices. It stands out that correlations in the Bermejo are very high for all variables. This indicates that the power-law assumption is suitable for describing the dependencies between these variables. Subsequently, it is found that correlations for the Brazo Largo are much smaller. 
+
+Analysis of the flow variables has shown that $R^2$-values tend to decrease, the further downstream the location of the measurements is. This result is in agreement with those found by \citeauthor{songEvaluatingUnderstandingTideriver2024}, who state that the stage-discharge relationship is considerably affected in the transitional zone and tide-dominated region of the Yangtze estuary. Their research reports $R^2$-values decreasing from 0.9 to 0.4, in a river-dominated and transitional zone, respectively. Therefore, an in-depth study of the tide-river interactions is needed. This includes measurements in both the transitional zone and tide-dominated region, to update the stage-discharge relationship. For this particular study, the influence of tidal effects will be handled in Section \ref{sec:tidal forcing}.
+
+Another factor that may influence the r
+
+\begin{itemize}
+    \item Influence of the Uruguay River
+    \item Tidal influences similar to Chinese delta
+\end{itemize}
+
+
+
+
+\begin{figure}[h!]
+    \centering
+    % First subfigure
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering        \includegraphics[width=\linewidth]{figures/ch5/logcorrelations Brazo Largo.png}
+        \caption{Correlation matrix of log-transformed data in Brazo Largo}
+        \label{fig:logcorrelation brazo}
+    \end{subfigure}
+    \hfill
+    % Second subfigure
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/ch5/logcorrelations Bermejo.png}
+        \caption{Correlation matrix of log-transformed data in El Colorado}
+        \label{fig:logcorrelation bermejo}
+    \end{subfigure}
+    
+    \caption{Comparison of $R^2$-values at Brazo Largo and El Colorado}
+    \label{fig:correlationmatrices}
+\end{figure}
+
+
 
 
 \subsection{Tidal forcing}
+\label{sec:tidal forcing}
 The tidal wave of the Atlantic Ocean influences the hydrodynamics of the lower Paraná delta. As the tidal wave enters the delta ta Río de la Plata, the tide is damped and phased by friction, channel geometry and branching, resulting in a reduced amplitude and an increased in phase delay. Under normal conditions, the influence of the tide on the Paraná River reaches the city of Villa Constitución, which is located 220 km upstream of the river mouth. For storm conditions, the tide can reach the city of Rosario \autocite{balayCAUSESPERIODICITYLARGE1958}. In order to determine the influence of the tide at Brazo Largo, a reference water level at San Fernando is considered. It is assumed that at San Fernando no tidal damping has occurred, therefore the tidal amplitude at Brazo Largo can be determined using the following relation:
 
 \begin{equation}
@@ -423,7 +444,42 @@ Figure 5.7 shows the water level time series for a period of 7 days compared to 
 
 
 \section{Field work measurements}
-Wie doet dit?
+
+\subsection{Water level and discharge}
+In order to further study the liquid flows in the Paraná Guazú, it is noted that estimates for the discharge of Río Ibicuy and Río Talabera are needed. These were collected during the fieldwork, as indicated in Figure \ref{fig:measurements day1} and Figure \ref{fig:measurements day2}. In addition, an overview of all cross sections with water level and discharge measurements is given in Figure \ref{fig:cross section domain}. The indexing of the cross sections is made in chronological order based on the fieldwork. Note that at the confluence of the Ibicuy and Paraná, there is no measurement of the component flowing in from the Paraná. However, this can be estimated by the equilibrium of discharges in the confluence. The relevant flow measurements of the different cross sections are summarized in Table \ref{tab:discharges fieldwork}. The bathymetries and velocity profiles that result from the ACDP measurements can be found in Appendix \ref{appendix:fieldwork results}, where the output of the \textit{RiverSurveyor} software is given. Note that of each cross section, only one of the two measured sections is given. 
+
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{1.2} % extra row spacing
+    \setlength{\tabcolsep}{8pt}       % extra column spacing
+    \begin{tabular}{llccc}
+        \toprule
+        \textbf{Section} & \textbf{River} & \textbf{Water level [m IGN]} & \textbf{Flow velocity [m/s]} & \textbf{Discharge [$m^3$/s]} \\
+        \midrule
+        1 & Talabera       & 1.09 & 0.423 & 4402 \\
+        2 & Paraná Guazú   & 1.12 & 0.111 & 6562 \\
+        3 & Paraná Guazú   & 1.10 & 0.110 & 10748 \\
+        4 & Ibicuy & 0.87 & 0.127 & 2901 \\
+        5 & Paraná Guazú   & 0.82 & 0.245 & 6758 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Flow properties of fieldwork measurements in different sections}
+    \label{tab:discharges fieldwork}
+\end{table}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/ch5/balance domain.png}
+    \caption{Overview of cross sections with discharge measurements}
+    \label{fig:cross section domain}
+\end{figure}
+
+
+\subsection{Suspended sediment load}
+\subsection{Bed load}
+
+
 
 \section{Hydrodynamic effects on the River Banks}
 \subsection{Aqua Monitor}
@@ -651,9 +707,11 @@ When processing the samples, it was decided to start with a 0.5 mm sieve size fo
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{figures//ch6/cumu.png}
+    \includegraphics[width=0.75\linewidth]{figures//ch6/cumulativegrainsized.png}
     \caption{Cumulative grain size distribution}
     \label{fig:Cumu}
 \end{figure}
 
-Figure \ref{fig:Cumu} clearly shows that 1-2 and 2-2 are sand samples and the other samples are clay and silt samples. During the test there is also looked at possible organic materials but these where not found. This result shows us that sand only appears on depths of 15 meter and possibly greater depths. 
+Figure \ref{fig:Cumu} clearly shows that 1-2 and 2-2 are sand samples and the other samples are clay and silt samples. During the test there is also looked at possible organic materials. When seeing something that could be organic, the sample was tested with hydrochloric acid to see if this was the case. It was never the case that there were organic particles.
+
+From figure \ref{fig:Cumu} can be seen that the change of finding sand is much bigger on 15 meters depth than on 10 meters depth. This could indicate that the deeper the riverbed is, the higher the change is of finding sand.  
