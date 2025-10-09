@@ -257,28 +257,30 @@ This section describes the discharge observed in the measurement stations and re
 
 In the expression above, $a$ is a constant and $b$ an index exponent. \citeauthor{schmidtStageDischargeRelationshipOpen2011} note several limitations related to these rating curves. For example, discharge measurements typically scatter and therefore do not show a unique relation with the stage. Also, the underlying physics of the open channel are not captured in the rating. Nevertheless, the relation as given in Equation \ref{eq:powerlaw} is used to roughly approximate dependencies between the variables. 
 
-The relationship between fluvial discharge and water level at Brazo Largo yields a relatively weak correlation with an $R^2$ of 0.365. This is shown in Figure \ref{fig:water level discharge Brazo Largo}. Alternatively, a linear fit was assumed which produced a slightly better result, showing a positive trend with an $R^2$ of 0.444. In contrast, the El Colorado and Túnel Subfluvial stations exhibit a clear power-law dependence. Power-law fits for these stations resulted in higher $R^2$-values of 0.962 and 0.712, respectively, with the El Colorado plot shown in Figure \ref{fig:water level discharge Colorado}. Overall, these results suggest that the strength of the water level–discharge relationship decreases as the river flows downstream.
+The relationship between fluvial discharge and water level at Brazo Largo yields a relatively weak correlation with an $R^2$ of 0.365. This is shown in Figure \ref{fig:waterleveldischarge}. Alternatively, a linear fit was assumed which produced a slightly better result, showing a positive trend with an $R^2$ of 0.444. In contrast, the El Colorado and Túnel Subfluvial stations exhibit a clear power-law dependence. Power-law fits for these stations resulted in higher $R^2$-values of 0.962 and 0.712, respectively, with the El Colorado plot shown in Figure \ref{fig:waterleveldischarge}. Overall, these results suggest that the strength of the water level–discharge relationship decreases as the river flows downstream.
+
 
 \begin{figure}[h!]
     \centering
-    % First subfigure
-    \begin{subfigure}[b]{0.48\linewidth}
+
+    \begin{subfigure}[t]{0.48\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures/ch5/wl discharge Brazo Largo.png}
-        \caption{Stage-discharge relation in Brazo Largo}
-        \label{fig:water level discharge Brazo Largo}
-    \hfill
-    % Second subfigure
+        \caption{Stage–discharge relation in Brazo Largo.}
+        \label{fig:wl_discharge_brazo}
     \end{subfigure}
-    \begin{subfigure}[b]{0.48\linewidth}
+    \hfill
+    \begin{subfigure}[t]{0.48\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures/ch5/wl discharge El Colorado.png}
-        \label{fig:water level discharge Colorado}
-        \caption{Stage-discharge relation in El Colorado}
+        \caption{Stage–discharge relation in El Colorado.}
+        \label{fig:wl_discharge_colorado}
     \end{subfigure}
-    \caption{Water elevation - discharge relationship for two measurement stations}
+
+    \caption{Water elevation–discharge relationships for two measurement stations.}
     \label{fig:waterleveldischarge}
 \end{figure}
+
 
 
 \subsection{Sediment loads}
@@ -308,16 +310,12 @@ When extending the analysis to the sediment concentrations, the same trend occur
 \end{figure}
 
 \subsection{Correlation between variables}
-The approach of defining the relations between measured flow variables is as follows. First, the values in the dataset are log-transformed, after which $R^2$-values are calculated based on a linear fit on the logarithmic values. This procedure is applied to the variables of all measurement stations as described in Section \ref{sec:measurementstations}. Figure \ref{fig:correlationmatrices} gives the results for El Colorado and Brazo Largo in the form of correlation matrices. It stands out that correlations in the Bermejo are very high for all variables. This indicates that the power-law assumption is suitable for describing the dependencies between these variables. Subsequently, it is found that correlations for the Brazo Largo are much smaller. 
+The approach of defining the relations between measured flow variables is as follows. First, the values in the dataset are log-transformed, after which $R^2$-values are calculated based on a linear fit on the logarithmic values. This procedure is applied to the variables of all measurement stations as described in Section \ref{sec:measurementstations}. Figure \ref{fig:correlationmatrices} gives the results for El Colorado and Brazo Largo in the form of correlation matrices. It stands out that correlations in the Bermejo are very high for all variables. This indicates that the power-law assumption is suitable for describing the dependencies between these variables. Subsequently, it is found that correlations for the Brazo Largo are much smaller. This is also the case for the Zárate station on the Paraná de las Palmas. As this river is also located in the Lower Paraná, this behaviour is expected. 
 
 Analysis of the flow variables has shown that $R^2$-values tend to decrease, the further downstream the location of the measurements is. This result is in agreement with those found by \citeauthor{songEvaluatingUnderstandingTideriver2024}, who state that the stage-discharge relationship is considerably affected in the transitional zone and tide-dominated region of the Yangtze estuary. Their research reports $R^2$-values decreasing from 0.9 to 0.4, in a river-dominated and transitional zone, respectively. Therefore, an in-depth study of the tide-river interactions is needed. This includes measurements in both the transitional zone and tide-dominated region, to update the stage-discharge relationship. For this particular study, the influence of tidal effects will be handled in Section \ref{sec:tidal forcing}.
 
-Another factor that may influence the correlation of variables in the Lower Paraná, is the inflow of the Uruguay river. 
+As for the sediment-discharge relationship, the differences in correlations in Brazo Largo can be explained through the sources of the variables. Whereas the fine sediment concentration predominantly originates from the Bermejo basin, the discharge is dominated by the Paraguay and Paraná. This results in a weak correlation downstream of the confluence of these rivers (\cite{lopezweibelSourcesTemporalDynamics2022}). Another factor that may perturb the correlation of variables in the Lower Paraná, is the inflow of the Uruguay river. This flow can cause disturbances in the relations, as the sediment concentrations and discharges stem from different catchments. 
 
-\begin{itemize}
-    \item Influence of the Uruguay River
-    \item Tidal influences similar to Chinese delta
-\end{itemize}
 
 
 
@@ -444,9 +442,9 @@ Figure 5.7 shows the water level time series for a period of 7 days compared to 
 
 
 \section{Field work measurements}
-
+This section describes the results of the field campaign, 
 \subsection{Water level and discharge}
-In order to further study the liquid flows in the Paraná Guazú, it is noted that estimates for the discharge of Río Ibicuy and Río Talabera are needed. These were collected during the fieldwork, as indicated in Figure \ref{fig:measurements day1} and Figure \ref{fig:measurements day2}. In addition, an overview of all cross sections with water level and discharge measurements is given in Figure \ref{fig:cross section domain}. The indexing of the cross sections is made in chronological order based on the fieldwork. Note that at the confluence of the Ibicuy and Paraná, there is no measurement of the component flowing in from the Paraná. However, this can be estimated by the equilibrium of discharges in the confluence. The relevant flow measurements of the different cross sections are summarized in Table \ref{tab:discharges fieldwork}. The bathymetries and velocity profiles that result from the ACDP measurements can be found in Appendix \ref{appendix:fieldwork results}, where the output of the \textit{RiverSurveyor} software is given. Note that of each cross section, only one of the two measured sections is given. 
+In order to further study the liquid flows in the Paraná Guazú, it is noted that estimates for the discharge of Río Ibicuy and Río Talabera are needed. These were collected during the fieldwork, as indicated in Figure \ref{fig:measurements day1} and Figure \ref{fig:measurements day2}. In addition, an overview of all cross sections with water level and discharge measurements is given in Figure \ref{fig:cross section domain}. The indexing of the cross sections is made in chronological order based on the fieldwork. Note that at the confluence of the Ibicuy and Paraná, there is no measurement of the component flowing in from the Paraná. However, this can be estimated by the equilibrium of discharges in the confluence. The relevant flow measurements of the different cross sections are summarized in Table \ref{tab:discharges fieldwork}. Note that the water levels are recorded at Brazo Largo and Ibicuy, depending on the location and time of each measurement. For Section 5, the water level is linearly interpolated between the stations. Also, the velocity and discharge values are mean values. The bathymetries and velocity profiles that result from the ACDP measurements can be found in Appendix \ref{appendix:fieldwork results}, where the output of the \textit{RiverSurveyor} software is given. Note that of each cross section, only one of the two measured sections is given. 
 
 \begin{table}[H]
     \centering
@@ -477,9 +475,25 @@ In order to further study the liquid flows in the Paraná Guazú, it is noted th
 
 
 \subsection{Suspended sediment load}
-\subsection{Bed load}
+In this section, the measured suspended sediment concentrations and the measured flow velocity profiles will be analysed in order to calculate the total suspended sediment flux. 
 
+\subsection{Grain size distribution of bed load samples}
+During the fieldwork, data was collected on the Paraná River over a period of two days. Seven samples were collected from the riverbed at four different cross-sections. Samples were collected at depths of 10 and 15 metres. The first number refers to the cross-section and the second number refers to a depth of 10 or 15 metres. The locations where the samples were collected are presented in figure \ref{fig:measurements day1} and \ref{fig:measurements day2}. Sample 3-1 was quite large, so it was decided to treat it as two different samples (3-1A \& B). 
 
+When processing the samples, it was decided to start with a 0.5 mm sieve size for the samples that appeared to be sand and a 0.354 mm sieve size for the other samples. This was done because only six sieves and one residue container fit into the sieving setup. After sieving the samples for 10 minutes, each quantity of sample per sieve was weighed. This was used to calculate a cumulative grain distribution. The calculation and processing of the results are in more detailed described in Appendix \ref{appendix:Lab data}. The results are presented in figure \ref{fig:Cumu}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures//ch6/cumulativegrainsized.png}
+    \caption{Cumulative grain size distribution}
+    \label{fig:Cumu}
+\end{figure}
+
+Figure \ref{fig:Cumu} clearly shows that 1-2 and 2-2 are sand samples and the other samples are clay and silt samples. During the test there is also looked at possible organic materials. When seeing something that could be organic, the sample was tested with hydrochloric acid to see if this was the case. It was never the case that there were organic particles.
+
+From figure \ref{fig:Cumu} can be seen that the change of finding sand is much bigger on 15 meters depth than on 10 meters depth. This could indicate that the deeper the riverbed is, the higher the change is of finding sand. 
+
+\section{Sediment Balance}
 
 \section{Hydrodynamic effects on the River Banks}
 \subsection{Aqua Monitor}
@@ -700,18 +714,4 @@ It is also relevant to note that the number of flooding occurrences is positivel
 Therefore, climate change is the catalyst of a major factor that contributes to bank erosion, and not the passing of cargo ships, nor the dredging of the sand a few hundred meters from the Camping La Blanqueada.
 The situation was analysed for the situation of this very precise location. Other parameters may be taken into account when establishing this reasoning on another section of the Parana Guazu, but the method can be the same and the satellite images as well as the Aqua Monitor are accessible for every location. 
 
-\section{Grain distribution}
-During the fieldwork, data was collected on the Paraná River over a period of two days. Seven samples were collected from the riverbed at four different cross-sections. Samples were collected at depths of 10 and 15 metres. The first number refers to the cross-section and the second number refers to a depth of 10 or 15 metres. The locations where the samples were collected are presented in figure \ref{fig:measurements day1} and \ref{fig:measurements day2}. Sample 3-1 was quite large, so it was decided to treat it as two different samples (3-1A \& B). 
-
-When processing the samples, it was decided to start with a 0.5 mm sieve size for the samples that appeared to be sand and a 0.354 mm sieve size for the other samples. This was done because only six sieves and one residue container fit into the sieving setup. After sieving the samples for 10 minutes, each quantity of sample per sieve was weighed. This was used to calculate a cumulative grain distribution. The calculation and processing of the results are in more detailed described in Appendix \ref{appendix:Lab data}. The results are presented in figure \ref{fig:Cumu}.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{figures//ch6/cumulativegrainsized.png}
-    \caption{Cumulative grain size distribution}
-    \label{fig:Cumu}
-\end{figure}
-
-Figure \ref{fig:Cumu} clearly shows that 1-2 and 2-2 are sand samples and the other samples are clay and silt samples. During the test there is also looked at possible organic materials. When seeing something that could be organic, the sample was tested with hydrochloric acid to see if this was the case. It was never the case that there were organic particles.
-
-From figure \ref{fig:Cumu} can be seen that the change of finding sand is much bigger on 15 meters depth than on 10 meters depth. This could indicate that the deeper the riverbed is, the higher the change is of finding sand.  
+ 
