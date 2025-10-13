@@ -319,7 +319,7 @@ In order to study the balance of sediments in the study area, it is useful to ge
     \item Depositions of wash load in the floodplain between the stations, is compensated for by substracting 10 million tonnes per year from concentration peaks. This holds for all concentrations above a certain threshold value, which in this case was found to be optimal at $350$ mg/l.
 \end{itemize}
 
-The result of this time series is given in Figure \ref{fig:timeseries fine sediments}. It is important to note that this relation for fine sediment concentrations is considered useful for the Paraná Guazú as well (\cite{reMETODOLOGIAPARAGENERACION2009}). 
+The result of this time series is given in Figure \ref{fig:timeseries fine sediments}. It is important to note that this relation for fine sediment concentrations is considered useful for the Paraná Guazú as well (\cite{reMETODOLOGIAPARAGENERACION2009}). The plot shows that the observations are generally higher than the fit predicts in times of low fine sediment loads. Overall, the fit gives a good estimate of fine sediment concentrations, revealing seasonal aspects and concentration values.
 
 \begin{figure}[H]
     \centering
@@ -346,6 +346,7 @@ where \( s \) is the specific gravity of the sediment, \( g \) is the accelerati
 
 
 \subsection{Correlation between variables}
+\label{sec:correlation of variables}
 The approach of defining the relations between measured flow variables is as follows. First, the values in the dataset are log-transformed, after which $R^2$-values are calculated based on a linear fit on the logarithmic values. This procedure is applied to the variables of all measurement stations as described in Section \ref{sec:measurementstations}. Figure \ref{fig:correlationmatrices} gives the results for El Colorado and Brazo Largo in the form of correlation matrices. It stands out that correlations in the Bermejo are very high for all variables. This indicates that the power-law assumption is suitable for describing the dependencies between these variables. Subsequently, it is found that correlations for the Brazo Largo are much smaller. This is also the case for the Zárate station on the Paraná de las Palmas. As this river is also located in the Lower Paraná, this behaviour is expected. 
 
 Analysis of the flow variables has shown that $R^2$-values tend to decrease, the further downstream the location of the measurements is. This result is in agreement with those found by \citeauthor{songEvaluatingUnderstandingTideriver2024}, who state that the stage-discharge relationship is considerably affected in the transitional zone and tide-dominated region of the Yangtze estuary. Their research reports $R^2$-values decreasing from 0.9 to 0.4, in a river-dominated and transitional zone, respectively. Therefore, an in-depth study of the tide-river interactions is needed. This includes measurements in both the transitional zone and tide-dominated region, to update the stage-discharge relationship. For this particular study, the influence of tidal effects will be handled in Section \ref{sec:tidal forcing}.
@@ -463,12 +464,29 @@ This section describes the results of the field campaign introduced in Section \
 
 
 \subsection{Water level and discharge}
-In order to further study the liquid flows in the Paraná Guazú, estimates are needed for the discharge of Río Ibicuy and Río Talabera. These were collected during the fieldwork, as indicated in Figure \ref{fig:measurements day1} and Figure \ref{fig:measurements day2}. In addition, an overview of all cross sections with discharge measurements is given in Figure \ref{fig:cross section domain}. The indexing of the cross sections is made in chronological order based on the fieldwork. Note that at the confluence of the Ibicuy and Paraná, there is no measurement of the component flowing in from the Paraná. However, this can be estimated by the equilibrium of discharges in the confluence. The relevant flow measurements of the different cross sections are summarized in Table \ref{tab:discharges fieldwork}. Note that the water levels are recorded on different dates from nearby measurement stations, i.e. Brazo Largo and Ibicuy. The values in the table correspond to the location and time of each measurement. For Section 5, the water level is linearly interpolated between the stations. Also, the flow velocity is a mean velocity taken over the entire cross section of the two measured sections per measurement location. The bathymetries and velocity profiles that result from the ACDP measurements can be found in Appendix \ref{appendix:fieldwork results}, where the output of the \textit{RiverSurveyor} software is given. Note that of each cross section, only one of the two measured sections is given. 
+In order to further study the liquid flows in the Paraná Guazú, estimates are needed for the discharge of Río Ibicuy and Río Talabera. These were collected during the fieldwork, as indicated in Figure \ref{fig:measurements day1} and Figure \ref{fig:measurements day2}. In addition, an overview of all cross sections with discharge measurements is given in Figure \ref{fig:cross section domain}. The indexing of the cross sections is made in chronological order based on the fieldwork. Note that at the confluence of the Ibicuy and Paraná, there is no measurement of the component flowing in from the Paraná. However, this can be estimated by the equilibrium of discharges in the confluence. The relevant flow measurements of the different cross sections are summarized in Table \ref{tab:discharges fieldwork}. Note that the water levels are recorded on different dates from nearby measurement stations, i.e. Brazo Largo and Ibicuy. Figure \ref{fig:water elevations fieldwork} gives an overview of the evolution of water elevations during the measurement campaign. The values in the table correspond to the location and time of each measurement. For Section 5, the water level is linearly interpolated between the stations. Also, the flow velocity is a mean velocity taken over the entire cross section of the two measured sections per measurement location. The bathymetries and velocity profiles that result from the ACDP measurements can be found in Appendix \ref{appendix:fieldwork results}, where the output of the \textit{RiverSurveyor} software is given. Note that of each cross section, only one of the two measured sections is given. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/ch5/balance domain.png}
+    \caption{Overview of cross sections with discharge measurements}
+    \label{fig:cross section domain}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figures/ch6/water elevations fieldwork.png}
+    \caption{Water elevations of Brazo Largo and Puerto Ibicuy during fieldwork}
+    \label{fig:water elevations fieldwork}
+\end{figure}
+
+The water elevations in Figure \ref{fig:water elevations fieldwork} are expressed with respect to the IGN datum. Therefore, the values recorded in the upstream station Puerto Ibicuy are higher than those in Brazo Largo at the same instants. In addition, the figure shows that water levels drop during the two days that measurements were carried out. When relating this to the discharges as shown in Table \ref{tab:discharges fieldwork}, it stands out that the discharge increases for a decreasing water level. Assuming that discharges are similar in the Paraná Guazú between Section 2 and Section 5, it can be seen that the discharge has increased on day 2 with respect to day 1. This is not in agreement with the positive correlation of stage and discharge as discussed in Section \ref{sec:correlation of variables}.
 
 \begin{table}[H]
     \centering
     \renewcommand{\arraystretch}{1.2} % extra row spacing
     \setlength{\tabcolsep}{8pt}       % extra column spacing
+    \caption{Flow properties of fieldwork measurements in different sections}
     \begin{tabular}{llccc}
         \toprule
         \textbf{Section} & \textbf{River} & \textbf{Water level [m IGN]} & \textbf{Mean flow velocity [m/s]} & \textbf{Discharge [$m^3$/s]} \\
@@ -481,17 +499,10 @@ In order to further study the liquid flows in the Paraná Guazú, estimates are 
         5 & Paraná Guazú   & 0.82 & 0.566 & 6758 \\
         \bottomrule
     \end{tabular}
-    \caption{Flow properties of fieldwork measurements in different sections}
     \label{tab:discharges fieldwork}
 \end{table}
 
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{figures/ch5/balance domain.png}
-    \caption{Overview of cross sections with discharge measurements}
-    \label{fig:cross section domain}
-\end{figure}
 
 
 \subsection{Suspended sediment load}
@@ -504,14 +515,14 @@ In this section, the measured suspended sediment concentrations and flow velocit
     \label{fig:Measured suspended sediment concentrations}
 \end{figure}
 
-The Acoustic Doppler Current Profiler (ADCP) measures the flow velocity and depth across a river cross section by dividing the measurements into vertical bins for every ensemble. This data can be used to create a flow velocity field for the whole cross section, see Appendix \ref{appendix:fieldwork results}, and velocity profiles for multiple locations along the cross section. These velocity profiles are used to determine the Law of the Wall fit, see formula \ref{eq:law_of_the_wall}.
+The Acoustic Doppler Current Profiler (ADCP) measures the flow velocity and depth across a river cross section by dividing the measurements into vertical bins for every ensemble. These data can be used to create a flow velocity field for the whole cross section, see Appendix \ref{appendix:fieldwork results}, and velocity profiles for multiple locations along the cross section. These velocity profiles are used to determine the Law of the Wall fit, see Equation \ref{eq:law_of_the_wall}.
 
 \begin{equation}
     u = \left( \frac{u_*}{\kappa} \right) \ln\left( \frac{z}{z_0} \right)
     \label{eq:law_of_the_wall}
 \end{equation}
 
-The Law of the Wall fit is used to calculate the friction velocity ($u_*$) which is needed in order to calculate the Rouse number, see equation \ref{Rouse number}. Using this Rouse number it is possible to calculate the sediment concentration ($c$) at any depth ($z$) in the water column using the Rouse profile in equation \ref{Rouse profile}.
+The Law of the Wall fit is used to calculate the friction velocity ($u_*$) which is needed in order to calculate the Rouse number, see Equation \ref{Rouse number}. Using this Rouse number it is possible to calculate the sediment concentration ($c$) at any depth ($z$) in the water column using the Rouse profile in Equation \ref{Rouse profile}.
 
 \begin{equation}
     P = \frac{w_s}{\kappa u_*}
@@ -542,19 +553,27 @@ The reference depth ($a$) and the near-bed reference concentration ($C_a$) were 
     \end{minipage}
 \end{figure}
 
-The total suspended sediment flux per cross section is calculated by 
+The suspended sediment flux per cross section is calculated by first multiplying the concentration at any given depth, from the Rouse profile, with the corresponding velocity and a depth increment; see Equation \ref{eq: sediment flux formula}. This flux per unit width is multiplied by the ensemble width to get the ensemble sediment flux for every point along the cross section. 
 
+\begin{equation}
+    q_{s} = \int_{a}^{h} C(z, \alpha C_a) \, u(z) \, dz
+    \label{eq: sediment flux formula}
+\end{equation}
+
+The total suspended sediment flux for every cross section is calculated by summing the ensemble fluxes. These calculated total suspended fluxes in kg/s are displayed in Table\ref{tab:Calculated suspended sediment flux}. For every cross section two different ADCP measurements were taken. The table shows the computed suspended sediment flux based on the velocity profiles of these two tracks and the mean suspended sediment flux for the three cross sections. This mean flux is the value that will be used to set up the sediment balance in Section \ref{sec: Sediment Balance}. 
+ 
 \begin{table}[H]
     \centering
-    \caption{Flow rates at different cross sections (kg/s)}
-    \label{Calculated suspended sediment flux}
-    \begin{tabular}{c c c}
+    \caption{Calculated suspended sediment fluxes at different cross sections (kg/s)}
+    \label{tab:Calculated suspended sediment flux}
+    \setlength{\tabcolsep}{8pt}
+    \begin{tabular}{c c c c}
         \hline
-        Cross Section & cs1 & cs2 \\
+        Cross Section & Track 1 & Track 2 & Mean\\
         \hline
-        1 & 127.14 & 115.61 \\
-        2 & 90.80  & 61.54  \\
-        3 & 337.44 & 348.07 \\
+        1 & 127.14 & 115.61 & 121.38\\
+        2 & 90.80  & 61.54  & 76.17\\
+        3 & 337.44 & 348.07 & 342.76\\
         \hline
     \end{tabular}
 \end{table}
@@ -593,6 +612,12 @@ Furthermore, this acceptable range tends to widen as the target grain size incre
 
 
 \section{Sediment Balance}
+\label{sec: Sediment Balance}
+
+
+
+
+
 
 \section{Hydrodynamic effects on the River Banks}
 \subsection{Aqua Monitor}

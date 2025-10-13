@@ -87,6 +87,7 @@ As can be seen in Table \ref{tab:compstruct}, pile walls score low on water tigh
 As a structural solution, the sheet pile walls are chosen. These elements score high on ease of installation and sustainability (parts can be removed and reused) and price, resistance and durability are also pros of this method. Disturbance is one of the main concerns related to sheet pile walls, but since the area of interest is in a scarcely populated area, this is not necessarily problematic. Another concern is the low versatility: installation is only possible if soils are not too hard. However, since installation will be executed in a delta with relatively soft soil (see xx), this should not be a major concern for this project.
 
 \subsection{Sheet Pile Wall}
+\label{section:sheet_pile_wall}
 
 Sheet pile walls are frequently used in practices for application like excavations, waterfront structures, highway structures, flood protections schemes and bridge abutments. Steel sheet pile walls are mostly used as the high variety of combinations and the various profiles achieve the high moments of resistance while still maintaining the structural requirements of the design. In addition, the engineering advantages are in line with their suitability for water use, favorable ratio of steel cross section and moment of resistance and fast progress on site, which including their functionality and economical benefits is making their use favorable (Handbook).
 
@@ -112,44 +113,77 @@ For steel sheet pile walls, the sections and interlocks are of importance to mak
     \label{fig:sections_sheetpiles}
 \end{figure}
 
-\subsubsection{Properties of Steel}
+\subsubsection{Properties of steel}
 
-As steel will be the material used for the sheet piles the properties of steel, as being a homogeneous material will be touched on. Steel is an elastic material and has a favorable strength to weight ratio while characterizing the a range of 300 N/mm2 till 2000 N/mm2 for the tensile strength of this material. The stress-strain behavior of steel can be seen in Figure XX. The range of elasticity is depending on the grade of the steel and the elastic modulus for steel is 210000 N/mm2. In Figure XX fy is characterized as the yield strength which is the value where the stress will be constant or drop or go to a strain of 0.2\% when the load is taken away. Furthermore, fu, is the tensile strength which is in line with the steel grade.
+As steel will be the material used for the sheet piles the properties of steel, as being a homogeneous material will be touched on. Steel is an elastic material and has a favorable strength to weight ratio while characterizing the a range of 300 $N/mm^{2}$ to 2000 $N/mm^{2}$ for the tensile strength of this material. The stress-strain behavior of steel can be seen in Figure \ref{fig:stress_strain_steel}. The range of elasticity is depending on the grade of the steel and the elastic modulus for steel is 210000 $N/mm^{2}$. In Figure \ref{fig:stress_strain_steel}, $f_{y}$ is characterized as the yield strength which is the value where the stress will be constant or drop or go to a strain of 0.2\% when the load is taken away. Furthermore, $f_{u}$, is the tensile strength which is in line with the steel grade (Handbook).
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.50\linewidth]{figures/ch8/stress_strain_steel.png}
+    \caption{Stress-strain relation steel}
+    \label{fig:stress_strain_steel}
+\end{figure}
 
+The mechanical properties of steel grades which are used for sheet piles are shown in Table \ref{tab:steel_materialproperties}. Steel sheet piles are made of hot rolled sections, which is the process of heating the steel to temperatures of over 900 $^{\circ}$C, before rolling which allows for the various shape and sizes what is of importance with sheet piles. Hot rolled sections are having slightly rougher surface when comparing it to cold rolled sections (BuyABeam). 
 
-\subsubsection{Cantilever Sheet Piling}
+\begin{table}[ht]
+  \centering
+  \caption{Mechanical properties by steel grade}
+  \label{tab:steel-grades}
+  \setlength{\tabcolsep}{10pt}
+  \renewcommand{\arraystretch}{1.25}
+  \begin{tabular}{lccc}
+    \toprule
+    \textbf{Steel grade}
+    & \textbf{Tensile strength} $f_{u}\,[\mathrm{N/mm}^{2}]$
+    & \textbf{Yield strength} $f_{y}\,[\mathrm{N/mm}^{2}]$
+    & \textbf{Elongation at failure} $\varepsilon_{u}\,[\%]$ \\
+    \midrule
+    S 240 GP & 340 & 240 & 26 \\
+    S 270 GP & 410 & 270 & 24 \\
+    S 320 GP & 440 & 320 & 23 \\
+    S 355 GP & 480 & 355 & 22 \\
+    S 390 GP & 490 & 390 & 20 \\
+    S 430 GP & 510 & 430 & 19 \\
+    \bottomrule
+    \label{tab:steel_materialproperties}
+  \end{tabular}
+\end{table}
 
-Hier bespreken en laten zien wat cantilever sheet piling is. 
-
-\subsubsection{Failure Mechanisms}
+\subsubsection{Failure mechanisms}
 
 Bespreken wat de mogelijke faal mechanismen zijn van het gerbuik van sheet piles.
 
-\subsubsection{Structural Requirements}
+\subsubsection{Structural requirements}
 
-\subsection{Design Methods}
+Bespreken van Eurocode
+
+\subsection{Design of sheet pile wall}
+
+\subsubsection{Critical locations}
+
+\subsubsection{Problem description}
+
+For the design of sheet pile wall in this section, the cantilever sheet pile wall will be used. As briefly touched on in Section \ref{section:sheet_pile_wall} the cantilever sheet pile is used for retaining heights up to 5 meters and is getting the support from the ground layers. In Figure \ref{fig:problem_description_sheetpiles}, an sketch of the situation is given.  
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.80\linewidth]{figures/ch8/problem_description.png}
+    \caption{Problem desciption sheet pile wall}
+    \label{fig:problem_description_sheetpiles}
+\end{figure}
+
+\subsubsection{Method}
 
 Hier bespreken welke desgin methode we gaan gebruiken. Active en Passive kant van de sheet pile bepalen. Kracht horizontal en momenten som aan nul gelijk stellen om daarmee te bepalen wat de D van de sheet pile moet zijn. Hier een factor overheen gooien. 
 
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.50\linewidth]{figures/ThesevenNBSgoals.png}
-%     \caption{Seven goals for achieving a good NBS}
-%     \label{fig:placeholder}
-% \end{figure}
+\subsubsection{Plan}
 
-\subsection{Design Plan}
+Hier komt de procedure te staan hoe het design tot stand zal gaan komen en welke stappen gemaakt zullen worden. Uitleggen dat het een iteratief process is om de D te vinden doormiddel van de krachten en momentensom. De momentensom moet 0 zijn onderaan en hiermee kan dan de D bepaald worden. \textbf{}
 
-Hier komt de procedure te staan hoe het design tot stand zal gaan komen en welke stappen gemaakt zullen worden. Uitleggen dat het een iteratief process is om de D te vinden doormiddel van de krachten en momentensom. De momentensom moet 0 zijn onderaan en hiermee kan dan de D bepaald worden. 
+\subsubsection{Safety concept}
 
-\subsection{Design}
-
-\subsubsection{Problem Description}
-
-Hier komt een schets van de situatie. Ook komen hier de parameters die nodig zijn bij het ontwerpen van een sheet pile.
-
-\subsubsection{Soil Profile and Parameters}
+\subsubsection{Soil parameters and profile}
 To be able to design the sheetpile, the soil layers along with their geotechnical parameters should be known. In paragraph \ref{par:geology}, the geological background for the area of interest was given and this serves as the basis for deriving soil layers and parameters. The borehole in figure \ref{fig:borehole} is deemed the most relevant source. The borehole shows a top layer with fine/medium sands. Below, clay/clayey sand can be found, and the bottom layer consists of medium sand. This is in accordance with the geological profile that was provided before in figure \ref{fig:geolprofile}, which describes a transition from near-surface beach ridges, dunes, beach plains, and delta subaerial facies to deeper open estuaries and marine deposists. The top deposits help declare the presence of sandy deposits at the top of the borehole and the layers of clay/clayey sand below correspond to estuarine deposits. Finally, old marine/fluvial deposits were likely compacted and lead to the layer of medium sand found at the bottom of the borehole.
 
 Because of the resemblance between the local borehole and the geological profile given before, the layering as shown in figure \ref{fig:borehole} is deemed representative for the whole study area. Based on this layering the relevant parameters can be derived, the result is shown in table \ref{tab:soil_layers}.
