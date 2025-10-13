@@ -310,7 +310,7 @@ When extending the analysis to the sediment concentrations, the same trend occur
 \end{figure}
 
 
-\subsubsection{Estimated suspended load}
+\subsubsection{Estimated fine sediment load}
 In order to study the balance of sediments in the study area, it is useful to generate time series of sediment loads. Originally intended for modelling the sedimentological dynamics of the Río de la Plata, \citeauthor{reMETODOLOGIAPARAGENERACION2009} have developed a methodology for generating time series of solid discharges. The first assumption is that the flow of solid sediments in the Middle Paraná can be represented by the sediment flows from Bermejo, disregarding the contribution of the Upper Paraná. Consequently, the flow in the Middle Paraná can be regarded as a combination of the fluvial discharge in Túnel Subfluvial and the fine sediment load recorded at El Colorado (see Section \ref{sec:measurementstations}). Next, this procedure is applied to recent data to evaluate the methodology. The most recent, relevantly long interval with continuous data for both measurement stations is 2017 to 2019. A number of assumptions is used to find the time series of fine sediment concentration:
 
 \begin{itemize}
@@ -331,7 +331,14 @@ The result of this time series is given in Figure \ref{fig:timeseries fine sedim
 
 
 \subsubsection{Estimated course sediment load}
-Similarl
+An approach for estimating the transport of coarse sediments is based on the Engelund–Hansen formulation \textbf{Engelund Hansen}. This empirical relation predicts the total transport of bed material, which in this case is assumed to consist mainly of coarse sediments or sands. The total volumetric sediment transport rate per unit width is expressed as:
+
+\begin{equation}
+    q_{t} = \frac{0.05\,u^{2}\,h^{3/2}\,S_{f}^{3/2}}{(s - 1)^{2}\,g^{1/2}\,d_{50}}
+    \label{eq:engelund_hansen}
+\end{equation}
+
+where \( s \) is the specific gravity of the sediment, \( g \) is the acceleration due to gravity, \( d_{50} \) is the median grain diameter, and \( S_{f} \) is the friction slope. The variables \( u \) and \( h \) represent the mean flow velocity and the flow depth, respectively. The value for $d_{50}$ is assumed to be $200 ~\mu m$ (\cite{reMETODOLOGIAPARAGENERACION2009}). The values for $u$, $h$ and $S_f$ were gathered by running a one-dimensional hydrodynamic model in HEC-RAS. 
 
 
 
@@ -487,7 +494,7 @@ In order to further study the liquid flows in the Paraná Guazú, it is noted th
 
 
 \subsection{Suspended sediment load}
-In this section, the measured suspended sediment concentrations and flow velocity profiles are analysed in order to calculate the total suspended sediment flux. The sediment concentrations were obtained by lowering an intake tube connected to a rope and a weight into the water, as described in Section \ref{Measurement variables and equipment}. By assuming a constant angle of the rope at different depths in a cross section and measuring the length of the rope, the depth at which the measurements were taken could be determined. The measured suspended sediment concentrations at different depths are shown in Figure \ref{fig:Measured suspended sediment concentrations}
+In this section, the measured suspended sediment concentrations and flow velocity profiles are analysed in order to calculate the total suspended sediment flux. The sediment concentrations were obtained by lowering an intake tube connected to a rope and a weight into the water, as described in Section \ref{Measurement variables and equipment}. By assuming a constant angle of the rope at different depths in a cross section and measuring the length of the rope, the depth at which the measurements were taken could be determined. The measured suspended sediment concentrations at different depths are shown in Figure \ref{fig:Measured suspended sediment concentrations}.
 
 \begin{figure}[H]
     \centering
@@ -496,7 +503,7 @@ In this section, the measured suspended sediment concentrations and flow velocit
     \label{fig:Measured suspended sediment concentrations}
 \end{figure}
 
-The Acoustic Doppler Current Profiler (ADCP) measures the flow velocity and depth across a river cross section by dividing the measurements into vertical bins for every ensemble. This data can be used to create a flow velocity field for the whole cross section and velocity profiles for multiple locations along the cross section. These velocity profiles are used to determine the Law of the Wall fit, see formula \ref{eq:law_of_the_wall}.
+The Acoustic Doppler Current Profiler (ADCP) measures the flow velocity and depth across a river cross section by dividing the measurements into vertical bins for every ensemble. This data can be used to create a flow velocity field for the whole cross section, see Appendix \ref{appendix:fieldwork results}, and velocity profiles for multiple locations along the cross section. These velocity profiles are used to determine the Law of the Wall fit, see formula \ref{eq:law_of_the_wall}.
 
 \begin{equation}
     u = \left( \frac{u_*}{\kappa} \right) \ln\left( \frac{z}{z_0} \right)
@@ -515,9 +522,41 @@ The Law of the Wall fit is used to calculate the friction velocity ($u_*$) which
     \label{Rouse profile}
 \end{equation}
 
-The reference depth ($a$) and the near-bed reference concentration ($C_a$) were based on the lowest measured suspended sediment concentrations for each cross section. By inspecting the Rouse profile at the ensemble where the sediment measurements were taken, the settling velocity ($w_s$) was determined, as no information on suspended sediment size was available. 
+The reference depth ($a$) and the near-bed reference concentration ($C_a$) were based on the lowest suspended sediment concentrations measured for each cross section. By inspecting the Rouse profile at the ensemble where the sediment measurements were taken, the settling velocity ($w_s$) was determined, as no information on suspended sediment size was available. The Rouse profile for the location at which the suspended sediment measurement in cross section is shown in Figure \ref{fig:RouseProfile_cs11}. The corresponding velocity profile and Law of the Wall fit are shown in \ref{fig:VelProfile_cs11}.
 
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[height=6cm]{figures/ch6/RouseProfile_cs11.png}
+        \caption{Rouse profile for Cross section 1.}
+        \label{fig:RouseProfile_cs11}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[height=6cm]{figures/ch6/Vel_profile_cs11.png}
+        \caption{Velocity profile for Cross section 1.}
+        \label{fig:VelProfile_cs11}
+    \end{minipage}
+\end{figure}
 
+The total suspended sediment flux per cross section is calculated by 
+
+\begin{table}[H]
+    \centering
+    \caption{Flow rates at different cross sections (kg/s)}
+    \label{Calculated suspended sediment flux}
+    \begin{tabular}{c c c}
+        \hline
+        Cross Section & cs1 & cs2 \\
+        \hline
+        1 & 127.14 & 115.61 \\
+        2 & 90.80  & 61.54  \\
+        3 & 337.44 & 348.07 \\
+        \hline
+    \end{tabular}
+\end{table}
 
 \subsection{Grain size distribution of bed load samples}
 During the fieldwork, data was collected on the Paraná River over a period of two days. Seven samples were collected from the riverbed at four different cross-sections. Samples were collected at depths of 10 and 15 metres. The first number refers to the cross-section and the second number refers to a depth of 10 or 15 metres. The locations where the samples were collected are presented in figure \ref{fig:measurements day1} and \ref{fig:measurements day2}. Sample 3-1 was quite large, so it was decided to treat it as two different samples (3-1A \& B). 
