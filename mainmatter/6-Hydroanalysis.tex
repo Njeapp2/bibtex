@@ -68,7 +68,7 @@ Table \ref{tab:standard_values} gives the standard design values for wave height
 
 \subsection{Loads and Impacts due to Ships}
 Following the information about tides, waves and currents one might ask how the ship induced waves may exert a force on the river bed. This can be done with the help of wave theory. The first relevant parameters to take into account are the ship waves in rivers. These are assumed to be between 0.25 and 0.75 meters tall according to Table \ref{tab:standard_values}. Based on observations during the field trip, the value of 0.25 meter wave height is chosen as the cargo ships do not travel with a speed significant enough to reach a height of 0.75 m at the riverbed 100 meters away.
-In addition to that, the current coming from the ship, both natural and return are also relevant. Since the natural current is relevant in this case, the value of 1.5 [m/s] will serve as a reference for further calculations \autocite{ship-induced wave forces}.
+There are two types of currents comning from the ship, the natural and return current. Since the natural current is the relevant one in this case due to its magnitude of 1.5 [m/s] compared to 0.5 [m/s] \ref{tab:standard_values} will serve as a reference for further calculations \autocite{hasanShipinducedWaveForces2025}.
 This gives the following parameters:
 
 \begin{table}[H]
@@ -85,7 +85,7 @@ This gives the following parameters:
 \end{table}
 
 \subsubsection{Wave Load}
-Next, one can calculate the force of the wave, assuming that the wave signal given by the boat is uniform, and at about 10 repetitions 100 meters from the shore. This leaves us with the wave theory of \autocite{} which states that there are two types of waves you can get energy from:
+Next, one can calculate the force of the wave, assuming that the wave signal given by the boat is uniform. In the calculation we will also assume from the video filmed in the field trip that the wave spectrum coming from the ship includes about 10 repetitions, and that the boat is located 100 meters from the shore. This leaves us with the wave theory of \autocite{arrigaLecture2CIEM40002025} which states that there are two types of waves you can get energy from:
 
 \begin{itemize}
     \item Periodic waves 
@@ -436,7 +436,7 @@ This section describes the results of the field campaign introduced in Section \
 
 
 \subsection{Water level and discharge}
-In order to further study the liquid flows in the Paraná Guazú, estimates are needed for the discharge of Río Ibicuy and Río Talabera. These were collected during the fieldwork, as indicated in Figure \ref{fig:measurements day1} and Figure \ref{fig:measurements day2}. In addition, an overview of all cross sections with discharge measurements is given in Figure \ref{fig:cross section domain}. The indexing of the cross sections is made in chronological order based on the fieldwork. Note that at the confluence of the Ibicuy and Paraná, there is no measurement of the component flowing in from the Paraná. However, this can be estimated by the equilibrium of discharges in the confluence. The relevant flow measurements of the different cross sections are summarized in Table \ref{tab:discharges fieldwork}. Note that the water levels are recorded on different dates from nearby measurement stations, i.e. Brazo Largo and Ibicuy. Figure \ref{fig:water elevations fieldwork} gives an overview of the evolution of water elevations during the measurement campaign. The values in the table correspond to the location and time of each measurement. For Section 5, the water level is linearly interpolated between the stations. The remaining cross sections are assumed to be close enough to their corresponding measurement station.  Also, the flow velocity is a mean velocity taken over the entire cross section of the two measured sections per measurement location. The bathymetries and velocity profiles that result from the ACDP measurements can be found in Appendix \ref{appendix:fieldwork results}, where the output of the \textit{RiverSurveyor} software is given. Note that of each cross section, only one of the two measured sections is given. 
+In order to further study the liquid flows in the Paraná Guazú, estimates are needed for the discharge of Río Ibicuy and Río Talabera. These were collected during the fieldwork, as indicated in Figure \ref{fig:measurements day1} and Figure \ref{fig:measurements day2}. In addition, an overview of all cross sections with discharge measurements is given in Figure \ref{fig:cross section domain}. The indexing of the cross sections is made in chronological order based on the fieldwork. Note that at the confluence of the Ibicuy and Paraná, there is no measurement of the component flowing in from the Paraná. However, this can be estimated by the equilibrium of discharges in the confluence. 
 
 \begin{figure}
     \centering
@@ -445,14 +445,7 @@ In order to further study the liquid flows in the Paraná Guazú, estimates are 
     \label{fig:cross section domain}
 \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.75\linewidth]{figures/ch6/water elevations fieldwork.png}
-    \caption{Water elevations of Brazo Largo and Puerto Ibicuy during fieldwork}
-    \label{fig:water elevations fieldwork}
-\end{figure}
-
-The water elevations in Figure \ref{fig:water elevations fieldwork} are expressed with respect to the IGN datum. For that reason, elevations at Puerto Ibicuy are consistently higher than at Brazo Largo on the same time instants. During the two measurement days, water levels drop while discharges increase, which appears to contradict the positive correlation between stage and discharge discussed in Section \ref{sec:correlation of variables}. This discrepancy arises because the standard stage-discharge relationship assumes steady flow and acts on longer timescales. In contrast, on short timescales, water levels in the Paraná Guazú are influenced by variations in the Río de la Plata, including backwater effects and transient downstream control. These factors cause a temporary inverse relation between stage and discharge, leading to the observed short-term response. \cite{jonesExpandedRatingCurve2019} confirm that traditional rating curves fail in the tidal zone, because tidally influenced discharge is more complex than upstream river discharge, causing non-monotonic behaviour. 
+The relevant flow measurements of the different cross sections are summarized in Table \ref{tab:discharges fieldwork}. Note that the water levels are recorded on different dates from nearby measurement stations, i.e. Brazo Largo and Ibicuy. Figure \ref{fig:water elevations fieldwork} gives an overview of the evolution of water elevations during the measurement campaign. The values in the table correspond to the location and time of each measurement. For Section 5, the water level is linearly interpolated between the stations. The remaining cross sections are assumed to be close enough to their corresponding measurement station.  Also, the flow velocity is a mean velocity taken over the entire cross section of the two measured sections per measurement location. The bathymetries and velocity profiles that result from the ACDP measurements can be found in Appendix \ref{appendix:fieldwork results}, where the output of the \textit{RiverSurveyor} software is given. Note that of each cross section, only one of the two measured sections is given. 
 
 \begin{table}[H]
     \centering
@@ -473,6 +466,15 @@ The water elevations in Figure \ref{fig:water elevations fieldwork} are expresse
     \end{tabular}
     \label{tab:discharges fieldwork}
 \end{table}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/ch6/water elevations fieldwork.png}
+    \caption{Water elevations of Brazo Largo and Puerto Ibicuy during fieldwork}
+    \label{fig:water elevations fieldwork}
+\end{figure}
+
+The water elevations in Figure \ref{fig:water elevations fieldwork} are expressed with respect to the IGN datum. For that reason, elevations at Puerto Ibicuy are consistently higher than at Brazo Largo on the same time instants. During the two measurement days, water levels drop while discharges increase, which appears to contradict the positive correlation between stage and discharge discussed in Section \ref{sec:correlation of variables}. This discrepancy arises because the standard stage-discharge relationship assumes steady flow and acts on longer timescales. In contrast, on short timescales, water levels in the Paraná Guazú are influenced by variations in the Río de la Plata, including backwater effects and transient downstream control. These factors cause a temporary inverse relation between stage and discharge, leading to the observed short-term response. \cite{jonesExpandedRatingCurve2019} confirm that traditional rating curves fail in the tidal zone, because tidally influenced discharge is more complex than upstream river discharge, causing non-monotonic behaviour. 
 
 
 
@@ -612,7 +614,7 @@ To perform analysis on the data, first the depths were converted to water elevat
 \subsection{Aqua Monitor}
 \label{section:cirtical_location}
 In this section the data from the water gains and losses is explained in more detail.
-Recalling the whole period of time available \ref{Aqua Monitor Water Changes 1985-2025}, it is clear that the outer side of the river curves experience a water gain (indicated in blue), and the inside sides of the curves lose water (indicated in green). 
+Recalling the whole period of time available in Section \ref{Aqua Monitor Water Changes 1985-2025}, it is clear that the outer side of the river curves experience a water gain (indicated in blue), and the inner si of the curves lose water (indicated in green). 
 The location of the camping 'La Blanqueada' is in the outer side of the curve near Puerto Constanza, as seen in the following Figure \ref{fig:Camping Blanqueada}.
 
 \begin{figure}[H]
