@@ -349,8 +349,6 @@ Because of the resemblance between the local borehole and the geological profile
   \end{tabularx}
 \end{table}
 
-
-
 % TABEL VERBETEREN NAAR DE JUISTE FORMAT. EVEN KIJKEN NAAR DE TABEL UIT PYTHON
 
 The parameters in Table \ref{tab:soil_layers} were derived from the Eurocode \autocite{stichtingkoninklijknederlandsnormalisatieinstituutNederlandseNormNEN2025}. Because of limited knowledge on soil characteristics, conservative estimates were made based on this code. In the borehole, no explicit information is given on the top fill layer. Therefore, conservative parameters were assumed based on typical values for organic topsoil.
@@ -370,10 +368,45 @@ As derived from the borehole and the overview in Table \ref{tab:soil_layers}, th
 
 In addition to the geotechnical values and parameters, the design of the cantilever sheet pile wall is also based on the hydraulic parameters and values. As if a sheet pile wall is located in opens water or when having groundwater the hydrostatic pressure will be acting on both sides of the sheet pile wall. The water level of the river and the ground water can be of difference, and when this is the case an excess of hydrostatic pressure will be acting on the sheet pile. 
 
-The hydrostatic pressure w is called the pore water pressure. In unconfined groundwater, the pore hydrostatic pressure at a depth z is calculated with the use of formula X.
+The hydrostatic pressure w is called the pore water pressure. In unconfined groundwater, the pore hydrostatic pressure at a depth z is calculated with the use of Equation \ref{eq:pore_water_pressure}.
 
-\
+\begin{equation}
+    w = z \cdot \gamma_{w}
+    \label{eq:pore_water_pressure}
+\end{equation}
 
+When there is an excess of hydrostatic pressure, which means that the water levels on both side of the sheet pile wall are not on the same level, the excess hydrostatic pressure will occur. The excess hydrostatic pressure can be seen in Figure \ref{fig:excess_pressure} and is calculated with Equation \ref{eq:excess_water_pressure}.
+
+\begin{equation}
+    w_{u}(z) = w_{r}(z) - w_{l}(z) = h_{r}(z) \cdot \gamma_{w} - h_{l}(z) \cdot \gamma_{w}
+    \label{eq:excess_water_pressure}
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\linewidth, height=5cm]{figures/ch8/water_pressure.png}
+        \caption{Hydrostatic pressure}
+        \label{fig:hydrostatic_pressure}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\linewidth, height=5cm]{figures/ch8/excess_water_pressure.png}
+        \caption{Excess hydrostatic pressure}
+        \label{fig:excess_hydrostatic_pressure}
+    \end{subfigure}
+    \caption{Excess hydrostatic pressure}
+    \label{fig:excess_pressure}
+\end{figure}
+
+% DEZE PLOT NOG VERBETEREN IN DE CODE EN DUIDELIJKER MAKEN EN DE WAARDES WEGHALEN
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.70\linewidth]{figures/ch8/soil_profile_cross_section.png}
+%     \caption{Soil profile in the cross-section}
+%     \label{fig:soil_profile_cross_section}
+% \end{figure}
 
 \subsubsection{Safety concept}
 
@@ -381,9 +414,22 @@ The hydrostatic pressure w is called the pore water pressure. In unconfined grou
 
 \subsubsection{Calculation of minimal embedding depth}
 
+To calculate the embedding depth of the sheet pile. The moments around the lowest point of the sheet pile should be set to zero. To make up the balance of moments, firstly the forces and pressures acting on the sheet pile should be defined. The horizontal pressure acting on the sheet pile are based on the earth pressure by the soil and the hydrostatic pressure by the water. Firstly, the earth pressures will be calculated where after the hydrostatic pressure will be calculated, which will later be described as forces.
+
+The depth of the embedding can be calculated in mulitple ways. One way is to give the depth an unknown parameter t and leave this unknown expressed in the pressure and forces, which later give an explicit formula 
+
 \textit{Effective stress}
 
-Uitleg over hoe de effective stress berekend wordt met een afbeelding van de passive en active side en een tabel met de belangrijkste waarden. Uitleg dat alles onder de dredging line een waarden zal komen die uit een onbekende D zal bestaan.
+The horizontal pressure of the soil can be calculated based on the vertical effective stress. The effective stress in the soil can be calculated with Equation \ref{eq:effective_stress}. In which the effective stress is based on the weight of the soil and the unit weight $\gamma$, of each layer. If the soil layer is below the ground water table the saturated unit weight should be deducted from the unit weight, $\gamma - \gamma_{w}$. 
+
+\begin{equation}
+    \sigma^{'}_{v} = \gamma \cdot z
+    \label{eq:effective_stress}
+\end{equation}
+
+In Figure XX the effective stress of both sides of the sheet pile can be seen. In Table XX, the related values of the effective stress are displayed.
+
+
 
 \textit{Earth pressure}
 
