@@ -1,33 +1,29 @@
-\chapter{Hydrodynamical and sedimentary analysis}
+\chapter{Hydrodynamic and sedimentary analysis}
 \label{chap:hydroanalysis}
 \section{Effect of tides and waves on the water level}
 
 \subsection{Tides, waves and currents}
-In addition to the study on the effects of sand mining on the river bed, it is as important to look at the effects of water on the river banks.
-
-Relevant to this project, the two situations that contribute to this problem are the elevation of the water level due to the high astronomical tide, and the elevation of the water level/current due to the ship waves.
+In addition to the study on the effects of sand mining on the river bed, it is as important to look at the effects of water on the river banks. Relevant to this project, the two situations that contribute to this problem are the elevation of the water level due to the high astronomical tide, and the elevation of the water level due to the ship waves.
 
 \subsubsection{Astronomical tides}
 
-Tide is the rise and fall of the water level, in particular the sea level, due to the gravitational force of the moon\autocite{nationaloceanicandatmosphericadministrationTidesCurrents}. As said, the tidal influence is the strongest in the ocean, pulling away the sea from one side of the globe to the other depending on the position of the moon, as seen in Figure \ref{fig:Tidal movement due to gravitational force}.
+Tide is the rise and fall of the water level, in particular the sea level, due to the gravitational force of the moon \autocite{nationaloceanicandatmosphericadministrationTidesCurrents}. As said, the tidal influence is the strongest in the ocean, pulling away the sea from one side of the globe to the other depending on the position of the moon, as seen in Figure \ref{fig:Tidal movement due to gravitational force}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{figures/ch2/astronomical.jpg}
     \caption{Tidal movement due to gravitational force}
     \label{fig:Tidal movement due to gravitational force}
 \end{figure}
-This gravitational force can also apply to rivers, as long as they are part of, or near a substantial quantity of water mass. Since the region of interest the  Rio Paraná Guazú and Ibicuy are quite near the delta of the Paraná and the river mouth, it is expected to be of significance for the data analysis. This will be treated in section \ref{sec 5.2 Hydrodynamic data}.
+This gravitational force can also apply to rivers, as long as they are part of, or near a substantial quantity of water mass. Since the region of interest is situated in the Lower Paraná Delta, it is expected to be tidally influenced by the Río de la Plata. Therefore, tidal effects are of significance for the data analysis. This will be treated in section \ref{sec:tidal forcing}.
 
 \subsubsection{Waves}
 
 The gravitational force not only yields a change in water level, but is also responsible for tidal waves. These are induced by the gravitational pull, in the direction of the moving current. 
 In addition to that, there are also wind waves. These are produced by a striking distance called the fetch, where the wind blows on the surface of the water, gathering energy which translates into a wave. In order to find the significant wave height of this situation, one takes a sample of wave heights from buoys and takes the average of the highest third waves \autocite{arrigaLecture2CIEM40002025}.
 
-Given that the river is not straight, the fetch or striking distance is usually quite short, as seen in Figure \ref{Figure 1.1}. This means that the impact of the wind waves is probably quite small. This subject will also be treated in section \ref{sec 5.2 Hydrodynamic data}.
+Given that the river is not straight, the fetch or striking distance is usually quite short, as seen in Figure \ref{Figure 1.1}. This means that the impact of the wind waves is probably quite small. This subject will also be treated in Section \ref{sec 5.2 Hydrodynamic data}.
 
-The last part of the waves that will be treated in this subsection are the ship waves. These are created when a ship passes by and pushes away the water to make way for the boat to go forward. This situation initiates three types of waves, primary, secondary, and propeller wash waves, as seen in Figure \ref{Fig:Ship Waves Effect on Water and Bank} below \autocite{antoniniLecture12Ships2025}.
-
-The impact of the secondary wave is the most promiscuous, as one can tell from the frequency plot underneath the sketch.
+The last part of the waves that will be treated in this subsection are the ship waves. These are created when a ship passes by and pushes away the water to make way for the boat to go forward. This situation initiates three types of waves: primary, secondary, and propeller wash waves. These can be seen in Figure \ref{Fig:Ship Waves Effect on Water and Bank} (\autocite{antoniniLecture12Ships2025}). The impact of the secondary wave is the most promiscuous, as one can tell from the frequency plot underneath the sketch in Figure \ref{fig:Prop Wash Wave}. 
 
 \begin{figure}[H]
     \centering
@@ -56,8 +52,8 @@ The impact of the secondary wave is the most promiscuous, as one can tell from t
 
 \subsubsection{Correlated currents}
 
-Due to changes in water level as well as supplementary waves, a change in current applies. Using the standard values of the Netherlands and the given facts about the size of the ships circulating and the currents in the Rio Paraná Guazú, one could assume the wave height and current amplitudes for our case. This can be reflected once the field measures are known, in a later section \ref{Section 5}.
-The table of the referencing values are as follows:
+Due to changes in water level as well as supplementary waves, a change in current applies. Using the standard values of the Netherlands and the given facts about the size of the ships circulating and the currents in the Rio Paraná Guazú, one could assume the wave height and current amplitudes for our case. This can be reflected once the field measurements are known, as described in Section \ref{sec:field study}.
+Table \ref{tab:standard_values} gives the standard design values for wave heights and currents. Understandably, the relevant row for this project is the 'Rivers' category. Hinting to the fact that big ships are usually present in the channel, one might take values towards the upper boundary of the table.
 
 \begin{table}[H]
     \centering
@@ -78,18 +74,14 @@ The table of the referencing values are as follows:
 \end{table}
 
 
-Understandably, the relevant row for this project is the 'River' category. Hinting to the fact that big ships are usually present in the channel, one might take values towards the upper boundary of the table.
-
 \subsection{Loads and Impacts due to Ships}
-Following the information about tides, waves and currents one might ask what type of forces these contain and what how the loads could be quantified. This can be done with the help of wave theory. 
-
-The first relevant parameters to take into account are the ship waves in rivers. These are assumed to be between 0.25 and 0.75 meters tall. Based on observations during the field trip, the value of 0.25 meter wave height is chosen as the cargo's do not travel with a speed significant enough to reach a height of 0.75 m \ref{tab:standard_values}. 
-In addition to that, the current coming from the ship, both natural and return are also relevant. Since the Natural current is relevant in this case, the value of 1.5 [m/s] will serve as a reference for further calculations.
+Following the information about tides, waves and currents one might ask what type of forces these contain and how the loads could be quantified. This can be done with the help of wave theory. The first relevant parameters to take into account are the ship waves in rivers. These are assumed to be between 0.25 and 0.75 meters tall according to Table \ref{tab:standard_values}. Based on observations during the field trip, the value of 0.25 meter wave height is chosen as the cargo ships do not travel with a speed significant enough to reach a height of 0.75 m. 
+In addition to that, the current coming from the ship, both natural and return are also relevant. Since the natural current is relevant in this case, the value of 1.5 [m/s] will serve as a reference for further calculations.
 This gives the following parameters:
 
 \begin{table}[H]
     \centering
-    \caption{Parameters for Wave Impact Calculation}
+    \caption{Design Parameters for Wave Impact Calculation}
     \label{tab:Parameters for Wave Impact Calculation}
     \begin{tabular}{lcc}
         \toprule
@@ -101,38 +93,34 @@ This gives the following parameters:
 \end{table}
 
 \subsubsection{Wave Load}
-Next, one can calculate the force of the wave, assuming that the wave signal given by the boat is uniform, and at about 10 repetitions 100 meters from the shore
-This leaves us with the theory of waves \autocite{} which states that there are two types of waves you can get energy from:
-There are two types of waves for which we can calculate energy.
+Next, one can calculate the force of the wave, assuming that the wave signal given by the boat is uniform, and at about 10 repetitions 100 meters from the shore. This leaves us with the wave theory of \autocite{} which states that there are two types of waves you can get energy from:
 
 \begin{itemize}
-    \item periodic waves 
-    \item random waves 
+    \item Periodic waves 
+    \item Random waves 
 \end{itemize}
 
-Wave energy is a specific energy and it's calculated per unit of horizontal area [J/m$^2$].
+Wave energy is a specific energy and it is calculated per unit of horizontal area [J/m$^2$]. The equation to calculate wave power for periodic and random waves is given as follows:
 
-The formula (equation) to calculate wave power is:
+\begin{equation}
+\label{eq:periodic wave energy}
+    {E_{pw} = \left(\frac{1}{8}\right) \cdot \rho \cdot g \cdot H_{m0}^2}
+\end{equation}
 
-$$
-{E_{pw} = \left(\frac{1}{8}\right) \cdot \rho \cdot g \cdot H_{m0}^2}
-$$
-
-$$
-{E_{rw} = \left(\frac{1}{16}\right) \cdot \rho \cdot g \cdot H_{m0}^2}
-$$
+\begin{equation}
+\label{eq:random wave energy}
+    {E_{rw} = \left(\frac{1}{16}\right) \cdot \rho \cdot g \cdot H_{m0}^2}
+\end{equation}
 
 \noindent where:
 \begin{itemize}
-    \item $\rho$ : is the density of fresh water: 1000 [kg/m\textsuperscript{3}];
+    \item $\rho$ is the density of fresh water: 1000 [kg/m\textsuperscript{3}];
     \item \(\mathbf{v}\) is the flow velocity vector, expressed in meters per second [m/s];
-    \item \(H_m0\) is the wave height: 0.50 [m];
+    \item \(H_{m0}\) is the wave height: 0.50 [m];
     \item \(g\) is the gravitational constant: 9.81 [m/s\textsuperscript{2}]
 \end{itemize}
 
-From the situation we have, on a small interval of time, the ship waves can be assumed to be periodic. Therefore the first version of the formula can be used. 
-
-Filling the parameters in the equation yields: 
+On a small interval of time, the ship waves can be assumed to be periodic. Therefore, Equation \ref{eq:periodic wave energy} can be applied here. Substituting the parameters in the equation yields: 
 
 $$
 E_{pw} = \frac{1}{8} \cdot 1000 \cdot 9.81 \cdot (0.25)^2 = 76.64 \, \text{J/m}^2
@@ -142,17 +130,17 @@ Converting units gives:
 $$
 {F_w}= 0.7664 \, \text{[kN/m]}
 $$
-For every wave coming from the boat, this load has to be summed times 10. This has to be applied every time a boat passes by.
-
-Based on the fact that there are 6 boats a day that pass, one might assume $ E_{pw} = 45.98  \, \text{kN/m}$ per day. 
+For every wave coming from the boat, this load has to be summed times 10. This has to be applied every time a boat passes by. Based on the fact that there are 6 boats a day that pass, one might assume $ E_{pw} = 45.98  \, \text{kN/m}$ per day. 
 
 \subsubsection{Current Load}
-For the current load, one might use the drag equation\ref{offshore}
+For the current load, one may use the drag equation (\textbf{Reference})
 because it can be used to calculate the force exerted by a current on a vertical structure:
 
-$$
-F_c = \frac{1}{2} \rho C_d A u^2
-$$
+\begin{equation}
+\label{eq:drag load}
+    F_c = \frac{1}{2} \rho C_d A u^2
+\end{equation}
+
 
 \noindent where:
 \begin{itemize}
@@ -163,19 +151,15 @@ $$
     \item \textbf{$ u $}: Current velocity: 1.5 [m/s]
 \end{itemize}
 
-To be able to calculate the force of the current on the bank, one needs to establish the exposed area [m$^2$]. Since we do not know exactly how long the bank is we could calculate with A = 1 [m$^2$] to find a Force illustrated per meter length of the bank.
-
-Filling in these parameters gives:
+To be able to calculate the force of the current on the bank, one needs to establish the exposed surface area. Since we do not know exactly how long the relevant bank stretch is, we could calculate with A = 1 [m$^2$] to find a Force illustrated per meter length of the bank. Filling in these parameters in Equation \ref{eq:drag load} gives:
 
 $$
-F_c = \frac{1}{2} 1000*1.2* 1.5^2 = 1.350 \text{[kN/m]}
+F_c = \frac{1}{2} 1000 \cdot 1.2 \cdot 1.5^2 = 1.350 ~\text{[kN/m]}
 $$
-This also occurs for a short period of time, but 6 times a day.
-
-Hence, the total load effect of the ship waves on the bank would be:
+This also occurs for a short period of time, but 6 times a day. Hence, the total load effect of the ship waves on the bank would be:
 
 $$
-F = F_w + F_c = 1.350*6 + 45.98 = 54.08 \text{[kN/m]}
+F = F_w + F_c = 1.350 \cdot 6 + 45.98 = 54.08 ~\text{[kN/m]}
 $$
 
 This value can later be used when calculating solutions for bank protection. 
@@ -202,7 +186,7 @@ Repeating this process takes the river bank further inside the land, increasing 
 In this section, analysis on the hydrodynamic variables is performed. This includes relations between water elevations, discharge and sediment concentrations - both through data sources and field measurements. Additionally, tidal effects in the study area are considered. 
 
 \subsection{Conversion to water elevation}
-A uniform approach is needed to describe water levels and depths of the river. Therefore, these variables will be expressed in terms of a reference level, IGN, which is set by the \textit{Instituto Geográfico Nacional}. It is based on sea level measurements from a tide gauge in Mar del Plata, Buenos Aires province (\cite{donofrioReferenciaVertical1999}). Figure \ref{fig:waterelevationreference} gives an overview of the quantities with respect to an arbitrary measurement station. Here, $d$ is the vertical depth as measured by the ADCP or echosounder. Moreover, each station has a specific distance between its local zero reference and the zero IGN level, which is indicated by $l_{station-IGN}$. Next, all variables should be expressed in terms of IGN level. Therefore, water elevations and depths expressed in elevation are defined as follows:
+A uniform approach is needed to describe water levels and depths of the river. Therefore, these variables will be expressed in terms of a reference level, IGN, which is set by the \textit{Instituto Geográfico Nacional}. It is based on sea level measurements from a tide gauge in Mar del Plata, Buenos Aires province \autocite{donofrioReferenciaVertical1999}. Figure \ref{fig:waterelevationreference} gives an overview of the quantities with respect to an arbitrary measurement station. Here, $d$ is the vertical depth as measured by the ADCP or echosounder. Moreover, each station has a specific distance between its local zero reference and the zero IGN level, which is indicated by $l_{station-IGN}$. Next, all variables should be expressed in terms of IGN level. Therefore, water elevations and depths expressed in elevation are defined as follows:
 
 \begin{equation}
     we_{station} = wl_{station} + l_{station-IGN} ~[m~IGN]
@@ -319,7 +303,7 @@ In order to study the balance of sediments in the study area, it is useful to ge
     \item Depositions of wash load in the floodplain between the stations, is compensated for by substracting 10 million tonnes per year from concentration peaks. This holds for all concentrations above a certain threshold value, which in this case was found to be optimal at $350$ mg/l.
 \end{itemize}
 
-The result of this time series is given in Figure \ref{fig:timeseries fine sediments}. It is important to note that this relation for fine sediment concentrations is considered useful for the Paraná Guazú as well (\cite{reMetodologiaParaGeneracion2009}). The plot shows that the observations are generally higher than the fit predicts in times of low fine sediment loads. Overall, the fit gives a good estimate of fine sediment concentrations, revealing seasonal aspects and concentration values.
+The result of this time series is given in Figure \ref{fig:timeseries fine sediments}. It is important to note that this relation for fine sediment concentrations is considered useful for the Paraná Guazú as well \autocite{reMetodologiaParaGeneracion2009}. The plot shows that the observations are generally higher than the fit predicts in times of low fine sediment loads. Overall, the fit gives a good estimate of fine sediment concentrations, revealing seasonal aspects and concentration values.
 
 \begin{figure}[H]
     \centering
@@ -338,7 +322,7 @@ An approach for estimating the transport of coarse sediments is based on the Eng
     \label{eq:engelund_hansen}
 \end{equation}
 
-where \( s \) is the specific gravity of the sediment, \( g \) is the acceleration due to gravity, \( d_{50} \) is the median grain diameter, and \( S_{f} \) is the friction slope. The variables \( u \) and \( h \) represent the mean flow velocity and the flow depth, respectively. The value for $d_{50}$ is assumed to be $200 ~\mu m$ (\cite{reMetodologiaParaGeneracion2009}). The values for $u$, $h$ and $S_f$ were gathered by running a one-dimensional hydrodynamic model in HEC-RAS. 
+where \( s \) is the specific gravity of the sediment, \( g \) is the acceleration due to gravity, \( d_{50} \) is the median grain diameter, and \( S_{f} \) is the friction slope. The variables \( u \) and \( h \) represent the mean flow velocity and the flow depth, respectively. The value for $d_{50}$ is assumed to be $200 ~\mu m$ \autocite{reMetodologiaParaGeneracion2009}. The values for $u$, $h$ and $S_f$ were gathered by running a one-dimensional hydrodynamic model in HEC-RAS. 
 
 
 
@@ -351,7 +335,7 @@ The approach of defining the relations between measured flow variables is as fol
 
 Analysis of the flow variables has shown that $R^2$-values tend to decrease, the further downstream the location of the measurements is. This result is in agreement with those found by \citeauthor{songEvaluatingUnderstandingTideriver2024}, who state that the stage-discharge relationship is considerably affected in the transitional zone and tide-dominated region of the Yangtze estuary. Their research reports $R^2$-values decreasing from 0.9 to 0.4, in a river-dominated and transitional zone, respectively. Therefore, an in-depth study of the tide-river interactions is needed. This includes measurements in both the transitional zone and tide-dominated region, to update the stage-discharge relationship. For this particular study, the influence of tidal effects will be handled in Section \ref{sec:tidal forcing}.
 
-As for the sediment-discharge relationship, the differences in correlations in Brazo Largo can be explained through the sources of the variables. Whereas the fine sediment concentration predominantly originates from the Bermejo basin, the discharge is dominated by the Paraguay and Paraná. This results in a weak correlation downstream of the confluence of these rivers (\cite{lopezweibelSourcesTemporalDynamics2022}). Another factor that may perturb the correlation of variables in the Lower Paraná, is the inflow of the Uruguay river. This flow can cause disturbances in the relations, as the sediment concentrations and discharges stem from different catchments. 
+As for the sediment-discharge relationship, the differences in correlations in Brazo Largo can be explained through the sources of the variables. Whereas the fine sediment concentration predominantly originates from the Bermejo basin, the discharge is dominated by the Paraguay and Paraná. This results in a weak correlation downstream of the confluence of these rivers \autocite{lopezweibelSourcesTemporalDynamics2022}. Another factor that may perturb the correlation of variables in the Lower Paraná, is the inflow of the Uruguay river. This flow can cause disturbances in the relations, as the sediment concentrations and discharges stem from different catchments. 
 
 
 
@@ -522,7 +506,12 @@ The Acoustic Doppler Current Profiler (ADCP) measures the flow velocity and dept
     \label{eq:law_of_the_wall}
 \end{equation}
 
-The Law of the Wall fit is used to calculate the friction velocity ($u_*$) which is needed in order to calculate the Rouse number, see Equation \ref{Rouse number}. Using this Rouse number it is possible to calculate the sediment concentration ($c$) at any depth ($z$) in the water column using the Rouse profile in Equation \ref{Rouse profile}.
+The 
+
+The Law of the Wall fit is used to calculate the friction velocity ($u_*$) which is needed in order to calculate the Rouse number, see Equation \ref{Rouse number}. 
+
+
+Using this Rouse number it is possible to calculate the sediment concentration ($c$) at any depth ($z$) in the water column using the Rouse profile in Equation \ref{Rouse profile}.
 
 \begin{equation}
     P = \frac{w_s}{\kappa u_*}
@@ -534,7 +523,7 @@ The Law of the Wall fit is used to calculate the friction velocity ($u_*$) which
     \label{Rouse profile}
 \end{equation}
 
-The reference depth ($a$) and the near-bed reference concentration ($C_a$) were based on the lowest suspended sediment concentrations measured for each cross section. By inspecting the Rouse profile at the ensemble where the sediment measurements were taken, the settling velocity ($w_s$) was determined, as no information on suspended sediment size was available. The Rouse profile for the location at which the suspended sediment measurement in cross section is shown in Figure \ref{fig:RouseProfile_cs11}. The corresponding velocity profile and Law of the Wall fit are shown in \ref{fig:VelProfile_cs11}.
+The reference depth ($a$) and the near-bed reference concentration ($C_a$) were based on the lowest suspended sediment concentrations measured for each cross section. By inspecting the Rouse profile at the ensemble where the sediment measurements were taken, the settling velocity ($w_s$) was determined, as no information on suspended sediment size was available. The Rouse profile for the location at which the suspended sediment measurement in cross section is shown in Figure \ref{fig:RouseProfile_cs11}. The corresponding velocity profile and Law of the Wall fit are shown in \ref{fig:VelProfile_cs11}. 
 
 \begin{figure}[H]
     \centering
