@@ -11,7 +11,7 @@ The grid is defined similar to Figure \ref{fig:cross section domain}, including 
 The bathymetry is provided by INA through a Digital Elevation Model from 2019. This was converted to a file containing geospatial information and corresponding depths. The DEM has been visually compared to the ADCP cross sections that result from the field campaign, and it was found that the DEM is representative for the current bathymetry of the river. By making use of the \textit{QUICKIN}-tool, the data is interpolated to the computational grid. This result was found by applying the following operations:
 
 \begin{itemize}
-    \item Grid Cell Averaging with 1 as a minimum number of averaging points. This method is preferred over Triangular Interpolation, which is computationally more expensive. In addition, the Grid Cell Averaging approach is suitable when there are more samples than grid points (\cite{}). This is found to be the case when mapping the DEM raster data to a grid. 
+    \item Grid Cell Averaging with 1 as a minimum number of averaging points. This method is preferred over Triangular Interpolation, which is computationally more expensive. In addition, the Grid Cell Averaging approach is suitable when there are more samples than grid points (\textbf{QUICKIN reference}). This is found to be the case when mapping the DEM raster data to a grid. 
     \item Internal Diffusion with 1000 internal diffusion steps
 \end{itemize}
 
