@@ -7,13 +7,7 @@ In addition to the study on the effects of sand mining on the river bed, it is a
 
 \subsubsection{Astronomical tides}
 
-Tide is the rise and fall of the water level, in particular the sea level, due to the gravitational force of the moon \autocite{nationaloceanicandatmosphericadministrationTidesCurrents}. As said, the tidal influence is the strongest in the ocean, pulling away the sea from one side of the globe to the other depending on the position of the moon, as seen in Figure \ref{fig:Tidal movement due to gravitational force}.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\linewidth]{figures/ch2/astronomical.jpg}
-    \caption{Tidal movement due to gravitational force}
-    \label{fig:Tidal movement due to gravitational force}
-\end{figure}
+Tide is the rise and fall of the water level, in particular the sea level, due to the gravitational force of the moon \autocite{nationaloceanicandatmosphericadministrationTidesCurrents}. As said, the tidal influence is the strongest in the ocean, pulling away the sea from one side of the globe to the other depending on the position of the moon. 
 This gravitational force can also apply to rivers, as long as they are part of, or near a substantial quantity of water mass. Since the region of interest is situated in the Lower Paraná Delta, it is expected to be tidally influenced by the Río de la Plata. Therefore, tidal effects are of significance for the data analysis. This will be treated in section \ref{sec:tidal forcing}.
 
 \subsubsection{Waves}
@@ -21,36 +15,34 @@ This gravitational force can also apply to rivers, as long as they are part of, 
 The gravitational force not only yields a change in water level, but is also responsible for tidal waves. These are induced by the gravitational pull, in the direction of the moving current. 
 In addition to that, there are also wind waves. These are produced by a striking distance called the fetch, where the wind blows on the surface of the water, gathering energy which translates into a wave. In order to find the significant wave height of this situation, one takes a sample of wave heights from buoys and takes the average of the highest third waves \autocite{arrigaLecture2CIEM40002025}.
 
-Given that the river is not straight, the fetch or striking distance is usually quite short, as seen in Figure \ref{Figure 1.1}. This means that the impact of the wind waves is probably quite small. This subject will also be treated in Section \ref{sec 5.2 Hydrodynamic data}.
+Given that the river is not straight, the fetch or striking distance is usually quite short, as seen in Figure \ref{Figure 1.1}. This means that the impact of the wind waves can theoretically only be quite small. Therefore, this impact will not be taken into consideration.
 
 The last part of the waves that will be treated in this subsection are the ship waves. These are created when a ship passes by and pushes away the water to make way for the boat to go forward. This situation initiates three types of waves: primary, secondary, and propeller wash waves. These can be seen in Figure \ref{Fig:Ship Waves Effect on Water and Bank} (\autocite{antoniniLecture12Ships2025}). The impact of the secondary wave is the most promiscuous, as one can tell from the frequency plot underneath the sketch in Figure \ref{fig:Prop Wash Wave}. 
 
 \begin{figure}[H]
     \centering
     % First subfigure
-    \begin{subfigure}[a]{0.48\linewidth}
+    \begin{subfigure}{0.48\linewidth}
         \centering
-        \includegraphics[width=0.5\linewidth]{figures/ch2/shipwaves.png}
+        \includegraphics[width=\linewidth]{figures/ch2/shipwaves.png}
         \caption{Ship Waves}
         \label{fig:Ship Waves}
     \end{subfigure}
-    
-    \vspace{0.5cm}
-    
+    \hfill
     % Second subfigure
-    \begin{subfigure}[b]{0.48\linewidth}
+    \begin{subfigure}{0.48\linewidth}
         \centering
-        \includegraphics[width=0.5\linewidth]{figures/ch2/shipsecond.png}
+        \includegraphics[width=\linewidth]{figures/ch2/shipsecond.png}
         \caption{Propeller Wash Wave}
         \label{fig:Prop Wash Wave}
     \end{subfigure}
-    
     \caption{Ship Waves Effect on Water and Bank}
     \label{Fig:Ship Waves Effect on Water and Bank}
 \end{figure}
 
 
-\subsubsection{Correlated currents}
+
+\subsubsection{Currents}
 
 Due to changes in water level as well as supplementary waves, a change in current applies. Using the standard values of the Netherlands and the given facts about the size of the ships circulating and the currents in the Rio Paraná Guazú, one could assume the wave height and current amplitudes for our case. This can be reflected once the field measurements are known, as described in Section \ref{sec:field study}.
 Table \ref{tab:standard_values} gives the standard design values for wave heights and currents. Understandably, the relevant row for this project is the 'Rivers' category. Hinting to the fact that big ships are usually present in the channel, one might take values towards the upper boundary of the table.
@@ -75,8 +67,8 @@ Table \ref{tab:standard_values} gives the standard design values for wave height
 
 
 \subsection{Loads and Impacts due to Ships}
-Following the information about tides, waves and currents one might ask what type of forces these contain and how the loads could be quantified. This can be done with the help of wave theory. The first relevant parameters to take into account are the ship waves in rivers. These are assumed to be between 0.25 and 0.75 meters tall according to Table \ref{tab:standard_values}. Based on observations during the field trip, the value of 0.25 meter wave height is chosen as the cargo ships do not travel with a speed significant enough to reach a height of 0.75 m. 
-In addition to that, the current coming from the ship, both natural and return are also relevant. Since the natural current is relevant in this case, the value of 1.5 [m/s] will serve as a reference for further calculations.
+Following the information about tides, waves and currents one might ask how the ship induced waves may exert a force on the river bed. This can be done with the help of wave theory. The first relevant parameters to take into account are the ship waves in rivers. These are assumed to be between 0.25 and 0.75 meters tall according to Table \ref{tab:standard_values}. Based on observations during the field trip, the value of 0.25 meter wave height is chosen as the cargo ships do not travel with a speed significant enough to reach a height of 0.75 m at the riverbed 100 meters away.
+In addition to that, the current coming from the ship, both natural and return are also relevant. Since the natural current is relevant in this case, the value of 1.5 [m/s] will serve as a reference for further calculations \autocite{ship}
 This gives the following parameters:
 
 \begin{table}[H]
@@ -115,8 +107,7 @@ Wave energy is a specific energy and it is calculated per unit of horizontal are
 \noindent where:
 \begin{itemize}
     \item $\rho$ is the density of fresh water: 1000 [kg/m\textsuperscript{3}];
-    \item \(\mathbf{v}\) is the flow velocity vector, expressed in meters per second [m/s];
-    \item \(H_{m0}\) is the wave height: 0.50 [m];
+    \item \(H_{m0}^2\) is the wave height: 0.50 [m\textsuperscript{2}];
     \item \(g\) is the gravitational constant: 9.81 [m/s\textsuperscript{2}]
 \end{itemize}
 
@@ -130,7 +121,7 @@ Converting units gives:
 $$
 {F_w}= 0.7664 \, \text{[kN/m]}
 $$
-For every wave coming from the boat, this load has to be summed times 10. This has to be applied every time a boat passes by. Based on the fact that there are 6 boats a day that pass, one might assume $ E_{pw} = 45.98  \, \text{kN/m}$ per day. 
+For every wave coming from the boat, this load has to be summed times 10. This has to be applied every time a boat passes by. Based on the fact that there are 6 boats a day that pass, one might assume $ F_{w} = 45.98  \, \text{kN/m}$ per day. 
 
 \subsubsection{Current Load}
 For the current load, one may use the drag equation (\textbf{Reference})
@@ -156,7 +147,8 @@ To be able to calculate the force of the current on the bank, one needs to estab
 $$
 F_c = \frac{1}{2} 1000 \cdot 1.2 \cdot 1.5^2 = 1.350 ~\text{[kN/m]}
 $$
-This also occurs for a short period of time, but 6 times a day. Hence, the total load effect of the ship waves on the bank would be:
+This also occurs for a short period of time, but 6 times a day. Hence, it is not a static load and needs to be considered at different time intervals. To change the complexity of the non static load, it is best to sum the loads up and convert the time interval to a day.
+The total load effect of the ship waves on the bank every day would be:
 
 $$
 F = F_w + F_c = 1.350 \cdot 6 + 45.98 = 54.08 ~\text{[kN/m]}
@@ -164,10 +156,10 @@ $$
 
 This value can later be used when calculating solutions for bank protection. 
 
-\subsection{Effect on the river bed}
+\subsection{Effect on the river bank}
 \label{chap 6: effect on the river bed}
 There are several ways how the water could have a negative impact on the river bank. In theory the river bank failure may be caused by house placement, water saturation, weight on the river bank, vegetation, and/or tectonic activity, but most of them due to the rise of the water level. The reason behind this is that the river bank is naturally eroded when the water exerts a force on it.
-The river bank is divided in three parts: the toe, the bank and the overbank zone. The toe of the bank is the most susceptible to erosion when in contact with high water levels, which can be seen in the Figure \ref{fig:Effect of Water on Bank after One Year} below \autocite{governmentofsouthaustraliaRiverbankCollapse2024}.
+The river bank is divided in three parts: the toe, the bank and the overbank zone. The toe of the bank is the most susceptible to erosion when in contact with high water levels, which can be seen in the Figure \ref{fig:Effect of Water on Bank after One Year} \autocite{governmentofsouthaustraliaRiverbankCollapse2024}.
 
 \begin{figure}[H]
     \centering
@@ -176,14 +168,14 @@ The river bank is divided in three parts: the toe, the bank and the overbank zon
     \label{fig:Effect of Water on Bank after One Year}
 \end{figure}
 
-When the combination of water level with a strong current is highest, the bank zone is affected by the tidal currents or waves. This is because, as seen in the Figure 7.2, water erodes the layer of the bank where the extra water level pushes, creating a dent inside the soil layer.
+When the combination of water level with a strong current is highest, the bank zone is affected by the tidal currents or waves. This is because, as seen in the Figure \ref{fig:Effect of Water on Bank after One Year}, water erodes the layer of the bank where the extra water level pushes, creating a dent inside the soil layer.
 Consequently, after some time the upper overbank area has less and less support underneath, becoming thus unstable and partly falling down. 
-Repeating this process takes the river bank further inside the land, increasing the channel width, absorbing the land of the local communities or agricultural fields that live near the river bank.
+Repeating this process takes the river bank further inside the land, increasing the channel width, absorbing the land near the river bank.
 
 
 \section{Hydrodynamic data}
 \label{sec:Hydrodynamic data}
-In this section, analysis on the hydrodynamic variables is performed. This includes relations between water elevations, discharge and sediment concentrations - both through data sources and field measurements. Additionally, tidal effects in the study area are considered. 
+In this section, analysis on the hydrodynamic variables is performed. This includes relations between water elevations, discharge and sediment concentrations - through data sources as described in \ref{sec:desk study}. Additionally, tidal effects in the study area are considered. 
 
 \subsection{Conversion to water elevation}
 A uniform approach is needed to describe water levels and depths of the river. Therefore, these variables will be expressed in terms of a reference level, IGN, which is set by the \textit{Instituto Geográfico Nacional}. It is based on sea level measurements from a tide gauge in Mar del Plata, Buenos Aires province \autocite{donofrioReferenciaVertical1999}. Figure \ref{fig:waterelevationreference} gives an overview of the quantities with respect to an arbitrary measurement station. Here, $d$ is the vertical depth as measured by the ADCP or echosounder. Moreover, each station has a specific distance between its local zero reference and the zero IGN level, which is indicated by $l_{station-IGN}$. Next, all variables should be expressed in terms of IGN level. Therefore, water elevations and depths expressed in elevation are defined as follows:
@@ -232,14 +224,14 @@ At some point in the Lower Paraná, the river splits into two main tributaries, 
 
 
 \subsection{Water elevations and discharge}
-This section describes the discharge observed in the measurement stations and relates it to water elevation data. Traditionally, stage-discharge relations are described by rating curves that describe power-law dependencies between variables. This can be written in the following form, with $Q$ the discharge and $h$ the water level or stage:
+This section describes the discharge observed in the SNIH measurement stations and relates it to water elevation data. Traditionally, stage-discharge relations are described by rating curves that describe power-law dependencies between variables. This can be written in the following form, with $Q$ the discharge and $h$ the water level or stage:
 
 \begin{equation}
 \label{eq:powerlaw}
     Q = a \cdot h^b
 \end{equation}
 
-In the expression above, $a$ is a constant and $b$ an index exponent. \citeauthor{schmidtStageDischargeRelationshipOpen2011} note several limitations related to these rating curves. For example, discharge measurements typically scatter and therefore do not show a unique relation with the stage. Also, the underlying physics of the open channel are not captured in the rating. Nevertheless, the relation as given in Equation \ref{eq:powerlaw} is used to roughly approximate dependencies between the variables. 
+In the expression above, $a$ is a constant and $b$ an index exponent. \citeauthor{schmidtStageDischargeRelationshipOpen2011} note several limitations related to these rating curves. For example, discharge measurements typically scatter and therefore do not show a unique relation with the stage. Also, the underlying physics of the open channel are not captured in the rating. Nevertheless, the relation as given in Equation \ref{eq:powerlaw} is used to approximate dependencies between the variables. 
 
 The relationship between fluvial discharge and water level at Brazo Largo yields a relatively weak correlation with an $R^2$ of 0.365. This is shown in Figure \ref{fig:waterleveldischarge}. Alternatively, a linear fit was assumed which produced a slightly better result, showing a positive trend with an $R^2$ of 0.444. In contrast, the El Colorado and Túnel Subfluvial stations exhibit a clear power-law dependence. Power-law fits for these stations resulted in higher $R^2$-values of 0.962 and 0.712, respectively, with the El Colorado plot shown in Figure \ref{fig:waterleveldischarge}. Overall, these results suggest that the strength of the water level–discharge relationship decreases as the river flows downstream.
 
@@ -295,7 +287,7 @@ When extending the analysis to the sediment concentrations, the same trend occur
 
 
 \subsubsection{Estimated fine sediment load}
-In order to study the balance of sediments in the study area, it is useful to generate time series of sediment loads. Originally intended for modelling the sedimentological dynamics of the Río de la Plata, \citeauthor{reMetodologiaParaGeneracion2009} have developed a methodology for generating time series of solid discharges. The first assumption is that the flow of solid sediments in the Middle Paraná can be represented by the sediment flows from Bermejo, disregarding the contribution of the Upper Paraná. Consequently, the flow in the Middle Paraná can be regarded as a combination of the fluvial discharge in Túnel Subfluvial and the fine sediment load recorded at El Colorado (see Section \ref{sec:measurementstations}). Next, this procedure is applied to recent data to evaluate the methodology. The most recent, relevantly long interval with continuous data for both measurement stations is 2017 to 2019. A number of assumptions is used to find the time series of fine sediment concentration:
+In order to study the balance of sediments in the study area, it is useful to generate time series of sediment loads. Originally intended for modelling the sedimentological dynamics of the Río de la Plata, \citeauthor{reMetodologiaParaGeneracion2009} have developed a methodology for generating time series of solid discharges. The first assumption is that the flow of solid sediments in the Middle Paraná can be represented by the sediment flows from Bermejo, disregarding the contribution of the Upper Paraná. Consequently, the flow in the Middle Paraná can be regarded as a combination of the fluvial discharge in Túnel Subfluvial and the fine sediment load recorded at El Colorado (see Section \ref{sec:measurementstations}). Next, this procedure is applied to more recent data to evaluate the methodology. The most recent, relevantly long interval with continuous data for both measurement stations is 2017 to 2019. A number of assumptions is used to find the time series of fine sediment concentration:
 
 \begin{itemize}
     \item A base concentration is set for the Middle Paraná to compensate for low inflow periods of the Bermejo. Therefore, fine sediment load data from Itatí and Puerto Pilcomayo stations (SNIH) are studied in the relevant interval. The sum of the mean loads gives a base concentration of $182.96$ kg/s.
@@ -303,7 +295,7 @@ In order to study the balance of sediments in the study area, it is useful to ge
     \item Depositions of wash load in the floodplain between the stations, is compensated for by substracting 10 million tonnes per year from concentration peaks. This holds for all concentrations above a certain threshold value, which in this case was found to be optimal at $350$ mg/l.
 \end{itemize}
 
-The result of this time series is given in Figure \ref{fig:timeseries fine sediments}. It is important to note that this relation for fine sediment concentrations is considered useful for the Paraná Guazú as well \autocite{reMetodologiaParaGeneracion2009}. The plot shows that the observations are generally higher than the fit predicts in times of low fine sediment loads. Overall, the fit gives a good estimate of fine sediment concentrations, revealing seasonal aspects and concentration values.
+The result of this time series is given in Figure \ref{fig:timeseries fine sediments}. It is important to note that this relation for fine sediment concentrations is considered useful for the Paraná Guazú as well \autocite{reMetodologiaParaGeneracion2009}. The plot shows that the observations are generally higher than the fit predicts in times of low fine sediment loads. Overall, the fit gives a good estimate of fine sediment concentrations, revealing seasonal aspects and relevant concentration values.
 
 \begin{figure}[H]
     \centering
@@ -315,7 +307,7 @@ The result of this time series is given in Figure \ref{fig:timeseries fine sedim
 
 
 \subsubsection{Estimated course sediment load}
-An approach for estimating the transport of coarse sediments is based on the Engelund–Hansen formulation \textbf{Engelund Hansen}. This empirical relation predicts the total transport of bed material, which in this case is assumed to consist mainly of coarse sediments or sands. The total volumetric sediment transport rate per unit width is expressed as:
+An approach for estimating the transport of coarse sediments is based on the Engelund–Hansen formulation (\cite{engelundMonographSedimentTransport1967}). This empirical relation predicts the total transport of bed material, which in this case is assumed to consist mainly of coarse sediments or sands. The total volumetric sediment transport rate per unit width is expressed as:
 
 \begin{equation}
     q_{t} = \frac{0.05\,u^{2}\,h^{3/2}\,S_{f}^{3/2}}{(s - 1)^{2}\,g^{1/2}\,d_{50}}
@@ -328,17 +320,13 @@ where \( s \) is the specific gravity of the sediment, \( g \) is the accelerati
 
 
 
-
 \subsection{Correlation between variables}
 \label{sec:correlation of variables}
 The approach of defining the relations between measured flow variables is as follows. First, the values in the dataset are log-transformed, after which $R^2$-values are calculated based on a linear fit on the logarithmic values. This procedure is applied to the variables of all measurement stations as described in Section \ref{sec:measurementstations}. Figure \ref{fig:correlationmatrices} gives the results for El Colorado and Brazo Largo in the form of correlation matrices. It stands out that correlations in the Bermejo are very high for all variables. This indicates that the power-law assumption is suitable for describing the dependencies between these variables. Subsequently, it is found that correlations for the Brazo Largo are much smaller. This is also the case for the Zárate station on the Paraná de las Palmas. As this river is also located in the Lower Paraná, this behaviour is expected. 
 
 Analysis of the flow variables has shown that $R^2$-values tend to decrease, the further downstream the location of the measurements is. This result is in agreement with those found by \citeauthor{songEvaluatingUnderstandingTideriver2024}, who state that the stage-discharge relationship is considerably affected in the transitional zone and tide-dominated region of the Yangtze estuary. Their research reports $R^2$-values decreasing from 0.9 to 0.4, in a river-dominated and transitional zone, respectively. Therefore, an in-depth study of the tide-river interactions is needed. This includes measurements in both the transitional zone and tide-dominated region, to update the stage-discharge relationship. For this particular study, the influence of tidal effects will be handled in Section \ref{sec:tidal forcing}.
 
-As for the sediment-discharge relationship, the differences in correlations in Brazo Largo can be explained through the sources of the variables. Whereas the fine sediment concentration predominantly originates from the Bermejo basin, the discharge is dominated by the Paraguay and Paraná. This results in a weak correlation downstream of the confluence of these rivers \autocite{lopezweibelSourcesTemporalDynamics2022}. Another factor that may perturb the correlation of variables in the Lower Paraná, is the inflow of the Uruguay river. This flow can cause disturbances in the relations, as the sediment concentrations and discharges stem from different catchments. 
-
-
-
+As for the sediment-discharge relationship, the differences in correlations in Brazo Largo can be explained through the sources of the variables. Whereas the fine sediment concentration predominantly originates from the Bermejo basin, the discharge is dominated by the Paraguay and Paraná. This results in a weak correlation downstream of the confluence of these rivers \autocite{lopezweibelSourcesTemporalDynamics2022}. Another factor that may perturb the correlation of variables in the Lower Paraná, is the inflow of the Uruguay river. The variation in elevations that occur due to the presence of this river, can cause disturbances in the rating curves. 
 
 
 \begin{figure}[h!]
@@ -367,7 +355,7 @@ As for the sediment-discharge relationship, the differences in correlations in B
 
 \subsection{Tidal forcing}
 \label{sec:tidal forcing}
-The tidal wave of the Atlantic Ocean influences the hydrodynamics of the lower Paraná delta. As the tidal wave enters the delta ta Río de la Plata, the tide is damped and phased by friction, channel geometry and branching, resulting in a reduced amplitude and an increased in phase delay. Under normal conditions, the influence of the tide on the Paraná River reaches the city of Villa Constitución, which is located 220 km upstream of the river mouth. For storm conditions, the tide can reach the city of Rosario \autocite{balayCausesPeriodicityLarge2018}. In order to determine the influence of the tide at Brazo Largo, a reference water level at San Fernando is considered. It is assumed that at San Fernando no tidal damping has occurred, therefore the tidal amplitude at Brazo Largo can be determined using the following relation:
+The tidal wave of the Atlantic Ocean influences the hydrodynamics of the lower Paraná delta. As the tidal wave enters the delta at the Río de la Plata, the tide is damped and phased by friction, channel geometry and branching, resulting in a reduced amplitude and an increase in phase delay. Under normal conditions, the influence of the tide on the Paraná River reaches the city of Villa Constitución, which is located 220 km upstream of the river mouth. For storm conditions, the tide can reach the city of Rosario \autocite{balayCausesPeriodicityLarge2018}. In order to determine the influence of the tide at Brazo Largo, a reference water level at San Fernando is considered. It is assumed that at San Fernando no tidal damping has occurred, therefore the tidal amplitude at Brazo Largo can be determined using the following relation:
 
 \begin{equation}
     A_{\text{Location}} = \alpha \cdot A_{\text{SanFernando}}
@@ -448,7 +436,7 @@ This section describes the results of the field campaign introduced in Section \
 
 
 \subsection{Water level and discharge}
-In order to further study the liquid flows in the Paraná Guazú, estimates are needed for the discharge of Río Ibicuy and Río Talabera. These were collected during the fieldwork, as indicated in Figure \ref{fig:measurements day1} and Figure \ref{fig:measurements day2}. In addition, an overview of all cross sections with discharge measurements is given in Figure \ref{fig:cross section domain}. The indexing of the cross sections is made in chronological order based on the fieldwork. Note that at the confluence of the Ibicuy and Paraná, there is no measurement of the component flowing in from the Paraná. However, this can be estimated by the equilibrium of discharges in the confluence. The relevant flow measurements of the different cross sections are summarized in Table \ref{tab:discharges fieldwork}. Note that the water levels are recorded on different dates from nearby measurement stations, i.e. Brazo Largo and Ibicuy. Figure \ref{fig:water elevations fieldwork} gives an overview of the evolution of water elevations during the measurement campaign. The values in the table correspond to the location and time of each measurement. For Section 5, the water level is linearly interpolated between the stations. Also, the flow velocity is a mean velocity taken over the entire cross section of the two measured sections per measurement location. The bathymetries and velocity profiles that result from the ACDP measurements can be found in Appendix \ref{appendix:fieldwork results}, where the output of the \textit{RiverSurveyor} software is given. Note that of each cross section, only one of the two measured sections is given. 
+In order to further study the liquid flows in the Paraná Guazú, estimates are needed for the discharge of Río Ibicuy and Río Talabera. These were collected during the fieldwork, as indicated in Figure \ref{fig:measurements day1} and Figure \ref{fig:measurements day2}. In addition, an overview of all cross sections with discharge measurements is given in Figure \ref{fig:cross section domain}. The indexing of the cross sections is made in chronological order based on the fieldwork. Note that at the confluence of the Ibicuy and Paraná, there is no measurement of the component flowing in from the Paraná. However, this can be estimated by the equilibrium of discharges in the confluence. The relevant flow measurements of the different cross sections are summarized in Table \ref{tab:discharges fieldwork}. Note that the water levels are recorded on different dates from nearby measurement stations, i.e. Brazo Largo and Ibicuy. Figure \ref{fig:water elevations fieldwork} gives an overview of the evolution of water elevations during the measurement campaign. The values in the table correspond to the location and time of each measurement. For Section 5, the water level is linearly interpolated between the stations. The remaining cross sections are assumed to be close enough to their corresponding measurement station.  Also, the flow velocity is a mean velocity taken over the entire cross section of the two measured sections per measurement location. The bathymetries and velocity profiles that result from the ACDP measurements can be found in Appendix \ref{appendix:fieldwork results}, where the output of the \textit{RiverSurveyor} software is given. Note that of each cross section, only one of the two measured sections is given. 
 
 \begin{figure}
     \centering
@@ -459,12 +447,12 @@ In order to further study the liquid flows in the Paraná Guazú, estimates are 
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{figures/ch6/water elevations fieldwork.png}
+    \includegraphics[width=0.75\linewidth]{figures/ch6/water elevations fieldwork.png}
     \caption{Water elevations of Brazo Largo and Puerto Ibicuy during fieldwork}
     \label{fig:water elevations fieldwork}
 \end{figure}
 
-The water elevations in Figure \ref{fig:water elevations fieldwork} are expressed with respect to the IGN datum. For that reason, elevations at Puerto Ibicuy are consistently higher than at Brazo Largo on the same time instants. During the two measurement days, water levels drop while discharges increase, which appears to contradict the positive correlation between stage and discharge discussed in Section \ref{sec:correlation of variables}. This discrepancy arises because the standard stage-discharge relationship assumes steady flow and acts on longer timescales. In contrast, on short timescales, water levels in the Paraná Guazú are influenced by variations in the Río de la Plata, including backwater effects and transient downstream control. These factors cause a temporary inverse relation between stage and discharge, leading to the observed short-term response. \textbf{Jones et al.} confirm that traditional stage-discharge relationships fail in the tidal zone, because tidally influenced discharge is more complex than upstream river discharge, causing non-monotonic behaviour. 
+The water elevations in Figure \ref{fig:water elevations fieldwork} are expressed with respect to the IGN datum. For that reason, elevations at Puerto Ibicuy are consistently higher than at Brazo Largo on the same time instants. During the two measurement days, water levels drop while discharges increase, which appears to contradict the positive correlation between stage and discharge discussed in Section \ref{sec:correlation of variables}. This discrepancy arises because the standard stage-discharge relationship assumes steady flow and acts on longer timescales. In contrast, on short timescales, water levels in the Paraná Guazú are influenced by variations in the Río de la Plata, including backwater effects and transient downstream control. These factors cause a temporary inverse relation between stage and discharge, leading to the observed short-term response. \cite{jonesExpandedRatingCurve2019} confirm that traditional rating curves fail in the tidal zone, because tidally influenced discharge is more complex than upstream river discharge, causing non-monotonic behaviour. 
 
 \begin{table}[H]
     \centering
@@ -506,12 +494,7 @@ The Acoustic Doppler Current Profiler (ADCP) measures the flow velocity and dept
     \label{eq:law_of_the_wall}
 \end{equation}
 
-The Law of the Wall describes the velocity profile of a turbulent flow near 
-
-The Law of the Wall fit is used to calculate the friction velocity ($u_*$) which is needed in order to calculate the Rouse number, see Equation \ref{Rouse number}. 
-
-
-Using this Rouse number it is possible to calculate the sediment concentration ($c$) at any depth ($z$) in the water column using the Rouse profile in Equation \ref{Rouse profile}.
+The Law of the Wall describes the velocity profile of a turbulent flow near a boundary. Therefore, the log-law is fitted on only the velocity points in the lowest 50\% of the water column. Additionally, the Law of the Wall is used to calculate the shear velocity ($u_*$), which is most accuratly determined from the near-bed region. By fitting only on the lower 50\%, the fit is not affected by upper flow deviations such as wind, waves and secondary flow. The computed shear velocity ($u_*$) is used to calculate the Rouse number; see Equation \ref{Rouse number}. Using this Rouse number it is possible to calculate the sediment concentration ($c$) at any depth ($z$) in the water column using the Rouse profile in Equation \ref{Rouse profile}.
 
 \begin{equation}
     P = \frac{w_s}{\kappa u_*}
@@ -523,7 +506,7 @@ Using this Rouse number it is possible to calculate the sediment concentration (
     \label{Rouse profile}
 \end{equation}
 
-The reference depth ($a$) and the near-bed reference concentration ($C_a$) were based on the lowest suspended sediment concentrations measured for each cross section. By inspecting the Rouse profile at the ensemble where the sediment measurements were taken, the settling velocity ($w_s$) was determined, as no information on suspended sediment size was available. The Rouse profile for the location at which the suspended sediment measurement in cross section is shown in Figure \ref{fig:RouseProfile_cs11}. The corresponding velocity profile and Law of the Wall fit are shown in \ref{fig:VelProfile_cs11}. 
+The reference depth ($a$) and the near-bed reference concentration ($C_a$) were based on the lowest suspended sediment concentrations measured for each cross section. By inspecting the Rouse profile at the ensemble where the sediment measurements were taken, the settling velocity ($w_s$) was determined, as no information on suspended sediment size was available. The Rouse profile for the location at which the suspended sediment measurement in cross section is shown in Figure \ref{fig:RouseProfile_cs11}. The corresponding velocity profile and Law of the Wall fit are shown in \ref{fig:VelProfile_cs11}. The velocity profile measurements show a decreased velocity near the water surface, likely due to wind effects, proving why it is important to fit only on the lowest 50\% of the depth.
 
 \begin{figure}[H]
     \centering
@@ -566,6 +549,11 @@ The total suspended sediment flux for every cross section is calculated by summi
         \hline
     \end{tabular}
 \end{table}
+
+\textbf{Uncertainties} \\
+
+- one value for $w_s$ used per cross section
+- 0.2 m/s variance in ADCP measurements
 
 \subsection{Grain size distribution of bed load samples}
 During the fieldwork, data was collected on the Paraná River over a period of two days. Seven samples were collected from the riverbed at four different cross-sections. Samples were collected at depths of 10 and 15 metres. The first number refers to the cross-section and the second number refers to a depth of 10 or 15 metres. The locations where the samples were collected are presented in figure \ref{fig:measurements day1} and \ref{fig:measurements day2}. Sample 3-1 was quite large, so it was decided to treat it as two different samples (3-1A \& B). 
