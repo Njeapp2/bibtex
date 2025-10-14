@@ -142,7 +142,7 @@ because it can be used to calculate the force exerted by a current on a vertical
     \item \textbf{$ u $}: Current velocity: 1.5 [m/s]
 \end{itemize}
 
-The Drag coefficient is found for a surface with an angle of 90 degrees to the field \autocite{Chhabra}.
+The Drag coefficient is found for a surface with an angle of 90 degrees to the field \autocite{drag}.
 To be able to calculate the force of the current on the bank, one needs to establish the exposed surface area. Since we do not know exactly how long the relevant bank stretch is, we could calculate with 1 meter riverbank height, so A = 1 [m$^2$] would yield a Force illustrated per meter length of the bank. Filling in these parameters in Equation \ref{eq:drag load} gives:
 
 $$
@@ -554,7 +554,9 @@ The total suspended sediment flux for every cross section is calculated by summi
 \end{table}
 
 \textbf{Uncertainties} \\
+The calculation of the suspended sediment flux is subject to several sources of uncertainty. Firstly, for each cross section, suspended sediment concentration was measured at only one location. Because no information is available on the grain size distribution, the settling velocity ($w_s$) for the entire cross section was determined by calibrating the Rouse profile to fit this single measurement. Consequently, instead of calculating a separate Rouse profile for each grain size bin, the calibrated $w_s$ was assumed to be representative for all the sediment grains across the cross section. The lack of grain size information and the assumption of a representative $w_s$ introduce considerable uncertainty into the results.
 
+Secondly, 
 - one value for $w_s$ used per cross section
 - 0.2 m/s variance in ADCP measurements
 
@@ -563,10 +565,11 @@ During the fieldwork, data was collected on the Paraná River over a period of t
 
 When processing the samples, it was decided to start with a 0.5 mm sieve size for the samples that appeared to be sand and a 0.354 mm sieve size for the other samples. This was done because only six sieves and one residue container fit into the sieving setup. After sieving the samples for 10 minutes, each quantity of sample per sieve was weighed. This was used to calculate a cumulative grain distribution. The calculation and processing of the results are in more detailed described in Appendix \ref{appendix:Lab data}. The results are presented in figure \ref{fig:Cumu}.
 
-\begin{figure}[H]
+
+\begin{figure}
     \centering
-    \includegraphics[width=0.75\linewidth]{figures//ch6/cumulativegrainsized.png}
-    \caption{Cumulative grain size distribution}
+    \includegraphics[width=0.75\linewidth]{figures//ch6/CUMU.png}
+    \caption{CGZD of multiple samples with homogeneous demand lines \autocite{bensonFracSandUnited2015}}
     \label{fig:Cumu}
 \end{figure}
 
