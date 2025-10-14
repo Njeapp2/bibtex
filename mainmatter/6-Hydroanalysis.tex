@@ -129,7 +129,7 @@ because it can be used to calculate the force exerted by a current on a vertical
 
 \begin{equation}
 \label{eq:drag load}
-    F_c = \frac{1}{2} \rho C_d A u^2
+    F_c = \frac{1}{2} \cdot \rho \cdot C_d \cdot A \cdot u^2
 \end{equation}
 
 
@@ -142,11 +142,11 @@ because it can be used to calculate the force exerted by a current on a vertical
     \item \textbf{$ u $}: Current velocity: 1.5 [m/s]
 \end{itemize}
 
-The Drag coefficient is found for a surface with an angle of 90 degrees to the field \autocite{drag}
-To be able to calculate the force of the current on the bank, one needs to establish the exposed surface area. Since we do not know exactly how long the relevant bank stretch is, we could calculate with A = 1 [m$^2$] to find a Force illustrated per meter length of the bank. Filling in these parameters in Equation \ref{eq:drag load} gives:
+The Drag coefficient is found for a surface with an angle of 90 degrees to the field \autocite{Chhabra}.
+To be able to calculate the force of the current on the bank, one needs to establish the exposed surface area. Since we do not know exactly how long the relevant bank stretch is, we could calculate with 1 meter riverbank height, so A = 1 [m$^2$] would yield a Force illustrated per meter length of the bank. Filling in these parameters in Equation \ref{eq:drag load} gives:
 
 $$
-F_c = \frac{1}{2} 1000 \cdot 1.2 \cdot 1.5^2 = 1.350 ~\text{[kN/m]}
+F_c = \frac{1}{2} \cdot 1000 \cdot 1.2 \cdot 1.5^2 = 1.350 ~\text{[kN/m]}
 $$
 This also occurs for a short period of time, but 6 times a day. Hence, it is not a static load and needs to be considered at different time intervals. To change the complexity of the non static load, it is best to sum the loads up and convert the time interval to a day.
 The total load effect of the ship waves on the bank every day would be:
@@ -173,7 +173,7 @@ When the combination of water level with a strong current is highest, the bank z
 Consequently, after some time the upper overbank area has less and less support underneath, becoming thus unstable and partly falling down. 
 Repeating this process takes the river bank further inside the land, increasing the channel width, absorbing the land near the river bank.
 
-
+\newpage
 \section{Hydrodynamic data}
 \label{sec:Hydrodynamic data}
 In this section, analysis on the hydrodynamic variables is performed. This includes relations between water elevations, discharge and sediment concentrations - through data sources as described in \ref{sec:desk study}. Additionally, tidal effects in the study area are considered. 
@@ -431,7 +431,7 @@ Figure 5.7 shows the water level time series for a period of 7 days compared to 
 \\ - Getijde rond Brazo Largo is berekend aan de hand van waterlevel rond San Fernando. Vergelijk de constituents met die van  het rapport en trek conclusie over invloed getijde.
 
 
-
+\newpage
 \section{Field work measurements}
 This section describes the results of the field campaign introduced in Section \ref{sec:field study}. The measurements are compared to the results found in Section \ref{sec:Hydrodynamic data}.
 
@@ -628,17 +628,11 @@ The location of the 'La Blanqueada' camping  is in the outer side of the curve n
 The camping's location matches with the blue part of the water gain map, indicating that the water quantity around the shore of the camping has increased. 
 In order to know if this has always been so, or if the water gains in this precise location have been gradually increasing, several maps with closer intervals have been created. 
 
-There are quite a few comments to be made about the maps. 
+There are quite a few comments to be made about the maps. First of all, blue and green zones stay consistent throughout the years, but when going into detailed time periods they can differ. Variations occur on shorter time periods such as the period 2005-2015, which indicated more water gains than losses in the deltas surrounding the region of interest. Another very interesting thing to note is that the flood of 2016 in the Parana Guazu can also be seen through the help of this map, on a time interval of 2015-2017.
 
-First of all, blue and green zones stay consistent throughout the years, but when going into detailed time periods they can differ.
+Furthermore, droughts are also illustrated quite well with this application. The perfect example would be the long period of drought in 2022 which led some parts of the Parana to be left dry, as seen in Figure \ref{fig:Discharge Changes in Brazo Largo}. With the Parana Guazu's significant depths of over 40 meters this was unlikely to happen but still, this change in water quantity did not go unnoticed by the Deltares application. This can be seen on the Figure of 2020-2022.
 
-There can be variations in shorter time periods such as the period 2005-2015 which indicated more water gains than losses in the deltas surrounding the region of interest.
-
-Another very interesting thing to note is that the flood of 2016 in the Parana Guazu can also be seen through the help of this map, on a time interval of 2015-2017.
-
-Furthermore, droughts are also illustrated quite well with this software. The perfect example would be the long period of drought in 2022 which led some parts of the Parana to be left for dry, as seen in Figure \ref{fig:Discharge Changes in Brazo Largo}. With the Parana Guazu's significant depths of over 40 meters this was unlikely to happen but still, this change in water quantity did not go unnoticed by the Deltares software. This can be seen on the Figure of 2020-2022.
-
-Other periods of time are more or less stable and have nothing to report.
+Other periods of time are more or less stable and have nothing to report. For the sake of these explanations the relevant Figures can be found in the Appendix \ref{Appendix: Satellite Data}.
 
 \begin{figure}[H]
     \centering
@@ -681,19 +675,17 @@ Other periods of time are more or less stable and have nothing to report.
 \end{figure}
 
 
-For the sake of these explanations the relevant Figures can be found in the Appendix \ref{Appendix: Satellite Data}.
+
 
 \subsection{Surface Area Measurements}
-From the Aqua Monitor Software, one could establish which regions were of interest in a broad scope surrounding the Parana Guazu turn near Puerto Constanza. 
-
-Decreasing the scope leaves us with question marks regarding the actual areas and lengths of land that have been subject to these water gains. Therefore, it was chosen to investigate further into the details of the coast erosion with Google Earth.
+From the Aqua Monitor Software, one could establish which regions were of interest in a broad scope surrounding the Paraná Guazú bend near Puerto Constanza. Decreasing the scope leaves us with question marks regarding the actual areas and lengths of land that have been subject to these water gains. Therefore, it was chosen to investigate further into the details of the coast erosion with Google Earth.
 Using the software's satellite data, one could draw a surface around the area of the Camping La Blanqueada in 2022, the most recent available, and then compare it to historical data. 
-This gives a dataset of historical data from 1985 until 2022 but since the satellite images have been improving with the time, the only relevant data can be taken from 2003 on.
+This gives a dataset of historical data from 1985 until 2022 but since the satellite images have been improving with time, the only relevant data can be taken from 2003 on.
 
 
-Thus, it was chosen to take the difference in surface area from 2022 until 2003. Initially only the East side of the Camping was taken into account due to its matching with the drone pictures taken of the area during the field trip \ref{fig:Bank Erosion shots from field work}. Nevertheless on Google Earth it quickly became obvious that the necessity rose to take the West part of the Camping in consideration as well since its surface was eroded even further.
+Thus, it was chosen to take the difference in surface area from 2022 until 2003. Initially, only the East side of the camping was taken into account due to its matching with the drone pictures taken of the area during the field trip \ref{fig:Bank Erosion shots from field work}. Nevertheless on Google Earth it quickly became obvious that the necessity rose to take the West part of the Camping in consideration as well since its surface was eroded even further.
 
-A summary of the data gathered from this study can be found below. First the Measurement of the East part of the Camping, then the comparison with 2003, 2017, 2018 and then for both sides the added surface lost since 2003.
+A summary of the data gathered from this study can be found in Figure \ref{fig:surface_comparison}. First the measurement of the East part of the Camping, then the comparison with 2003, 2017, 2018 and then for both sides the added surface lost since 2003.
 
 \begin{figure}[H]
     \centering
@@ -724,15 +716,9 @@ A summary of the data gathered from this study can be found below. First the Mea
     \label{fig:surface_comparison}
 \end{figure}
 
-It is known that there was a flood in 2016 \autocite{ArgentinaInundacionesDesde2016}. This flood was in return responsible for a significant increase of water quantity and discharge throughout the region, as seen in Figure \ref{fig:Discharge Changes in Brazo Largo}.
+It is known that there was a flood in 2016 \autocite{ArgentinaInundacionesDesde2016}. This flood was in return responsible for a significant increase of water quantity and discharge throughout the region, as seen in Figure \ref{fig:Discharge Changes in Brazo Largo}. Consequently, this affected certain areas of the channel more than others, in particular the curves of the Parana Guazu such as Puerto Guazu showed in the Figures \ref{fig:Water Changes}. The negative impacts were highlighted when the high discharge and water quantities dropped back to normal, leaving a part of the bank fragile which then contributed to an accelerated bank erosion. This argument can once again be solidified by the drastic increase of erosion in between those time periods. After this flood event, the rate of erosion decreased again.
 
-Consequently this affected certain areas of the channel more than others, in particular the curves of the Parana Guazu such as Puerto Guazu showed in the Figures \ref{fig:Water Changes} as discussed before. The negative impacts were highlighted when the high discharge and water quantities dropped back to normal, leaving a part of the bank fragile which then contributed to an accelerated bank erosion.
-
-
-
-This argument can once again be solidified by the drastic increase of erosion in between those time periods. After this flood event, the rate of erosion decreased again.
-
-Lastly, both sides of the Camping and the difference between 2003 and 2022 can be seen below. The leftover piece of land which was present in 2003 but has been eroded since then is also traced as a surface area in a distinct colour \ref{fig:surfacelost_comparison}. 
+Lastly, both sides of the Camping and the difference between 2003 and 2022 can be seen below. The leftover piece of land which was present in 2003 but has been eroded since then is also traced as a surface area in a distinct colour (see Figure \ref{fig:surfacelost_comparison}). The complete comparison with all accessible historical data was documented in the Appendix \ref{Appendix: Satellite Data}. Moreover, values of the surface areas, perimeters, and further quantification's can be found in Section \ref{section:quantitative_results}.
 
 \begin{figure}[H]
     \centering
@@ -751,10 +737,6 @@ Lastly, both sides of the Camping and the difference between 2003 and 2022 can b
     \label{fig:surfacelost_comparison}
 \end{figure}
 
-
-The complete comparison with all accessible historical data was documented in the Appendix \ref{Appendix: Satellite Data}.
-
-Moreover, values of the surface areas, perimeters, and further quantification's can be found in the next subsection.
 
 \subsection{Quantitative Results}
 \label{section:quantitative_results}
@@ -796,7 +778,7 @@ $=$ $\frac{15328.31}{103822.61} = 0.1476$
 $\text{Loss Ratio (West)} = \frac{8698.71}{8698.71 +7622.01 + 71231.39}$ $=$
 $\frac{869871}{8755211} = 0.0994 $ 
 
-Together, these results can are found in the Table \ref{Table:Loss Ratio for Camping La Blanqueada in 2022} .
+Together, these results are found in the Table \ref{Table:Loss Ratio for Camping La Blanqueada in 2022} .
 
 \begin{table}[H]
 \centering
@@ -818,11 +800,7 @@ Using geometry and more measurements on Google Earth, the loss in length of the 
 \subsection{Qualitative Results}
 From the quantitative results one can conclude that in 20 years there was a loss ratio of almost 15\% on the east side. A qualitative approach gives an interesting point of view that is not based purely on numbers.
 
-First of all, it is important to ask where these \% come from and what factor or problem contributes the most to the calculated erosion. We started from a quite biased point of view, the stakeholders. They told us that the reason for this erosion was purely the dredging of the sand and the cargo ships passing by. 
-
-From the Wave impact study it shows that the cargo ships induced waves do in fact contribute to the bank erosion when passing by. It is quite hard to determine how much faster the erosion is happening due to this event but one might assume the fact that the contribution to the problem is small, but not insignificant. 
-
-Moreover, it is important to take into account the fact that the likelihood of the digging for a boat channel for the camping adds onto the erosion of the shore.
+First of all, it is important to ask where these percentages come from and what factor or problem contributes the most to the calculated erosion. We started from a quite biased point of view, the stakeholders. They told us that the reason for this erosion was purely the dredging of the sand and the cargo ships passing by. From the Wave impact study it shows that the cargo ships induced waves do in fact contribute to the bank erosion when passing by. It is quite hard to determine how much faster the erosion is happening due to this event but one might assume the fact that the contribution to the problem is small, but not insignificant. Moreover, it is important to take into account the fact that the likelihood of the digging for a boat channel for the camping adds onto the erosion of the shore.
 
 The Aqua Monitor study illustrates the high correlation between the water levels and discharge intensities with the water quantities gained in certain areas. The borders of curves in a channel are the most likely to be victim of the water gains which makes the bank stability decrease when the hydro parameters discharge and water quantity are restored to a normal level, as explained in the section \ref{chap 6: effect on the river bed}. From this part, one can assume that after a flood, the banks become even more fragile and break apart at a faster pace after the flood is gone.
 In addition to that, one can also state that this major factor contributing to bank erosion as the satellite data shows in Figure \ref{fig:surface_comparison}.
