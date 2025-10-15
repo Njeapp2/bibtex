@@ -85,7 +85,7 @@ This gives the following parameters:
 \end{table}
 
 \subsubsection{Wave Load}
-Next, one can calculate the force of the wave, assuming that the wave signal given by the boat is uniform. In the calculation we will also assume from the video filmed in the field trip that the wave spectrum coming from the ship includes about 10 repetitions, and that the boat is located 100 meters from the shore. This leaves us with the wave theory of \autocite{arrigaLecture2CIEM40002025} which states that there are two types of waves you can get energy from:
+Next, one can calculate the force of the wave, assuming that the wave signal given by the boat is uniform. In the calculation one assumes from the video filmed in the field trip that the wave spectrum coming from the ship includes about 10 repetitions, and that the boat is located 100 meters from the shore. This leaves us with the wave theory of \autocite{arrigaLecture2CIEM40002025} which states that there are two types of waves you can get energy from:
 
 \begin{itemize}
     \item Periodic waves 
@@ -143,7 +143,7 @@ because it can be used to calculate the force exerted by a current on a vertical
 \end{itemize}
 
 The Drag coefficient is found for a surface with an angle of 90 degrees to the field \autocite{chhabrarajendraprasadDragCoefficientOverview}.
-To be able to calculate the force of the current on the bank, one needs to establish the exposed surface area. Since we do not know exactly how long the relevant bank stretch is, we could calculate with 1 meter riverbank height, so A = 1 [m$^2$] would yield a Force illustrated per meter length of the bank. Filling in these parameters in Equation \ref{eq:drag load} gives:
+To be able to calculate the force of the current on the bank, one needs to establish the exposed surface area. Since it cannot be known exactly how long the relevant bank stretch is, one could calculate with 1 meter riverbank height, so A = 1 [m$^2$] would yield a Force illustrated per meter length of the bank. Filling in these parameters in Equation \ref{eq:drag load} gives:
 
 $$
 F_c = \frac{1}{2} \cdot 1000 \cdot 1.2 \cdot 1.5^2 = 1.350 ~\text{[kN/m]}
@@ -562,6 +562,31 @@ The reference depth ($a$) and the near-bed reference concentration ($C_a$) were 
     \end{minipage}
 \end{figure}
 
+As stated above the settling velocity is determined by fitting the Rouse profile to the measured concentrations. The estimated settling velocities are displayed in table \ref{tab: Overview settling velocity} for the three cross sections. Additionally, the corresponding sediment grain diameter is given, which is calculated using the Ferguson & Church (2004) formula (\ref{eq: Settling vel formula}).
+
+\begin{equation}
+    w_s = \frac{R g d^2}{C_1 \nu + \sqrt{0.75\, C_2\, R g d^3}}
+    \label{eq: Settling vel formula}
+\end{equation}
+
+
+
+\begin{table}[H]
+    \centering
+    \caption{Estimated settling velocities ($w_s$) per cross section}
+    \label{tab: Overview settling velocity}
+    \setlength{\tabcolsep}{8pt}
+    \begin{tabular}{c c c}
+        \hline
+        Cross Section & $w_s$ & $d$  \\
+        \hline
+        1 & 0.0015 &  \\
+        2 & 0.00035  &   \\
+        3 & 0.0025 &  \\
+        \hline
+    \end{tabular}
+\end{table}
+
 The suspended sediment flux per cross section is calculated by first multiplying the concentration at any given depth, from the Rouse profile, with the corresponding velocity and a depth increment; see Equation \ref{eq: sediment flux formula}. This flux per unit width is multiplied by the ensemble width to get the ensemble sediment flux for every point along the cross section. 
 
 \begin{equation}
@@ -595,7 +620,50 @@ Secondly, after plotting the depth averaged velocities along the three cross sec
 \subsection{Bed load}
 This section presents estimates of the total bed load, based on the grain size distribution of the bed samples described in Section \ref{sec:grainsizedistribution}. Most samples consisted of clays and silts, while two were classified as sand. This distinction strongly depends on the recovery depth of the bed samples. Considering the variability in bed material composition, a careful selection of the model used to estimate bed load transport is required. 
 
-Because the Engelund–Hansen formula was derived for non-cohesive sand-bed conditions, it is only applied to the samples identified as sand (\cite{engelundMonographSedimentTransport1967}). The remaining samples, consisting of clays and silts, are cohesive and therefore not suitable for estimation with this method. 
+Because the Engelund–Hansen formula was derived for non-cohesive sand-bed conditions, it is only applied to the samples identified as sand (\cite{engelundMonographSedimentTransport1967}). The remaining samples, consisting of clays and silts, are cohesive and therefore not suitable for estimation with this method. The formula is repeated here for clarity:
+
+\begin{equation}
+    q_{t} = \frac{0.05\,u^{2}\,h^{3/2}\,S_{f}^{3/2}}{(s - 1)^{2}\,g^{1/2}\,d_{50}}
+    \label{eq:engelund_hansen}
+\end{equation}
+
+In which:
+\begin{itemize}
+    \item $u$ ~[m/s]: mean flow velocity in cross section (see Table \ref{tab:discharges fieldwork})
+    \item $h$ ~[m]: mean flow depth
+    \item $S_f = 10^{-5}$: friction slope, approximated here as the bed slope (\cite{lopezweibelSourcesTemporalDynamics2022})
+    \item $s = 2.65 ~[-]$: specific gravity
+    \item $d_{50}$ ~[$\mu$m]: mean grain size, derived from grain size distribution through linear interpolation
+\end{itemize}
+
+Using a channel width $B$ and a volumetric weight of $\rho_s = 2650 $ kg/m$^3$, the total mass transport can then be expressed as follows:
+
+\begin{equation}
+    Q_b = q_t \cdot B \cdot \rho_s
+ \end{equation}
+
+ Table \ref{tab:engelund-hansen} performs the calculation using the corresponding input parameters for section 1, 2 and 3 respectively. Note that for section 3, a value for $d_{50}$ is assumed because the grain size distribution showed that the sample taken at a depth of 15 meters did not contain sand. 
+
+
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{1.2} % extra row spacing
+    \setlength{\tabcolsep}{8pt}       % extra column spacing
+    \caption{Engelund--Hansen input parameters and total bed load}
+    \begin{tabular}{lcccc}
+        \toprule
+        \textbf{Section} & \textbf{$B$ [m]} & \textbf{$h$ [m]}
+         & \textbf{$d_{50}$ [\textmu m]}
+         & \textbf{$Q_b$ [kg/s]}\\
+        \midrule
+        1 & 544 & 13.04 & 262 & 18.43 \\
+        2 & 917 & 13.36 & 210 & 26.92 \\
+        3 & 932 & 18.60 & 200* & 60.32 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:engelund-hansen}
+\end{table}
+
 
 
 \subsection{Longitudinal profiles}
@@ -809,7 +877,7 @@ Using geometry and more measurements on Google Earth, the loss in length of the 
 \subsection{Qualitative Results}
 From the quantitative results one can conclude that in 20 years there was a loss ratio of almost 15\% on the east side. A qualitative approach gives an interesting point of view that is not based purely on numbers.
 
-First of all, it is important to ask where these percentages come from and what factor or problem contributes the most to the calculated erosion. We started from a quite biased point of view, the stakeholders. They told us that the reason for this erosion was purely the dredging of the sand and the cargo ships passing by. From the Wave impact study it shows that the cargo ships induced waves do in fact contribute to the bank erosion when passing by. It is quite hard to determine how much faster the erosion is happening due to this event but one might assume the fact that the contribution to the problem is small, but not insignificant. Moreover, it is important to take into account the fact that the likelihood of the digging for a boat channel for the camping adds onto the erosion of the shore.
+First of all, it is important to ask where these percentages come from and what factor or problem contributes the most to the calculated erosion. The group started from a quite biased point of view only taking into account the opinion of the stakeholders. They gave away that the reason for this erosion was purely the dredging of the sand and the cargo ships passing by. From the Wave impact study it shows that the cargo ships induced waves do in fact contribute to the bank erosion when passing by. It is quite hard to determine how much faster the erosion is happening due to this event but one might assume the fact that the contribution to the problem is small, but not insignificant. Moreover, it is important to take into account the fact that the likelihood of the digging for a boat channel for the camping adds onto the erosion of the shore.
 
 The Aqua Monitor study illustrates the high correlation between the water levels and discharge intensities with the water quantities gained in certain areas. The borders of curves in a channel are the most likely to be victim of the water gains which makes the bank stability decrease when the hydro parameters discharge and water quantity are restored to a normal level, as explained in the section \ref{chap 6: effect on the river bed}. From this part, one can assume that after a flood, the banks become even more fragile and break apart at a faster pace after the flood is gone.
 In addition to that, one can also state that this major factor contributing to bank erosion as the satellite data shows in Figure \ref{fig:surface_comparison}.
