@@ -146,7 +146,7 @@ The stress-strain behavior of steel can be seen in Figure \ref{fig:stress_strain
   \begin{tabularx}{\linewidth}{@{}X
     >{\centering\arraybackslash}p{1.9cm}
     >{\centering\arraybackslash}p{1.9cm}
-    >{\centering\arraybackslash}p{2.2cm}@{}}
+    >{\centering\arraybackslash}p{1.9cm}@{}}
     \toprule
     \textbf{Steel grade} &
     \makecell{\textbf{Tensile}\\\textbf{strength}\\ $f_{u}\,[\mathrm{N/mm}^{2}]$} &
@@ -175,20 +175,20 @@ In Table \ref{tab:env_impacts}, an overview is given for the materials, concrete
 
 \begin{table}[ht]
   \centering
-  \caption{Environmental impacts by material.}
+  \caption{Environmental impacts by material}
   \label{tab:env_impacts}
   \small
   \setlength{\tabcolsep}{6pt}
   \renewcommand{\arraystretch}{1.15}
-  \begin{tabularx}{\linewidth}{@{}lYY@{}}
+  \begin{tabularx}{\linewidth}{@{}l l l@{}}
     \toprule
     \textbf{Material} &
     \textbf{CO$_2$ emissions (kg CO$_2$e per ton)} &
     \textbf{Energy consumption (MJ per ton)} \\
     \midrule
-    Concrete & 100 to 200 & 1{,}200 to 1{,}600 \\
-    Steel    & 1{,}800 to 2{,}000 & 20{,}000 to 35{,}000 \\
-    Timber   & $-600$ to $-1{,}200$ & 500 to 1{,}000 \\
+    Concrete & 100 to 200 & 1200 to 1600 \\
+    Steel    & 1800 to 2000 & 20000 to 35000 \\
+    Timber   & -600 to -1200 & 500 to 1000 \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -216,6 +216,8 @@ With the knowledge of this sustainable solutions are in need and this is what is
 \end{figure}
 
 % HIER NOG DE FAILURE MECHANISMS BESPREKEN. EVEN KIJKEN WAAROM IK HIER AL ALLEEN DE CANTILEVER LAAT ZIEN. WELLICHT OOK DIE VAN DE ANCHORED LATEN ZIEN OMDAT DE KEUZE PAS VERDER WORDT GEMAAKT.
+
+\newpage
 
 \subsection{Design of Sheet Pile Wall}
 
@@ -260,7 +262,7 @@ For the design of sheet pile wall in this section, the cantilever sheet pile wal
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.90\linewidth]{figures/ch8/cross-section.png}
+    \includegraphics[width=0.90\linewidth]{figures/ch8/cross_section.png}
     \caption{Cross-section for sheet pile}
     \label{fig:problem_description_sheetpiles}
 \end{figure}
@@ -331,33 +333,32 @@ Because of the resemblance between the local borehole and the geological profile
 
 \begin{table}[ht]
   \centering
-  \caption{Soil stratigraphy and geotechnical properties.}
+  \caption{Soil geotechnical properties}
   \label{tab:soil_layers}
-  \small % slightly smaller text to help fitting
-  \setlength{\tabcolsep}{6pt}   % tighten horizontal padding
+  \small
+  \setlength{\tabcolsep}{6pt}
   \renewcommand{\arraystretch}{1.15}
-  \begin{tabularx}{\linewidth}{@{}p{1.6cm}p{1.6cm}l*{5}{Y}@{}}
+  \begin{tabularx}{\linewidth}{@{}p{1.6cm}l p{1.6cm}*{5}{Y}@{}}
     \toprule
-    \textbf{Start layer (m)} &
-    \textbf{End layer (m)} &
-    \textbf{Soil type} &
-    $\boldsymbol{\gamma_d}\,[\mathrm{kN/m}^3]$ &
-    $\boldsymbol{\gamma_{\!sat}}\,[\mathrm{kN/m}^3]$ &
-    $\boldsymbol{\varphi'}\,[{}^\circ]$ &
-    $\boldsymbol{c'}\,[\mathrm{kPa}]$ &
-    $\boldsymbol{c_u}\,[\mathrm{kPa}]$ \\
+    Layer &
+    Soil type &
+    Depth [m] &
+    $\gamma_d\,[\mathrm{kN/m}^3]$ &
+    $\gamma_{\!sat}\,[\mathrm{kN/m}^3]$ &
+    $\varphi'\,[{}^\circ]$ &
+    ${c'}\,[\mathrm{kPa}]$ &
+    ${c_u}\,[\mathrm{kPa}]$ \\
     \midrule
-     0.0    &  2.0    & Fill (Topsoil/Agricultural) & 12 & 12 & 15.0 & 2.5 & 20 \\
-     2.0    &  7.0    & Fine/medium sand            & 17 & 19 & 30.0 & 0.0 & \textemdash \\
-     7.0    & 10.0    & Clay                         & 14 & 14 & 17.5 & 0.0 & 25 \\
-    10.0    & 15.0    & Clayey sand                  & 18 & 20 & 25.0 & 0.0 & \textemdash \\
-    15.0    & 16.0    & Clay                         & 14 & 14 & 17.5 & 0.0 & 25 \\
-    16.0    & 17.5  & Clayey sand                  & 18 & 20 & 25.0 & 0.0 & \textemdash \\
-    17.5  & 32.0    & Medium sand                  & 18 & 20 & 32.5 & 0.0 & \textemdash \\
+    1 & Fill               & 0.0 - 2.0   & 12 & 12 & 15.0 & 2.5 & 20 \\
+    2 & Fine/medium sand   & 2.0 - 7.0   & 17 & 19 & 30.0 & 0.0 & \textemdash \\
+    3 & Clay               & 7.0 - 10.0  & 14 & 14 & 17.5 & 0.0 & 25 \\
+    4 & Clayey sand        & 10.0 - 15.0 & 18 & 20 & 25.0 & 0.0 & \textemdash \\
+    5 & Clay               & 15.0 - 16.0 & 14 & 14 & 17.5 & 0.0 & 25 \\
+    6 & Clayey sand        & 16.0 - 17.5 & 18 & 20 & 25.0 & 0.0 & \textemdash \\
+    7 & Medium sand        & 17.5 - 32.0 & 18 & 20 & 32.5 & 0.0 & \textemdash \\
     \bottomrule
   \end{tabularx}
 \end{table}
-
 % TABEL VERBETEREN NAAR DE JUISTE FORMAT. EVEN KIJKEN NAAR DE TABEL UIT PYTHON
 
 The parameters in Table \ref{tab:soil_layers} were derived from the Eurocode \autocite{stichtingkoninklijknederlandsnormalisatieinstituutNederlandseNormNEN2025}. Because of limited knowledge on soil characteristics, conservative estimates were made based on this code. In the borehole, no explicit information is given on the top fill layer. Therefore, conservative parameters were assumed based on typical values for organic topsoil.
@@ -368,7 +369,7 @@ As derived from the borehole and the overview in Table \ref{tab:soil_layers}, th
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.70\linewidth]{figures/ch8/soil_profile.png}
+    \includegraphics[width=0.90\linewidth]{figures/ch8/soil_profile.png}
     \caption{Soil profile in the cross-section}
     \label{fig:soil_profile_cross_section}
 \end{figure}
@@ -377,36 +378,26 @@ As derived from the borehole and the overview in Table \ref{tab:soil_layers}, th
 
 In addition to the geotechnical values and parameters, the design of the cantilever sheet pile wall is also based on the hydraulic parameters and values. As if a sheet pile wall is located in opens water or when having groundwater the hydrostatic pressure will be acting on both sides of the sheet pile wall. The water level of the river and the ground water can be of difference, and when this is the case an excess of hydrostatic pressure will be acting on the sheet pile. 
 
-The hydrostatic pressure w is called the pore water pressure. In unconfined groundwater, the pore hydrostatic pressure at a depth z is calculated with the use of Equation \ref{eq:pore_water_pressure}.
+Apart from this, the water height of the river is of importance. This value was determined from taking the bathymetry cross section of the river at the critical location. In Figure XX, the bathymetry is shown and the corresponding value of the water height is X.
 
-\begin{equation}
-    w = z \cdot \gamma_{w}
-    \label{eq:pore_water_pressure}
-\end{equation}
+% HIER NOG EEN BATHERMTRY TOEVOEGEN OF VERWIJZEN NAAR HYDRAULIC SECTION. EVEN KIJKEN WAT TE DOEN MET HIER AL AANGEVEN DAT WE 2 METER WATER DALING KUNNEN HEBBEN EN DIT DE MEEST ONGUNSTIGE SITUATIE IS.
 
-When there is an excess of hydrostatic pressure, which means that the water levels on both side of the sheet pile wall are not on the same level, the excess hydrostatic pressure will occur. The excess hydrostatic pressure can be seen in Figure \ref{fig:excess_pressure} and is calculated with Equation \ref{eq:excess_water_pressure}.
-
-\begin{equation}
-    w_{u}(z) = w_{r}(z) - w_{l}(z) = h_{r}(z) \cdot \gamma_{w} - h_{l}(z) \cdot \gamma_{w}
-    \label{eq:excess_water_pressure}
-\end{equation}
-
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\linewidth, height=5cm]{figures/ch8/water_pressure.png}
-        \caption{Hydrostatic pressure}
-        \label{fig:hydrostatic_pressure}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\linewidth, height=5cm]{figures/ch8/excess_water_pressure.png}
-        \caption{Excess hydrostatic pressure}
-        \label{fig:excess_hydrostatic_pressure}
-    \end{subfigure}
-    \caption{Excess hydrostatic pressure}
-    \label{fig:excess_pressure}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \begin{subfigure}[b]{0.45\textwidth}
+%         \includegraphics[width=\linewidth, height=10cm]{figures/ch8/water_pressure_small.png}
+%         \caption{Hydrostatic pressure}
+%         \label{fig:hydrostatic_pressure}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}[b]{0.45\textwidth}
+%         \includegraphics[width=\linewidth, height=10cm]{figures/ch8/excess_water_pressure_small.png}
+%         \caption{Excess hydrostatic pressure}
+%         \label{fig:excess_hydrostatic_pressure}
+%     \end{subfigure}
+%     \caption{Excess hydrostatic pressure}
+%     \label{fig:excess_pressure}
+% \end{figure}
 
 % DEZE PLOT NOG VERBETEREN IN DE CODE EN DUIDELIJKER MAKEN EN DE WAARDES WEGHALEN
 
@@ -425,32 +416,281 @@ When there is an excess of hydrostatic pressure, which means that the water leve
 
 To calculate the embedding depth of the sheet pile. The moments around the lowest point of the sheet pile should be set to zero. To make up the balance of moments, firstly the forces and pressures acting on the sheet pile should be defined. The horizontal pressure acting on the sheet pile are based on the earth pressure by the soil and the hydrostatic pressure by the water. Firstly, the earth pressures will be calculated where after the hydrostatic pressure will be calculated, which will later be described as forces.
 
-The depth of the embedding can be calculated in multiple ways. One way is to give the depth an unknown parameter t and leave this unknown expressed in the pressure and forces, which later give an explicit formula where the depth in an unknown. This can therefore be calculated in the sum of moments with taking roots. However, another approach is to begin with an estimated depth and calculate what the sum of moments around the lowest point is. After an iterative solution can be used to make sure the depth is increasing while optimizing the moment balance to zero at the lowest part of the sheet pile. In this calculation for the depth of the sheet pile the second method is taken and a first estimation of the embeddings depth is taken. The parameters with the given values can be seen in Figure XX.
+The depth of the embedding can be calculated in multiple ways. One way is to give the depth an unknown parameter t and leave this unknown expressed in the pressure and forces, which later give an explicit formula where the depth in an unknown. This can therefore be calculated in the sum of moments with taking roots. However, another approach is to begin with an estimated depth and calculate what the sum of moments around the lowest point is. After an iterative solution can be used to make sure the depth is increasing while optimizing the moment balance to zero at the lowest part of the sheet pile. In this calculation for the depth of the sheet pile the second method is taken and a first estimation of the embeddings depth is taken. As from Figure \ref{fig:problem_description_sheetpiles} in the cross-section could be seen the first estimation of the embedment depth is taken as 6.0 meters.
 
 \textit{Effective stress}
 
-The horizontal pressure of the soil can be calculated based on the vertical effective stress. The effective stress in the soil can be calculated with Equation \ref{eq:effective_stress}. In which the effective stress is based on the weight of the soil and the unit weight $\gamma$, of each layer. If the soil layer is below the ground water table the saturated unit weight should be deducted from the unit weight, $\gamma - \gamma_{w}$. 
+The horizontal pressure of the soil can be calculated based on the vertical effective stress. The effective stress in the soil can be calculated with Equation \ref{eq:effective_stress}. In which the effective stress is based on the weight of the soil and the unit weight $\gamma$, of each layer. If the soil layer is below the ground water table the saturated unit weight should be deducted from the unit weight, $\gamma - \gamma_{w}$. In Figure \ref{eq:effective_stress} the effective stress of both sides of the sheet pile can be seen. In Table XX in Appendix XX, the values of the effective stress are displayed.
 
 \begin{equation}
-    \sigma^{'}_{v} = \gamma \cdot z
+    \sigma^{'}_{z} = z \cdot \gamma
     \label{eq:effective_stress}
 \end{equation}
 
-In Figure XX the effective stress of both sides of the sheet pile can be seen. In Table XX, the related values of the effective stress are displayed.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\linewidth]{figures/ch8/effective_stress.png}
+    \caption{Effective stress active and passive side}
+    \label{fig:effective_stress}
+\end{figure}
 
+% \begin{table}[ht]
+%   \centering
+%   \caption{Vertical effective stress on left and right sides}
+%   \label{tab:effective_stress}
+%   \small
+%   \setlength{\tabcolsep}{8pt}
+%   \renewcommand{\arraystretch}{1.15}
+%   \begin{tabular}{@{}r r r@{}}
+%     \toprule
+%     $z$ [m] &
+%     $\sigma'_{z,l}$ [kN/m$^2$] &
+%     $\sigma'_{z,r}$ [kN/m$^2$] \\
+%     \midrule
+%      0.00 &  0.00 &  0.00 \\
+%      1.00 &  0.00 & 12.00 \\
+%      2.00 &  0.00 & 14.19 \\
+%      4.00 &  0.00 & 32.57 \\
+%      7.00 & 27.57 & 60.14 \\
+%     10.00 & 40.14 & 72.71 \\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
 
+\textit{Earth pressure and force}
 
-\textit{Earth pressure}
+The pressure the sheet pile is feeling from the soil is the lateral earth pressure acting due to the soil. As above, the effective vertical stress has been calculated, from here the horizontal component of the stress distribution can be calculated.
 
-Uitleg over hoe de active en passive earth pressure berekend wordt met een afbeelding en een tabel met de belangrijkste waarden. Uitleg dat alles onder de dredging line een waarden zal komen die uit een onbekende D zal bestaan. 
+Soil is largely dependent by the nature and the stresses differ as the vertical effective stress also differs along the profile of the layers. The earth pressure can be calculated with the use of Equation \ref{eq:earth_pressure}. In here the relation between the effective stress and the pressure coefficient $K_{\gamma}$ is shown. For the active and passive side, the coefficients $K_{a}$ and $K_{p}$ will be used.
 
-\textit{Hydrostatic pressure}
+\begin{equation}
+    p_{ea,h,z} = z \cdot \gamma \cdot K_{\gamma}
+    \label{eq:earth_pressure}
+\end{equation}
 
-Uitleg over hoe de hydrostatic water pressure berekend wordt met een afbeelding van de passive en active side en een tabel met de belangrijkste waarden. Uitleg dat alles onder de dredging line een waarden zal komen die uit een onbekende D zal bestaan.
+For the active and passive earth coefficients the formula based by Coulomb can be used which are shown in Equations \ref{eq:K_gamma_a_k} and \ref{eq:K_gamma_p_k}. As in this calculation the $\alpha$, $\beta$, and $\delta$, which are the slope of the sheet pile, ground levels, and wall friction angle are equal to zero, we can make use of the simpler formulation by the equation which results in Equations \ref{eq:Ka_tan} and \ref{eq:Kp_tan}.
 
-\textit{Loads}
+\begin{equation}
+    K_{\gamma;a;k} =
+    \frac{
+        \cos^{2}\!\left(\varphi' + \alpha\right)
+    }{
+        \cos^{2}(\alpha)
+        \left(
+            1 +
+            \sqrt{
+                \frac{
+                    \sin\!\left(\varphi' + \delta_{a;k}\right)
+                    \sin\!\left(\varphi' - \beta_a\right)
+                }{
+                    \cos\!\left(\alpha - \delta_{a;k}\right)
+                    \cos\!\left(\alpha + \beta_a\right)
+                }
+            }
+        \right)^{2}
+    }
+    \label{eq:K_gamma_a_k}
+\end{equation}
 
-Hier komt een beschrijving van de verschillende krachten die op de damwand komen te staan. Denk hierbij aan de earth pressure, water pressure en de golf energie force.
+\begin{equation}
+    K_{\gamma;p;k} =
+    \frac{
+        \cos^{2}\!\left(\varphi' - \alpha\right)
+    }{
+        \cos^{2}(\alpha)
+        \left(
+            1 -
+            \sqrt{
+                \frac{
+                    \sin\!\left(\varphi' - \delta_{p;rep}\right)
+                    \sin\!\left(\varphi' + \beta_p\right)
+                }{
+                    \cos\!\left(\alpha - \delta_{p;k}\right)
+                    \cos\!\left(\alpha + \beta_p\right)
+                }
+            }
+        \right)^{2}
+    }
+    \label{eq:K_gamma_p_k}
+\end{equation}
+
+\begin{equation}
+    K_a = \tan^{2}\!\left(45^\circ - \frac{\varphi'}{2}\right)
+    \label{eq:Ka_tan}
+\end{equation}
+
+\begin{equation}
+    K_p = \tan^{2}\!\left(45^\circ + \frac{\varphi'}{2}\right)
+    \label{eq:Kp_tan}
+\end{equation}
+
+With the use of Table \ref{tab:soil_layers} in which all the soil parameters are including the effective angle of internal friction which is needed to calculate the coefficients for the different layers. In Table \ref{tab:layers_ka_kp} an overview of the active and passive coefficients for all the layers are shown. 
+
+\begin{table}[ht]
+  \centering
+  \caption{Soil layers and earth pressure coefficients.}
+  \label{tab:layers_ka_kp}
+  \small
+  \setlength{\tabcolsep}{8pt}
+  \renewcommand{\arraystretch}{1.15}
+  \begin{tabular}{@{}r l l r r r@{}}
+    \toprule
+    Layer & Soil type & Depth [m] &
+    $\varphi'\,[\boldsymbol{^\circ}]$ &
+    $K_{a}$ [-] & $K_{p}$ [-] \\
+    \midrule
+    1 & Fill             & 0.0 - 2.0   & 15.0 & 0.589 & 1.698 \\
+    2 & Fine--Medium Sand& 2.0 - 7.0   & 30.0 & 0.333 & 3.000 \\
+    3 & Clay             & 7.0 - 10.0  & 17.5 & 0.538 & 1.860 \\
+    4 & Clayey Sand      & 10.0 - 15.0 & 25.0 & 0.406 & 2.464 \\
+    \bottomrule 
+  \end{tabular}
+\end{table}
+
+In Figure \ref{fig:earth_pressure} an overview of the active and passive earth pressure acting on the sheet pile is shown. However, when calculating the earth pressures it should be noted that on the interfaces of the soil layers the right coefficient is taken and multiplied with the effective stress $\sigma_{z}$. With the active and passive pressures acting on the sheet pile we can determine the horizontal forces. This horizontal force is calculated with Equation \ref{eq:earth_force} where the active or passive earth pressure is multiplied by the height of the layer. 
+
+For determining the force, triangles and rectangle area are computed by the Python code and the corresponding forces are calculated. In Figure \ref{fig:earth_pressure} an overview of all the corresponding forces are shown. An overview of the segments and their corresponding values and point of application are shown in Table \ref{tab:forces_centroids}. In Table XX in Appendix XX the active and passive earth pressures just above and below the interface of the soil layers are presented.
+
+\begin{equation}
+    F_{ea,h,z} = p_{ea,h,z} \cdot h_{layer}
+    \label{eq:earth_force}
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\linewidth]{figures/ch8/earth_pressure_force.png}
+    \caption{Earth pressure (left) and force (right)}
+    \label{fig:earth_pressure}
+\end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.70\linewidth]{figures/ch8/earth_pressure.png}
+%     \caption{Earth pressure}
+%     \label{fig:earth_pressure}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.70\linewidth]{figures/ch8/forces_earth.png}
+%     \caption{Earth forces}
+%     \label{fig:earth_forces}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \begin{subfigure}[b]{0.45\textwidth}
+%         \includegraphics[width=\linewidth, height=10cm]{figures/ch8/earth_pressure_small.png}
+%         \caption{Earth pressure}
+%         \label{fig:earth_pressure}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}[b]{0.45\textwidth}
+%         \includegraphics[width=\linewidth, height=10cm]{figures/ch8/earth_force_small.png}
+%         \caption{Earth forces}
+%         \label{fig:earth_forces}
+%     \end{subfigure}
+%     \caption{Earth pressure and forces}
+%     \label{fig:earth_force_pressure}
+% \end{figure}
+
+% \begin{table}[ht]
+%   \centering
+%   \caption{Active and passive pressures}
+%   \label{tab:earth_pressure_values}
+%   \small
+%   \setlength{\tabcolsep}{6pt}
+%   \renewcommand{\arraystretch}{1.15}
+%   \begin{tabular}{@{}r r r r r@{}}
+%     \toprule
+%     $z$ [m] &
+%     $p_{above, passive}$ [kN/m$^2$] &
+%     $p_{below, passive}$ [kN/m$^2$] &
+%     $p_{above, active}$ [kN/m$^2$] &
+%     $p_{below, active}$ [kN/m$^2$] \\
+%     \midrule
+%      0.00 & \textemdash & \textemdash &  0.00 &  0.00 \\
+%      1.00 & \textemdash & \textemdash &  7.07 &  7.07 \\
+%      2.00 & \textemdash & \textemdash &  8.35 &  4.73 \\
+%      4.00 &  0.00 &  0.00 & \textemdash & \textemdash \\
+%      7.00 & 82.71 & 51.28 & 20.05 & 32.33 \\
+%     10.0 & 74.66 & 74.66 & 39.09 & 29.51 \\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+
+\begin{table}[ht]
+  \centering
+  \caption{Resultant forces and centroids by segment.}
+  \label{tab:forces_centroids}
+  \small
+  \setlength{\tabcolsep}{8pt}
+  \renewcommand{\arraystretch}{1.15}
+  \begin{tabular}{@{}l r l r r@{}}
+    \toprule
+    \textbf{Side} & \textbf{Segment} & \textbf{Shape} &
+    \textbf{F [kN/m]} & \textbf{$z_c$ [m]} \\
+    \midrule
+    Active (right) & 1 & tri  &  3.53 & 0.67 \\
+    Active (right) & 2 & rect &  7.07 & 1.50 \\
+    Active (right) & 2 & tri  &  0.64 & 1.67 \\
+    Active (right) & 3 & rect & 23.65 & 4.50 \\
+    Active (right) & 3 & tri  & 38.29 & 5.33 \\
+    Active (right) & 4 & rect & 97.00 & 8.50 \\
+    Active (right) & 4 & tri  & 10.14 & 9.00 \\
+    Passive (left) & 1 & tri  & 124.06 & 6.00 \\
+    Passive (left) & 2 & rect & 153.84 & 8.50 \\
+    Passive (left) & 2 & tri  &  35.07 & 9.00 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\textit{Hydrostatic pressure and force}
+
+The hydrostatic pressure $w$ is called the pore water pressure. In unconfined groundwater, the pore hydrostatic pressure at a depth z is calculated with the use of Equation \ref{eq:pore_water_pressure}.
+
+\begin{equation}
+    w = z \cdot \gamma_{w}
+    \label{eq:pore_water_pressure}
+\end{equation}
+
+When there is an excess of hydrostatic pressure, which means that the water levels on both side of the sheet pile wall are not on the same level, the excess hydrostatic pressure will occur. The excess hydrostatic pressure can be calculated with Equation \ref{eq:excess_water_pressure}.
+
+\begin{equation}
+    w_{u}(z) = w_{r}(z) - w_{l}(z) = h_{r}(z) \cdot \gamma_{w} - h_{l}(z) \cdot \gamma_{w}
+    \label{eq:excess_water_pressure}
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\linewidth]{figures/ch8/hydrostatic_pressure.png}
+    \caption{Hydrostatic pressure (right) and excess hydrostatic pressure (left)}
+    \label{fig:hydrostatic_excess_pressure}
+\end{figure}
+
+% \begin{table}[ht]
+%   \centering
+%   \caption{Pore pressure values along depth.}
+%   \label{tab:u_profile}
+%   \small
+%   \setlength{\tabcolsep}{8pt}
+%   \renewcommand{\arraystretch}{1.15}
+%   \begin{tabular}{@{}l l l l@{}}
+%     \toprule
+%     \textbf{$z$ [m]} &
+%     \textbf{$u_{right}$ [kN/m$^2$]} &
+%     \textbf{$u_{left}$ [kN/m$^2$]} &
+%     \textbf{$u_{net}$ [kN/m$^2$]} \\
+%     \midrule
+%      0.00  &  0.00  &  0.00  &  0.00 \\
+%      1.00  &  0.00  &  0.00  &  0.00 \\
+%      2.00  &  9.81  &  0.00  &  9.81 \\
+%      3.00  & 19.62  &  0.00  & 19.62 \\
+%      7.00  & 58.86  & 39.24  & 19.62 \\
+%     10.00  & 88.29  & 68.67  & 19.62 \\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
 
 \textit{Balance of Forces}
 
@@ -459,6 +699,16 @@ Vanuit de active en passive earth pressure de krachten kunnen bepalen doormiddel
 \textit{Balance of Moments}
 
 De momentensom om het laagste punt van de sheet pile gelijkstellen aan 0. Dit laten zien in een afbeelding en de uiteindelijke vergelijking die bestaat ui waardes en een onbekende D. Hieruit de wortel en d bepalen die de sheet pile zal moeten hebben. Ook een plaatje van de momenten lijn over de gehele damwand laten zien.
+
+Moment min |ΣM|: t = 9.713 m
+ΣMO = +0.0386 kN·m/m
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\linewidth]{figures/ch8/moments_balance.png}
+    \caption{Moments balance}
+    \label{fig:moments_balance}
+\end{figure}
 
 \subsection{Structural Verification}
 
@@ -520,3 +770,5 @@ From an ecological perspective, vegetated buffer zones play a vital role in stab
 In addition to their environmental benefits, buffer zones contribute to biodiversity enhancement by creating transitional habitats that support a variety of species and small fauna. They also serve as visual and acoustic screens, reducing noise and improving the aesthetic quality of the landscape. When designed with native and drought-tolerant species, vegetated buffers require minimal maintenance and can thrive in the disturbed conditions typical of mining landscapes.
 
 Moreover, the establishment of buffer zones can provide socio-economic advantages for local communities through community-based planting initiatives. Overall, vegetated buffer zones represent a cost-effective and multifunctional Nature-Based Solution that simultaneously addresses environmental degradation, air quality concerns, and landscape restoration in areas affected by dry sand mining.
+
+\subsubsection{Implementation in Ibicuy area}

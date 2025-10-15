@@ -490,14 +490,14 @@ In this section, the measured suspended sediment concentrations and flow velocit
     \label{fig:Measured suspended sediment concentrations}
 \end{figure}
 
-The Acoustic Doppler Current Profiler (ADCP) measures the flow velocity and depth across a river cross section by dividing the measurements into vertical bins for every ensemble. These data can be used to create a flow velocity field for the whole cross section, see Appendix \ref{appendix:fieldwork results}, and velocity profiles for multiple locations along the cross section. These velocity profiles are used to determine the Law of the Wall fit, see Equation \ref{eq:law_of_the_wall}.
+The Acoustic Doppler Current Profiler (ADCP) measures the flow velocity and depth across a river cross section by dividing the measurements into vertical bins for every ensemble. These data can be used to create a flow velocity field for the whole cross section, see Appendix \ref{appendix:fieldwork results}, and velocity profiles for every ensemble along the cross section. These velocity profiles are used to determine the Law of the Wall fit, see Equation \ref{eq:law_of_the_wall}.
 
 \begin{equation}
     u = \left( \frac{u_*}{\kappa} \right) \ln\left( \frac{z}{z_0} \right)
     \label{eq:law_of_the_wall}
 \end{equation}
 
-The Law of the Wall describes the velocity profile of a turbulent flow near a boundary. Therefore, the log-law is fitted on only the velocity points in the lowest 50\% of the water column. Additionally, the Law of the Wall is used to calculate the shear velocity ($u_*$), which is most accuratly determined from the near-bed region. By fitting only on the lower 50\%, the fit is not affected by upper flow deviations such as wind, waves and secondary flow. The computed shear velocity ($u_*$) is used to calculate the Rouse number; see Equation \ref{Rouse number}. Using this Rouse number it is possible to calculate the sediment concentration ($c$) at any depth ($z$) in the water column using the Rouse profile in Equation \ref{Rouse profile}.
+The Law of the Wall describes the velocity profile of a turbulent flow near a boundary. Therefore, the log-law is fitted on only the velocity points in the lowest 50\% of the water column. Additionally, the Law of the Wall is used to calculate the shear velocity ($u_*$), which is most accuratly determined from the near-bed region. By fitting only on the lower 50\%, the fit is not affected by upper flow deviations such as wind, waves and secondary flow. The computed shear velocity ($u_*$) is used to calculate the Rouse number at every ensemble along the cross section; see Equation \ref{Rouse number}. Using this Rouse number it is possible to calculate the sediment concentration ($c$) at any depth ($z$) in the water column using the Rouse profile in Equation \ref{Rouse profile}.
 
 \begin{equation}
     P = \frac{w_s}{\kappa u_*}
@@ -556,9 +556,7 @@ The total suspended sediment flux for every cross section is calculated by summi
 \textbf{Uncertainties} \\
 The calculation of the suspended sediment flux is subject to several sources of uncertainty. Firstly, for each cross section, suspended sediment concentration was measured at only one location. Because no information is available on the grain size distribution, the settling velocity ($w_s$) for the entire cross section was determined by calibrating the Rouse profile to fit this single measurement. Consequently, instead of calculating a separate Rouse profile for each grain size bin, the calibrated $w_s$ was assumed to be representative for all the sediment grains across the cross section. The lack of grain size information and the assumption of a representative $w_s$ introduce considerable uncertainty into the results.
 
-Secondly, gh
-- one value for $w_s$ used per cross section
-- 0.2 m/s variance in ADCP measurements
+Secondly, after plotting the depth averaged velocities along the three cross sections, it was found that the velocities show a spread of $\pm0.2~m/s$. The average flow velocity for the three cross sections is around $0.5-0.6~m/s$, see Table \ref{tab:discharges fieldwork}. As the suspended sediment flux is calculated by multiplying the concentration with the velocity, this uncertainty in velocity (approximately $30-40\%$ of the mean flow) can lead to a comparable relative uncertainty in the calculated suspended sediment flux. In addition, part of the uncertainty may coem from short-term flow fluctuations during the measurements and from spatial variability within the cross section that is not fully captured by the ADCP transects.
 
 \subsection{Grain size distribution of bed load samples}
 During the fieldwork, data was collected on the Paraná River over a period of two days. Seven samples were collected from the riverbed at four different cross-sections. Samples were collected at depths of 10 and 15 metres. The first number refers to the cross-section and the second number refers to a depth of 10 or 15 metres. The locations where the samples were collected are presented in figure \ref{fig:measurements day1} and \ref{fig:measurements day2}. Sample 3-1 was quite large, so it was decided to treat it as two different samples (3-1A \& B). 
