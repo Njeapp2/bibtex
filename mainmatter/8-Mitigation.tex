@@ -326,7 +326,7 @@ To be able to design the sheet pile, the soil layers along with their geotechnic
 
 Because of the resemblance between the local borehole and the geological profile given before, the layering as shown in Figure \ref{fig:borehole} is deemed representative for the whole study area. Based on this layering the relevant parameters can be derived, the result is shown in Table \ref{tab:soil_layers}.
 
-\begin{table}[ht]
+\begin{table}[H]
   \centering
   \caption{Soil geotechnical properties}
   \label{tab:soil_layers}
@@ -666,35 +666,25 @@ When there is an excess of hydrostatic pressure, which means that the water leve
 %     \label{eq:balance_forces}
 % \end{equation}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.90\linewidth]{figures/ch8/force_balance.png}
-    \caption{Forces acting on the cantilever sheet pile}
-    \label{fig:forces_balance}
-\end{figure}
+\textit{Bending moment}
 
-\textit{Moment}
-
-The balance of moments around the lowest part of the sheet pile should be zero which can be seen in Equation XX. In Figure \ref{fig:moments_point} the balance of moments is shown and the point O is indicated. 
-
-From the forces derived from the earth and hydrostatic pressure a force balance can be set up to calculate the resultant force R which was introduced by using the method of Blum. Equation \ref{eq:balance_forces} shows the force balance should be equal to 0 which will give the resultant force R. In Figure \ref{fig:forces_balance} an overview of the acting forces and their magnitude is shown.
-
-
-From Table \ref{tab:forces_arms_moments_now}, it can be seen that the balance of moments is not 0. Which means it needs to be iteratively calculated increasing the embeddings depth to check at which depth the moments is zero.
+The balance of moments around the lowest part of the sheet pile should be zero, Equation \ref{eq:moment}. In Figure \ref{fig:moments_balance} the point where the moment should be equal to O is indicated. In addition, also the forces acting due to both the earth and hydrostatic are shown. From the forces derived from the earth and hydrostatic pressure and the distance to the lowest point of the sheet pile the moments can be computed.
 
 \begin{equation}
     \sum{M_{t}} = 0
     \label{eq:moment}
 \end{equation}
 
+From Table \ref{tab:forces_arms_moments_now}, it can be seen that the balance of moments is not 0. Which means it needs to be iteratively calculated increasing the embeddings depth to check at which depth the moments is zero.
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.90\linewidth]{figures/ch8/moments_point.png}
-    \caption{Point O where balance of moments is zero}
-    \label{fig:moments_point}
+    \includegraphics[width=0.90\linewidth]{figures/ch8/force_balance.png}
+    \caption{Forces acting and moment point 0}
+    \label{fig:moment_balance}
 \end{figure}
 
-\begin{table}[ht]
+\begin{table}[H]
   \centering
   \caption{Resultant forces, arms to base, and base moments by segment.}
   \label{tab:forces_arms_moments_now}
@@ -707,16 +697,18 @@ From Table \ref{tab:forces_arms_moments_now}, it can be seen that the balance of
     \textbf{F [kN/m]} & \textbf{$z_c$ [m]} & \textbf{Arm to base [m]} &
     \textbf{$M_{\text{base}}$ [kN$\cdot$m/m]} \\
     \midrule
-    Active (right) & 1 & tri  &  3.53  & 0.67 & 9.33 &  32.97 \\
-    Active (right) & 2 & rect &  7.07  & 1.50 & 8.50 &  60.06 \\
-    Active (right) & 2 & tri  &  0.64  & 1.67 & 8.33 &   5.37 \\
-    Active (right) & 3 & rect & 23.65  & 4.50 & 5.50 & 130.07 \\
-    Active (right) & 3 & tri  & 38.29  & 5.33 & 4.67 & 178.69 \\
-    Active (right) & 4 & rect & 97.00  & 8.50 & 1.50 & 145.50 \\
-    Active (right) & 4 & tri  & 10.14  & 9.00 & 1.00 &  10.14 \\
-    Passive (left) & 1 & tri  & 124.06 & 6.00 & 4.00 & -496.26 \\
-    Passive (left) & 2 & rect & 153.84 & 8.50 & 1.50 & -230.76 \\
-    Passive (left) & 2 & tri  &  35.07 & 9.00 & 1.00 &  -35.07 \\
+    Active (right) & 1 & Triangle  &  3.53  & 0.67 & 9.33 &  32.97 \\
+    Active (right) & 2 & Rectangle &  7.07  & 1.50 & 8.50 &  60.06 \\
+    Active (right) & 2 & Triangle  &  0.64  & 1.67 & 8.33 &   5.37 \\
+    Active (right) & 3 & Rectangle & 23.65  & 4.50 & 5.50 & 130.07 \\
+    Active (right) & 3 & Triangle  & 38.29  & 5.33 & 4.67 & 178.69 \\
+    Active (right) & 4 & Rectangle & 97.00  & 8.50 & 1.50 & 145.50 \\
+    Active (right) & 4 & Triangle  & 10.14  & 9.00 & 1.00 &  10.14 \\
+    Hydro (right) & 4 & Triangle  & 397.31  & 9.00 & 1.00 &  10.14 \\
+    Hydro (left) & 4 & Triangle  & 240.34  & 9.00 & 1.00 &  10.14 \\
+    Passive (left) & 1 & Triangle  & 124.06 & 6.00 & 4.00 & -496.26 \\
+    Passive (left) & 2 & Rectangle & 153.84 & 8.50 & 1.50 & -230.76 \\
+    Passive (left) & 2 & Triangle  &  35.07 & 9.00 & 1.00 &  -35.07 \\
     \bottomrule
   \end{tabular}
 \end{table}
