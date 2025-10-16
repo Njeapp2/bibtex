@@ -53,9 +53,9 @@ Table \ref{tab:standard_values} gives the standard design values for wave height
     \label{tab:standard_values}
     \begin{tabular}{lcccc}
         \toprule
-        \textbf{Location} & \multicolumn{2}{c}{\textbf{Wave heights (m)}} & \multicolumn{2}{c}{\textbf{Currents (m/s)}} \\
+        Location & \multicolumn{2}{c}{Wave heights (m)} & \multicolumn{2}{c}{Currents (m/s)} \\
         \cmidrule(lr){2-3} \cmidrule(l){4-5}
-        & \textbf{Wind waves} & \textbf{Ship waves} & \textbf{Natural current} & \textbf{Return current} \\
+        & Wind waves & Ship waves & Natural current & Return current \\
         \midrule
         Lakes          & 0.25 -- 1.00  & 0.10 -- 0.50  & 0.1 -- 0.5  & 0.1 -- 0.25 \\
         Canals         & 0.10 -- 0.25  & 0.25 -- 0.75  & 0.5 -- 1.0  & 0.5 -- 1.0  \\
@@ -77,7 +77,7 @@ This gives the following parameters:
     \label{tab:Parameters for Wave Impact Calculation}
     \begin{tabular}{lcc}
         \toprule
-        \textbf{Location} & \textbf{Ship wave height: H (m)} & \textbf{Natural current: u (m/s)} \\
+        Location & Ship wave height: H (m) & Natural current: u (m/s) \\
         \midrule
         Rivers & 0.25 & 1.5 \\
         \bottomrule
@@ -364,14 +364,14 @@ The tidal wave of the Atlantic Ocean influences the hydrodynamics of the lower P
 
 The damping coefficient ($\alpha$) and the tidal delay with respect to San Fernando have been determined by Brok (2022). For Brazo Largo, a damping coefficient of 0.3 and tidal delay of 4 hours were found. These values will be used as reference values when isolating the tide at Brazo Largo. The tidal signal is isolated using hourly water level data for a period of more than 2 years from both Brazo Largo and San Fernando. Table 5.2 shows the tidal constituents  considered and their period.
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \caption{Tidal constituents used to reconstruct the tide
 \autocite{BRON}.}
 \label{tab:constituents}
 \begin{tabular}{lccc}
 \hline
-\textbf{Tidal constituent} & \textbf{Name} & \textbf{Period [h]} \\
+Tidal constituent & Name & Period [h] \\
 \hline
 \multicolumn{3}{l}{\textit{Semi-diurnal}} \\
 \hspace{1em}Principal lunar & M2 & 12.4206\\
@@ -388,17 +388,17 @@ The damping coefficient ($\alpha$) and the tidal delay with respect to San Ferna
 \end{tabular}
 \end{table}
 
-- uitleg hoe het getijde bepaald is
+%- uitleg hoe het getijde bepaald is
 
 The tidal amplitude and phase of each constituent for San Fernando and Brazo Largo are displayed in Table 5.3. Additionally, the damping coefficient ($\alpha$) and the tide delay are calculated for the different constituents and shown in Table 5.3. The calculated amplitudes show that the delta has mixed tidal dynamics  (semidiurnal-diurnal)
 dominated by the semi-diurnal M2 constituent with contributions from N2, K1 and O1. The overtide M4 plays a minor role. The damping coefficient is consistent across the constituents ranging from 0.23 to 0.33, inditcating that the use of formula 5.3 is valid. The calculated time delay of 4.5 - 5.5 hours is also in line with the time delay calculated by Brok (2022). The damping coefficient of M4 is different because it is generated locally with nonlinear interactions.
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \caption{Amplitude and phase comparison}
 \begin{tabular}{lcccccc}
 \hline
-Constituent & $A_{\text{SF}}$ & $A_{\text{BL}}$ & $\alpha$ & tide delay [hr] & $\phi_{\text{SF}}$ [$^\circ$] & $\phi_{\text{BL}}$ [$^\circ$] \\
+Constituent & $A_{\text{SF}}$ & $A_{\text{BL}}$ & \textbf{$\alpha$} & Tide delay [hr] & $\phi_{\text{SF}}$ [$^\circ$] & $\phi_{\text{BL}}$ [$^\circ$] \\
 \hline
 M2 & 0.253 & 0.058 & 0.230 & 4.450 & -0.465 & 1.786 \\
 S2 & 0.041 & 0.010 & 0.239 & 5.055 & -2.526 & 0.121 \\
@@ -452,7 +452,7 @@ The relevant flow measurements of the different cross sections are summarized in
     \caption{Flow properties of fieldwork measurements in different sections}
     \begin{tabular}{llccc}
         \toprule
-        \textbf{Section} & \textbf{River} & \textbf{Water level [m IGN]} & \textbf{Mean flow velocity [m/s]} & \textbf{Discharge [$m^3$/s]} \\
+        Section & River & Water level [m IGN] & Mean flow velocity [m/s] & Discharge [$m^3$/s] \\
         \midrule
         1 & Talabera       & 1.09 & 0.619 & 4402 \\
         2 & Paraná Guazú   & 1.12 & 0.507 & 6562 \\
@@ -512,6 +512,7 @@ Furthermore, this acceptable range tends to widen as the target grain size incre
 
 
 \subsection{Suspended sediment load}
+\label{sec: Suspended sediment load}
 In this section, the measured suspended sediment concentrations and flow velocity profiles are analysed in order to calculate the total suspended sediment flux. The sediment concentrations were obtained by lowering an intake tube connected to a rope and a weight into the water, as described in Section \ref{Measurement variables and equipment}. By assuming a constant angle of the rope at different depths in a cross section and measuring the length of the rope, the depth at which the measurements were taken could be determined. The measured suspended sediment concentrations at different depths are shown in Figure \ref{fig:Measured suspended sediment concentrations}.
 
 \begin{figure}[H]
@@ -521,7 +522,7 @@ In this section, the measured suspended sediment concentrations and flow velocit
     \label{fig:Measured suspended sediment concentrations}
 \end{figure}
 
-Figure \ref{fig:Measured suspended sediment concentrations} shows, that for all three cross sections, the suspended sediment concentration is the highest near the bed, which is typical for suspended sediment. The steeper profile for cross section 2 suggests lower turbulence or smaller shear velocity, causing sediment to settle faster compared to the flatter profiles for cross sections 1 and 3.
+Figure \ref{fig:Measured suspended sediment concentrations} shows, that for all three cross sections, the suspended sediment concentration is the highest near the bed, which is typical for suspended sediment. The steeper profile for cross section 2 higher turbulence or finer particles compared to cross sections 1 and 3. Higher turbulence combined with finer particles causes sediment to stay suspended more easily, which results in a steeper concentration gradient with depth.
 
 The Acoustic Doppler Current Profiler (ADCP) measures the flow velocity and depth across a river cross section by dividing the measurements into vertical bins for every ensemble. These data can be used to create a flow velocity field for the whole cross section, see Appendix \ref{appendix:fieldwork results}, and velocity profiles for every ensemble along the cross section. These velocity profiles are used to determine the Law of the Wall fit, see Equation \ref{eq:law_of_the_wall}.
 
@@ -595,7 +596,7 @@ Additionally, the corresponding sediment grain diameter is given, which is calcu
     \label{eq: Settling vel formula}
 \end{equation}
 
-
+The lower settling velocity and thus the lower particle diameter for cross section 2, in Table \ref{tab: Overview settling velocity}, corresponds to the steeper gradient of sediment concentration in Figure \ref{fig:Measured suspended sediment concentrations}. The computed grain diameters all fall within the range of silt.  
 
 \begin{table}[H]
     \centering
@@ -644,6 +645,7 @@ The calculation of the suspended sediment flux is subject to several sources of 
 Secondly, after plotting the depth averaged velocities along the three cross sections, it was found that the velocities show a spread of $\pm0.2~m/s$. The average flow velocity for the three cross sections is around $0.5-0.6~m/s$, see Table \ref{tab:discharges fieldwork}. As the suspended sediment flux is calculated by multiplying the concentration with the velocity, this uncertainty in velocity (approximately $30-40\%$ of the mean flow) can lead to a comparable relative uncertainty in the calculated suspended sediment flux. In addition, part of the uncertainty may coem from short-term flow fluctuations during the measurements and from spatial variability within the cross section that is not fully captured by the ADCP transects.
 
 \subsection{Bed load}
+\label{sec: Bed load}
 This section presents estimates of the total bed load, based on the grain size distribution of the bed samples described in Section \ref{sec:grainsizedistribution}. Most samples consisted of clays and silts, while two were classified as sand. This distinction strongly depends on the recovery depth of the bed samples. Considering the variability in bed material composition, a careful selection of the model used to estimate bed load transport is required. 
 
 Because the Engelund–Hansen formula was derived for non-cohesive sand-bed conditions, it is only applied to the samples identified as sand (\cite{engelundMonographSedimentTransport1967}). The remaining samples, consisting of clays and silts, are cohesive and therefore not suitable for estimation with this method. The formula is repeated here for clarity:
@@ -678,9 +680,9 @@ Using a channel width $B$ and a volumetric weight of $\rho_s = 2650 $ kg/m$^3$, 
     \caption{Engelund--Hansen input parameters and total bed load}
     \begin{tabular}{lcccc}
         \toprule
-        \textbf{Section} & \textbf{$B$ [m]} & \textbf{$h$ [m]}
-         & \textbf{$d_{50}$ [\textmu m]}
-         & \textbf{$Q_b$ [kg/s]}\\
+        Section & $B$ [m] & $h$ [m]
+         & $d_{50}$ [\textmu m]
+         & $Q_b$ [kg/s]\\
         \midrule
         1 & 544 & 13.04 & 262 & 18.43 \\
         2 & 917 & 13.36 & 210 & 26.92 \\
@@ -693,6 +695,7 @@ Using a channel width $B$ and a volumetric weight of $\rho_s = 2650 $ kg/m$^3$, 
 
 
 \subsection{Longitudinal profiles}
+\label{sec: Longitudinal profiles}
 During the second day of the field campaign, two identical longitudinal profiles were recorded along the confluence of the Paraná Guazú and Talabera. More specifically, the profiles were made near the sand extraction location, in order to monitor possible bed forms and dune migration. For that purpose, the measurements were taken at the beginning (upstream direction) and end of the day (downstream direction). The measurements were carried out using an echosounder device that records river depth. While navigating with the boat, GPS applications were used to make sure the paths were identical. 
 
 To perform analysis on the data, first the depths were converted to water elevations using the relevant value for $l_{station-IGN}$ for Brazo Largo (see Figure \ref{fig:waterelevationreference}). Next, the data points were converted to cartesian coordinates such that they could be projected onto a straight line fit through the profile paths. The assumption was made that no major changes occur in the bathymetry perpendicular to the flow direction. The results of this analysis are shown in Figure \ref{fig:longitudinal profiles}. 
@@ -708,11 +711,51 @@ To perform analysis on the data, first the depths were converted to water elevat
 \newpage
 \section{Sediment Balance}
 \label{sec: Sediment Balance}
+In this section, the sediment balance of the region of interest will be derived. The control volume around the confluence of the Rió Paraná Guazú and the Río Talabera is shown in Figure \ref{fig:Area sediment balance}. The boundaries of this volume are defined by the cross sections in which discharge and sediment measurements were taken during fieldwork. These measurements are used to calculate the ingoing and outgoing sediment fluxes. As only measurements of a single day are available, the derived balance will be a momentary assessment of the amount of sediment entering and leaving the area, rather than a long-term sediment balance. However, since one of the main goals of this study is to investigate the effects of sand extraction on the river, a momentary sediment balance can still provide insights into the significance of the amount of sand that is being extracted.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/ch6/Map_sed_balance.png}
+    \caption{Control volume for the sediment balance.}
+    \label{fig:Area sediment balance}
+\end{figure}
 
+The computed suspended sediment fluxes from Section \ref{sec: Suspended sediment load} and bedload sediment fluxes from Section \ref{sec: Bed load} are shown in Table \ref{tab: Overview sediment fluxes}. From these fluxes, the total sediment flux per cross section is calculated, using Formula \ref{eq: Total sediment flux}. In addition, the total sediment flux in $kg/s$ is converted to a flux in tonnes per day, as the calculated flux is only representative of the day the measurements were taken. For all three cross sections it can be seen that suspended sediment largely contributes to the total sediment flux. For cross section 1 and 3 around 85\% of the total flux is suspended sediment. For cross section 2 this fraction is slightly lower with 74\%. 
 
+\begin{equation}
+    Q_t = Q_s + Q_b
+    \label{eq: Total sediment flux}
+\end{equation}
 
+\begin{table}[H]
+    \centering
+    \caption{Overview of the computed sediment fluxes}
+    \label{tab: Overview sediment fluxes}
+    \setlength{\tabcolsep}{8pt}
+    \begin{tabular}{c c c c c}
+        \hline
+        Cross Section & $Q_s~[kg/s]$ & $Q_b~[kg/s]$ & $Q_t~[kg/s]$ &  $Q_t~[tonnes/day]$ \\
+        \hline
+        1 & 121.38 &  18.43 & 139.81 & 12079.58\\
+        2 & 76.17  &  26.92 & 103.09 & 8906.98\\
+        3 & 342.76 & 60.32 & 403.08 & 34826.11\\
+        \hline
+    \end{tabular}
+\end{table}
 
+The volume of sand extraction estimated in Section \ref{sec: Dredging activities} is $100,000~m^3/month$. Using a sand density of $1600~kg/m^3$, the amount of sand extracted from the river yields $5333,33~tonnes/day$. Sand extraction in the river can be included in the sediment balance using the following formula:
+
+\begin{equation}
+    \Sigma Q_\text{t,in}  - \Sigma Q_\text{t,out} - Q_\text{Dredging}  = \Delta S \
+    \label{eq: general formula ediment balance}
+\end{equation}
+
+In this formula, dredging is the only sink of sediment identified inside the control volume. There are no additional sources of sediment besides the computed fluxes. From Section \ref{sec: Longitudinal profiles} it was concluded that there is no sediment trapped in bars which can act as a sediment source. Local bank erosion is neglected as there is no information available and it is expected to be minimal on a daily scale.
+
+\begin{equation}
+    Q_\text{t,1} + Q_\text{t,2}  -  Q_\text{t,3} - Q_\text{Dredging}  = \Delta S \
+    \label{eq: general formula ediment balance}
+\end{equation}
 
 \section{Hydrodynamic effects on the River Banks}
 \subsection{Aqua Monitor}
@@ -853,7 +896,7 @@ Do keep in mind that the green part of the area is very likely to be digged out 
 \label{tab:Surface Lost Camping La Blanqueada in 2022}
 \begin{tabular}{l l l S[table-format=5.2] S[table-format=5.2]}
 \toprule
-\textbf{Location} & \textbf{Category} & \textbf{Colour} & \textbf{Perimeter (m)} & \textbf{Area (m²)} \\
+Location & Category & Colour & Perimeter (m) & Area (m²) \\
 \midrule
 East Part & Actual & Yellow & 1520.46 & 88494.3 \\
 East Part & Lost & Red & 786.84 & 15328.31 \\
@@ -889,7 +932,7 @@ Together, these results are found in the Table \ref{Table:Loss Ratio for Camping
 \label{tab:LossRatio}
 \begin{tabular}{l c}
 \toprule
-\textbf{Location} & \textbf{Loss Ratio (\%)} \\
+Location & Loss Ratio (\%) \\
 \midrule
 East Part & 14.76 \\
 West Part & 9.94 \\
