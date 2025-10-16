@@ -354,7 +354,7 @@ As for the sediment-discharge relationship, the differences in correlations in B
 
 
 
-\subsection{Tidal forcing}
+\subsection{Tidal forcing (Values are incorrect, has to be changed)}
 \label{sec:tidal forcing}
 The tidal wave of the Atlantic Ocean influences the hydrodynamics of the lower Paraná delta. As the tidal wave enters the delta at the Río de la Plata, the tide is damped and phased by friction, channel geometry and branching, resulting in a reduced amplitude and an increase in phase delay. Under normal conditions, the influence of the tide on the Paraná River reaches the city of Villa Constitución, which is located 220 km upstream of the river mouth. For storm conditions, the tide can reach the city of Rosario \autocite{balayCausesPeriodicityLarge2018}. In order to determine the influence of the tide at Brazo Largo, a reference water level at San Fernando is considered. It is assumed that at San Fernando no tidal damping has occurred, therefore the tidal amplitude at Brazo Largo can be determined using the following relation:
 
@@ -426,9 +426,6 @@ Figure 5.7 shows the water level time series for a period of 7 days compared to 
     \label{fig:period 2}
 \end{figure}
 
-- Waterlevel at Brazo Largo
-    (misschien het getijde meenemen?)
-\\ - Getijde rond Brazo Largo is berekend aan de hand van waterlevel rond San Fernando. Vergelijk de constituents met die van  het rapport en trek conclusie over invloed getijde.
 
 
 \newpage
@@ -524,6 +521,8 @@ In this section, the measured suspended sediment concentrations and flow velocit
     \label{fig:Measured suspended sediment concentrations}
 \end{figure}
 
+Figure \ref{fig:Measured suspended sediment concentrations} shows, that for all three cross sections, the suspended sediment concentration is the highest near the bed, which is typical for suspended sediment. The steeper profile for cross section 2 suggests lower turbulence or smaller shear velocity, causing sediment to settle faster compared to the flatter profiles for cross sections 1 and 3.
+
 The Acoustic Doppler Current Profiler (ADCP) measures the flow velocity and depth across a river cross section by dividing the measurements into vertical bins for every ensemble. These data can be used to create a flow velocity field for the whole cross section, see Appendix \ref{appendix:fieldwork results}, and velocity profiles for every ensemble along the cross section. These velocity profiles are used to determine the Law of the Wall fit, see Equation \ref{eq:law_of_the_wall}.
 
 \begin{equation}
@@ -531,7 +530,32 @@ The Acoustic Doppler Current Profiler (ADCP) measures the flow velocity and dept
     \label{eq:law_of_the_wall}
 \end{equation}
 
-The Law of the Wall describes the velocity profile of a turbulent flow near a boundary. Therefore, the log-law is fitted on only the velocity points in the lowest 50\% of the water column. Additionally, the Law of the Wall is used to calculate the shear velocity ($u_*$), which is most accuratly determined from the near-bed region. By fitting only on the lower 50\%, the fit is not affected by upper flow deviations such as wind, waves and secondary flow. The computed shear velocity ($u_*$) is used to calculate the Rouse number at every ensemble along the cross section; see Equation \ref{Rouse number}. Using this Rouse number it is possible to calculate the sediment concentration ($c$) at any depth ($z$) in the water column using the Rouse profile in Equation \ref{Rouse profile}.
+The Law of the Wall describes the velocity profile of a turbulent flow near a boundary. Therefore, the log-law is fitted on only the velocity points in the lowest 50\% of the water column. Additionally, the Law of the Wall is used to calculate the shear velocity ($u_*$), which is most accuratly determined from the near-bed region. By fitting only on the lower 50\%, the fit is not affected by upper flow deviations such as wind, waves and secondary flow. 
+
+The measured flow velocity profiles by the ADCP and the fitted Law of the Wall are shown in Figure \ref{fig: Velocity profiles cross sections} for the three locations of the concentration measurements. The mean flow velocities for cross sections 1 and 2 are very similar, whereas Cross Section 3 shows a slightly higher mean velocity. This increased flow velocity can be explained by flow concentration as a result of the nearby confluence.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.31\linewidth}
+        \includegraphics[width=\linewidth]{figures/ch6/cs1_vel_profile.png}
+        \caption{Cross section 1.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.31\linewidth}
+        \includegraphics[width=\linewidth]{figures/ch6/cs2_vel_profile.png}
+        \caption{Cross section 2.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.31\linewidth}
+        \includegraphics[width=\linewidth]{figures/ch6/cs3_vel_profile.png}
+        \caption{Cross section 3.}
+    \end{subfigure}
+    \caption{Velocity profiles with Law of the Wall fit for the three cross sections.}
+    \label{fig: Velocity profiles cross sections}
+\end{figure}
+
+
+The computed shear velocity ($u_*$) from the Law of the Wall fit is used to calculate the Rouse number at every ensemble along the cross section; see Equation \ref{Rouse number}. Using this Rouse number it is possible to calculate the sediment concentration ($c$) at any depth ($z$) in the water column using the Rouse profile in Equation \ref{Rouse profile}.
 
 \begin{equation}
     P = \frac{w_s}{\kappa u_*}
@@ -556,13 +580,15 @@ The reference depth ($a$) and the near-bed reference concentration ($C_a$) were 
     \hfill
     \begin{minipage}[b]{0.48\linewidth}
         \centering
-        \includegraphics[height=6cm]{figures/ch6/Vel_profile_cs11.png}
+        \includegraphics[height=6cm]{figures/ch6/cs1_vel_big.png}
         \caption{Velocity profile for Cross section 1.}
         \label{fig:VelProfile_cs11}
     \end{minipage}
 \end{figure}
 
-As stated above the settling velocity is determined by fitting the Rouse profile to the measured concentrations. The estimated settling velocities are displayed in table \ref{tab: Overview settling velocity} for the three cross sections. Additionally, the corresponding sediment grain diameter is given, which is calculated using the Ferguson & Church (2004) formula (\ref{eq: Settling vel formula}). \autocite{fergusonSimpleUniversalEquation2004}
+As stated above, the settling velocity is determined by fitting the Rouse profile to the measured concentrations. 
+The estimated settling velocities are shown in Table~\ref{tab: Overview settling velocity} for the three cross sections. 
+Additionally, the corresponding sediment grain diameter is given, which is calculated using the Ferguson and Church \autocite{fergusonSimpleUniversalEquation2004} formula (Eq.~\ref{eq: Settling vel formula}). The surbmerged specific density ($R$) is 1.65 for quartz in water and the kinematic viscosity ($\nu$) of the fluid is 1.0 $\times 10^{-6}~\ \text{m}^2\text{/s}$ for water at 20~\textdegree C. The empirical shape coefficients $C_1$ and $C_2$ which reflect viscous and turbulent drag and have a value of 18 and 0.4 respectively.
 
 \begin{equation}
     w_s = \frac{R g d^2}{C_1 \nu + \sqrt{0.75\, C_2\, R g d^3}}
@@ -573,16 +599,16 @@ As stated above the settling velocity is determined by fitting the Rouse profile
 
 \begin{table}[H]
     \centering
-    \caption{Estimated settling velocities ($w_s$) per cross section}
+    \caption{Estimated settling velocities ($w_s$) with diameter ($d$) per cross section}
     \label{tab: Overview settling velocity}
     \setlength{\tabcolsep}{8pt}
     \begin{tabular}{c c c}
         \hline
-        Cross Section & $w_s$ & $d$  \\
+        Cross Section & $w_s~[m/s]$ & $d~[mm]$  \\
         \hline
-        1 & 0.0015 &  \\
-        2 & 0.00035  &   \\
-        3 & 0.0025 &  \\
+        1 & 0.0015 &  0.042 \\
+        2 & 0.00035  &  0.020 \\
+        3 & 0.0025 & 0.054 \\
         \hline
     \end{tabular}
 \end{table}

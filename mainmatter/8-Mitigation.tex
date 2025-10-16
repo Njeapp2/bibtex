@@ -546,7 +546,7 @@ With the use of Table \ref{tab:soil_layers} in which all the soil parameters are
 
 In Figure \ref{fig:earth_pressure} an overview of the active and passive earth pressure acting on the sheet pile. However, when calculating the earth pressures it should be noted that on the interfaces of the soil layers the right coefficient is taken and multiplied with the effective stress $\sigma_{z}$. With the active and passive pressures acting on the sheet pile one can determine the horizontal forces. This horizontal force is calculated with Equation \ref{eq:earth_force} where the active or passive earth pressure is multiplied by the height of the layer. For triangular shapes it should be multiplied with a factor or $\frac{1}{2}$.
 
-For determining the force, triangles and rectangle area are computed by the Python code and the corresponding forces are calculated. In Figure \ref{fig:earth_pressure} an overview of all the corresponding forces are shown. An overview of the segments and their corresponding values and point of application are shown in Table \ref{tab:forces_centroids}. In Table XX in Appendix XX the active and passive earth pressures just above and below the interface of the soil layers are presented.
+For determining the force, triangles and rectangle area are computed by the Python code and the corresponding forces are calculated. In Figure \ref{fig:earth_pressure} an overview of all the corresponding forces are shown. An overview of the segments and their corresponding values and point of application are shown in Table XX in Appendix XX.
 
 \begin{equation}
     F_{ea,h,z} = (\frac{1}{2})_{triangle} \cdot p_{ea,h,z} \cdot h_{layer}
@@ -586,31 +586,31 @@ For determining the force, triangles and rectangle area are computed by the Pyth
 %   \end{tabular}
 % \end{table}
 
-\begin{table}[H]
-  \centering
-  \caption{Resultant forces and centroids by segment.}
-  \label{tab:forces_centroids}
-  \small
-  \setlength{\tabcolsep}{8pt}
-  \renewcommand{\arraystretch}{1.15}
-  \begin{tabular}{@{}l r l r r@{}}
-    \toprule
-    Side & Segment & Shape &
-    F [kN/m] & $z_c$ [m] \\
-    \midrule
-    Active & 1 & Triangle  &  3.53 & 0.67 \\
-    Active & 2 & Rectangle &  7.07 & 1.50 \\
-    Active & 2 & Triangle  &  0.64 & 1.67 \\
-    Active & 3 & Rectangle & 23.65 & 4.50 \\
-    Active & 3 & Triangle  & 38.29 & 5.33 \\
-    Active & 4 & Rectangle & 97.00 & 8.50 \\
-    Active & 4 & Triangle  & 10.14 & 9.00 \\
-    Passive & 1 & Triangle  & 124.06 & 6.00 \\
-    Passive & 2 & Rectangle & 153.84 & 8.50 \\
-    Passive & 2 & Triangle  &  35.07 & 9.00 \\
-    \bottomrule
-  \end{tabular}
-\end{table}
+% \begin{table}[H]
+%   \centering
+%   \caption{Resultant forces and centroids by segment.}
+%   \label{tab:forces_centroids}
+%   \small
+%   \setlength{\tabcolsep}{8pt}
+%   \renewcommand{\arraystretch}{1.15}
+%   \begin{tabular}{@{}l r l r r@{}}
+%     \toprule
+%     Side & Segment & Shape &
+%     F [kN/m] & $z_c$ [m] \\
+%     \midrule
+%     Active & 1 & Triangle  &  3.53 & 0.67 \\
+%     Active & 2 & Rectangle &  7.07 & 1.50 \\
+%     Active & 2 & Triangle  &  0.64 & 1.67 \\
+%     Active & 3 & Rectangle & 23.65 & 4.50 \\
+%     Active & 3 & Triangle  & 38.29 & 5.33 \\
+%     Active & 4 & Rectangle & 97.00 & 8.50 \\
+%     Active & 4 & Triangle  & 10.14 & 9.00 \\
+%     Passive & 1 & Triangle  & 124.06 & 6.00 \\
+%     Passive & 2 & Rectangle & 153.84 & 8.50 \\
+%     Passive & 2 & Triangle  &  35.07 & 9.00 \\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
 
 \textit{Hydrostatic pressure and force}
 
@@ -668,66 +668,109 @@ When there is an excess of hydrostatic pressure, which means that the water leve
 
 \textit{Bending moment}
 
-The balance of moments around the lowest part of the sheet pile should be zero, Equation \ref{eq:moment}. In Figure \ref{fig:moments_balance} the point where the moment should be equal to O is indicated. In addition, also the forces acting due to both the earth and hydrostatic are shown. From the forces derived from the earth and hydrostatic pressure and the distance to the lowest point of the sheet pile the moments can be computed.
+The balance of moments around the lowest part of the sheet pile should be zero, Equation \ref{eq:moment}. In Figure \ref{fig:final_moments_balance} the point where the moment should be equal to O is indicated. In addition, also the forces acting due to both the earth and hydrostatic are shown. From the forces derived from the earth and hydrostatic pressure and the distance to the lowest point of the sheet pile the moments can be computed. 
 
 \begin{equation}
     \sum{M_{t}} = 0
     \label{eq:moment}
 \end{equation}
 
-From Table \ref{tab:forces_arms_moments_now}, it can be seen that the balance of moments is not 0. Which means it needs to be iteratively calculated increasing the embeddings depth to check at which depth the moments is zero.
+From Table \ref{tab:forces_arms_moments_now}, it can be seen that the balance of moments is not 0. Which means it needs to be iteratively calculated increasing the embeddings depth to check at which depth the moments is zero. After the iteration process which was done by the Python code the embedment depth is set to be 9.713 meters. In Table \ref{tab:forces_arms_moments_9713} the values of the forces and moments are shown and the resulting moment around point O is zero. For the safety factor, the Blum method says the found embedding depth should be mulitplied by a factor of 1.20, this results in the following depth:
+
+\begin{equation}
+    t = 1.20 \cdot 9.713 = 11.6 \ m
+\end{equation}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.90\linewidth]{figures/ch8/moment_balance.png}
+%     \caption{Forces for $t = 6.0$ m}
+%     \label{fig:moment_balance}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.90\linewidth]{figures/ch8/moment_t_final.png}
+%     \caption{Forces for $t = 9.713$ m}
+%     \label{fig:final_moments_balance}
+% \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.90\linewidth]{figures/ch8/force_balance.png}
-    \caption{Forces acting and moment point 0}
-    \label{fig:moment_balance}
+    \includegraphics[width=0.90\linewidth]{figures/ch8/moment_balance_small.png}
+    \caption{Forces for $t = 6.0$ m (left) and $t = 9.713$ m (right)}
+    \label{fig:final_moments_balance}
 \end{figure}
 
 \begin{table}[H]
   \centering
-  \caption{Resultant forces, arms to base, and base moments by segment.}
+  \caption{Resultant forces, arms, and moments for $t = 6.0$ meters}
   \label{tab:forces_arms_moments_now}
   \small
   \setlength{\tabcolsep}{8pt}
   \renewcommand{\arraystretch}{1.15}
-  \begin{tabular}{@{}l r l r r r r@{}}
+  \begin{tabular}{@{}l l r r r@{}}
     \toprule
-    \textbf{Side} & \textbf{Segment} & \textbf{Shape} &
-    \textbf{F [kN/m]} & \textbf{$z_c$ [m]} & \textbf{Arm to base [m]} &
+    \textbf{Side} & \textbf{Shape} &
+    \textbf{F [kN/m]} & \textbf{$z_{base}$[m]} &
     \textbf{$M_{\text{base}}$ [kN$\cdot$m/m]} \\
     \midrule
-    Active (right) & 1 & Triangle  &  3.53  & 0.67 & 9.33 &  32.97 \\
-    Active (right) & 2 & Rectangle &  7.07  & 1.50 & 8.50 &  60.06 \\
-    Active (right) & 2 & Triangle  &  0.64  & 1.67 & 8.33 &   5.37 \\
-    Active (right) & 3 & Rectangle & 23.65  & 4.50 & 5.50 & 130.07 \\
-    Active (right) & 3 & Triangle  & 38.29  & 5.33 & 4.67 & 178.69 \\
-    Active (right) & 4 & Rectangle & 97.00  & 8.50 & 1.50 & 145.50 \\
-    Active (right) & 4 & Triangle  & 10.14  & 9.00 & 1.00 &  10.14 \\
-    Hydro (right) & 4 & Triangle  & 397.31  & 7.67 & 3.00 &  10.14 \\
-    Hydro (left) & 4 & Triangle  & 240.34  & 9.00 & 2.33 &  10.14 \\
-    Passive (left) & 1 & Triangle  & 124.06 & 6.00 & 4.00 & -496.26 \\
-    Passive (left) & 2 & Rectangle & 153.84 & 8.50 & 1.50 & -230.76 \\
-    Passive (left) & 2 & Triangle  &  35.07 & 9.00 & 1.00 &  -35.07 \\
+    Active & Triangle  &  3.53  & 9.33 &  32.97 \\
+    Active & Rectangle &  7.07  & 8.50 &  60.06 \\
+    Active & Triangle  &  0.64  & 8.33 &   5.37 \\
+    Active & Rectangle & 23.65  & 5.50 & 130.07 \\
+    Active & Triangle  & 38.29  & 4.67 & 178.69 \\
+    Active & Rectangle & 97.00  & 1.50 & 145.50 \\
+    Active & Triangle  & 10.14  & 1.00 &  10.14 \\
+    Hydro Passive & Triangle  & 397.31  & 3.00 &  1191.93 \\
+    Hydro Active & Triangle  & 240.34  & 2.33 &  -559.99 \\
+    Passive & Triangle  & 124.06 & 4.00 & -496.26 \\
+    Passive & Rectangle & 153.84 & 1.50 & -230.76 \\
+    Passive & Triangle  &  35.07 & 1.00 &  -35.07 \\
+    \midrule
+    $\sum{M_{t}}$ (should ≈ 0 for equilibrium) &  &  & & 432.65 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-ΣMOtotal (should ≈ 0 for equilibrium) =  -199.29 kN·m/m
+\begin{table}[H]
+  \centering
+  \caption{Resultant forces, arms, and moments for $t = 9.713$ meters}
+  \label{tab:forces_arms_moments_9713}
+  \small
+  \setlength{\tabcolsep}{8pt}
+  \renewcommand{\arraystretch}{1.15}
+  \begin{tabular}{@{}l l r r r@{}}
+    \toprule
+    \textbf{Side} & \textbf{Shape} &
+    \textbf{F [kN/m]} & \textbf{$z_{base}$ [m]} &
+    \textbf{$M_{\text{base}}$ [kN$\cdot$m/m]} \\
+    \midrule
+    Active  & Triangle  &   3.53  & 13.05 &  46.09 \\
+    Active  & Rectangle &   7.07  & 12.21 &  86.29 \\
+    Active  & Triangle  &   0.64  & 12.05 &   7.77 \\
+    Active  & Rectangle &  23.65  &  9.21 & 217.89 \\
+    Active  & Triangle  &  38.29  &  8.38 & 320.87 \\
+    Active  & Rectangle &  97.00  &  5.21 & 505.66 \\
+    Active  & Triangle  &  10.14  &  4.71 &  47.78 \\
+    Active  & Rectangle & 109.57  &  1.86 & 203.42 \\
+    Active  & Triangle  &  28.51  &  1.24 &  35.28 \\
+    Hydro Passive   & Triangle  & 562.94  &  3.57 & 2010.28 \\
+    Hydro Active   & Triangle  & 792.75  &  4.24 & 3359.43 \\
+    Passive & Triangle  & 124.06  &  7.71 &  956.92 \\
+    Passive & Rectangle & 153.84  &  5.21 &  801.99 \\
+    Passive & Triangle  &  35.07  &  4.71 &  165.29 \\
+    Passive & Rectangle & 367.22  &  1.86 &  681.76 \\
+    Passive & Triangle  & 173.07  &  1.24 &  214.21 \\
+    \midrule
+    $\sum M_{t}$ (should ≈ 0 for equilibrium) & & & & 0.038 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 % HIER EEN PLOT MET DE SOM VAN DE MOMENTEN OM HET LAAGSTE PUNT BIJ EEN GEKOZEN DIEPTE. HIERNA EEN TABEL MET DE WAARDES EN DAT DE MOMENTSOM NIET GELIJK IS AAN NUL.
 
 % HIER EEN PLOT MET HET ITERATIEF BEPALEN VAN DIEPTE WANNEER DE MOMENTENSOM GELIJK IS AAN NUL. VERWIJZEN NAAR DE TABEL IN DE BIJLAGE EN ALLEEN HET RESULTAAT LATEN ZIEN. OOK WELLICHT DE PLOT VAN HANDBOOK OVERNEMEN.
-
-Moment min |ΣM|: t = 9.713 m
-ΣMO = +0.0386 kN·m/m
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.70\linewidth]{figures/ch8/moments_balance.png}
-    \caption{Moments balance}
-    \label{fig:moments_balance}
-\end{figure}
 
 \textit{ULS and SLS}
 
