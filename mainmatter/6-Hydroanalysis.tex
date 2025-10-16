@@ -753,11 +753,20 @@ The volume of sand extraction estimated in Section \ref{sec: Dredging activities
 In this formula, dredging is the only sink of sediment identified inside the control volume. There are no additional sources of sediment besides the computed fluxes. From Section \ref{sec: Longitudinal profiles} it was concluded that there is no sediment trapped in bars which can act as a sediment source. Local bank erosion is neglected as there is no information available and it is expected to be minimal on a daily scale.
 
 By substituting the sediment fluxes from Table \ref{tab: Overview sediment fluxes} and the estimated sand extraction into Formula \ref{eq: general formula sediment balance}, the 
+change in sediment storage ($\Delta S$) can be computed. The change in sediment storage is an indicator of net deposition (if positive) or net erosion (if negative).
 
-\begin{equation}
-    Q_\text{t,1} + Q_\text{t,2}  -  Q_\text{t,3} - Q_\text{Dredging}  = \Delta S \
-    \label{eq: Filled in formula sediment balance}
-\end{equation}
+\begin{subequations}\label{eq:sediment_balance}
+    \begin{gather}
+        Q_\text{t,1} + Q_\text{t,2} - Q_\text{t,3} - Q_\text{Dredging} = \Delta S \label{eq:sediment_balance_a} \\
+        12079.58 + 8906.98 - 34826.11 - 5333.33 = \Delta S \label{eq:sediment_balance_b} \\
+        -19{,}172.88~[\text{tonnes/day}] = \Delta S
+        \label{eq:sediment_balance_c}
+    \end{gather}
+\end{subequations}
+
+Due to the negative change in sediment storage, the deficit must be supplied by sediment already stored in the control volume, which causes bed/bank erosion. As the amount of sand extracted is $5333.33~tonnes/month$ compared to the much larger $\Delta S$ of -$19,172.88~tonnes/month$, it can be concluded that the net erosion is not primarily caused by the sand extraction. Even without extraction of sand there would still not be enough available sediment in the system.
+
+
 
 \section{Hydrodynamic effects on the River Banks}
 \subsection{Aqua Monitor}
