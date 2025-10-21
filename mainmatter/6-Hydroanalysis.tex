@@ -325,7 +325,7 @@ where \( s \) is the specific gravity of the sediment, \( g \) is the accelerati
 \label{sec:correlation of variables}
 The approach of defining the relations between measured flow variables is as follows. First, the values in the dataset are log-transformed, after which $R^2$-values are calculated based on a linear fit on the logarithmic values. This procedure is applied to the variables of all measurement stations as described in Section \ref{sec:measurementstations}. Figure \ref{fig:correlationmatrices} gives the results for El Colorado and Brazo Largo in the form of correlation matrices. It stands out that correlations in the Bermejo are very high for all variables. This indicates that the power-law assumption is suitable for describing the dependencies between these variables. Subsequently, it is found that correlations for the Brazo Largo are much smaller. This is also the case for the Zárate station on the Paraná de las Palmas. As this river is also located in the Lower Paraná, this behaviour is expected. 
 
-Analysis of the flow variables has shown that $R^2$-values tend to decrease, the further downstream the location of the measurements is. This result is in agreement with those found by \citeauthor{songEvaluatingUnderstandingTideriver2024}, who state that the stage-discharge relationship is considerably affected in the transitional zone and tide-dominated region of the Yangtze estuary. Their research reports $R^2$-values decreasing from 0.9 to 0.4, in a river-dominated and transitional zone, respectively. Therefore, an in-depth study of the tide-river interactions is needed. This includes measurements in both the transitional zone and tide-dominated region, to update the stage-discharge relationship. For this particular study, the influence of tidal effects will be handled in Section \ref{sec:tidal forcing}.
+Analysis of the flow variables has shown that $R^2$-values tend to decrease, the further downstream the location of the measurements is. This result is in agreement with those found by \citeauthor{songEvaluatingUnderstandingTideriver2024}, who state that the stage-discharge relationship is considerably affected in the transitional zone and tide-dominated region of the Yangtze estuary. Their research reports $R^2$-values decreasing from 0.9 to 0.4, in a river-dominated and transitional zone, respectively. Therefore, an in-depth study of the tide-river interactions is needed. This includes measurements in both the transitional zone and tide-dominated region, to update the stage-discharge relationship. For this particular study, the influence of tidal effects are handled in Section \ref{sec:tidal forcing}.
 
 As for the sediment-discharge relationship, the differences in correlations in Brazo Largo can be explained through the sources of the variables. Whereas the fine sediment concentration predominantly originates from the Bermejo basin, the discharge is dominated by the Paraguay and Paraná. This results in a weak correlation downstream of the confluence of these rivers \autocite{lopezweibelSourcesTemporalDynamics2022}. Another factor that may perturb the correlation of variables in the Lower Paraná, is the inflow of the Uruguay river. The variation in elevations that occur due to the presence of this river, can cause disturbances in the rating curves. 
 
@@ -362,7 +362,7 @@ The tidal wave of the Atlantic Ocean influences the hydrodynamics of the lower P
     A_{\text{Location}} = \alpha \cdot A_{\text{SanFernando}}
 \end{equation}
 
-The damping coefficient ($\alpha$) and the tidal delay with respect to San Fernando have been determined by Brok (2022). For Brazo Largo, a damping coefficient of 0.3 and tidal delay of 4 hours were found. These values will be used as reference values when isolating the tide at Brazo Largo. The tidal signal is isolated using hourly water level data for a period of more than 2 years from both Brazo Largo and San Fernando. Table 5.2 shows the tidal constituents  considered and their period.
+The damping coefficient ($\alpha$) and the tidal delay with respect to San Fernando have been determined by Brok (2022). For Brazo Largo, a damping coefficient of 0.3 and tidal delay of 4 hours were found. These values are used as reference values when isolating the tide at Brazo Largo. The tidal signal is isolated using hourly water level data for a period of more than 2 years from both Brazo Largo and San Fernando. Table 5.2 shows the tidal constituents  considered and their period.
 
 \begin{table}[H]
 \centering
@@ -640,9 +640,33 @@ The total suspended sediment flux for every cross section is calculated by summi
 \end{table}
 
 \textbf{Uncertainties} \\
-The calculation of the suspended sediment flux is subject to several sources of uncertainty. Firstly, for each cross section, suspended sediment concentration was measured at only one location. Because no information is available on the grain size distribution, the settling velocity ($w_s$) for the entire cross section was determined by calibrating the Rouse profile to fit this single measurement. Consequently, instead of calculating a separate Rouse profile for each grain size bin, the calibrated $w_s$ was assumed to be representative for all the sediment grains across the cross section. The lack of grain size information and the assumption of a representative $w_s$ introduce considerable uncertainty into the results.
+The calculation of the suspended sediment flux is subject to several sources of uncertainty. Firstly, for each cross section, suspended sediment concentration was measured at only one location. Because no information is available on the grain size distribution, the settling velocity ($w_s$) for the entire cross section was determined by calibrating the Rouse profile to fit this single measurement. Consequently, instead of calculating a separate Rouse profile for each grain size bin, the calibrated $w_s$ was assumed to be representative for all sediment grains across the cross section. The lack of grain size information and the assumption of a representative $w_s$ introduce considerable uncertainty into the results.
 
-Secondly, after plotting the depth averaged velocities along the three cross sections, it was found that the velocities show a spread of $\pm0.2~m/s$. The average flow velocity for the three cross sections is around $0.5-0.6~m/s$, see Table \ref{tab:discharges fieldwork}. As the suspended sediment flux is calculated by multiplying the concentration with the velocity, this uncertainty in velocity (approximately $30-40\%$ of the mean flow) can lead to a comparable relative uncertainty in the calculated suspended sediment flux. In addition, part of the uncertainty may coem from short-term flow fluctuations during the measurements and from spatial variability within the cross section that is not fully captured by the ADCP transects.
+Secondly, after plotting the depth averaged velocities along the three cross sections, it was found that the velocities show a spread of $\pm0.2~m/s$. The average flow velocity for the three cross sections is around $0.5-0.6~m/s$, see Table \ref{tab:discharges fieldwork}. As the suspended sediment flux is calculated by multiplying the concentration by the velocity, this uncertainty in velocity (approximately $30-40\%$ of the mean flow) can lead to a comparable relative uncertainty in the calculated suspended sediment flux. In addition, part of the uncertainty may come from short-term flow fluctuations during the measurements and from spatial variability within the cross section that is not fully captured by the ADCP transects.
+
+To assess the reliability of the measurement concentrations, the estimations are compared to the existing relationship between fine sediment loads and fluvial discharge in Brazo Largo. Figure \ref{fig:fine measurements} shows the measurements conducted around the confluence. It stands out that discharges are quite small, while the loads of section 1 and section 3 are close to the fit. The fine sediment load measured in section 2 is relatively low. This is possibly an underestimation of the real inflow into the confluence, which might affect the sediment balance. 
+
+
+\begin{figure}[h!]
+    \centering
+    % First subfigure
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering        \includegraphics[width=\linewidth]{figures/ch6/fine measurements.png}
+        \caption{Fine sediment load - discharge relation for Brazo Largo including estimations based on field data}
+        \label{fig:fine measurements}
+    \end{subfigure}
+    \hfill
+    % Second subfigure
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/ch6/course measurements.png}
+        \caption{Course sediment load - discharge relation for Brazo Largo including estimations based on field data }
+        \label{fig:course measurements}
+    \end{subfigure}
+    
+    \caption{Comparison of estimations based on field measurements to historical data of sediment loads}
+    \label{fig:correlationmatrices}
+\end{figure}
 
 \subsection{Bed load}
 \label{sec: Bed load}
@@ -686,11 +710,14 @@ Using a channel width $B$ and a volumetric weight of $\rho_s = 2650 $ kg/m$^3$, 
         \midrule
         1 & 544 & 13.04 & 262 & 18.43 \\
         2 & 917 & 13.36 & 210 & 26.92 \\
-        3 & 932 & 18.60 & 200* & 60.32 \\
+        3 & 932 & 18.60 & 200 & 60.32 \\
         \bottomrule
     \end{tabular}
     \label{tab:engelund-hansen}
 \end{table}
+
+\subsubsection{Uncertainties}
+The uncertainties in estimating bed load transport are primarily related to the composition of the bed material. Engelund-Hansen is used here, which is predominantly suited for sandy beds. As observed during field measurements, the Paraná Guazú contains significant amounts of fine sediments, such as clays and silts. In some samples, no sand was detected; however, this largely depended on the sampling depth—at deeper locations, sand was indeed present. Therefore, the application of Engelund-Hansen is justified, and it can be assumed that section 3 also contains sand. The sediment diameter is assumed to be similar to that reported by \citeauthor{reMetodologiaParaGeneracion2009}. When comparing the estimated concentrations to historical data, the results appear relatively high. For the given discharge, Engelund-Hansen seems to overestimate the total bed load transport.
 
 
 
@@ -702,7 +729,7 @@ To perform analysis on the data, first the depths were converted to water elevat
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{figures/ch6/longitudinal profiles.png}
+    \includegraphics[width=0.75\linewidth]{figures/ch6/longitudinal profiles.png}
     \caption{Longitudinal profiles over dredging location at confluence of Paraná Guazú and Talabera}
     \label{fig:longitudinal profiles}
 \end{figure}
@@ -764,7 +791,7 @@ change in sediment storage ($\Delta S$) can be computed. The change in sediment 
     \end{gather}
 \end{subequations}
 
-Due to the negative change in sediment storage, the deficit must be supplied by sediment already stored in the control volume, which causes bed/bank erosion. As the amount of sand extracted is $5333.33$ tonnes/month compared to the much larger $\Delta S$ of -$19,172.88$ tonnes/month, it can be concluded that the net erosion is not primarily caused by the sand extraction. Even without sand extraction, the system would still lack sufficient sediment to balance the deficit.
+Due to the negative change in sediment storage, the deficit must be supplied by sediment already stored in the control volume, which causes bed/bank erosion. As the amount of sand extracted is $5333.33$ tonnes/day compared to the much larger $\Delta S$ of -$19,172.88$ tonnes/day, it can be concluded that the net erosion is not primarily caused by the sand extraction. Even without sand extraction, the system would still lack sufficient sediment to balance the deficit.
 
 As the sediment balance is set up closely around the confluence, hydrodynamic effects at the confluence should be taken into consideration when interpreting the sediment balance. The meeting of two flows can create high turbulence and concentration of flow velocities. The increased turbulence enhances the sediment mixing and sediment resuspension, increasing the suspended sediment flux right after the confluence. Higher flow velocities as a result of a confluence, lead to an increased sediment carry capacity, which can potentially lead to scour of the river bed. The sediment deficit may be partly explained by the effects of the confluence still being present in the outgoing sediment flux.
 

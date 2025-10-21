@@ -172,6 +172,134 @@ A sustainable solution for sheet piles is found in the EPD ‘EcoSheetPiles™ P
 
 \newpage
 
+\subsection{Geotechnical parameters}
+
+For the design, the soil layers, including their geotechnical parameters, should be known. In Paragraph \ref{par:geology}, the geological background for the area of interest is explained, and this serves as the basis for deriving the soil layers and parameters. The borehole in Figure \ref{fig:borehole} is deemed the most relevant source. The borehole shows a top layer with fine/medium sands. Below, clay/clayey sand can be found, and the bottom layer consists of medium sand. This is in accordance with the geological profile that was provided before in Figure \ref{fig:geolprofile}, which describes a transition from near-surface beach ridges, dunes, beach plains, and delta sub-aerial facies to deeper open estuaries and marine deposists. The top deposits help declare the presence of sandy deposits at the top of the borehole and the layers of clay/clayey sand below correspond to estuarine deposits. Finally, old marine/fluvial deposits were likely compacted and lead to the layer of medium sand found at the bottom of the borehole.
+
+Because of the resemblance between the local borehole and the geological profile given before, the layering as shown in Figure \ref{fig:borehole} is deemed representative for the whole study area. Based on this layering the relevant parameters can be derived, the result is shown in Table \ref{tab:soil_layers}.
+
+\begin{table}[H]
+  \centering
+  \caption{Characteristic values soil}
+  \label{tab:soil_layers}
+  \small
+  \setlength{\tabcolsep}{6pt}
+  \renewcommand{\arraystretch}{1.15}
+  \begin{tabularx}{\linewidth}{@{}p{1.6cm}l p{1.6cm}*{5}{Y}@{}}
+    \toprule
+    Layer &
+    Soil type &
+    Depth [m] &
+    $\gamma_d\,[\mathrm{kN/m}^3]$ &
+    $\gamma_{\!sat}\,[\mathrm{kN/m}^3]$ &
+    $\varphi'\,[{}^\circ]$ &
+    ${c'}\,[\mathrm{kPa}]$ &
+    ${c_u}\,[\mathrm{kPa}]$ \\
+    \midrule
+    1 & Fill               & 0.0 - 2.0   & 12 & 12 & 15.0 & 2.5 & 20 \\
+    2 & Fine/medium sand   & 2.0 - 7.0   & 17 & 19 & 30.0 & 0.0 & \textemdash \\
+    3 & Clay               & 7.0 - 10.0  & 14 & 14 & 17.5 & 0.0 & 25 \\
+    4 & Clayey sand        & 10.0 - 15.0 & 18 & 20 & 25.0 & 0.0 & \textemdash \\
+    5 & Clay               & 15.0 - 16.0 & 14 & 14 & 17.5 & 0.0 & 25 \\
+    6 & Clayey sand        & 16.0 - 17.5 & 18 & 20 & 25.0 & 0.0 & \textemdash \\
+    7 & Medium sand        & 17.5 - 32.0 & 18 & 20 & 32.5 & 0.0 & \textemdash \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+% TABEL VERBETEREN NAAR DE JUISTE FORMAT. EVEN KIJKEN NAAR DE TABEL UIT PYTHON
+
+% \begin{table}[H]
+%   \centering
+%   \caption{Design values soil DA1-2}
+%   \label{tab:soil_layers}
+%   \small
+%   \setlength{\tabcolsep}{6pt}
+%   \renewcommand{\arraystretch}{1.15}
+%   \begin{tabularx}{\linewidth}{@{}p{1.6cm}l p{1.6cm}*{5}{Y}@{}}
+%     \toprule
+%     Layer &
+%     Soil type &
+%     Depth [m] &
+%     $\gamma_d\,[\mathrm{kN/m}^3]$ &
+%     $\gamma_{\!sat}\,[\mathrm{kN/m}^3]$ &
+%     $\varphi'\,[{}^\circ]$ &
+%     ${c'}\,[\mathrm{kPa}]$ &
+%     ${c_u}\,[\mathrm{kPa}]$ \\
+%     \midrule
+%     1 & Fill               & 0.0 - 2.0   & 12 & 12 & 12.1 & 2.5 & 20 \\
+%     2 & Fine/medium sand   & 2.0 - 7.0   & 17 & 19 & 24.8 & 0.0 & \textemdash \\
+%     3 & Clay               & 7.0 - 10.0  & 14 & 14 & 14.2 & 0.0 & 17.9 \\
+%     4 & Clayey sand        & 10.0 - 15.0 & 18 & 20 & 20.5 & 0.0 & \textemdash \\
+%     5 & Clay               & 15.0 - 16.0 & 14 & 14 & 14.2 & 0.0 & 17.9 \\
+%     6 & Clayey sand        & 16.0 - 17.5 & 18 & 20 & 20.5 & 0.0 & \textemdash \\
+%     7 & Medium sand        & 17.5 - 32.0 & 18 & 20 & 27.0 & 0.0 & \textemdash \\
+%     \bottomrule
+%   \end{tabularx}
+% \end{table}
+
+
+The parameters in Table \ref{tab:soil_layers} were derived from the Eurocode \autocite{stichtingkoninklijknederlandsnormalisatieinstituutNederlandseNormNEN2025}. Because of limited knowledge on soil characteristics, conservative estimates were made based on this code. In the borehole, no explicit information is given on the top fill layer. Therefore, conservative parameters were assumed based on typical values for organic topsoil. As derived from the borehole and the overview in Table \ref{tab:soil_layers}, the soil profile with the specific layers and properties is shown in Figure \ref{fig:soil_profile_cross_section}. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\linewidth]{figures/ch8/soil_profile.png}
+    \caption{Soil profile and propeties}
+    \label{fig:soil_profile_cross_section}
+\end{figure}
+
+\subsection{Hydraulic parameters}
+\label{section:hydraulic_parameters}
+
+In addition to the geotechnical values and parameters, the design of the cantilever sheet pile wall is also based on the hydraulic parameters and values. In this design, the sheet pile wall is located in open water and has a groundwater table. Because of this, the hydrostatic pressure will be acting on both sides of the wall. The water level of the river and the groundwater may differ in level, and when this is the case, an excess of hydrostatic pressure will be acting on the sheet pile. 
+
+Apart from this, the height of the river is of importance. This value was determined from the bathymetry of the river at the critical location. In Figure XX, the bathymetry is provided, and the corresponding value is visible. For the design of the sheet pile, "the most unfavorable that could occur during the design working life of the structure" has to be considered. In this report, the fluctuations of the water levels are set at $2.0 \ m$. 
+
+
+% AANNAMES
+
+% RIVERBED OP 1.5M DOOR DE AFSTAND TUSSEN OEVER EN BATH. WATER LEVEL, GEINTERPOLEERDE METINGEN TUSSEN BRAZO LARGO EN IBICUY VAN ELEVATIONS. WATERLEVEL IS UITGEDRUKT IN ELEVATION EN DAT IS METER ING. DESIGN WATER LEVEL IS GEBASEERD OP 95% LOWER BOUND VAN DE CONFIDENCE INTERVAL. NEEM AAN OP BASIS VAN FOTO DAT HET HOOGTE VERSCHIL MINIMAAL EEN 1.0-1.5M, DUS DAAROM EEN DESIGN WAARDE VAN 2.5M IGN MAAIVELD. 
+
+% KWA FIGUREN: BATHEMTRY PLUS CROSS-SECTION LOCATION. INFORMATIE OVER DE GEBRUIKTE BT STAAT IN SECTION 7.1.1. 
+
+% TIMESERIES VAN WATER ELEVATIONS. HIERVAN ZEGGEN DAT HET HISTORISCHE DATA IS MET 20MIN INTERVAL VOOR DATA PUNTEN. OVER 4 JAAR.
+
+% HIER NOG EEN BATHERMTRY TOEVOEGEN OF VERWIJZEN NAAR HYDRAULIC SECTION. EVEN KIJKEN WAT TE DOEN MET HIER AL AANGEVEN DAT WE 2 METER WATER DALING KUNNEN HEBBEN EN DIT DE MEEST ONGUNSTIGE SITUATIE IS.
+
+% \begin{figure}[H]
+%     \centering
+%     \begin{subfigure}[b]{0.45\textwidth}
+%         \includegraphics[width=\linewidth, height=10cm]{figures/ch8/water_pressure_small.png}
+%         \caption{Hydrostatic pressure}
+%         \label{fig:hydrostatic_pressure}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}[b]{0.45\textwidth}
+%         \includegraphics[width=\linewidth, height=10cm]{figures/ch8/excess_water_pressure_small.png}
+%         \caption{Excess hydrostatic pressure}
+%         \label{fig:excess_hydrostatic_pressure}
+%     \end{subfigure}
+%     \caption{Excess hydrostatic pressure}
+%     \label{fig:excess_pressure}
+% \end{figure}
+
+% DEZE PLOT NOG VERBETEREN IN DE CODE EN DUIDELIJKER MAKEN EN DE WAARDES WEGHALEN
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.70\linewidth]{figures/ch8/soil_profile_cross_section.png}
+%     \caption{Soil profile in the cross-section}
+%     \label{fig:soil_profile_cross_section}
+% \end{figure}
+
+% \subsubsection{ULS and SLS}
+
+% For the calculation for the embedding depth safety factors concerning the ultimate limit state and serviceability limit state should be included. For the calculation, normally, multiple ULS combinations should be calculated and the most unfavorable one is governing. All the combinations are shown in detail in Appendix XX. However, for the following calculation the most unfavorable combination is taken and elaborated.
+
+% HIER BESPREKEN VAN DE VEILIGHEIDSFACTOREN VAN ZOWEL DE KRACHTEN ALS DE GRONDPARAMETERS. OF DIT PAS DOEN BIJ DE VOOR DE BERKENING ZELF. ULS EN SLS BESPREKEN.
+
+\newpage
+
 \section{Design of Steel Sheet Pile}
 
 The design of steel sheet piles begins with defining the design location and problem description to get a better understanding of the situation. After defining these conditions, a method should be considered to calculate the earth pressure and water pressure. These will later balance the moments to iteratively define the embedding depth of the sheet pile wall. After calculating the embedding depth based on the balance of moments, the sheet pile will be verified according to structural verifications, including bending moments, shear force, and deflection.  
@@ -248,7 +376,7 @@ A design for a cantilever sheet pile can be performed by multiple methods and mo
 
 Reviewing Eurocode 7, the calculation for the design of a sheet pile should be based on the spring-supported beam method. However, due to complexity, the sheet pile wall will be calculated using the simplified graphical method of Blum. This method is a simplified representation of the situation, however, after calculating the embedding depth, the verifications will be according to the ultimate limit and serviceability limit defined in Eurocode 3 and Eurocode 7.
 
-\subsubsection{Blum-sheet pile wall}
+\subsubsection{Blum}
 
 The Blum method used for the sheet pile wall is a simplified graphical method, shown in Figure \ref{fig:blum}. The right side of the sheet pile is the "ACTIVE" side, and on the left side, under the dredge level, the "PASSIVE" side. The simplification step in the figure shows an additional resultant force, R, which is acting on the lowest point of the sheet pile. This is done because below this point, the “ACTIVE” and “PASSIVE” sides switch, creating a complex situation. Within the method, a plastic development of the soil and water table level is assumed to be infinitely stiff. To calculate the embedding depth, the sum of moments around the lowest point of the sheet pile wall will be set to zero. The unknown embedding depth can be calculated in multiple ways. In this section, an initial embedding depth will be defined, and iteratively, the moment will be set to zero while increasing or decreasing the embedding depth. However, in this method, no safety factors are taken into account. Therefore, the found embedding depth will have to be increased by $20\%$ (Opmaak1).
 
@@ -278,141 +406,13 @@ The Blum method used for the sheet pile wall is a simplified graphical method, s
 %     \label{fig:blum_method}
 % \end{figure}
 
-\subsection{Geotechnical parameters}
-
-For the design, the soil layers, including their geotechnical parameters, should be known. In Paragraph \ref{par:geology}, the geological background for the area of interest is explained, and this serves as the basis for deriving the soil layers and parameters. The borehole in Figure \ref{fig:borehole} is deemed the most relevant source. The borehole shows a top layer with fine/medium sands. Below, clay/clayey sand can be found, and the bottom layer consists of medium sand. This is in accordance with the geological profile that was provided before in Figure \ref{fig:geolprofile}, which describes a transition from near-surface beach ridges, dunes, beach plains, and delta sub-aerial facies to deeper open estuaries and marine deposists. The top deposits help declare the presence of sandy deposits at the top of the borehole and the layers of clay/clayey sand below correspond to estuarine deposits. Finally, old marine/fluvial deposits were likely compacted and lead to the layer of medium sand found at the bottom of the borehole.
-
-Because of the resemblance between the local borehole and the geological profile given before, the layering as shown in Figure \ref{fig:borehole} is deemed representative for the whole study area. Based on this layering the relevant parameters can be derived, the result is shown in Table \ref{tab:soil_layers}.
-
-\begin{table}[H]
-  \centering
-  \caption{Characteristic values soil}
-  \label{tab:soil_layers}
-  \small
-  \setlength{\tabcolsep}{6pt}
-  \renewcommand{\arraystretch}{1.15}
-  \begin{tabularx}{\linewidth}{@{}p{1.6cm}l p{1.6cm}*{5}{Y}@{}}
-    \toprule
-    Layer &
-    Soil type &
-    Depth [m] &
-    $\gamma_d\,[\mathrm{kN/m}^3]$ &
-    $\gamma_{\!sat}\,[\mathrm{kN/m}^3]$ &
-    $\varphi'\,[{}^\circ]$ &
-    ${c'}\,[\mathrm{kPa}]$ &
-    ${c_u}\,[\mathrm{kPa}]$ \\
-    \midrule
-    1 & Fill               & 0.0 - 2.0   & 12 & 12 & 15.0 & 2.5 & 20 \\
-    2 & Fine/medium sand   & 2.0 - 7.0   & 17 & 19 & 30.0 & 0.0 & \textemdash \\
-    3 & Clay               & 7.0 - 10.0  & 14 & 14 & 17.5 & 0.0 & 25 \\
-    4 & Clayey sand        & 10.0 - 15.0 & 18 & 20 & 25.0 & 0.0 & \textemdash \\
-    5 & Clay               & 15.0 - 16.0 & 14 & 14 & 17.5 & 0.0 & 25 \\
-    6 & Clayey sand        & 16.0 - 17.5 & 18 & 20 & 25.0 & 0.0 & \textemdash \\
-    7 & Medium sand        & 17.5 - 32.0 & 18 & 20 & 32.5 & 0.0 & \textemdash \\
-    \bottomrule
-  \end{tabularx}
-\end{table}
-
-% TABEL VERBETEREN NAAR DE JUISTE FORMAT. EVEN KIJKEN NAAR DE TABEL UIT PYTHON
-
-% \begin{table}[H]
-%   \centering
-%   \caption{Design values soil DA1-2}
-%   \label{tab:soil_layers}
-%   \small
-%   \setlength{\tabcolsep}{6pt}
-%   \renewcommand{\arraystretch}{1.15}
-%   \begin{tabularx}{\linewidth}{@{}p{1.6cm}l p{1.6cm}*{5}{Y}@{}}
-%     \toprule
-%     Layer &
-%     Soil type &
-%     Depth [m] &
-%     $\gamma_d\,[\mathrm{kN/m}^3]$ &
-%     $\gamma_{\!sat}\,[\mathrm{kN/m}^3]$ &
-%     $\varphi'\,[{}^\circ]$ &
-%     ${c'}\,[\mathrm{kPa}]$ &
-%     ${c_u}\,[\mathrm{kPa}]$ \\
-%     \midrule
-%     1 & Fill               & 0.0 - 2.0   & 12 & 12 & 12.1 & 2.5 & 20 \\
-%     2 & Fine/medium sand   & 2.0 - 7.0   & 17 & 19 & 24.8 & 0.0 & \textemdash \\
-%     3 & Clay               & 7.0 - 10.0  & 14 & 14 & 14.2 & 0.0 & 17.9 \\
-%     4 & Clayey sand        & 10.0 - 15.0 & 18 & 20 & 20.5 & 0.0 & \textemdash \\
-%     5 & Clay               & 15.0 - 16.0 & 14 & 14 & 14.2 & 0.0 & 17.9 \\
-%     6 & Clayey sand        & 16.0 - 17.5 & 18 & 20 & 20.5 & 0.0 & \textemdash \\
-%     7 & Medium sand        & 17.5 - 32.0 & 18 & 20 & 27.0 & 0.0 & \textemdash \\
-%     \bottomrule
-%   \end{tabularx}
-% \end{table}
-
-
-The parameters in Table \ref{tab:soil_layers} were derived from the Eurocode \autocite{stichtingkoninklijknederlandsnormalisatieinstituutNederlandseNormNEN2025}. Because of limited knowledge on soil characteristics, conservative estimates were made based on this code. In the borehole, no explicit information is given on the top fill layer. Therefore, conservative parameters were assumed based on typical values for organic topsoil.
-
-\textit{Soil profile in cross-section}
-
-As derived from the borehole and the overview in Table \ref{tab:soil_layers}, the soil profile with the specific layers is added to the cross-section of the problem. In Figure \ref{fig:soil_profile_cross_section} the geotechnical properties of each layer is shown. 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.90\linewidth]{figures/ch8/soil_profile.png}
-    \caption{Soil profile in the cross-section}
-    \label{fig:soil_profile_cross_section}
-\end{figure}
-
-\subsection{Hydraulic parameters}
-\label{section:hydraulic_parameters}
-
-In addition to the geotechnical values and parameters, the design of the cantilever sheet pile wall is also based on the hydraulic parameters and values. In this design, the sheet pile wall is located in open water and has a groundwater table. Because of this, the hydrostatic pressure will be acting on both sides of the wall. The water level of the river and the groundwater may differ in level, and when this is the case, an excess of hydrostatic pressure will be acting on the sheet pile. 
-
-Apart from this, the height of the river is of importance. This value was determined from the bathymetry of the river at the critical location. In Figure XX, the bathymetry is provided, and the corresponding value is visible. For the design of the sheet pile, "the most unfavorable that could occur during the design working life of the structure" has to be considered. In this report, the fluctuations of the water levels are set at $2.0 \ m$. 
-
-
-% AANNAMES
-
-% RIVERBED OP 1.5M DOOR DE AFSTAND TUSSEN OEVER EN BATH. WATER LEVEL, GEINTERPOLEERDE METINGEN TUSSEN BRAZO LARGO EN IBICUY VAN ELEVATIONS. WATERLEVEL IS UITGEDRUKT IN ELEVATION EN DAT IS METER ING. DESIGN WATER LEVEL IS GEBASEERD OP 95% LOWER BOUND VAN DE CONFIDENCE INTERVAL. NEEM AAN OP BASIS VAN FOTO DAT HET HOOGTE VERSCHIL MINIMAAL EEN 1.0-1.5M, DUS DAAROM EEN DESIGN WAARDE VAN 2.5M IGN MAAIVELD. 
-
-% KWA FIGUREN: BATHEMTRY PLUS CROSS-SECTION LOCATION. INFORMATIE OVER DE GEBRUIKTE BT STAAT IN SECTION 7.1.1. 
-
-% TIMESERIES VAN WATER ELEVATIONS. HIERVAN ZEGGEN DAT HET HISTORISCHE DATA IS MET 20MIN INTERVAL VOOR DATA PUNTEN. OVER 4 JAAR.
-
-% HIER NOG EEN BATHERMTRY TOEVOEGEN OF VERWIJZEN NAAR HYDRAULIC SECTION. EVEN KIJKEN WAT TE DOEN MET HIER AL AANGEVEN DAT WE 2 METER WATER DALING KUNNEN HEBBEN EN DIT DE MEEST ONGUNSTIGE SITUATIE IS.
-
-% \begin{figure}[H]
-%     \centering
-%     \begin{subfigure}[b]{0.45\textwidth}
-%         \includegraphics[width=\linewidth, height=10cm]{figures/ch8/water_pressure_small.png}
-%         \caption{Hydrostatic pressure}
-%         \label{fig:hydrostatic_pressure}
-%     \end{subfigure}
-%     \hfill
-%     \begin{subfigure}[b]{0.45\textwidth}
-%         \includegraphics[width=\linewidth, height=10cm]{figures/ch8/excess_water_pressure_small.png}
-%         \caption{Excess hydrostatic pressure}
-%         \label{fig:excess_hydrostatic_pressure}
-%     \end{subfigure}
-%     \caption{Excess hydrostatic pressure}
-%     \label{fig:excess_pressure}
-% \end{figure}
-
-% DEZE PLOT NOG VERBETEREN IN DE CODE EN DUIDELIJKER MAKEN EN DE WAARDES WEGHALEN
-
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.70\linewidth]{figures/ch8/soil_profile_cross_section.png}
-%     \caption{Soil profile in the cross-section}
-%     \label{fig:soil_profile_cross_section}
-% \end{figure}
-
-% \subsubsection{ULS and SLS}
-
-% For the calculation for the embedding depth safety factors concerning the ultimate limit state and serviceability limit state should be included. For the calculation, normally, multiple ULS combinations should be calculated and the most unfavorable one is governing. All the combinations are shown in detail in Appendix XX. However, for the following calculation the most unfavorable combination is taken and elaborated.
-
-% HIER BESPREKEN VAN DE VEILIGHEIDSFACTOREN VAN ZOWEL DE KRACHTEN ALS DE GRONDPARAMETERS. OF DIT PAS DOEN BIJ DE VOOR DE BERKENING ZELF. ULS EN SLS BESPREKEN.
-
 \subsection{Embedding depth}
 
 The embedding depth of the sheet pile is derived from the balance of moment around the lowest point. The balance of moments should be set to zero, providing the minimal embedding depth. To make up the balance of moments, the pressures acting on the sheet pile should be defined to transform these into forces. The horizontal pressure acting on the sheet pile is the earth and hydrostatic pressure. First, the earth pressures will be analyzed by the Python code. Hereafter, the hydrostatic analysis will be performed, and the forces will be calculated. 
 
 The depth can be defined in multiple ways. A method is to keep the depth as an unknown parameter, $t$. This will provide an explicit formula for moving below the dredge line, for the pressure and resulting forces. As the forces will be related to the balance of moments, roots will be held to get the unknown $t$. However, another approach is to begin with an estimated depth and calculate the sum of moments around the lowest point. As this balance will not be zero, an iterative solution can be used to make sure the depth is increasing while optimizing the moment balance to zero at the lowest part of the sheet pile. In this design, the depth of the sheet pile is based on the second approach. The first value of the embedding depth is taken as $6.0$ meters, which can be seen in Figure \ref{fig:problem_description_sheetpiles}.
+
+\newpage
 
 \subsubsection{Vertical effective stress}
 
@@ -425,7 +425,7 @@ The horizontal pressure of the soil can be calculated based on the effective str
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.60\linewidth]{figures/ch8/effective_stress.png}
+    \includegraphics[width=0.7\linewidth]{figures/ch8/effective_stress.png}
     \caption{Effective stress "ACTIVE" and "PASSIVE" side}
     \label{fig:effective_stress}
 \end{figure}
@@ -609,6 +609,8 @@ For the force magnitude, triangles and rectangles were computed by Python, and t
 %   \end{tabular}
 % \end{table}
 
+\newpage
+
 \subsubsection{Hydrostatic pressure and force}
 
 The hydrostatic pressure $w$ is referred to as the pore water pressure. In unconfined groundwater, the pore water pressure at a depth z is calculated by Equation \ref{eq:pore_water_pressure}.
@@ -665,37 +667,23 @@ When there is an excess of hydrostatic pressure, meaning that the water levels o
 
 \subsubsection{Bending moment}
 
-The balance of moments around the lowest part of the sheet pile should be zero,  stated in Equation \ref{eq:moment}. In Figure \ref{fig:final_moments_balance}, this point, "O", is indicated. Additionally, the forces acting due to both the earth and hydrostatic pressure are shown. From the acting forces and the distance to point "O", the moments are computed. 
+The balance of moments around the lowest part of the sheet pile should be zero,  stated in Equation \ref{eq:moment}. For $t = 6.0 \ m$, in Figure XX, this point, "O", is indicated, and the forces acting due to both the earth and the hydrostatic pressure are shown. From the acting forces and the distance to point "O", the moments are computed. In Table XX, it can be seen that the balance of moments, for $t = 6.0 \ m$, is not equal to zero, but $156.3 \ kNm/m$. Indicating an iterative calculation, increasing the embedding depth, and checking at which depth the moments are equal to zero, is required.
 
 \begin{equation}
     \sum{M_{t}} = 0
     \label{eq:moment}
 \end{equation}
 
-In Table XX, it can be seen that the balance of moments is not equal to zero. Indicating an iterative calculation, increasing the embedding depth, and checking at which depth the moments are equal to zero, is required. After the iteration process, in Python, the embedding depth is set to be $9.713$ meters. In Table \ref{tab:forces_arms_moments_9713}, the values of the forces and moments are shown, and the resulting moment around point "O" is close to zero, $0.038 \ kNm/m$. As for the safety factor, the Blum method says the found embedding depth should be increased by $20\%$, giving the following depth:
+ After an iteration process, in Python, the embedding depth is set to $7.574 \ m$. In Figure \ref{fig:final_moments_balance}, the forces related to this depth are shown. In Table \ref{tab:forces_arms_moments_9713}, the values of the forces and moments are shown, and the resulting moment around the point "O" is close to zero, $0.0512 \ kNm/m$. Regarding the safety factor, the Blum method says that the depth of embedding found should be increased by $20\%$, giving the following depth:
 
 \begin{equation}
-    t = 1.20 \cdot 9.713 = 11.6 \ m
+    t_{blum} = 1.20 \cdot 7.574 = 9.09 \ m
 \end{equation}
-
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.90\linewidth]{figures/ch8/moment_balance.png}
-%     \caption{Forces for $t = 6.0$ m}
-%     \label{fig:moment_balance}
-% \end{figure}
-
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.90\linewidth]{figures/ch8/moment_t_final.png}
-%     \caption{Forces for $t = 9.713$ m}
-%     \label{fig:final_moments_balance}
-% \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.90\linewidth]{figures/ch8/moment_balance_small.png}
-    \caption{Forces for $t = 6.0$ m (left) and $t = 9.713$ m (right)}
+    \includegraphics[width=0.90\linewidth]{figures/ch8/moment_balance_7574.png}
+    \caption{Forces for $t = 7.574 \ m$}
     \label{fig:final_moments_balance}
 \end{figure}
 
@@ -714,20 +702,20 @@ In Table XX, it can be seen that the balance of moments is not equal to zero. In
 %     F [kN/m] & $z_{base}$[m] &
 %     $M_{\text{base}}$ [kN$\cdot$m/m] \\
 %     \midrule
-%     ACTIVE & Triangle  &  3.53  & 9.33 &  32.97 \\
-%     ACTIVE & Rectangle &  7.07  & 8.50 &  60.06 \\
-%     ACTIVE & Triangle  &  0.64  & 8.33 &   5.37 \\
-%     ACTIVE & Rectangle & 23.65  & 5.50 & 130.07 \\
+%     ACTIVE & Triangle  &  7.63  & 9.02 &  68.86 \\
+%     ACTIVE & Rectangle &  5.50  & 8.27 &  45.50 \\
+%     ACTIVE & Triangle  &  0.18  & 8.18 &   1.48 \\
+%     ACTIVE & Rectangle & 31.33  & 5.50 & 172.34 \\
 %     ACTIVE & Triangle  & 38.29  & 4.67 & 178.69 \\
-%     ACTIVE & Rectangle & 97.00  & 1.50 & 145.50 \\
+%     ACTIVE & Rectangle & 104.44  & 1.50 & 156.65 \\
 %     ACTIVE & Triangle  & 10.14  & 1.00 &  10.14 \\
-%     HYDRO PASSIVE & Triangle  & 397.31  & 3.00 &  1191.93 \\
-%     HYDRO ACTIVE & Triangle  & 240.34  & 2.33 &  -559.99 \\
+%     HYDRO PASSIVE & Triangle  & 286.30  & 2.55 &  -730.07 \\
+%     HYDRO ACTIVE & Triangle  & 356.89  & 2.84 &  1014.8 \\
 %     PASSIVE & Triangle  & 124.06 & 4.00 & -496.26 \\
 %     PASSIVE & Rectangle & 153.84 & 1.50 & -230.76 \\
 %     PASSIVE & Triangle  &  35.07 & 1.00 &  -35.07 \\
 %     \midrule
-%     $\sum{M_{t}}$ (should ≈ 0 for equilibrium) &  &  & & 432.65 \\
+%     $\sum{M_{t}}$ (should ≈ 0 for equilibrium) &  &  & & 156.3 \\
 %     \bottomrule
 %   \end{tabular}
 % \end{table}
@@ -736,7 +724,7 @@ In Table XX, it can be seen that the balance of moments is not equal to zero. In
 
 \begin{table}[H]
   \centering
-  \caption{Resultant forces, arms, and moments for $t = 9.713$ meters}
+  \caption{Resultant forces, arms, and moments for $t = 7.574$ meters}
   \label{tab:forces_arms_moments_9713}
   \small
   \setlength{\tabcolsep}{8pt}
@@ -747,24 +735,24 @@ In Table XX, it can be seen that the balance of moments is not equal to zero. In
     F [kN/m] & $z_{base}$ [m] &
     $M_{\text{base}}$ [kN$\cdot$m/m] \\
     \midrule
-    ACTIVE  & Triangle  &   3.53  & 13.05 &  46.09 \\
-    ACTIVE  & Rectangle &   7.07  & 12.21 &  86.29 \\
-    ACTIVE  & Triangle  &   0.64  & 12.05 &   7.77 \\
-    ACTIVE  & Rectangle &  23.65  &  9.21 & 217.89 \\
-    ACTIVE  & Triangle  &  38.29  &  8.38 & 320.87 \\
-    ACTIVE  & Rectangle &  97.00  &  5.21 & 505.66 \\
-    ACTIVE  & Triangle  &  10.14  &  4.71 &  47.78 \\
-    ACTIVE  & Rectangle & 109.57  &  1.86 & 203.42 \\
-    ACTIVE  & Triangle  &  28.51  &  1.24 &  35.28 \\
-    HYDRO PASSIVE   & Triangle  & 562.94  &  3.57 & -2010.28 \\
-    HYDRO ACTIVE   & Triangle  & 792.75  &  4.24 & 3359.43 \\
-    PASSIVE & Triangle  & 124.06  &  7.71 &  -956.92 \\
-    PASSIVE & Rectangle & 153.84  &  5.21 &  -801.99 \\
-    PASSIVE & Triangle  &  35.07  &  4.71 &  -165.29 \\
-    PASSIVE & Rectangle & 367.22  &  1.86 &  -681.76 \\
-    PASSIVE & Triangle  & 173.07  &  1.24 &  -214.21 \\
+    ACTIVE  & Triangle  &   7.63  & 10.59 &  80.88 \\
+    ACTIVE  & Rectangle &   5.50  &  9.84 &  54.16 \\
+    ACTIVE  & Triangle  &   0.18  &  9.75 &   1.77 \\
+    ACTIVE  & Rectangle &  31.33  &  7.07 & 221.67 \\
+    ACTIVE  & Triangle  &  38.29  &  6.24 & 238.98 \\
+    ACTIVE  & Rectangle & 104.44  &  3.07 & 321.08 \\
+    ACTIVE  & Triangle  &  10.14  &  2.57 &  26.10 \\
+    ACTIVE  & Rectangle &  49.41  &  0.79 &  38.90 \\
+    ACTIVE  & Triangle  &   5.13  &  0.52 &   2.69 \\
+    HYDRO PASSIVE   & Triangle  & 416.47  &  3.07 & -1279.17 \\
+    HYDRO ACTIVE    & Triangle  & 500.80  &  3.37 & 1686.78 \\
+    PASSIVE & Triangle  & 124.06  &  5.57 &  -691.60 \\
+    PASSIVE & Rectangle & 153.84  &  3.07 &  -472.98 \\
+    PASSIVE & Triangle  &  35.07  &  2.57 &   -90.29 \\
+    PASSIVE & Rectangle & 155.72  &  0.79 &  -122.59 \\
+    PASSIVE & Triangle  &  31.12  &  0.52 &   -16.33 \\
     \midrule
-    $\sum M_{t}$ (should ≈ 0 for equilibrium) & & & & 0.038 \\
+    $\sum M_{t}$ (should ≈ 0 for equilibrium) & & & & 0.0512 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -775,16 +763,16 @@ In Table XX, it can be seen that the balance of moments is not equal to zero. In
 
 \subsubsection{ULS and SLS}
 
-A cantilever sheet pile wall should be designed based on two conditions. These conditions are the Ultimate Limit State (ULS) and the Serviceability Limit State (SLS). In the ULS the, worst possible forces that can occur during the the span of the sheet pile have to be analyzed concerning the safety of people and structure. In the SLS checking the structure under normal conditions where the function and appearance of the structure is concerned.
+A cantilever sheet pile wall should be designed according to two conditions. These conditions are the Ultimate Limit State (ULS) and the Serviceability Limit State (SLS). In the ULS, the worst possible forces that can occur during the span of the sheet pile should be analyzed with respect to the safety of people and the structure. In the SLS checking the structure under normal conditions where the function and appearance of the structure are concerned.
 
-For the design, this means that safety factors for the ULS and SLS should be included, regarding to Eurocode 7. For the analysis, multiple combinations should be verified, and the most unfavorable is used for the design. Two combinations, within design approach 1, stated in Eurocode 7, are evaluated in Appendix XX. However, for the calculation in this section, the most unfavorable combination is taken and elaborated.
+For the design, this means that safety factors for the ULS and SLS should be included, regarding Eurocode 7, which is not included with the Blum method. For the analysis, multiple combinations should be verified, and the most unfavorable is used for the design. Two combinations, within design approach 1, stated in Eurocode 7, are evaluated in Appendix XX. However, for the calculation in this section, the most unfavorable combination is taken and elaborated.
 
-The most unfavorable combination is a low mean water level, and safety factors of design approach 1 (DA1-2). The safety factors are shown in Table \ref{tab:partial_factors}, and the partial factors on loads, materials and actions to safeguard the sheet pile in ULS are shown. In this calculation, the hydrostatic loads and the earth pressures are permanent. For the SLS, all the safety factors are set at 1.0. The combination and safety factors of Table XX result in the final embedding depth in the ULS, $t = 10.196$ meters,  shown in Figure \ref{fig:uls_moments_balance_forces}. From Table XX it can be seen that the balance of moments at this depth is close to zero, $-0.076 \ kNm/m$.
+The most unfavorable combination within design approach 1 is combination 2 (DA1-2). The safety factors are shown in Table \ref{tab:partial_factors}, and the partial factors on loads, materials, and actions to protect the sheet pile in ULS are shown. In this calculation, the hydrostatic loads and the earth pressures are permanent. For the SLS, all safety factors are set at 1.0. The combination and safety factors result in the final embedding depth of $t = 10.172$ meters,  shown in Figure XX. However, the acting shear forces and bending moments are greater. From Table XX, it can be seen that the balance of moments at this depth is close to zero ($-0.0632 \ kNm/m$).
 
 % WATER PERMANENT VERANDEREN IN BEREKENING.
 
 \begin{equation}
-    t_{final} = 1.20 \cdot 10.196 = 12.2 \ m
+    t_{uls} = 10.172 \ m
 \end{equation}
 
 \begin{table}[H]
@@ -821,70 +809,14 @@ The most unfavorable combination is a low mean water level, and safety factors o
 \label{tab:partial_factors}
 \end{table}
 
-% \begin{table}[H]
-%   \centering
-%   \caption{Partiële veiligheidsfactoren per belastingssoort en combinatie.}
-%   \label{tab:comb-factors}
-%   \small
-%   \setlength{\tabcolsep}{8pt}
-%   \renewcommand{\arraystretch}{1.15}
-%   \begin{tabular}{|l|l|c|c|c|c|}
-%     \hline
-%     \textbf{Belasting} & & \textbf{Symbool} &
-%     \multicolumn{3}{c|}{\textbf{Combinatie}} \\
-%     \hline
-%     & & & \textbf{A1} & \multicolumn{2}{c|}{\textbf{A2}} \\
-%     \cline{4-6}
-%     & & &  & \textbf{Overig} & \textbf{Damwand} \\
-%     \hline
-%     \multirow{2}{*}{Permanent} & Ongunstig & \multirow{2}{*}{$\gamma_G$}
-%       & 1,35 & 1,0 & 1,0 \\
-%     \cline{2-2}\cline{4-6}
-%     & Gunstig &  & 0,9 & 1,0 & 1,0 \\
-%     \hline
-%     \multirow{2}{*}{Veranderlijk} & Ongunstig & \multirow{2}{*}{$\gamma_Q$}
-%       & 1,5 & 1,3 & 1,1 \\
-%     \cline{2-2}\cline{4-6}
-%     & Gunstig &  & 0 & 0 & 0 \\
-%     \hline
-%   \end{tabular}
-% \end{table}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.80\linewidth]{figures/ch8/uls_combination_scale.png}
+%     \caption{ULS combination forces for $t = 10.196$ m }
+%     \label{fig:uls_moments_balance_forces}
+% \end{figure}
 
-% \begin{table}[H]
-%   \centering
-%   \caption{Partiële veiligheidsfactoren voor grondparameters per combinatie.}
-%   \label{tab:grondparameters}
-%   \small
-%   \setlength{\tabcolsep}{8pt}
-%   \renewcommand{\arraystretch}{1.15}
-%   \begin{tabular}{|l|c|c|c|c|c|c|}
-%     \hline
-%     \textbf{Grondparameter} & \textbf{Symbool} & \textbf{M1} &
-%     \multicolumn{4}{c|}{\textbf{Combinatie}} \\
-%     \hline
-%     & & & \multicolumn{4}{c|}{\textbf{M2}} \\
-%     \cline{4-7}
-%     & & & \multicolumn{4}{c|}{\textbf{Damwand}} \\
-%     \cline{4-7}
-%     & & & \multicolumn{4}{c|}{\textbf{Veiligheidsklasse}} \\
-%     \cline{4-7}
-%     & & & \textbf{RC1} & \textbf{RC2} & \textbf{RC3} \\
-%     \hline
-%     Hoek van inwendige wrijving\textsuperscript{a} & $\gamma_{\varphi'}$ & N.v.t. & 1{,}15 & 1{,}175 & 1{,}20 \\
-%     Effectieve cohesie & $\gamma_{c'}$ & N.v.t. & 1{,}15 & 1{,}25 & 1{,}40 \\
-%     Ongedraineerde schuifsterkte & $\gamma_{cu}$ & N.v.t. & 1{,}5 & 1{,}6 & 1{,}65 \\
-%     Prismadruksterkte & $\gamma_{qu}$ & N.v.t. & 1{,}5 & 1{,}6 & 1{,}65 \\
-%     Volumiek gewicht & $\gamma_{\gamma}$ & N.v.t. & 1{,}0 & 1{,}0 & 1{,}0 \\
-%     \hline
-%   \end{tabular}
-% \end{table}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.80\linewidth]{figures/ch8/uls_combination_scale.png}
-    \caption{ULS combination forces for $t = 10.196$ m }
-    \label{fig:uls_moments_balance_forces}
-\end{figure}
+% NAAR DE BIJLAGE
 
 % \begin{table}[H]
 %   \centering
@@ -1018,7 +950,7 @@ For the cross-section verification, the profile AZ 24-700 with the cross-section
 
 \subsubsection{Bending}
 
-For the verification of bending, it is important that the design bending moment, $M_{Ed}$, is smaller than the bending resistance, $M_{Rd}$, of the profile. The maximum bending moment, $M_{Ed}$, acting at the point of zero shear is $699.8 \ kNm/m$, shown in Figure XX. Within Class 2, Equation \ref{eq:bending_plastic} is used to calculate the bending resistance.
+For the verification of bending, it is important that the design bending moment, $M_{Ed}$, is smaller than the bending resistance, $M_{Rd}$, of the profile. The maximum bending moment, $M_{Ed}$, acting at the point of zero shear is $404.4 \ kNm/m$, shown in Figure XX. Within Class 2, Equation \ref{eq:bending_plastic} is used to calculate the bending resistance.
 
 \begin{equation}
     M_{Ed} \leq M_{c,Rd}
@@ -1043,7 +975,7 @@ Following the equation above, the bending moment resistance of the cross-section
 \end{equation}
 
 \begin{equation}
-    \frac{M_{Ed}}{M_{Rd}} = \frac{699.8}{997.6} = 0.70 
+    \frac{M_{Ed}}{M_{Rd}} = \frac{404.4}{997.6} = 0.41
 \end{equation}
 
 % \begin{figure}[H]
@@ -1057,7 +989,7 @@ Following the equation above, the bending moment resistance of the cross-section
 
 \subsubsection{Shear}
 
-For the verification of shear, it is important that the design shear force, $V_{Ed}$ is smaller than the plastic shear resistance, $V_{pl,Rd}$, of the profile. The maximum shear force, $V_{Ed}$, is $305.1 \ kN/m$, shown in Figure XX. Equation \ref{eq:shear_verification} is used to calculate the shear force resistance.
+For the verification of shear, it is important that the design shear force, $V_{Ed}$ is smaller than the plastic shear resistance, $V_{pl,Rd}$, of the profile. The maximum shear force, $V_{Ed}$, is $266.6 \ kN/m$, shown in Figure XX. Equation \ref{eq:shear_verification} is used to calculate the shear force resistance.
 
 \begin{equation}
     V_{Ed} \leq V_{pl,Rd}
@@ -1091,7 +1023,7 @@ Following the equation above, the shear force resistance of the cross-section is
 \end{equation}
 
 \begin{equation}
-    \frac{V_{Ed}}{V_{pl,Rd}} = \frac{305.1}{1468.4} = 0.21 
+    \frac{V_{Ed}}{V_{pl,Rd}} = \frac{266.6}{1468.4} = 0.18 
 \end{equation}
 
 % \begin{figure}[H]
