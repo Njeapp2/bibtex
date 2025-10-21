@@ -209,7 +209,7 @@ The determination of the critical erosion points along the river has been done i
 
 \subsubsection{Geometry of the problem}
 
-The design of the sheet pile wall is based on the cantilever sheet pile wall. As briefly touched on in Section \ref{section:sheet_pile_wall}, the cantilever sheet pile is used for retaining heights up to 5 meters and gets its support from the soil and hydrostatic pressure. In Figure \ref{fig:problem_description_sheetpiles}, a sketch of the situation, made in Python, is provided. The height that needs to be retained, $4.0 \ m$, is indicated with $Z$. The embedment depth of the cantilever sheet pile, which will need to be determined iteratively, is noted as $t$. In this sketch, the groundwater table, $-1.0 \ m$, is indicated by the dashed line and the abbreviation $GWT$. The water level of the river is indicated as $WL$, which, in this situation, is $-3.0 \ m$ below the ground surface. This will produce the most unfavorable situation and give the largest embedding length for the sheet pile.
+The design of the sheet pile wall is based on the cantilever sheet pile wall. As briefly touched on in Section \ref{section:sheet_pile_wall}, the cantilever sheet pile is used for retaining heights up to 5 meters and gets its support from the soil and hydrostatic pressure. In Figure \ref{fig:problem_description_sheetpiles}, a sketch of the situation, made in Python, is provided. The height that needs to be retained, $4.0 \ m$, is indicated with $Z$. The embedment depth of the cantilever sheet pile, which will need to be determined iteratively, is noted as $t$. In this sketch, the groundwater table, $+1.5 \ m \ IGN$, is indicated by the dashed line and the abbreviation $GWT$. The water level of the river is indicated as $WL$, which, in this situation, is $-3.0 \ m$ below the ground surface, $-0.5 \ m \ IGN$. The ground surface, $+2.5 \ m \ IGN$ can seen in the figure, and the levels in comparison to IGN will be explained in Section \ref{section:hydraulic_parameters}. %This will produce the most unfavorable situation and give the largest embedding length for the sheet pile.
 
 % MAKKELIJKER UITLEGGEN HOE HET WERKT. WAT ZIJN DE VERSCHILLENDE NIVEAUS? WELKE HOOGTE MOETEN WE BEPALEN. WELKE ZIJN AL BEPAALD. HOE KOMEN WE AAN DE WATERHOOGTE? HOE KOMEN WE AAN DE GROND WATER STAND?
 
@@ -364,6 +364,15 @@ As derived from the borehole and the overview in Table \ref{tab:soil_layers}, th
 In addition to the geotechnical values and parameters, the design of the cantilever sheet pile wall is also based on the hydraulic parameters and values. In this design, the sheet pile wall is located in open water and has a groundwater table. Because of this, the hydrostatic pressure will be acting on both sides of the wall. The water level of the river and the groundwater may differ in level, and when this is the case, an excess of hydrostatic pressure will be acting on the sheet pile. 
 
 Apart from this, the height of the river is of importance. This value was determined from the bathymetry of the river at the critical location. In Figure XX, the bathymetry is provided, and the corresponding value is visible. For the design of the sheet pile, "the most unfavorable that could occur during the design working life of the structure" has to be considered. In this report, the fluctuations of the water levels are set at $2.0 \ m$. 
+
+
+% AANNAMES
+
+% RIVERBED OP 1.5M DOOR DE AFSTAND TUSSEN OEVER EN BATH. WATER LEVEL, GEINTERPOLEERDE METINGEN TUSSEN BRAZO LARGO EN IBICUY VAN ELEVATIONS. WATERLEVEL IS UITGEDRUKT IN ELEVATION EN DAT IS METER ING. DESIGN WATER LEVEL IS GEBASEERD OP 95% LOWER BOUND VAN DE CONFIDENCE INTERVAL. NEEM AAN OP BASIS VAN FOTO DAT HET HOOGTE VERSCHIL MINIMAAL EEN 1.0-1.5M, DUS DAAROM EEN DESIGN WAARDE VAN 2.5M IGN MAAIVELD. 
+
+% KWA FIGUREN: BATHEMTRY PLUS CROSS-SECTION LOCATION. INFORMATIE OVER DE GEBRUIKTE BT STAAT IN SECTION 7.1.1. 
+
+% TIMESERIES VAN WATER ELEVATIONS. HIERVAN ZEGGEN DAT HET HISTORISCHE DATA IS MET 20MIN INTERVAL VOOR DATA PUNTEN. OVER 4 JAAR.
 
 % HIER NOG EEN BATHERMTRY TOEVOEGEN OF VERWIJZEN NAAR HYDRAULIC SECTION. EVEN KIJKEN WAT TE DOEN MET HIER AL AANGEVEN DAT WE 2 METER WATER DALING KUNNEN HEBBEN EN DIT DE MEEST ONGUNSTIGE SITUATIE IS.
 
