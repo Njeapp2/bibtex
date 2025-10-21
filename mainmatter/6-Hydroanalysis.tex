@@ -353,10 +353,9 @@ As for the sediment-discharge relationship, the differences in correlations in B
 
 
 
-
-\subsection{Tidal forcing (Values are incorrect, has to be changed)}
-\label{sec:tidal forcing}
-The tidal wave of the Atlantic Ocean influences the hydrodynamics of the lower Paraná delta. As the tidal wave enters the delta at the Río de la Plata, the tide is damped and phased by friction, channel geometry and branching, resulting in a reduced amplitude and an increase in phase delay. Under normal conditions, the influence of the tide on the Paraná River reaches the city of Villa Constitución, which is located 220 km upstream of the river mouth. For storm conditions, the tide can reach the city of Rosario \autocite{balayCausesPeriodicityLarge2018}. In order to determine the influence of the tide at Brazo Largo, a harmonic tidal analysis is performed on hourly water level measurements. This analysis consists of decomposing the observed water level time series into a sum of sinusoidal components, with each of these components representing a specific tidal constituent. The tidal constituents considered for Brazo Largo are shown in Table \ref{tab: constituents}.
+\subsection{Tidal forcing }
+\label{sec: tidal forcing}
+The tidal wave of the Atlantic Ocean influences the hydrodynamics of the lower Paraná delta. As the tidal wave enters the delta at the Río de la Plata, the tide is damped and phased by friction, channel geometry and branching, resulting in a reduced amplitude and an increase in phase delay. Under normal conditions, the influence of the tide on the Paraná River reaches the city of Villa Constitución, which is located 220 km upstream of the river mouth. For storm conditions, the tide can reach the city of Rosario \autocite{balayCausesPeriodicityLarge2018}. In order to determine the influence of the tide at Brazo Largo, a harmonic tidal analysis is performed on hourly water level measurements. First, the water level is detrended, such that the mean water level is constant in time. Next, the observed water level time series is decomposed into a sum of sinusoidal components, with each of these components representing a specific tidal constituent. The tidal constituents considered for Brazo Largo are shown in Table \ref{tab: constituents}.
 
 \begin{table}[H]
 \centering
@@ -382,15 +381,16 @@ Tidal constituent & Name & Period [h] \\
 \end{tabular}
 \end{table}
 
-
+The computed amplitude and phase of the different tidal constituents are shown in Table \ref{tab: computed tidal constituents}. The amplitudes show that the delta has mixed tidal dynamics (semidiurnal-diurnal) dominated by the semi-diurnal constituent M2 ($0.0764~m$) and the diurnal constituent O1 ($0.0672~m$)  with contributions from N2, K1 and S2. The overtide (M4) plays a minor role, indicating weak nonlinear distortion and thus a not strongly skewed signal. The relative phase lag of $104^\circ$  between the M2 phase and the S2 phase, indicates that the S2 tide occurs a few hours after the M2 high tide, resulting in a spring-neap cycle with moderate modulation.
 
 \begin{table}[H]
 \centering
 \setlength{\tabcolsep}{8pt} 
 \caption{Computed amplitude and phase}
+\label{tab: computed tidal constituents}
 \begin{tabular}{lcccccc}
 \hline
-Constituent & $Amplitude~[m]$ & $phase~$[$^\circ$] \\
+Constituent & Amplitude$~[m]$ & phase$~[deg]$ \\
 \hline
 M2 & 0.0764 & 338.51 \\
 S2 & 0.0116 & 82.10 \\
@@ -402,22 +402,24 @@ M4 & 0.0085 & 238.09  \\
 \end{tabular}
 \end{table}
 
-Figure 5.7 shows the water level time series for a period of 7 days compared to the calculated tidal signal at Brazo Largo. From this figure, it can be seen that the measured water level follows the same tidal oscillations. However, the tide does not explain all the variability of the water level; the measured water level also shows large variability caused by discharge and wind. 
-\\The influence of the strong non-tidal component is confirmed by Figure 5.8, which shows the water level at Brazo Largo for a period of 2 years. The measured water level fluctuates greatly, reaching +2.0 m and -0.5 m while the tidal component is steady at 0.0 m with an amplitude of 0.17 m. The tidal forcing is relatively small compared to the river and seasonal influences. Tidal forcing is therefore subordinate to other forcings such as discharge.
+Figure \ref{fig: Tide 1 month Brazo Largo} shows the detrended water levels for a period of 1 month compared to the calculated tidal signal at Brazo Largo. The tide does indeed show mixed tidal dynamics with a moderate spring-neap cycle and slight asymetries. The period of the spring-neap tide cycle is approximately $15$ days. The computed astronomical tide has an amplitude of $0.19~m$ and a tidal range of $0.39~m$. By computing the residual water level ($r$), defined as the difference between the measured water level and the calculated tide, the tidal variance fraction ($f_\text{tide}$) can be calculated (see Equation \ref{eq: Tidal variance fraction}).
+
+\begin{equation}
+    f_{\text{tide}} = 1 - \frac{\mathrm{Var}(r)}{\mathrm{Var}(h)}
+    \label{eq: Tidal variance fraction}
+\end{equation}
+
+The tidal variance fraction at Brazo Largo is $5.71$. This means that only $5.71~$\% of the total variance in the observed water levels can be explained by the astronomical tides. The remaining variance ($\sim94~$\%) comes from river discharge, meteorological effects and non-tidal effects. An estimate of this meteorolocigal tide can be made by looking at the residual water level ($r$). This yields a meteorological tidal amplitude of $1.05~m$ and a meteorological tidal range of $2.09~m$. Given that the astronomical tidal range is relatively small compared to the meteorological influence, and the tidal variance fraction is only $5.71~$\%, it can be concluded that tidal forcing plays a subordinate role relative to other drivers, such as river discharge.
+
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{figures/ch5/Tide_Brazo_largo.png}
-    \caption{Calculated tide at Brazo Largo for a period of 7 days.}
-    \label{fig:period 7}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{figures/ch5/Tide_BL_2y.png}
-    \caption{Calculated tide at Brazo Largo for a period of 2 years.}
-    \label{fig:period 2}
+    \includegraphics[width=1\linewidth]{figures/ch6/Tide_BL_1month.png}
+    \caption{Computed tide at Brazo Largo for a period of 1 month.}
+    \label{fig: Tide 1 month Brazo Largo}
 \end{figure}
 
+Although tidal forcing plays a subordinate role in the hydrodynamics in of the Río Paraná Guazú, the shape of the tidal signal still provides insight into the potendial sediment import/export. The computed velocity skewness ($0.48$) and the rising period being shorter than the fall period, suggest a weak flood-dominant asymmetry. This is consistent with the positive $M_4/M_2$ amplitude ratio ($0.11$) and the phase difference of $259^\circ$ between $M_4$ and $M_2$, both indicative of flood dominance . Therefore, small net landward sediment transport may occur as a result of tidal asymmetry, although its overall effect is expected to be minor compared to the fluvial and meteorological forcing.
 
 
 \newpage
@@ -717,9 +719,11 @@ The uncertainties in estimating bed load transport are primarily related to the 
 \label{sec: Longitudinal profiles}
 During the second day of the field campaign, two identical longitudinal profiles were recorded along the confluence of the Paraná Guazú and Talabera. More specifically, the profiles were made near the sand extraction location, in order to monitor possible bed forms and dune migration. For that purpose, the measurements were taken at the beginning (upstream direction) and end of the day (downstream direction). The measurements were carried out using an echosounder device that records river depth. While navigating with the boat, GPS applications were used to make sure the paths were identical. 
 
-To perform analysis on the data, first the depths were converted to water elevations using the relevant value for $l_{station-IGN}$ for Brazo Largo (see Figure \ref{fig:waterelevationreference}). Next, the data points were converted to cartesian coordinates such that they could be projected onto a straight line fit through the profile paths. The assumption was made that no major changes occur in the bathymetry perpendicular to the flow direction. The results of this analysis are shown in Figure \ref{fig:longitudinal profiles}. 
+To perform analysis on the data, first the depths were converted to water elevations using the relevant value for $l_{station-IGN}$ for Brazo Largo (see Figure \ref{fig:waterelevationreference}). Next, the data points were converted to cartesian coordinates such that they could be projected onto a straight line fit through the profile paths. The assumption was made that no major changes occur in the bathymetry perpendicular to the flow direction. The results of this analysis are shown in Figure \ref{fig:longitudinal profiles}. The figure indicates that no significant sand dunes or bed forms are present in the measured profile. In addition, variations in recorded depth are attributed to inaccuracy of the measurement path. For example, the elevation difference for the section between approximately $1000$-$1500$ meters is too large to be caused by regular river flow conditions. Moreover, the dredging location - indicated by the dotted line - experiences an elevation increase on the downstream run. This is unlikely, considering that a dredging vessel was present at the marked location, on the day of the measurements.
 
-\begin{figure}[H]
+In conclusion, no clear results are found in the context of dune migration or bed forms. Nevertheless, the results provide insight in the bathymetry of the confluence and the activity of dredgers. At this section, the bed slope is approximately $8 \cdot 10^{-3} ~m/m$, significantly higher than the average slope of the Lower Paraná ($\approx 10^{-5} ~m/m$). Also, the vessel dredges at an elevation of around $-15 ~m ~IGN$. 
+
+\begin{figure}
     \centering
     \includegraphics[width=0.75\linewidth]{figures/ch6/longitudinal profiles.png}
     \caption{Longitudinal profiles over dredging location at confluence of Paraná Guazú and Talabera}
