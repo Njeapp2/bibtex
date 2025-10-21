@@ -857,6 +857,28 @@ The most unfavorable combination within design approach 1 is combination 2 (DA1-
 
 % HIER NU DE MEEST ONGUNSTIGE COMBINATIE BESPREKEN EN DE LAATSTE PLOT VAN DE MOMENTENSOM EN KRACHTENSOM OPNIEUW LATEN ZIEN NAAST ELKAAR IN EEN SUBPLOT. DAN DE DIEPTE T NOG EEN KEER BENOEMEN EN BEPALEN. OOK DE MOMENTENLIJN EN DWARSKRACHTENLIJN LATEN ZIEN.
 
+In Table \ref{}, an overview of the ULS analysis is shown. 
+
+\begin{table}[H]
+  \centering
+  \caption{ULS results summary from design figure}
+  \label{tab:uls_summary}
+  \small
+  \setlength{\tabcolsep}{8pt}
+  \renewcommand{\arraystretch}{1.15}
+  \begin{tabular}{@{}l r r r r r@{}}
+    \toprule
+    ULS case & \multicolumn{1}{c}{Retained height [m]} & \multicolumn{1}{c}{Embedding depth [m]} & \multicolumn{1}{c}{Toe depth [m]} & \multicolumn{1}{c}{Max moment [kNm/m]} & \multicolumn{1}{c}{Max shear [kN/m]} \\
+    \midrule
+    1   & 7.2 & 8.8 & 16.0 & 548 & 202 \\
+    1A  & 6.7 & 9.3 & 16.0 & 409 & 182 \\
+    2   & 7.2 & 8.8 & 16.0 & 985 & 311 \\
+    2   & 7.2 & 7.8 & 15.0 & 947 & 301 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
 \section{Structural Verification ULS}
 
 In this structural verification of the cantilever sheet pile, a profile should be chosen and internally verified according to Eurocode 3. To perform the verifications, first the section of the sheet pile should be classified. After, verifications concerning the bending, shear and combined bending and shear can be performed. In these verifications the basic procedure for analyzing the profile will be that the actions do not exceed the resistance of the profile, shown in Equation \ref{limit_state}.
