@@ -893,7 +893,14 @@ In this structural verification of the cantilever sheet pile, a profile should b
     \item $R_{d}$   design resistance
 \end{itemize}
 
-In this section, the cross section AZ 24-700 from ArcelorMittal is verified. The properties of this section are shown in Table \ref{tab:pu32}.
+In this section, the cross section AZ 24-700 from ArcelorMittal is verified. As this section will be placed in the river and is assumed to have fresh water, a corrosion factor should be incorporated. This means that the properties of the cross-section after corrosion will have a loss of thickness. From Eurocode 3, the total thickness loss, for a design working life of $t_{DWL} = 50 \ years $, is calculated as follows:
+
+\begin{equation}
+    \Delta_{t} = \Delta_{tfront} +  \Delta_{tback} = 0.9 + 0.6= 1.5 \ mm 
+    \label{limit_state}
+\end{equation}
+
+With a loss of thickness of $1.5 \ mm$, the properties regarding height, flange thickness, web thickness, sectional area, elastic section modulus, and plastic section modulus will be reduced. The reduced properties after erosion of this section are shown in Table \ref{tab:pu32}.
 
 % Z PROFILES ARE STRONGER AND FOR WATER USE, DEEPER EXCAVATION
 
@@ -909,9 +916,9 @@ In this section, the cross section AZ 24-700 from ArcelorMittal is verified. The
     Property & Symbol & Units & AZ 24-700 \\
     \midrule
     Overall width                & $b$     & mm     & 700   \\
-    Overall height               & $h$     & mm     & 459   \\
-    Flange thickness             & $t_f$   & mm     & 11.5  \\
-    Web thickness                & $t_w$   & mm     & 11.2  \\
+    Overall height               & $h$     & mm     & 457.5   \\
+    Flange thickness             & $t_f$   & mm     & 9.7  \\
+    Web thickness                & $t_w$   & mm     & 9.7  \\
     Flange breadth               & $b_f$   & mm     & 361   \\
     Slant angle                  & $\alpha$ & $^\circ$ & 55.2 \\
     Sectional area               & $A$     & cm$^2$/m & 163 \\
@@ -919,7 +926,7 @@ In this section, the cross section AZ 24-700 from ArcelorMittal is verified. The
     Plastic section modulus      & $W_{pl}$ & cm$^3$/m & 2810 \\
     Moment of inertia            & $I$     & cm$^4$/m & 55890 \\
     Mass                         & ---     & kg/m$^2$ & 128 \\
-    Class\textsuperscript{1)}    & ---     & ---     & 2 \\
+    Class    & ---     & ---     & 3 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -928,7 +935,7 @@ In this section, the cross section AZ 24-700 from ArcelorMittal is verified. The
 
 \subsubsection{Section classification}
 
-The classification of the steel profile tells wether the profile is behaving elastic or plastic. This is of importance when further analyzing the stability of the cantilever sheet pill with the bending and shear checks. The cross-section is classified by the flange slenderness ratio of the section. In Table \ref{tab:section_classification}, the classes and the ratios for Z and U profiles is shown. Formula \ref{eq:epsilon} is related to the coefficient that depends on the steel grade. 
+The classification of the steel profile tells whether the profile is behaving elastic or plastic. This is of importance when further analyzing the stability of the cantilever sheet pill with the bending and shear checks. The cross-section is classified by the flange slenderness ratio of the section. In Table \ref{tab:section_classification}, the classes and the ratios for Z and U profiles is shown. Formula \ref{eq:epsilon} is related to the coefficient that depends on the steel grade. 
 
 \begin{equation}
     \epsilon = \sqrt{\frac{235}{f_{y}}}
@@ -961,29 +968,29 @@ The classification of the steel profile tells wether the profile is behaving ela
   \end{tabular}
 \end{table}
 
-For the cross-section verification, the profile AZ 24-700 with the cross-section properties from Table \ref{tab:pu32} in grade S355 GP is classified as Class 2, regarding Equation \ref{eq:class}.
+For the cross-section verification, the profile AZ 24-700 with the cross-section properties from Table \ref{tab:pu32} in grade S355 GP is classified as Class 3, regarding Equation \ref{eq:class}.
 
 \begin{equation}
-    \frac{b}{t_{f}} = \frac{361}{11.2} = 32.2 \leq 45 \epsilon 
+    \frac{b}{t_{f}} = \frac{361}{9.7} = 37.2 \leq 66 \epsilon 
     \label{eq:class}
 \end{equation}
 
 \subsubsection{Bending}
 
-For the verification of bending, it is important that the design bending moment, $M_{Ed}$, is smaller than the bending resistance, $M_{Rd}$, of the profile. The maximum bending moment, $M_{Ed}$, acting at the point of zero shear is $404.4 \ kNm/m$, shown in Figure XX. Within Class 2, Equation \ref{eq:bending_plastic} is used to calculate the bending resistance.
+For the verification of bending, it is important that the design bending moment, $M_{Ed}$, is smaller than the bending resistance, $M_{Rd}$, of the profile. The maximum bending moment, $M_{Ed}$, acting at the point of zero shear is $404.4 \ kNm/m$, shown in Figure XX. Within Class 3, Equation \ref{eq:bending_plastic} is used to calculate the bending resistance.
 
 \begin{equation}
     M_{Ed} \leq M_{c,Rd}
 \end{equation}
 
 \begin{equation}
-    M_{c,Rd} = \frac{\beta_{B} \cdot W_{pl} \cdot f_{y}}{\gamma_{M0}}
+    M_{c,Rd} = \frac{\beta_{B} \cdot W_{el} \cdot f_{y}}{\gamma_{M0}}
     \label{eq:bending_plastic}
 \end{equation}
 
 \begin{itemize}
   \item $\beta_B$ is a factor that accounts for possible lack of shear force transmission in the interlocks between adjacent piles (for U-piles only);
-  \item $W_{pl}$ is the cross-section’s plastic section modulus;
+  \item $W_{el}$ is the cross-section’s elastic section modulus;
   \item $f_y$ is the yield strength of steel;
   \item $\gamma_{M0}$ is a partial factor.
 \end{itemize}
@@ -991,11 +998,11 @@ For the verification of bending, it is important that the design bending moment,
 Following the equation above, the bending moment resistance of the cross-section is calculated and verified with the following equations:
 
 \begin{equation}
-    M_{c,Rd} = \frac{1.00 \cdot 2810 \cdot 355}{1.0} = 997.6 \ kNm/m
+    M_{c,Rd} = \frac{1.00 \cdot 2430 \cdot 355}{1.0} = 862.7 \ kNm/m
 \end{equation}
 
 \begin{equation}
-    \frac{M_{Ed}}{M_{Rd}} = \frac{404.4}{997.6} = 0.41
+    \frac{M_{Ed}}{M_{Rd}} = \frac{404.4}{862.7} = 0.47
 \end{equation}
 
 % \begin{figure}[H]
@@ -1031,19 +1038,19 @@ For the verification of shear, it is important that the design shear force, $V_{
 Following the equation above, the shear force resistance of the cross-section is calculated and verified with the following equations:
 
 \begin{equation}
-    A_v = 11.2 \cdot (459 - 11.2) = 5015.4 \ mm^2
+    A_v = 9.7 \cdot (457.5 - 9.7) = 4343.7 \ mm^2
 \end{equation}
 
 \begin{equation}
-    V_{pl,Rd} = \frac{5015.4 \cdot 355}{\sqrt{3} \cdot 1.0 \cdot 10^3} = 1027.9 \ kN 
+    V_{pl,Rd} = \frac{4343.7 \cdot 355}{\sqrt{3} \cdot 1.0 \cdot 10^3} = 890.4 \ kN 
 \end{equation}
 
 \begin{equation}
-    V'_{pl,Rd} = \frac{1027.9}{0.7} = 1468.4 \ kN/m 
+    V'_{pl,Rd} = \frac{890.4}{0.7} = 1272 \ kN/m 
 \end{equation}
 
 \begin{equation}
-    \frac{V_{Ed}}{V_{pl,Rd}} = \frac{266.6}{1468.4} = 0.18 
+    \frac{V_{Ed}}{V_{pl,Rd}} = \frac{266.6}{1272} = 0.21 
 \end{equation}
 
 % \begin{figure}[H]
@@ -1077,7 +1084,43 @@ For the verification of the combinations of bending and shear, Equation \ref{eq:
 From the following equation is may be concluded that no explicit check is needed for combined bending and moment. 
 
 \begin{equation}
-    V_{Ed} \leq \frac{1468.4}{2} = 734.2 
+    V_{Ed} \leq \frac{1272}{2} = 636.0 \ kN/m 
+\end{equation}
+
+\subsubsection{Shear buckling}
+
+The shear buckling resistance of the cross-section must be verified if Equation \ref{eq:shear_buckling} is valid. However, this is not satisfied, as can be seen in Equation \ref{eq:no_shear_buckling}.
+
+\begin{equation}
+    \frac{c}{t_{w}} \geq 72 \cdot \epsilon
+    \label{eq:shear_buckling}
+\end{equation}
+
+\begin{equation}
+    c = \frac{h - t_{f}}{sin(\alpha)} = \frac{457.5 - 9.7}{sin(55.2)} = 546.7 
+\end{equation}
+
+\begin{equation}
+    \frac{546.7}{9.7} = 56.4 \ngeq 72 \cdot \epsilon 
+    \label{eq:no_shear_buckling}
+\end{equation}
+
+\subsubsection{Local effects of water pressure}
+
+As in the geometry of the cross-section, there is a difference in water levels on both sides of the sheet pile, the bending moments should be reduced by transverse local plate bending. Therefore, the cross-sectional yield strength should be reduced with Equation \ref{eq:reduction_factor}. However, when the difference in the water levels across the wall, for Z sections, is less than $5.0 \ m$. From Equation XX it can be seen that the differential in the water difference is less than $5.0 \ m$, showing that the local effects of water pressure on overall bending may be neglected. 
+
+\begin{equation}
+    f_{y;red} = \rho_{p} \cdot f_{y}
+    \label{eq:reduction_factor}
+\end{equation}
+
+\begin{itemize}
+    \item $\rho_{p}$ is a reduction factor that depends on the slenderness ratio. 
+\end{itemize}
+
+\begin{equation}
+    \Delta h_w = 1.03 - 0.14 = 0.89 \ m
+    \label{eq:reduction_factor}
 \end{equation}
 
 \subsubsection{Deflection}
