@@ -33,3 +33,753 @@ def atmosphere(h):
     return [layer1[1],layer1[2]/(R*layer1[1]),layer1[2],math.sqrt(1.4*R*layer1[1])]
 \end{lstlisting}
 \end{comment}
+
+\section{Parameters}
+
+\begin{lstlisting}[language=Python]
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+from dataclasses import dataclass
+from typing import Optional, Tuple, List
+from io import StringIO
+
+params = dict(
+    # Geometry
+    Z=4.0,                # Retained height (Z)
+    t=6.0,                 # Embedment depth (t)
+    alpha_deg=0.0,         # α: wall inclination with vertical (deg)
+    beta_left_deg=0.0,     # β (left): ground slope near toe (deg)
+    beta_right_deg=0.0,    # β (right/top): ground slope (deg)
+    wall_thickness=0.05,    # visual wall thickness
+    water_table_depth=1.47,   # water table depth
+    water_level = 2.36,
+
+    # Dimension placement
+    dim_offset=4,            # horizontal offset (to the right of wall) for Z and t dimensions
+    figsize=(16, 10),        # bigger figure to avoid overlap      
+    layer_block_width=9.0,   # wider stratigraphy block
+    min_layer_thk_for_params=1.1,  # only print γ,c,φ if layer is at least this thick [m]
+)
+
+COMMON_X_MIN = -12
+COMMON_X_MAX = params["dim_offset"] + params["layer_block_width"]
+COMMON_Y_MIN = -params["t"]
+COMMON_Y_MAX = params["Z"]
+fs=8
+
+LINE_BREAK = chr(10)
+
+def apply_common_axes(ax):
+    ax.set_aspect("equal", adjustable="box")
+    ax.set_xlim(COMMON_X_MIN, COMMON_X_MAX)
+    ax.set_ylim(COMMON_Y_MIN, COMMON_Y_MAX)
+\end{lstlisting}
+
+\section{Geometry of the profile}
+
+\begin{lstlisting}[language=Python]
+def rot2d(points, angle_deg):
+    a = np.deg2rad(angle_deg)
+    R = np.array([[np.cos(a), -np.sin(a)], [np.sin(a),  np.cos(a)]])
+    return (R @ points.T).T
+
+def draw_arrow(ax, start, vec, head_width=0.25, head_length=0.4, lw=2):
+    ax.arrow(start[0], start[1], vec[0], vec[1],
+             length_includes_head=True, head_width=head_width,
+             head_length=head_length, color="red", linewidth=lw)
+
+def draw_dimension(ax, x, y0, y1, text, fs):
+    """Vertical double-headed dimension with text placed to the right."""
+    # Double-headed arrow
+    ax.annotate('', xy=(x, y1), xytext=(x, y0),
+                arrowprops=dict(arrowstyle='<->', color='black', linewidth=1.8))
+    ymid = 0.5*(y0 + y1)
+    ax.text(x + 0.35, ymid, text, rotation=90, va='center', fontsize=fs, color='black')
+
+def label_horizontal_line(ax, y, text, x=-11.5, fs=fs, offset_pts=6):
+    """Label a horizontal line at y with a small upward screen-space offset."""
+    ax.annotate(text, xy=(x, y), xytext=(0, offset_pts),
+                textcoords='offset points', ha='left', va='bottom', fontsize=fs, color='black')
+
+Z       = params["Z"]
+t       = params["t"]
+alpha   = params["alpha_deg"]
+betaL   = params["beta_left_deg"]
+betaR   = params["beta_right_deg"]
+delta   = params["delta_deg"]
+wall_th = params["wall_thickness"]
+fs      = params["font_size"]
+
+fig, ax = plt.subplots(figsize=params["figsize"])
+
+# Reference horizontal (dashed) through toe at y=0
+# ax.plot([-5, 0], [0, 0], linestyle="--", linewidth=1.5, color="black")
+# ax.plot([0, 5], [Z, Z], linestyle="--", linewidth=1.5, color="black")
+label_horizontal_line(ax, Z, "Ground Surface [+2.5]", x=0.25, fs=8, offset_pts=6)
+label_horizontal_line(ax, 0.0, "Dredge Level [-1.5]",  x=-4, fs=8, offset_pts=6)
+
+# Water table depth
+ax.plot([0, 4], [Z - params["water_table_depth"], Z - params["water_table_depth"]], linestyle="--", linewidth=1.5, color="black")
+label_horizontal_line(ax, Z - params["water_table_depth"], "GWT [+1.03]", x=0.25, fs=8, offset_pts=6)
+
+# Water level
+ax.plot([-4, 0], [Z - params["water_level"], Z - params["water_level"]], linestyle="--", linewidth=1.5, color="black")
+label_horizontal_line(ax, Z - params["water_level"], "WL [+0.14]", x=-4, fs=8, offset_pts=6)
+
+# Wall direction
+theta_wall = 90.0 - alpha
+u = np.array([np.cos(np.deg2rad(theta_wall)), np.sin(np.deg2rad(theta_wall))])
+toe  = np.array([0.0, 0.0])
+top  = toe + u * Z
+base = toe - u * t
+n = np.array([-u[1], u[0]])
+
+# Wall polygon (thick)
+p1 = top  + n * (wall_th/2)
+p2 = base + n * (wall_th/2)
+p3 = base - n * (wall_th/2)
+p4 = top  - n * (wall_th/2)
+ax.plot([p1[0], p2[0], p3[0], p4[0], p1[0]],
+        [p1[1], p2[1], p3[1], p4[1], p1[1]], color="black", linewidth=3)
+# ax.fill_betweenx([COMMON_Y_MIN, COMMON_Y_MAX], p2[0], p3[0], color="black", zorder=0)
+
+# Left ground (through toe) and right ground (through top)
+len_ground = params['dim_offset']
+left_end = np.array([-len_ground, -np.tan(np.deg2rad(betaL)) * len_ground])
+right_end = top + np.array([len_ground, np.tan(np.deg2rad(betaR)) * len_ground])
+# attach left ground to the left face of the wall (at toe level)
+left_attach = toe + n * (wall_th/2)
+ax.plot([left_attach[0], left_end[0]], [left_attach[1], left_end[1]], linewidth=3, color="black")
+ax.plot([top[0], right_end[0]], [top[1], right_end[1]], linewidth=3, color="black")
+
+dim_x = max(top[0], p1[0], p4[0]) + params["dim_offset"]
+draw_dimension(ax, 2.5, 0.0, top[1], f"Z = {Z:g} m", 8)
+draw_dimension(ax, 2.5, -t, 0.0, f"t = {t:g} m", 8)
+draw_dimension(ax, 4, Z - params["water_table_depth"], Z, f"$Z_{{2}} = {params['water_table_depth']:g}$ m", 8)
+draw_dimension(ax, 4, 0.0, Z - params["water_table_depth"], f"$Z_{{1}} = {Z - params['water_table_depth']:g}$ m", 8)
+
+# Wall face & scaling
+x_wall = top[0] + 0.3
+block_w = params["dim_offset"]
+target  = 0.40 * block_w
+
+half_span = max(abs(COMMON_X_MIN - x_wall), abs(COMMON_X_MAX - x_wall))
+ax.set_xlim(x_wall - half_span, x_wall + half_span)
+ax.set_ylim(COMMON_Y_MIN, COMMON_Y_MAX + 1)
+
+# position the axes in the middle of the figure canvas
+dw = desired_width if 'desired_width' in globals() else 0.6
+dh = desired_height if 'desired_height' in globals() else 0.8
+left = (1.0 - dw) / 2.0
+bottom = (1.0 - dh) / 2.0
+ax.set_position([left, bottom, dw, dh])
+
+ax.axis("off")
+plt.show()
+\end{lstlisting}
+
+\section{Soil profile}
+
+\begin{lstlisting}[language=Python]
+@dataclass
+class SoilParams:
+    unit_weight: Optional[float] = None    # γ [kN/m³]
+    cohesion: Optional[float] = None       # c [kPa]
+    phi: Optional[float] = None            # φ [°]
+    delta: Optional[float] = None          # δ [°]
+    k_subgrade: Optional[float] = None     # k [kN/m³]
+    modulus_E: Optional[float] = None      # E [MPa]
+    permeability_k: Optional[float] = None # kperm [m/s]
+    unit_weight_sat: Optional[float] = None  # γ_sat [kN/m³]
+
+@dataclass
+class Layer:
+    name: str
+    top_depth: float         # depth from right ground surface, positive downward [m]
+    bottom_depth: float      # depth from right ground surface, positive downward [m]
+    params: SoilParams
+    color: str = "#dddddd"
+
+layers: List[Layer] = [
+    Layer("Fill",             0.0,   2.0,  SoilParams(unit_weight=12.0, cohesion=20, phi=15.0, unit_weight_sat=12.0)),
+    Layer("Fine–Medium Sand", 2.0,   7.0,  SoilParams(unit_weight=17.0, cohesion=0,  phi=30,   unit_weight_sat=19.0)),
+    Layer("Clay",             7.0,  10.0,  SoilParams(unit_weight=14.0, cohesion=25, phi=17.5, unit_weight_sat=14.0)),
+    Layer("Clayey Sand",     10.0,  15.0,  SoilParams(unit_weight=18.0, cohesion=0,  phi=25,   unit_weight_sat=20.0)),
+    Layer("Clay",            15.0,  16.0,  SoilParams(unit_weight=14.0, cohesion=25, phi=17.5, unit_weight_sat=14.0)),
+    Layer("Clayey Sand",     16.0,  17.5,  SoilParams(unit_weight=18.0, cohesion=0,  phi=25,   unit_weight_sat=20.0)),
+    Layer("Medium Sand",     17.5,  32.5,  SoilParams(unit_weight=18.0, cohesion=0,  phi=32.5, unit_weight_sat=20.0)),
+]
+
+def rot2d(points, angle_deg):
+    a = np.deg2rad(angle_deg)
+    R = np.array([[np.cos(a), -np.sin(a)], [np.sin(a),  np.cos(a)]])
+    return (R @ points.T).T
+
+def draw_arrow(ax, start, vec, head_width=0.25, head_length=0.4, lw=2, color="red"):
+    ax.arrow(start[0], start[1], vec[0], vec[1],
+             length_includes_head=True, head_width=head_width,
+             head_length=head_length, color=color, linewidth=lw)
+
+def draw_P_arrows_perp_to_segment(ax, A, B, n_arrows, length, fs, label, offset=1.35, color="red"):
+    # Skip drawing if "length" is 0 or negative (P=0 rule)
+    if n_arrows <= 0 or length <= 0:
+        return
+    A = np.array(A, dtype=float)
+    B = np.array(B, dtype=float)
+    seg = B - A
+    L = np.linalg.norm(seg)
+    if L == 0:
+        return
+    s = seg / L
+    n1 = np.array([-s[1], s[0]])
+    n_out = n1 if n1[1] >= 0 else -n1
+    ts = np.linspace(0.1, 0.9, n_arrows)
+    tips = [A + t * seg for t in ts]
+    for tip in tips:
+        start = tip + n_out * length
+        ax.arrow(start[0], start[1],
+                 (-n_out * length)[0], (-n_out * length)[1],
+                 length_includes_head=True,
+                 head_width=0.25, head_length=0.4,
+                 color=color, linewidth=2)
+    # place label a bit above the arrows
+    mid_tip = tips[len(tips)//2]
+    label_pos = mid_tip + n_out * (offset * length)
+    ax.text(label_pos[0], label_pos[1], label,
+            fontsize=fs, ha="center", va="bottom", color="black")
+
+def draw_dimension(ax, x, y0, y1, text, fs):
+    ax.annotate('', xy=(x, y1), xytext=(x, y0),
+                arrowprops=dict(arrowstyle='<->', color='black', linewidth=1.8))
+    ymid = 0.5*(y0 + y1)
+    ax.text(x + 0.5, ymid, text, rotation=90, va='center', fontsize=fs, color='black')
+
+def draw_layers_right_dashed(ax, top_point, block_width, layers,
+                             fs=fs, show_params=True, min_thk=0.5,
+                             dash_pattern=(6, 4), max_depth=None):
+    """
+    Draw soil layers to the RIGHT of the wall using ONLY dashed horizontal lines.
+    - Layer name centered in the layer
+    - Only γ, c, φ printed under the name (and only if the layer is thick enough)
+    """
+    x0, y_top = top_point
+    xL = x0 
+    xR = xL + params['dim_offset']
+
+    # ----- decide depth limit
+    if max_depth is None:
+        max_depth = max(lyr.bottom_depth for lyr in layers)
+
+    # ----- build a clipped list of layers
+    clipped = []
+    for lyr in layers:
+        if lyr.top_depth >= max_depth:
+            continue
+        top_d = lyr.top_depth
+        bot_d = min(lyr.bottom_depth, max_depth)
+        if bot_d - top_d <= 1e-9:
+            continue
+        # keep same params/color
+        clipped.append(Layer(lyr.name, top_d, bot_d, lyr.params, lyr.color))
+
+    # --- draw dashed boundaries for all unique layer interfaces
+    boundaries = []
+    for lyr in layers:
+        boundaries.append(y_top - lyr.top_depth)
+        boundaries.append(y_top - lyr.bottom_depth)
+
+    boundaries = sorted(boundaries)
+    eps = 1e-6
+    last = None
+    for y in boundaries:
+        if last is None or abs(y - last) > eps:
+            ax.plot([xL, xR], [y, y],
+                    linestyle=(0, dash_pattern), linewidth=1.2, color="black")
+            last = y
+
+    # --- labels at TOP (lock to dashed line; use screen offsets)
+    for lyr in layers:
+        y1 = y_top - lyr.top_depth      # top boundary of layer (dashed line)
+        y2 = y_top - lyr.bottom_depth
+        h  = y1 - y2
+        xc = (xL + xR) / 2.0
+
+    # screen-space paddings (points) so distance from the dashed line is consistent
+        name_pad_pts = 6       # distance below dashed line to the name
+        gap_pts      = 8       # extra gap from name to parameters
+
+    # 1) Layer name (anchored to the top line, offset downward in points)
+        ax.annotate(
+            lyr.name, xy=(xc, y1), xytext=(0, -name_pad_pts),
+            textcoords='offset points', ha='center', va='top', fontsize=8, color='black'
+    )
+
+    # 2) Parameters (γ, c, φ) under the name for EVERY layer
+        if show_params and h >= 3:
+            sp = lyr.params
+            lines = []
+            if sp.unit_weight is not None: lines.append(f"γₖ = {sp.unit_weight:g} kN/m³")
+            if sp.unit_weight_sat is not None: lines.append(f"γₛ = {sp.unit_weight_sat:g} kN/m³")
+            if sp.cohesion    is not None: lines.append(f"cᵤ = {sp.cohesion:g} kPa")
+            if sp.phi         is not None: lines.append(f"φₖ = {sp.phi:g}°")
+            if lines:
+                ax.annotate(
+                    LINE_BREAK.join(lines), xy=(xc, y1),
+                    xytext=(0, -(name_pad_pts + gap_pts)),
+                    textcoords='offset points', ha='center', va='top',
+                    fontsize=8, color='black'
+            )
+
+def place_force_label(ax, start, vec, text, fs, pad=0.8):
+    """
+    Put a label near the arrow but offset perpendicular to the arrow vector
+    so the text doesn't sit on the wall/layers.
+    """
+    v = np.array(vec, dtype=float)
+    nv = np.linalg.norm(v)
+    if nv == 0:  # fallback
+        ax.text(start[0], start[1], text, fontsize=10, color="black")
+        return
+    vhat = v / nv
+    p = np.array([-vhat[1], vhat[0]])
+    anchor = np.array(start) + v * 0.55 + p * pad
+    ax.text(anchor[0], anchor[1], text, fontsize=10, color="black",
+            ha="center", va="bottom")
+
+Z       = params["Z"]
+t       = params["t"]
+alpha   = params["alpha_deg"]
+betaL   = params["beta_left_deg"]
+betaR   = params["beta_right_deg"]
+delta   = params["delta_deg"]
+wall_th = params["wall_thickness"]
+fs      = params["font_size"]
+
+fig, ax = plt.subplots(figsize=params["figsize"])
+
+# Reference horizontal (dashed) through toe at y=0
+label_horizontal_line(ax, Z, "Ground Surface [+2.5]", x=0.25, fs=8, offset_pts=6)
+label_horizontal_line(ax, 0.0, "Dredge Level [-1.5]",  x=-4, fs=8, offset_pts=6)
+
+# Water table depth
+ax.plot([0, 4], [Z - params["water_table_depth"], Z - params["water_table_depth"]], linestyle="--", linewidth=1.5, color="black")
+label_horizontal_line(ax, Z - params["water_table_depth"], "GWT [+1.03]", x=0.25, fs=8, offset_pts=6)
+
+# Water level
+ax.plot([-4, 0], [Z - params["water_level"], Z - params["water_level"]], linestyle="--", linewidth=1.5, color="black")
+label_horizontal_line(ax, Z - params["water_level"], "WL [+0.14]", x=-4, fs=8, offset_pts=6)
+
+# Wall direction
+theta_wall = 90.0 - alpha
+u = np.array([np.cos(np.deg2rad(theta_wall)), np.sin(np.deg2rad(theta_wall))])
+toe  = np.array([0.0, 0.0])
+top  = toe + u * Z
+base = toe - u * t
+n = np.array([-u[1], u[0]])
+
+# Wall polygon
+p1 = top  + n * (wall_th/2)
+p2 = base + n * (wall_th/2)
+p3 = base - n * (wall_th/2)
+p4 = top  - n * (wall_th/2)
+ax.plot([p1[0], p2[0], p3[0], p4[0], p1[0]],
+        [p1[1], p2[1], p3[1], p4[1], p1[1]], color="black", linewidth=3)
+
+len_ground = params['dim_offset']
+left_end = np.array([-len_ground, -np.tan(np.deg2rad(betaL)) * len_ground])
+right_end = top + np.array([len_ground, np.tan(np.deg2rad(betaR)) * len_ground])
+left_attach = toe + n * (wall_th/2)
+ax.plot([left_attach[0], left_end[0]], [left_attach[1], left_end[1]], linewidth=3, color="black")
+ax.plot([top[0], right_end[0]], [top[1], right_end[1]], linewidth=3, color="black")
+
+draw_layers_right_dashed(
+    ax, top_point=top, block_width=params["dim_offset"], layers=layers,
+    fs=max(12, params["font_size"]-2), show_params=True,
+    min_thk=params["min_layer_thk_for_params"],
+    max_depth=params["Z"] + params["t"]  # plot from right ground down to Z+T
+)
+
+half_span = max(abs(COMMON_X_MIN - x_wall), abs(COMMON_X_MAX - x_wall))
+ax.set_xlim(x_wall - half_span, x_wall + half_span)
+ax.set_ylim(COMMON_Y_MIN, COMMON_Y_MAX + 1)
+
+dw = desired_width if 'desired_width' in globals() else 0.6
+dh = desired_height if 'desired_height' in globals() else 0.8
+left = (1.0 - dw) / 2.0
+bottom = (1.0 - dh) / 2.0
+ax.set_position([left, bottom, dw, dh])
+
+ax.axis("off")
+plt.show()
+\end{lstlisting}
+
+\section{Vertical effective stress}
+
+\begin{lstlisting}[language=Python]
+def layer_at(z_mid, layers):
+    for L in layers:
+        if L.top_depth <= z_mid < L.bottom_depth:
+            return L
+    return layers[-1]
+
+def seg_gamma_eff(L, z1, z2, z_wt, gamma_w=9.81):
+    # segment does not cross GWT (we'll ensure nodes include WT)
+    if z2 <= z_wt:
+        return float(L.params.unit_weight or 0.0)
+    else:
+        if L.params.unit_weight_sat is not None:
+            return float(L.params.unit_weight_sat) - gamma_w
+        return float(L.params.unit_weight or 0.0) - gamma_w
+
+Z = float(params["Z"])
+t = float(params["t"])
+block_w = float(params["dim_offset"])
+xL_face = float(x_face_left)   # left face (passive side)
+xR_face = float(x_face_right)  # right face (active side)
+
+z_wt = float(params["water_table_depth"])
+max_depth = float(Z + t)  # toe depth in absolute coordinates
+
+z_top_L = Z
+z_bot_L = Z + t
+nodes_L = {z_top_L, z_bot_L}
+if z_top_L < z_wt < z_bot_L:
+    nodes_L.add(z_wt)
+for L in layers:
+    if z_top_L <= L.top_depth    <= z_bot_L: nodes_L.add(L.top_depth)
+    if z_top_L <= L.bottom_depth <= z_bot_L: nodes_L.add(L.bottom_depth)
+z_nodes_L = sorted(nodes_L)
+
+sv_L = [0.0]
+for i in range(1, len(z_nodes_L)):
+    z1, z2 = z_nodes_L[i-1], z_nodes_L[i]
+    Lseg = layer_at((z1+z2)/2.0, layers)
+    gamma = seg_gamma_eff(Lseg, z1, z2, z_wt)
+    sv_L.append(sv_L[-1] + gamma * (z2 - z1))
+z_sv_L = np.array(z_nodes_L)
+sv_L = np.array(sv_L)
+
+target_L = 0.40 * block_w
+pmax_L = float(np.max(sv_L)) if sv_L.size else 0.0
+scale_L = (target_L / pmax_L) if pmax_L > 1e-12 else 0.0
+y_L = Z - z_sv_L
+x_L = xL_face - sv_L * scale_L
+
+z_top_R = 0.0
+nodes_R = {z_top_R, min(z_wt, max_depth), max_depth}
+for L in layers:
+    if L.top_depth  <= max_depth: nodes_R.add(max(0.0, L.top_depth))
+    if L.bottom_depth <= max_depth: nodes_R.add(max(0.0, L.bottom_depth))
+z_nodes_R = sorted(nodes_R)
+
+sv_R = [0.0]
+for i in range(1, len(z_nodes_R)):
+    z1, z2 = z_nodes_R[i-1], z_nodes_R[i]
+    Lseg = layer_at((z1+z2)/2.0, layers)
+    gamma = seg_gamma_eff(Lseg, z1, z2, z_wt)
+    sv_R.append(sv_R[-1] + gamma * (z2 - z1))
+z_sv_R = np.array(z_nodes_R)
+sv_R = np.array(sv_R)
+
+target_R = 1 * block_w
+pmax_R = float(np.max(sv_R)) if sv_R.size else 0.0
+scale_R = (target_R / pmax_R) if pmax_R > 1e-12 else 0.0
+y_R = Z - z_sv_R
+x_R = xR_face + sv_R * scale_R
+
+fig, ax = plt.subplots(figsize=params["figsize"])
+
+try:
+    ax.plot([p1[0], p2[0], p3[0], p4[0], p1[0]],
+            [p1[1], p2[1], p3[1], p4[1], p1[1]], color="black", linewidth=3)
+except NameError:
+    # simple vertical line at x_wall
+    x_wall = 0.0
+    ax.plot([x_wall, x_wall], [Z, Z - t], color="black", linewidth=3)
+
+left_end  = np.array([-params['dim_offset'], -np.tan(np.deg2rad(params['beta_left_deg'])) * params['dim_offset']])
+right_end = np.array([params['dim_offset'], Z + np.tan(np.deg2rad(params['beta_right_deg'])) * params['dim_offset']])
+toe = np.array([0.0, 0.0])
+top = np.array([0.0, Z])
+ax.plot([toe[0], left_end[0]], [toe[1], left_end[1]], linewidth=3, color="black")
+ax.plot([top[0], right_end[0]], [top[1], right_end[1]], linewidth=3, color="black")
+
+label_horizontal_line(ax, Z, "GS [+2.5]", x=2.25, fs=8, offset_pts=6)
+label_horizontal_line(ax, 0.0, "DL [-1.5]",  x=-4, fs=8, offset_pts=6)
+
+ax.plot([0, 4], [Z - params["water_table_depth"], Z - params["water_table_depth"]], linestyle="--", linewidth=1.5, color="black")
+label_horizontal_line(ax, Z - params["water_table_depth"], "GWT [+1.03]", x=2.25, fs=8, offset_pts=6)
+
+ax.plot([-4, 0], [Z - params["water_level"], Z - params["water_level"]], linestyle="--", linewidth=1.5, color="black")
+label_horizontal_line(ax, Z - params["water_level"], "WL [+0.14]", x=-4, fs=8, offset_pts=6)
+
+ax.plot(x_L, y_L, color="green", linewidth=2, label="σ′v")
+ax.fill_betweenx(y_L, x_L, xL_face, color="green", alpha=0.25)
+
+ax.plot(x_R, y_R, color="green", linewidth=2, label="σ′v")
+ax.fill_betweenx(y_R, xR_face, x_R, color="green", alpha=0.25)
+
+dy = 0.12  # vertical offset for labels
+# simple value labels at key depths (interfaces)
+for z in sorted(set(list(z_sv_L) + list(z_sv_R))):
+    # left val if within left range
+    if z_sv_L.min() <= z <= z_sv_L.max():
+        sv_val = float(np.interp(z, z_sv_L, sv_L))
+        y = Z - z
+        x = xL_face - sv_val * scale_L
+        ax.text(x - 0.03*block_w, y+dy, f"{sv_val:.1f} kN/m²", color="green", fontsize=8, ha="right", va="center")
+    # right val if within right range
+    if z_sv_R.min() <= z <= z_sv_R.max():
+        sv_val = float(np.interp(z, z_sv_R, sv_R))
+        y = Z - z
+        x = xR_face + sv_val * scale_R
+        ax.text(x + 0.03*block_w, y+dy, f"{sv_val:.1f} kN/m²", color="green", fontsize=8, ha="left", va="center")
+
+draw_layers_right_dashed(
+    ax,
+    top_point=top,
+    block_width=params["dim_offset"],
+    layers=layers,
+    fs=max(12, params["font_size"]-2),
+    show_params=False,
+    min_thk=params["min_layer_thk_for_params"]
+)
+
+x_wall_center = (xL_face + xR_face) / 2.0
+half_span = max(abs(COMMON_X_MIN - x_wall_center), abs(COMMON_X_MAX - x_wall_center))
+ax.set_xlim(x_wall_center - half_span, x_wall_center + half_span)
+ax.set_ylim(COMMON_Y_MIN, COMMON_Y_MAX + 1)
+dw = desired_width if 'desired_width' in globals() else 0.6
+dh = desired_height if 'desired_height' in globals() else 0.8
+left = (1.0 - dw) / 2.0
+bottom = (1.0 - dh) / 2.0
+ax.set_position([left, bottom, dw, dh])
+ax.axis("off")
+plt.show()
+
+z_col = "z [m]" if "z [m]" in df_i.columns else "z"
+sv_col = (
+    "σ′v [kN/m²]" if "σ′v [kN/m²]" in df_i.columns
+    else ("σ′v [kPa]" if "σ′v [kPa]" in df_i.columns else "sigma_v")
+)
+
+max_depth = float(Z + t)
+z_wt = float(params["water_table_depth"])
+
+df_right = df_i[[z_col, sv_col]].copy()
+df_right = df_right[df_right[z_col] <= max_depth].sort_values(z_col).reset_index(drop=True)
+
+if "df_sigma_left" in globals():
+    df_left = df_sigma_left.copy().sort_values(z_col).reset_index(drop=True)
+else:
+    df_left = pd.DataFrame({z_col: z_sv_L, "σ′v_left [kN/m²]": sv_L}).sort_values(z_col).reset_index(drop=True)
+
+left_sv_col = next(c for c in df_left.columns if c != z_col)
+right_z = df_right[z_col].to_numpy()
+right_sv = df_right[sv_col].to_numpy()
+left_z = df_left[z_col].to_numpy()
+left_sv = df_left[left_sv_col].to_numpy()
+
+union_z = np.unique(np.concatenate([right_z, left_z, [z_wt] if (0 <= z_wt <= max_depth) else []]))
+union_z = np.sort(union_z)
+
+right_interp = np.interp(union_z, right_z, right_sv)
+left_interp = np.interp(union_z, left_z, left_sv)
+
+df_both = pd.DataFrame({
+    "z [m]": union_z,
+    "σ′v_left [kN/m²]": left_interp,
+    "σ′v_right [kN/m²]": right_interp
+})
+
+from IPython.display import display
+display(
+    df_both.style.format({"z [m]": "{:.2f}", "σ′v_left [kN/m²]": "{:.2f}", "σ′v_right [kN/m²]": "{:.2f}"})
+)
+\end{lstlisting}
+
+\section{Earth pressure and force}
+
+\begin{lstlisting}[language=Python]
+def layer_at(z_mid, layers):
+    for L in layers:
+        if L.top_depth <= z_mid < L.bottom_depth:
+            return L
+    return layers[-1]
+
+def seg_gamma_eff(L, z1, z2, z_wt, gamma_w=9.81):
+    # segment does not cross GWT (we'll ensure nodes include WT)
+    if z2 <= z_wt:
+        return float(L.params.unit_weight or 0.0)
+    else:
+        if L.params.unit_weight_sat is not None:
+            return float(L.params.unit_weight_sat) - gamma_w
+        return float(L.params.unit_weight or 0.0) - gamma_w
+
+Z = float(params["Z"])
+t = float(params["t"])
+block_w = float(params["dim_offset"])
+xL_face = float(x_face_left)   # left face (passive side)
+xR_face = float(x_face_right)  # right face (active side)
+
+z_wt = float(params["water_table_depth"])
+max_depth = float(Z + t)  # toe depth in absolute coordinates
+
+z_top_L = Z
+z_bot_L = Z + t
+nodes_L = {z_top_L, z_bot_L}
+if z_top_L < z_wt < z_bot_L:
+    nodes_L.add(z_wt)
+for L in layers:
+    if z_top_L <= L.top_depth    <= z_bot_L: nodes_L.add(L.top_depth)
+    if z_top_L <= L.bottom_depth <= z_bot_L: nodes_L.add(L.bottom_depth)
+z_nodes_L = sorted(nodes_L)
+
+sv_L = [0.0]
+for i in range(1, len(z_nodes_L)):
+    z1, z2 = z_nodes_L[i-1], z_nodes_L[i]
+    Lseg = layer_at((z1+z2)/2.0, layers)
+    gamma = seg_gamma_eff(Lseg, z1, z2, z_wt)
+    sv_L.append(sv_L[-1] + gamma * (z2 - z1))
+z_sv_L = np.array(z_nodes_L)
+sv_L = np.array(sv_L)
+
+target_L = 0.40 * block_w
+pmax_L = float(np.max(sv_L)) if sv_L.size else 0.0
+scale_L = (target_L / pmax_L) if pmax_L > 1e-12 else 0.0
+y_L = Z - z_sv_L
+x_L = xL_face - sv_L * scale_L
+
+z_top_R = 0.0
+nodes_R = {z_top_R, min(z_wt, max_depth), max_depth}
+for L in layers:
+    if L.top_depth  <= max_depth: nodes_R.add(max(0.0, L.top_depth))
+    if L.bottom_depth <= max_depth: nodes_R.add(max(0.0, L.bottom_depth))
+z_nodes_R = sorted(nodes_R)
+
+sv_R = [0.0]
+for i in range(1, len(z_nodes_R)):
+    z1, z2 = z_nodes_R[i-1], z_nodes_R[i]
+    Lseg = layer_at((z1+z2)/2.0, layers)
+    gamma = seg_gamma_eff(Lseg, z1, z2, z_wt)
+    sv_R.append(sv_R[-1] + gamma * (z2 - z1))
+z_sv_R = np.array(z_nodes_R)
+sv_R = np.array(sv_R)
+
+target_R = 1 * block_w
+pmax_R = float(np.max(sv_R)) if sv_R.size else 0.0
+scale_R = (target_R / pmax_R) if pmax_R > 1e-12 else 0.0
+y_R = Z - z_sv_R
+x_R = xR_face + sv_R * scale_R
+
+fig, ax = plt.subplots(figsize=params["figsize"])
+
+try:
+    ax.plot([p1[0], p2[0], p3[0], p4[0], p1[0]],
+            [p1[1], p2[1], p3[1], p4[1], p1[1]], color="black", linewidth=3)
+except NameError:
+    # simple vertical line at x_wall
+    x_wall = 0.0
+    ax.plot([x_wall, x_wall], [Z, Z - t], color="black", linewidth=3)
+
+left_end  = np.array([-params['dim_offset'], -np.tan(np.deg2rad(params['beta_left_deg'])) * params['dim_offset']])
+right_end = np.array([params['dim_offset'], Z + np.tan(np.deg2rad(params['beta_right_deg'])) * params['dim_offset']])
+toe = np.array([0.0, 0.0])
+top = np.array([0.0, Z])
+ax.plot([toe[0], left_end[0]], [toe[1], left_end[1]], linewidth=3, color="black")
+ax.plot([top[0], right_end[0]], [top[1], right_end[1]], linewidth=3, color="black")
+
+label_horizontal_line(ax, Z, "GS [+2.5]", x=2.25, fs=8, offset_pts=6)
+label_horizontal_line(ax, 0.0, "DL [-1.5]",  x=-4, fs=8, offset_pts=6)
+
+ax.plot([0, 4], [Z - params["water_table_depth"], Z - params["water_table_depth"]], linestyle="--", linewidth=1.5, color="black")
+label_horizontal_line(ax, Z - params["water_table_depth"], "GWT [+1.03]", x=2.25, fs=8, offset_pts=6)
+
+ax.plot([-4, 0], [Z - params["water_level"], Z - params["water_level"]], linestyle="--", linewidth=1.5, color="black")
+label_horizontal_line(ax, Z - params["water_level"], "WL [+0.14]", x=-4, fs=8, offset_pts=6)
+
+ax.plot(x_L, y_L, color="green", linewidth=2, label="σ′v")
+ax.fill_betweenx(y_L, x_L, xL_face, color="green", alpha=0.25)
+
+ax.plot(x_R, y_R, color="green", linewidth=2, label="σ′v")
+ax.fill_betweenx(y_R, xR_face, x_R, color="green", alpha=0.25)
+
+dy = 0.12  # vertical offset for labels
+# simple value labels at key depths (interfaces)
+for z in sorted(set(list(z_sv_L) + list(z_sv_R))):
+    # left val if within left range
+    if z_sv_L.min() <= z <= z_sv_L.max():
+        sv_val = float(np.interp(z, z_sv_L, sv_L))
+        y = Z - z
+        x = xL_face - sv_val * scale_L
+        ax.text(x - 0.03*block_w, y+dy, f"{sv_val:.1f} kN/m²", color="green", fontsize=8, ha="right", va="center")
+    # right val if within right range
+    if z_sv_R.min() <= z <= z_sv_R.max():
+        sv_val = float(np.interp(z, z_sv_R, sv_R))
+        y = Z - z
+        x = xR_face + sv_val * scale_R
+        ax.text(x + 0.03*block_w, y+dy, f"{sv_val:.1f} kN/m²", color="green", fontsize=8, ha="left", va="center")
+
+draw_layers_right_dashed(
+    ax,
+    top_point=top,
+    block_width=params["dim_offset"],
+    layers=layers,
+    fs=max(12, params["font_size"]-2),
+    show_params=False,
+    min_thk=params["min_layer_thk_for_params"]
+)
+
+x_wall_center = (xL_face + xR_face) / 2.0
+half_span = max(abs(COMMON_X_MIN - x_wall_center), abs(COMMON_X_MAX - x_wall_center))
+ax.set_xlim(x_wall_center - half_span, x_wall_center + half_span)
+ax.set_ylim(COMMON_Y_MIN, COMMON_Y_MAX + 1)
+dw = desired_width if 'desired_width' in globals() else 0.6
+dh = desired_height if 'desired_height' in globals() else 0.8
+left = (1.0 - dw) / 2.0
+bottom = (1.0 - dh) / 2.0
+ax.set_position([left, bottom, dw, dh])
+ax.axis("off")
+plt.show()
+
+z_col = "z [m]" if "z [m]" in df_i.columns else "z"
+sv_col = (
+    "σ′v [kN/m²]" if "σ′v [kN/m²]" in df_i.columns
+    else ("σ′v [kPa]" if "σ′v [kPa]" in df_i.columns else "sigma_v")
+)
+
+max_depth = float(Z + t)
+z_wt = float(params["water_table_depth"])
+
+df_right = df_i[[z_col, sv_col]].copy()
+df_right = df_right[df_right[z_col] <= max_depth].sort_values(z_col).reset_index(drop=True)
+
+if "df_sigma_left" in globals():
+    df_left = df_sigma_left.copy().sort_values(z_col).reset_index(drop=True)
+else:
+    df_left = pd.DataFrame({z_col: z_sv_L, "σ′v_left [kN/m²]": sv_L}).sort_values(z_col).reset_index(drop=True)
+
+left_sv_col = next(c for c in df_left.columns if c != z_col)
+right_z = df_right[z_col].to_numpy()
+right_sv = df_right[sv_col].to_numpy()
+left_z = df_left[z_col].to_numpy()
+left_sv = df_left[left_sv_col].to_numpy()
+
+union_z = np.unique(np.concatenate([right_z, left_z, [z_wt] if (0 <= z_wt <= max_depth) else []]))
+union_z = np.sort(union_z)
+
+right_interp = np.interp(union_z, right_z, right_sv)
+left_interp = np.interp(union_z, left_z, left_sv)
+
+df_both = pd.DataFrame({
+    "z [m]": union_z,
+    "σ′v_left [kN/m²]": left_interp,
+    "σ′v_right [kN/m²]": right_interp
+})
+
+from IPython.display import display
+display(
+    df_both.style.format({"z [m]": "{:.2f}", "σ′v_left [kN/m²]": "{:.2f}", "σ′v_right [kN/m²]": "{:.2f}"})
+)
+\end{lstlisting}
