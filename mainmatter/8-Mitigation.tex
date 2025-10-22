@@ -45,12 +45,12 @@ As can be seen in Table \ref{tab:compstruct}, pile walls score low on water tigh
 
 As a structural solution, the sheet pile walls are chosen. These elements score high on ease of installation and sustainability (parts can be removed and reused) and price, resistance and durability are also pros of this method. Disturbance is one of the main concerns related to sheet pile walls, but since the area of interest is in a scarcely populated area, this is not necessarily problematic. Another concern is the low versatility: installation is only possible if soils are not too hard. However, since installation will be executed in a delta with relatively soft soil (see XX), this should not be a major concern for this project.
 
-\section{Sheet Pile}
+\subsection{Sheet Pile}
 \label{section:sheet_pile_wall}
 
 Sheet pile walls are frequently used for excavations, waterfront structures, highway structures, flood protection schemes, and bridge abutments. Steel sheet pile walls are mainly used because they offer a wide variety of combinations and profiles. These profiles achieve high moments of resistance while still meeting the structural design requirements. Their engineering advantages include their suitability for water use, a favourable ratio of steel cross-section to moment of resistance, and rapid site progress. These factors make them both functional and economical, which supports their widespread use (Handbook).
 
-\subsubsection{Cantilever and anchored}
+% \subsubsection{Cantilever and anchored}
 
 The types of steel sheet pile walls most used in practice are cantilever and anchored sheet piles. Cantilever sheet piles are used as flood or earth retaining walls with heights ranging between $3$ and $5$ meters. They get their support from the ground and foundation soils, which can be seen in Figure \ref{fig:sheetpiles}. The anchored sheet piles can be used when the heights of cantilever sheet piles are exceeded or when the design is based on lateral deflections. However, for anchored sheet piles, a free horizontal distance should be incorporated for the installation of the anchor, shown in Figure \ref{fig:sheetpiles} (EM-1110).
 
@@ -63,11 +63,11 @@ The types of steel sheet pile walls most used in practice are cantilever and anc
 
 % DEZE FIGUUR WELLICHT ZELF MAKEN IN PYTHON. CANTILEVER HEB IK AL. ANCHORED NOG EVEN MAKEN SIMPEL.
 
-\subsubsection{Materials}
+% \subsubsection{Materials}
 
 Sheet pile walls can be made of multiple materials, like steel, concrete, or wood. For the design in this report, steel will be used as the advantages outweigh the disadvantages and are more suitable than concrete or wood. Concrete will have a longer service life, however, it will have higher initial costs compared to steel, and the installation of concrete walls is more difficult. Wooden walls can be used for shorter heights and temporary structures.  As discussed in Section \ref{section_8.2}, the advantages of steel sheet piles make it the most common material because of the strength, light weight, and long service life, in combination with the favorable ratio of cross-section and moment of resistance (EM-1110). The following section will outline the key steel properties relevant to the design.
 
-\subsubsection{Sections and interlocks}
+% \subsubsection{Sections and interlocks}
 
 The sections and interlocks for the steel sheet pile walls are crucial for completing a wall when  using it for waterfront structures. Figure \ref{fig:sections_sheetpiles} shows typical steel sections widely used and goes by the names of U and Z sections. In this figure, the interlocks, which give the sections their strength, can also be seen. The interlocks of the U sections are on the neutral axis, and the ones for the Z sections are not. In the neutral axis, the maximum shear stress is obtained, which means the interlocks should be welded or crimped to obtain the full moment of resistance. When sections meet with water, the walls must be watertight. This can be done with plastic compound materials filling the interlocks or using a preformed polyurethane interlock seal. 
 
@@ -144,7 +144,7 @@ In Table \ref{tab:env_impacts}, an overview of the materials, concrete, steel an
   \end{tabularx}
 \end{table}
 
-A sustainable solution for sheet piles is found in the EPD ‘EcoSheetPiles™ Plus’ from ArcelorMittal. This steel sheet pile is produced by an electric arc furnace. In this process, $100\%$ renewable electricity and $100\%$ scrap steel are used for production (ArcelorMittal). Compared to the blast furnace, the production of $CO_{2}$ is significantly reduced, as can be seen in Figure \ref{fig:eaf_bof}.
+A sustainable solution for sheet piles is found in the EPD ‘EcoSheetPiles™ Plus’ from ArcelorMittal. This steel sheet pile is produced by an electric arc furnace. In this process, $100\%$ renewable electricity and $100\%$ scrap steel are used for production (ArcelorMittal). Compared to the blast furnace, the production of $CO_{2}$ is significantly reduced, as can be seen in Figure \ref{fig:eaf_bof}. In this way a more sustainable solution is used as the conventional one.
 
 \begin{figure}[H]
     \centering
@@ -170,7 +170,7 @@ The flexural failure mechanism shown on the left of Figure \ref{fig:failure_mech
 
 % HIER NOG DE FAILURE MECHANISMS BESPREKEN. EVEN KIJKEN WAAROM IK HIER AL ALLEEN DE CANTILEVER LAAT ZIEN. WELLICHT OOK DIE VAN DE ANCHORED LATEN ZIEN OMDAT DE KEUZE PAS VERDER WORDT GEMAAKT.
 
-\subsection{Geotechnical parameters}
+\subsection{Geotechnical Parameters}
 \label{section:geotechnical_parameters}
 
 For the design, the soil layers, including their geotechnical parameters, should be known. In Paragraph \ref{par:geology}, the geological background for the area of interest is explained, and this serves as the basis for deriving the soil layers and parameters. The borehole in Figure \ref{fig:borehole} is deemed the most relevant source. The borehole shows a top layer with fine/medium sands. Below, clay/clayey sand can be found, and the bottom layer consists of medium sand. This is in accordance with the geological profile that was provided before in Figure \ref{fig:geolprofile}, which describes a transition from near-surface beach ridges, dunes, beach plains, and delta sub-aerial facies to deeper open estuaries and marine deposists. The top deposits help declare the presence of sandy deposits at the top of the borehole and the layers of clay/clayey sand below correspond to estuarine deposits. Finally, old marine/fluvial deposits were likely compacted and lead to the layer of medium sand found at the bottom of the borehole.
@@ -215,7 +215,7 @@ The parameters in Table \ref{tab:soil_layers} were derived from the Eurocode \au
     \label{fig:soil_profile_cross_section}
 \end{figure}
 
-\subsection{Hydraulic parameters}
+\subsection{Hydraulic Parameters}
 \label{section:hydraulic_parameters}
 
 In addition to geotechnical parameters, the design of the cantilever sheet pile wall is also based on hydraulic parameters. In this design, the sheet pile wall is located in open water and has a groundwater table. Because of this, the hydrostatic pressure will act on both sides of the wall. The water level of the river and the groundwater may differ in level, and when this is the case, an excess of hydrostatic pressure will act on the sheet pile. 
@@ -255,7 +255,7 @@ To determine the level of the riverbed, the bathymetry of the location analysed 
 
 \newpage
 
-\section{Design of Steel Sheet Pile}
+\subsection{Design of Steel Sheet Pile}
 
 The design of steel sheet piles begins with defining the design location and problem description to get a better understanding of the situation. After defining these conditions, a method should be considered to calculate the earth pressure and water pressure. These will later balance the moments to iteratively define the embedding depth of the sheet pile wall. After calculating the embedding depth based on the balance of moments, the sheet pile will be verified according to structural verifications, including bending moments, shear force, and deflection.  
 
@@ -263,7 +263,7 @@ To set up the balance of moments for defining the embedding depth, the loads act
 
 With the problem description defined, a plan to calculate the embedding depth of the sheet pile is set up by using Python code. The plan begins by defining the soil and water parameters, which will be transformed to effective stresses, active and passive earth, and hydrostatic water pressures. From the stresses, the resulting forces acting on the sheet pile wall are defined, and a balance of moments is obtained. Setting the moment to zero at the bottom of the sheet pile wall, the embedding depth is iteratively calculated. The steps for calculating the embedding depth and the structural verification of the sheet pile design are provided in Appendix XX.
 
-\subsubsection{Location}
+% \subsubsection{Location}
 
 The determination of the critical erosion points along the river has been done in Section \ref{section:cirtical_location}. The location analyzed here will be the location for which the design of the steel sheet pile will be based. In Figure \ref{fig:critical_location_google}, the critical point is shown in Aqua Monitor, and during the field trip, images were taken to verify if erosion was visible. The total length is $215$ meters, which is drawn and shown in Table \ref{tab:Surface Lost Camping La Blanqueada in 2022}.
 
@@ -304,7 +304,7 @@ The design of the sheet pile wall is based on the cantilever sheet pile wall. As
     \item $Z_{2}$ is the saturated soil height.
 \end{itemize}
 
-\subsection{Method}
+\subsubsection{Method}
 
 The design of a cantilever sheet pile can be performed using multiple classical design methods or numerical analysis. Common classical methods and numerical analysis that are applicable for sheet pile walls are listed below:
 
@@ -313,7 +313,7 @@ The design of a cantilever sheet pile can be performed using multiple classical 
   \item Method Homberg;
   \item Method Padfield and Mair;
   \item Method Bowles;
-  \itme Method Day;
+  \item Method Day;
   \item Method Das;
   \item Free earth method;
   \item PLAXIS FEM;
@@ -322,7 +322,7 @@ The design of a cantilever sheet pile can be performed using multiple classical 
 
 Reviewing Eurocode 7, the calculation for the design of a sheet pile should be based on the spring-supported beam method. However, due to complexity, the sheet pile wall will be calculated using the simplified Padfield and Mair method. This method is a simplified representation of the situation, however, after calculating the embedding depth, the verifications will be according to the ultimate limit and serviceability limit defined in Eurocode 3 and Eurocode 7.
 
-\subsubsection{Simplified Padfield and Mair}
+% \subsubsection{Simplified Padfield and Mair}
 
 The simplified Padfield and Mair method (Padfield and Mair, 1984) used for the cantilever sheet pile is a simplified graphical method, shown in Figure \ref{fig:blum}. The right side of the sheet pile is the "ACTIVE" side, and on the left side, under the dredge level, is the "PASSIVE" side. The simplification step in the figure shows an additional resultant force, R, which acts on the lowest point of the sheet pile. This is done because below this point the “ACTIVE” and “PASSIVE” sides switch, creating a complex situation. Within the method, plastic development of the soil and water table level is assumed to be infinitely stiff. All the support is obtained by the fixity of the soil. To calculate the embedding depth, the sum of moments around the lowest fixed point "O" of the sheet pile wall will be set to zero. The unknown embedding depth can be calculated in multiple ways. In this section, an initial embedding depth will be defined, and iteratively, the moment will be set to zero while increasing or decreasing the embedding depth. However, in this method, no safety factors are taken into account. Therefore, the embedding depth found will have to be increased by $20\%$.
 
