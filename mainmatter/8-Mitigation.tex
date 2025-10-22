@@ -352,7 +352,7 @@ The simplified Padfield and Mair method (Padfield and Mair, 1984) used for the c
 %     \label{fig:blum_method}
 % \end{figure}
 
-\subsection{Embedding depth}
+\subsection{Calculation of the Embedding Depth}
 \label{section:embedding_depth}
 
 The embedding depth of the sheet pile is derived from the balance of moment around the lowest point. The balance of moments should be set to zero, providing the minimal embedding depth. To make up the balance of moments, the pressures acting on the sheet pile should be defined to transform these into forces. The horizontal pressure acting on the sheet pile is the earth and hydrostatic pressure. First, the earth pressures will be analyzed by the Python code. Hereafter, the hydrostatic analysis will be performed, and the forces will be calculated. 
@@ -361,7 +361,7 @@ The depth can be defined in multiple ways. A method is to keep the depth as an u
 
 \newpage
 
-\subsubsection{Vertical effective stress}
+\subsubsection{Effective stress}
 
 The horizontal pressure of the soil can be calculated based on the effective stress. The effective stress in the soil can be calculated with Equation \ref{eq:effective_stress}. The stress is based on the height of the soil and the unit weight $\gamma$ of each layer. If the soil layer is below the groundwater table, the saturated unit weight should be deducted from the unit weight, $\gamma - \gamma_{w}$. In Figure \ref{eq:effective_stress}, the effective stress on both sides of the sheet pile can be seen, and the corresponding values are provided in Table \ref{tab:appendix_effective_stress}.
 
@@ -563,7 +563,7 @@ The balance of moments around the lowest part of the sheet pile should be zero, 
   \end{tabular}
 \end{table}
 
-\subsubsection{Ultimate Limit and Serviceability Limit State}
+\subsection{Ultimate Limit and Serviceability Limit State}
 
 A cantilever sheet pile wall should be designed according to two conditions. These conditions are the Ultimate Limit State (ULS) and the Serviceability Limit State (SLS). In the ULS, the worst possible forces that can occur during the span of the sheet pile should be analyzed with respect to the safety of people and the structure. In the SLS checking the structure under normal conditions where the function and appearance of the structure are concerned.
 
