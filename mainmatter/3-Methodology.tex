@@ -284,7 +284,7 @@ The second location, contains measurements at Puerto Ibicuy. There, some cross s
 \begin{itemize}
     \item 6 ADCP profiles. 2 profiles each for the most upstream and most downstream cross section, respectively. 1 profile for those in between. 
     \item 1 bed load sample near Puerto Ibicuy
-    \item 2 longitudinal profiles along the confluence of Talabera and Paraná Guazú, measured at the beginning and end of the day to study dune migration
+    \item 2 longitudinal profiles along the confluence of Talabera and Paraná Guazú (dredging location), measured at the beginning and end of the day to study dune migration. While navigating, GPS applications were used to make sure the paths were identical.
 \end{itemize}
 
 \begin{figure}[H]
@@ -293,6 +293,7 @@ The second location, contains measurements at Puerto Ibicuy. There, some cross s
     \caption{Measurement locations Day 2}
     \label{fig:measurements day2}
 \end{figure}
+
 
 In this paragraph, the methodology is explained as to how one has studied this matter, and how the data was found to get to conclusions.
 
@@ -340,44 +341,43 @@ This section explains the approach that was used to make the Delft 3D model and 
 
 Firstly, ..... .Using the flow velocity one can derive the concentration of the sediment in the study area. This can be done for several locations in order to get an idea of the quantities of sediment that come in through the Rio Ibicuy. Then the last critical point will help us determine the continuation of the concentration of the sediment in the Rio Parana so that any inconsistencies can be linked with the amount of extracted sand in the intersection of the Parana Guazu and Rio Talabera (in the middle of the three critical points on the right hand side of Figure 4.2).
 
-A mathematical expression/derivation will be explained.....
 
-Secondly, there is made a sheet pile model. For the design of the sheet pile model as a mitigation strategy for bank erosion, a flow chart is used as a methodology. The flow chart shown in Figure \ref{fig:flow_chart} is divided into three phases. In the first phase, data analysis, research will be performed to gain a better understanding of the critical locations and parameters necessary for the design. Apart from these, structural regulations, stated in the Eurocode, were specified. 
+Secondly, a sheet pile model is made. For the design of the sheet pile model as a mitigation strategy for bank erosion, a flow chart is used as a methodology. The flow chart shown in Figure \ref{fig:flow_chart} is divided into three phases. In the first phase, data analysis, research will be performed to gain a better understanding of the critical locations and parameters necessary for the design. Apart from these, structural regulations, stated in the Eurocode, were specified. 
 
 \textit{Data analysis}
 
 \begin{itemize}
     \item Aqua Monitor will be used to alert critical erosion points along the Paraná Guazú, while during the field trip, these critical points will be visited to better understand the situation.
-    \item Literature research were performed to assess critical parameters and data for the sheet pile model.
+    \item Literature research was performed to assess critical parameters and data for the sheet pile model.
     \begin{itemize}
         \item Soil conditions include borehole findings to assess the different layers and the accompanying soil parameters.
         \item Hydraulic parameters include bathymetry findings provided by INA to assess water level and river bed formation along the banks.
-        \item Structural standards and regulations, the Eurocode, is used to perform structural verifications regarding the ultimate and serviceability limit state.
+        \item Structural standards and regulations, the Eurocode, are used to perform structural verifications regarding the ultimate limit and the serviceability limit state.
     \end{itemize}
 \end{itemize}   
 
-In the second phase of the sheet pile model, a sheet pile type were chosen and the gathered data is used to analyse the earth and hydrostatic pressure. The method chosen is the simplified Padfield and Mair method, which provides a plan to design a sheet pile. Combining the method and analysis, the sheet pile model and its unknown design parameters, including structural verifications, can be drawn. 
+In the second phase of the sheet pile model, a sheet pile type was chosen and the gathered data is used to analyse the earth and hydrostatic pressure. The method chosen is the simplified Padfield and Mair method, which provides a plan to design a sheet pile. Combining the method and analysis, the sheet pile model and its unknown design parameters, including structural verifications, can be drawn. 
 
-\textit{Design analysis}
+\textit{Design}
 
 \begin{itemize}
-    \item Multiple design methods were reviewed and the simplified Padfield and Mair will be applied to perform the earth and hydraulic pressure analysis.
-    \item The procedure for calculating the embedding depth of the sheet pile is related to the method of the simplified Padfield and Mair, and the pressure diagrams for the earth and hydrostatic pressure is provided by Python Code.
-    \item The sheet pile design, made in Python Code, is a combination of both earth and hydrostatic pressure.
-    \item Structural verifications of shear force, bending moment, and deflection is compared with the resistance of the chosen sheet pile profile.
+    \item Multiple design methods were reviewed, and the simplified Padfield and Mair method is used to perform the earth and hydraulic pressure analysis.
+    \item The procedure for calculating the embedding depth of the sheet pile is related to the simplified Padfield and Mair method, and the pressure diagrams for the earth and hydrostatic pressure are analysed in Python.
+    \item The sheet pile design, made in Python, is a combination of both earth and hydrostatic pressure, which is used to compute the balance of moments and the final embedding depth.
+    \item The acting components such as shear, bending, and shear buckling are compared with the resistance of the chosen sheet pile profile to access the safety of the design.
 \end{itemize}
 
 The final phase will conduct the sustainability aspects for the sheet pile model. The final phase will be explained in more detail in the following.
 
-\textit{Sustainability analysis}
+\textit{Sustainability}
 
 \begin{itemize}
-    \item The sustainability of the sheet pile profile is assessed and a suitable profile is selected. 
+    \item The sustainability of the sheet pile profile is assessed and a suitable profile which is sustainable is used. 
 \end{itemize}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{figures/ch3/FlowChart Structural (2).png}
+    \includegraphics[width=\linewidth]{figures/ch3/FlowChart Structural (3).png}
     \caption{Flow chart sheet pile model}
     \label{fig:flow_chart}
 \end{figure}

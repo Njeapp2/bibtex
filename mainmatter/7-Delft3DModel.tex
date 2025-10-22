@@ -8,21 +8,32 @@
     \item Modelling scope (2D depth averaged + neglecting sediment transport + no morphological changes)
 \end{itemize}
 
+This chapter presents the results of the Delft3D model simulations. The model was developed to represent the hydrodynamic conditions within the study area, with particular attention to the flow behaviour near the confluence where dredging activities occur. In addition, the model results are used to identify flow velocity patterns that may indicate areas prone to erosion. The analysis is based on a two-dimensional, depth-averaged model in which sediment transport and morphological changes are not considered.
+
 
 
 \section{Model approach}
 In this section, the Delft3D model setup used to simulate the hydrodynamic response of the system is explained. The setup of the model involves defining the computational grid, processing the bathymetry, specifying boundary and initial conditions and finally selecting appropriate physical and numerical parameters.
 
-Since no existing grid was available for the area of interest, the grid was generated using the RGFGRID-tool in Delft3D. As a starting point, a land boundary file similar to the one shown in Figure \ref{fig:cross section domain} was used. By drawing splines with a decreasing spacing towards the confluence, the grid resolution was refined for the region of hydrodynamic interest. This approach ensures that the model captures the flow behaviour at the confluence with high accuracy while maintaining computational efficiency in less critical areas. After generating the grid, further refinements were made to ensure that the grid contains at least 20 cells in a cross section near the confluence and around 10 cells in a cross section far away from the confluence. The generated grid is shown in Figure \ref{fig: Grid Guazu Delft3D}
+Since no existing grid was available for the area of interest, the grid was generated using the RGFGRID tool in Delft3D. As a starting point, a land boundary file similar to the one shown in Figure \ref{fig:cross section domain} was used. By drawing splines with a decreasing spacing towards the confluence, the grid resolution was refined for the region of hydrodynamic interest. This approach ensures that the model captures the flow behaviour at the confluence with high accuracy while maintaining computational efficiency in less critical areas. After generating the grid, further refinements were made to ensure that the grid contains at least 20 cells in a cross section near the confluence and around 10 cells in a cross section far away from the confluence. When generating the grid, it was made sure to limit the aspect ratio to 2.0. The generated grid is shown in Figure \ref{fig: Grid Guazu Delft3D}. The generated computational grid has 1044 grid cells in M-direction, 1043 cells in N-direction, and 91706 grid elements. The grid size at the confluence is around 20x20 meters and the grid size at the upstream boundary near Ibicuy is 75x125 meters. 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{figures/ch7/Grid_Guazu.png}
+    \includegraphics[width=0.75\linewidth]{figures/ch7/Grid_Guazu.png}
     \caption{Generated grid for the Delft3D model.}
     \label{fig: Grid Guazu Delft3D}
 \end{figure}
 
-The generated computational grid has 
+The bathymetry was derived from a Digital Elevation Model (DEM) from 2019, which was provided by INA. This DEM was used to create samples containing geospatial coordinates and the corresponding depths. Using the QUICKIN tool in Delft3D, these samples were interpolated onto the computational grid. For this interpolation, Grid Cell Averaging was applied with the minimum number of averaging points set to one. Grid Cell Averaging was preferred over Triangular Interpolation as it is computationally less expensive, and more samples were available than grid points \autocite{deltaresQUICKINUserManual2025}. Lastly, Internal Diffusion was applied, with the number of internal diffusion steps set to 1000, to smooth sharp gradients and fill in missing values. The interpolated bathymetry is shown in Figure \ref{fig: Bathymetry Delft3D}. The maximum depth of 40.403 m occurs just downstream of the confluence. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/ch7/Bathymetry_Gueazu_Delft3D.png}
+    \caption{Bathymetry Delft3D model.}
+    \label{fig: Bathymetry Delft3D}
+\end{figure}
+
+
 
 \begin{itemize}
     \item Computational grid

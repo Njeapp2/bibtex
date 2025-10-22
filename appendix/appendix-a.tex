@@ -76,108 +76,108 @@ def apply_common_axes(ax):
     ax.set_ylim(COMMON_Y_MIN, COMMON_Y_MAX)
 \end{lstlisting}
 
-\section{Geometry of the profile}
+% \section{Geometry of the profile}
 
-\begin{lstlisting}[language=Python]
-def rot2d(points, angle_deg):
-    a = np.deg2rad(angle_deg)
-    R = np.array([[np.cos(a), -np.sin(a)], [np.sin(a),  np.cos(a)]])
-    return (R @ points.T).T
+% \begin{lstlisting}[language=Python]
+% def rot2d(points, angle_deg):
+%     a = np.deg2rad(angle_deg)
+%     R = np.array([[np.cos(a), -np.sin(a)], [np.sin(a),  np.cos(a)]])
+%     return (R @ points.T).T
 
-def draw_arrow(ax, start, vec, head_width=0.25, head_length=0.4, lw=2):
-    ax.arrow(start[0], start[1], vec[0], vec[1],
-             length_includes_head=True, head_width=head_width,
-             head_length=head_length, color="red", linewidth=lw)
+% def draw_arrow(ax, start, vec, head_width=0.25, head_length=0.4, lw=2):
+%     ax.arrow(start[0], start[1], vec[0], vec[1],
+%              length_includes_head=True, head_width=head_width,
+%              head_length=head_length, color="red", linewidth=lw)
 
-def draw_dimension(ax, x, y0, y1, text, fs):
-    """Vertical double-headed dimension with text placed to the right."""
-    # Double-headed arrow
-    ax.annotate('', xy=(x, y1), xytext=(x, y0),
-                arrowprops=dict(arrowstyle='<->', color='black', linewidth=1.8))
-    ymid = 0.5*(y0 + y1)
-    ax.text(x + 0.35, ymid, text, rotation=90, va='center', fontsize=fs, color='black')
+% def draw_dimension(ax, x, y0, y1, text, fs):
+%     """Vertical double-headed dimension with text placed to the right."""
+%     # Double-headed arrow
+%     ax.annotate('', xy=(x, y1), xytext=(x, y0),
+%                 arrowprops=dict(arrowstyle='<->', color='black', linewidth=1.8))
+%     ymid = 0.5*(y0 + y1)
+%     ax.text(x + 0.35, ymid, text, rotation=90, va='center', fontsize=fs, color='black')
 
-def label_horizontal_line(ax, y, text, x=-11.5, fs=fs, offset_pts=6):
-    """Label a horizontal line at y with a small upward screen-space offset."""
-    ax.annotate(text, xy=(x, y), xytext=(0, offset_pts),
-                textcoords='offset points', ha='left', va='bottom', fontsize=fs, color='black')
+% def label_horizontal_line(ax, y, text, x=-11.5, fs=fs, offset_pts=6):
+%     """Label a horizontal line at y with a small upward screen-space offset."""
+%     ax.annotate(text, xy=(x, y), xytext=(0, offset_pts),
+%                 textcoords='offset points', ha='left', va='bottom', fontsize=fs, color='black')
 
-Z       = params["Z"]
-t       = params["t"]
-alpha   = params["alpha_deg"]
-betaL   = params["beta_left_deg"]
-betaR   = params["beta_right_deg"]
-delta   = params["delta_deg"]
-wall_th = params["wall_thickness"]
-fs      = params["font_size"]
+% Z       = params["Z"]
+% t       = params["t"]
+% alpha   = params["alpha_deg"]
+% betaL   = params["beta_left_deg"]
+% betaR   = params["beta_right_deg"]
+% delta   = params["delta_deg"]
+% wall_th = params["wall_thickness"]
+% fs      = params["font_size"]
 
-fig, ax = plt.subplots(figsize=params["figsize"])
+% fig, ax = plt.subplots(figsize=params["figsize"])
 
-# Reference horizontal (dashed) through toe at y=0
-# ax.plot([-5, 0], [0, 0], linestyle="--", linewidth=1.5, color="black")
-# ax.plot([0, 5], [Z, Z], linestyle="--", linewidth=1.5, color="black")
-label_horizontal_line(ax, Z, "Ground Surface [+2.5]", x=0.25, fs=8, offset_pts=6)
-label_horizontal_line(ax, 0.0, "Dredge Level [-1.5]",  x=-4, fs=8, offset_pts=6)
+% # Reference horizontal (dashed) through toe at y=0
+% # ax.plot([-5, 0], [0, 0], linestyle="--", linewidth=1.5, color="black")
+% # ax.plot([0, 5], [Z, Z], linestyle="--", linewidth=1.5, color="black")
+% label_horizontal_line(ax, Z, "Ground Surface [+2.5]", x=0.25, fs=8, offset_pts=6)
+% label_horizontal_line(ax, 0.0, "Dredge Level [-1.5]",  x=-4, fs=8, offset_pts=6)
 
-# Water table depth
-ax.plot([0, 4], [Z - params["water_table_depth"], Z - params["water_table_depth"]], linestyle="--", linewidth=1.5, color="black")
-label_horizontal_line(ax, Z - params["water_table_depth"], "GWT [+1.03]", x=0.25, fs=8, offset_pts=6)
+% # Water table depth
+% ax.plot([0, 4], [Z - params["water_table_depth"], Z - params["water_table_depth"]], linestyle="--", linewidth=1.5, color="black")
+% label_horizontal_line(ax, Z - params["water_table_depth"], "GWT [+1.03]", x=0.25, fs=8, offset_pts=6)
 
-# Water level
-ax.plot([-4, 0], [Z - params["water_level"], Z - params["water_level"]], linestyle="--", linewidth=1.5, color="black")
-label_horizontal_line(ax, Z - params["water_level"], "WL [+0.14]", x=-4, fs=8, offset_pts=6)
+% # Water level
+% ax.plot([-4, 0], [Z - params["water_level"], Z - params["water_level"]], linestyle="--", linewidth=1.5, color="black")
+% label_horizontal_line(ax, Z - params["water_level"], "WL [+0.14]", x=-4, fs=8, offset_pts=6)
 
-# Wall direction
-theta_wall = 90.0 - alpha
-u = np.array([np.cos(np.deg2rad(theta_wall)), np.sin(np.deg2rad(theta_wall))])
-toe  = np.array([0.0, 0.0])
-top  = toe + u * Z
-base = toe - u * t
-n = np.array([-u[1], u[0]])
+% # Wall direction
+% theta_wall = 90.0 - alpha
+% u = np.array([np.cos(np.deg2rad(theta_wall)), np.sin(np.deg2rad(theta_wall))])
+% toe  = np.array([0.0, 0.0])
+% top  = toe + u * Z
+% base = toe - u * t
+% n = np.array([-u[1], u[0]])
 
-# Wall polygon (thick)
-p1 = top  + n * (wall_th/2)
-p2 = base + n * (wall_th/2)
-p3 = base - n * (wall_th/2)
-p4 = top  - n * (wall_th/2)
-ax.plot([p1[0], p2[0], p3[0], p4[0], p1[0]],
-        [p1[1], p2[1], p3[1], p4[1], p1[1]], color="black", linewidth=3)
-# ax.fill_betweenx([COMMON_Y_MIN, COMMON_Y_MAX], p2[0], p3[0], color="black", zorder=0)
+% # Wall polygon (thick)
+% p1 = top  + n * (wall_th/2)
+% p2 = base + n * (wall_th/2)
+% p3 = base - n * (wall_th/2)
+% p4 = top  - n * (wall_th/2)
+% ax.plot([p1[0], p2[0], p3[0], p4[0], p1[0]],
+%         [p1[1], p2[1], p3[1], p4[1], p1[1]], color="black", linewidth=3)
+% # ax.fill_betweenx([COMMON_Y_MIN, COMMON_Y_MAX], p2[0], p3[0], color="black", zorder=0)
 
-# Left ground (through toe) and right ground (through top)
-len_ground = params['dim_offset']
-left_end = np.array([-len_ground, -np.tan(np.deg2rad(betaL)) * len_ground])
-right_end = top + np.array([len_ground, np.tan(np.deg2rad(betaR)) * len_ground])
-# attach left ground to the left face of the wall (at toe level)
-left_attach = toe + n * (wall_th/2)
-ax.plot([left_attach[0], left_end[0]], [left_attach[1], left_end[1]], linewidth=3, color="black")
-ax.plot([top[0], right_end[0]], [top[1], right_end[1]], linewidth=3, color="black")
+% # Left ground (through toe) and right ground (through top)
+% len_ground = params['dim_offset']
+% left_end = np.array([-len_ground, -np.tan(np.deg2rad(betaL)) * len_ground])
+% right_end = top + np.array([len_ground, np.tan(np.deg2rad(betaR)) * len_ground])
+% # attach left ground to the left face of the wall (at toe level)
+% left_attach = toe + n * (wall_th/2)
+% ax.plot([left_attach[0], left_end[0]], [left_attach[1], left_end[1]], linewidth=3, color="black")
+% ax.plot([top[0], right_end[0]], [top[1], right_end[1]], linewidth=3, color="black")
 
-dim_x = max(top[0], p1[0], p4[0]) + params["dim_offset"]
-draw_dimension(ax, 2.5, 0.0, top[1], f"Z = {Z:g} m", 8)
-draw_dimension(ax, 2.5, -t, 0.0, f"t = {t:g} m", 8)
-draw_dimension(ax, 4, Z - params["water_table_depth"], Z, f"$Z_{{2}} = {params['water_table_depth']:g}$ m", 8)
-draw_dimension(ax, 4, 0.0, Z - params["water_table_depth"], f"$Z_{{1}} = {Z - params['water_table_depth']:g}$ m", 8)
+% dim_x = max(top[0], p1[0], p4[0]) + params["dim_offset"]
+% draw_dimension(ax, 2.5, 0.0, top[1], f"Z = {Z:g} m", 8)
+% draw_dimension(ax, 2.5, -t, 0.0, f"t = {t:g} m", 8)
+% draw_dimension(ax, 4, Z - params["water_table_depth"], Z, f"$Z_{{2}} = {params['water_table_depth']:g}$ m", 8)
+% draw_dimension(ax, 4, 0.0, Z - params["water_table_depth"], f"$Z_{{1}} = {Z - params['water_table_depth']:g}$ m", 8)
 
-# Wall face & scaling
-x_wall = top[0] + 0.3
-block_w = params["dim_offset"]
-target  = 0.40 * block_w
+% # Wall face & scaling
+% x_wall = top[0] + 0.3
+% block_w = params["dim_offset"]
+% target  = 0.40 * block_w
 
-half_span = max(abs(COMMON_X_MIN - x_wall), abs(COMMON_X_MAX - x_wall))
-ax.set_xlim(x_wall - half_span, x_wall + half_span)
-ax.set_ylim(COMMON_Y_MIN, COMMON_Y_MAX + 1)
+% half_span = max(abs(COMMON_X_MIN - x_wall), abs(COMMON_X_MAX - x_wall))
+% ax.set_xlim(x_wall - half_span, x_wall + half_span)
+% ax.set_ylim(COMMON_Y_MIN, COMMON_Y_MAX + 1)
 
-# position the axes in the middle of the figure canvas
-dw = desired_width if 'desired_width' in globals() else 0.6
-dh = desired_height if 'desired_height' in globals() else 0.8
-left = (1.0 - dw) / 2.0
-bottom = (1.0 - dh) / 2.0
-ax.set_position([left, bottom, dw, dh])
+% # position the axes in the middle of the figure canvas
+% dw = desired_width if 'desired_width' in globals() else 0.6
+% dh = desired_height if 'desired_height' in globals() else 0.8
+% left = (1.0 - dw) / 2.0
+% bottom = (1.0 - dh) / 2.0
+% ax.set_position([left, bottom, dw, dh])
 
-ax.axis("off")
-plt.show()
-\end{lstlisting}
+% ax.axis("off")
+% plt.show()
+% \end{lstlisting}
 
 % \section{Soil profile}
 
