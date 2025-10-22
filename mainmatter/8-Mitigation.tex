@@ -118,13 +118,9 @@ The stress-strain behaviour of steel can be seen in Figure \ref{fig:stress_strai
   \end{tabularx}
 \end{table}
 
-\textit{Hot-rolled steel}
-
 Steel sheet piles are made of hot-rolled sections, which are made in the process of heating steel to temperatures of $900$ $^{\circ}$C  above the recrystallization temperature before rolling. This allows for the various shapes and larger sizes that are of importance with sheet piles (Chesterfield). Compared with cold-rolled sections, hot-rolled sections have a slightly rougher surface and are cheaper because reheating is not required (Chesterfield). 
 
-% EVEN HOT ROLLED BESPREKEN. WAT, WAAROM, HOEZO?
-
-\textit{Sustainability}
+\subsub{Sustainability}
 
 In Table \ref{tab:env_impacts}, an overview of the materials, concrete, steel and timber is provided in relation to the emissions $CO_{2}$ and the energy consumption. As can be seen from the table, the production and use of steel is the least sustainable. However, the choice of steel is made based on the advantages of the profile and its fast installation. In this paragraph, research is conducted to assess which profile is most sustainable for the design of the steel sheet piles.
 
@@ -148,7 +144,7 @@ In Table \ref{tab:env_impacts}, an overview of the materials, concrete, steel an
   \end{tabularx}
 \end{table}
 
-A sustainable solution for sheet piles is found in the EPD ‘EcoSheetPiles™ Plus’ from ArcelorMittal. This steel sheet pile is produced by an electric arc furnace. In this process, $100\%$ renewable electricity and $100\%$ scrap steel are used for production (ArcelorMittal). Compared to the blast furnace, the production of $CO_{2}$ gasses is significantly reduced, as can be seen in Figure \ref{fig:eaf_bof}.
+A sustainable solution for sheet piles is found in the EPD ‘EcoSheetPiles™ Plus’ from ArcelorMittal. This steel sheet pile is produced by an electric arc furnace. In this process, $100\%$ renewable electricity and $100\%$ scrap steel are used for production (ArcelorMittal). Compared to the blast furnace, the production of $CO_{2}$ is significantly reduced, as can be seen in Figure \ref{fig:eaf_bof}.
 
 \begin{figure}[H]
     \centering
@@ -161,9 +157,13 @@ A sustainable solution for sheet piles is found in the EPD ‘EcoSheetPiles™ P
 
 \subsubsection{Failure mechanisms}
 
+Sheet piles have failure mechanisms related to flexural, rotational, and deep seated failure. These failure mechanisms for cantilever sheet piles are shown in Figure \ref{fig:failure_mechanisms_sheetpiles} as told from left to right. Within the design of a sheet pile, these failure mechanisms have to be taken into account and verifications should be performed to check whether the failure mechanisms are arising.
+
+The flexural failure mechanism shown on the left of Figure XX shows 
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.70\linewidth]{figures/ch8/failure_mechanisms.png}
+    \includegraphics[width=0.80\linewidth]{figures/ch8/failure_mechanisms.png}
     \caption{Failure mechanisms cantilever sheet pile wall}
     \label{fig:failure_mechanisms_sheetpiles}
 \end{figure}
@@ -265,15 +265,9 @@ To set up the balance of moments for defining the embedding depth, the loads act
 
 With the problem description defined, a plan to calculate the embedding depth of the sheet pile is set up by using Python code. The plan begins by defining the soil and water parameters, which will be transformed to effective stresses, active and passive earth, and hydrostatic water pressures. From the stresses, the resulting forces acting on the sheet pile wall are defined, and a balance of moments is obtained. Setting the moment to zero at the bottom of the sheet pile wall, the embedding depth is iteratively calculated. The steps for calculating the embedding depth and the structural verification of the sheet pile design are provided in Appendix XX.
 
-% HIER EEN MOOI VERHAAL OVER HOE EEN SHEET PILE WALL DESIGN TOT STAND KOMT. ALGEMEEN VERHAAL VAN HET DESIGN
-
-% BESPREKEN WAT HET PLAN IS OM EEN DESIGN TE MAKEN EN TE BEREKENEN. CUR GEBRUIKEN.
-
 \subsubsection{Location}
 
 The determination of the critical erosion points along the river has been done in Section \ref{section:cirtical_location}. The location analyzed here will be the location for which the design of the steel sheet pile will be based. In Figure \ref{fig:critical_location_google}, the critical point is shown in Aqua Monitor, and during the field trip, images were taken to verify if erosion was visible. The total length is $215$ meters, which is drawn and shown in Table \ref{tab:Surface Lost Camping La Blanqueada in 2022}.
-
-% DEZE TEKST NOG VERBETEREN
 
 \begin{figure}[H]
     \centering
@@ -296,8 +290,6 @@ The determination of the critical erosion points along the river has been done i
 
 The design of the sheet pile wall is based on the cantilever sheet pile wall. As briefly touched on in Section \ref{section:sheet_pile_wall}, the cantilever sheet pile is used to maintain heights up to $5$ meters and is supported by the soil and hydrostatic pressure. In Figure \ref{fig:problem_description_sheetpiles}, a sketch of the situation is provided, which is written in Python. The height that must be retained, $4.0$ meters, is indicated by $Z$. The embedding depth of the cantilever sheet pile, which will need to be determined iteratively, is noted as $t$. In  Section \ref{section:hydraulic_parameters}, the levels of the groundwater table, the water level and the dredge level are derived. The water level of the river is indicated as $WL$, which in this situation is $+0.14$ meters. The dredge level is $-1.5$ meters. The groundwater table is $+1.03$ meters, indicated as $GWT$. The ground surface is derived from comparing the water elevation on 25 September 14:00:00 from the time series, with Figure \ref{fig:critical_location_fieldtrip}. The ground surface level is assumed to be $1.5$ meters higher than the time series value of $1.0$ meters, resulting in $+2.5$ meters IGN
 
-% MAKKELIJKER UITLEGGEN HOE HET WERKT. WAT ZIJN DE VERSCHILLENDE NIVEAUS? WELKE HOOGTE MOETEN WE BEPALEN. WELKE ZIJN AL BEPAALD. HOE KOMEN WE AAN DE WATERHOOGTE? HOE KOMEN WE AAN DE GROND WATER STAND?
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.90\linewidth]{figures/ch8/cross_section.png}
@@ -306,51 +298,50 @@ The design of the sheet pile wall is based on the cantilever sheet pile wall. As
 \end{figure}
 
 \begin{itemize}
-    \item WL is water level;
-    \item GWT is ground water table;
-    \item Z is retained height;
-    \item t is embedding depth;
-    \item $Z_{1}$ is unsaturated soil height;
-    \item $Z_{2}$ is saturated soil height.
+    \item WL is the water level;
+    \item GWT is the ground water table;
+    \item Z is the retained height;
+    \item t is the embedding depth;
+    \item $Z_{1}$ is the unsaturated soil height;
+    \item $Z_{2}$ is the saturated soil height.
 \end{itemize}
 
 \subsection{Method}
 
-A design for a cantilever sheet pile can be performed by multiple methods and models. The most common methods that are applicable for sheet pile walls are listed below (Opmaak1):
+The design of a cantilever sheet pile can be performed using multiple classical design methods or numerical analysis. Common classical methods and numerical analysis that are applicable for sheet pile walls are listed below:
 
 \begin{itemize}
-  \item Bishop;
-  \item Pressure bar (push up);
-  \item PLAXIS (F.E.M);
-  \item Blum-sheet pile wall;
-  \item Spring-supported beam;
-  \item Terzaghi;
-  \item Homberg;
-  \item Horizontal balance;
-  \item Bakker (PLAXIS);
-  \item Piping en heaving.
+  \item Method Bishop;
+  \item Method Homberg;
+  \item Method Padfield and Mair;
+  \item Method Bowles;
+  \itme Method Day;
+  \item Method Das;
+  \item Free earth method;
+  \item PLAXIS FEM;
+  \item Spring-supported beam method;
 \end{itemize}
 
-Reviewing Eurocode 7, the calculation for the design of a sheet pile should be based on the spring-supported beam method. However, due to complexity, the sheet pile wall will be calculated using the simplified graphical method of Blum. This method is a simplified representation of the situation, however, after calculating the embedding depth, the verifications will be according to the ultimate limit and serviceability limit defined in Eurocode 3 and Eurocode 7.
+Reviewing Eurocode 7, the calculation for the design of a sheet pile should be based on the spring-supported beam method. However, due to complexity, the sheet pile wall will be calculated using the simplified Padfield and Mair method. This method is a simplified representation of the situation, however, after calculating the embedding depth, the verifications will be according to the ultimate limit and serviceability limit defined in Eurocode 3 and Eurocode 7.
 
-\subsubsection{Blum}
+\subsubsection{Simplified Padfield and Mair}
 
-The Blum method used for the sheet pile wall is a simplified graphical method, shown in Figure \ref{fig:blum}. The right side of the sheet pile is the "ACTIVE" side, and on the left side, under the dredge level, the "PASSIVE" side. The simplification step in the figure shows an additional resultant force, R, which is acting on the lowest point of the sheet pile. This is done because below this point, the “ACTIVE” and “PASSIVE” sides switch, creating a complex situation. Within the method, a plastic development of the soil and water table level is assumed to be infinitely stiff. To calculate the embedding depth, the sum of moments around the lowest point of the sheet pile wall will be set to zero. The unknown embedding depth can be calculated in multiple ways. In this section, an initial embedding depth will be defined, and iteratively, the moment will be set to zero while increasing or decreasing the embedding depth. However, in this method, no safety factors are taken into account. Therefore, the found embedding depth will have to be increased by $20\%$ (Opmaak1).
+The simplified Padfield and Mair method (Padfield and Mair, 1984) used for the cantilever sheet pile is a simplified graphical method, shown in Figure \ref{fig:blum}. The right side of the sheet pile is the "ACTIVE" side, and on the left side, under the dredge level, is the "PASSIVE" side. The simplification step in the figure shows an additional resultant force, R, which acts on the lowest point of the sheet pile. This is done because below this point the “ACTIVE” and “PASSIVE” sides switch, creating a complex situation. Within the method, plastic development of the soil and water table level is assumed to be infinitely stiff. All the support is obtained by the fixity of the soil. To calculate the embedding depth, the sum of moments around the lowest fixed point "O" of the sheet pile wall will be set to zero. The unknown embedding depth can be calculated in multiple ways. In this section, an initial embedding depth will be defined, and iteratively, the moment will be set to zero while increasing or decreasing the embedding depth. However, in this method, no safety factors are taken into account. Therefore, the embedding depth found will have to be increased by $20\%$.
 
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\linewidth, height=5cm]{figures/ch8/blum_1.png}
-        \caption{Conventional design}
+        \caption{Full method}
         \label{fig:conventional_design}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\linewidth, height=5cm]{figures/ch8/blum_2.png}
-        \caption{Blum simplification}
+        \caption{Simplified method}
         \label{fig:blum_simplification}
     \end{subfigure}
-    \caption{Blum simplification method}
+    \caption{Simplified method Padfield and Mair}
     \label{fig:blum}
 \end{figure}
 
@@ -387,29 +378,6 @@ The horizontal pressure of the soil can be calculated based on the effective str
     \caption{Effective stress "ACTIVE" and "PASSIVE" side}
     \label{fig:effective_stress}
 \end{figure}
-
-% \begin{table}[ht]
-%   \centering
-%   \caption{Vertical effective stress on left and right sides}
-%   \label{tab:effective_stress}
-%   \small
-%   \setlength{\tabcolsep}{8pt}
-%   \renewcommand{\arraystretch}{1.15}
-%   \begin{tabular}{@{}r r r@{}}
-%     \toprule
-%     $z$ [m] &
-%     $\sigma'_{z,l}$ [kN/m$^2$] &
-%     $\sigma'_{z,r}$ [kN/m$^2$] \\
-%     \midrule
-%      0.00 &  0.00 &  0.00 \\
-%      1.00 &  0.00 & 12.00 \\
-%      2.00 &  0.00 & 14.19 \\
-%      4.00 &  0.00 & 32.57 \\
-%      7.00 & 27.57 & 60.14 \\
-%     10.00 & 40.14 & 72.71 \\
-%     \bottomrule
-%   \end{tabular}
-% \end{table}
 
 \subsubsection{Earth pressure and force}
 
@@ -515,58 +483,6 @@ For the force magnitude, triangles and rectangles were computed by Python, and t
     \label{fig:earth_pressure}
 \end{figure}
 
-
-% \begin{table}[ht]
-%   \centering
-%   \caption{Active and passive pressures}
-%   \label{tab:earth_pressure_values}
-%   \small
-%   \setlength{\tabcolsep}{6pt}
-%   \renewcommand{\arraystretch}{1.15}
-%   \begin{tabular}{@{}r r r r r@{}}
-%     \toprule
-%     $z$ [m] &
-%     $p_{above, passive}$ [kN/m$^2$] &
-%     $p_{below, passive}$ [kN/m$^2$] &
-%     $p_{above, active}$ [kN/m$^2$] &
-%     $p_{below, active}$ [kN/m$^2$] \\
-%     \midrule
-%      0.00 & \textemdash & \textemdash &  0.00 &  0.00 \\
-%      1.00 & \textemdash & \textemdash &  7.07 &  7.07 \\
-%      2.00 & \textemdash & \textemdash &  8.35 &  4.73 \\
-%      4.00 &  0.00 &  0.00 & \textemdash & \textemdash \\
-%      7.00 & 82.71 & 51.28 & 20.05 & 32.33 \\
-%     10.0 & 74.66 & 74.66 & 39.09 & 29.51 \\
-%     \bottomrule
-%   \end{tabular}
-% \end{table}
-
-% \begin{table}[H]
-%   \centering
-%   \caption{Resultant forces and centroids by segment.}
-%   \label{tab:forces_centroids}
-%   \small
-%   \setlength{\tabcolsep}{8pt}
-%   \renewcommand{\arraystretch}{1.15}
-%   \begin{tabular}{@{}l r l r r@{}}
-%     \toprule
-%     Side & Segment & Shape &
-%     F [kN/m] & $z_c$ [m] \\
-%     \midrule
-%     Active & 1 & Triangle  &  3.53 & 0.67 \\
-%     Active & 2 & Rectangle &  7.07 & 1.50 \\
-%     Active & 2 & Triangle  &  0.64 & 1.67 \\
-%     Active & 3 & Rectangle & 23.65 & 4.50 \\
-%     Active & 3 & Triangle  & 38.29 & 5.33 \\
-%     Active & 4 & Rectangle & 97.00 & 8.50 \\
-%     Active & 4 & Triangle  & 10.14 & 9.00 \\
-%     Passive & 1 & Triangle  & 124.06 & 6.00 \\
-%     Passive & 2 & Rectangle & 153.84 & 8.50 \\
-%     Passive & 2 & Triangle  &  35.07 & 9.00 \\
-%     \bottomrule
-%   \end{tabular}
-% \end{table}
-
 \newpage
 
 \subsubsection{Hydrostatic pressure and force}
@@ -601,7 +517,7 @@ The balance of moments around the lowest part of the sheet pile should be zero, 
     \label{eq:moment}
 \end{equation}
 
- After an iteration process, in Python, the embedding depth is set to $7.574$ meters. In Figure \ref{fig:appendix_moments_balance_6000}, the forces related to this depth are shown. In Table \ref{tab:forces_arms_moments_9713}, the values of the forces and moments are shown, and the resulting moment around the point "O" is close to zero, $0.0512 \ kNm/m$. Regarding the safety factor, the Blum method says that the depth of embedding found should be increased by $20\%$, giving the following depth:
+ After an iteration process, in Python, the embedding depth is set to $7.574$ meters. In Figure \ref{fig:appendix_moments_balance_6000}, the forces related to this depth are shown. In Table \ref{tab:forces_arms_moments_9713}, the values of the forces and moments are shown, and the resulting moment around the point "O" is close to zero, $0.0512 \ kNm/m$. Regarding the safety factor, the simplified Padfield and Mair method says that the depth of embedding found should be increased by $20\%$, giving the following depth:
 
 \begin{equation}
     t_{blum} = 1.20 \cdot 7.574 = 9.09 \ m
@@ -649,19 +565,13 @@ The balance of moments around the lowest part of the sheet pile should be zero, 
   \end{tabular}
 \end{table}
 
-% HIER EEN PLOT MET DE SOM VAN DE MOMENTEN OM HET LAAGSTE PUNT BIJ EEN GEKOZEN DIEPTE. HIERNA EEN TABEL MET DE WAARDES EN DAT DE MOMENTSOM NIET GELIJK IS AAN NUL.
-
-% HIER EEN PLOT MET HET ITERATIEF BEPALEN VAN DIEPTE WANNEER DE MOMENTENSOM GELIJK IS AAN NUL. VERWIJZEN NAAR DE TABEL IN DE BIJLAGE EN ALLEEN HET RESULTAAT LATEN ZIEN. OOK WELLICHT DE PLOT VAN HANDBOOK OVERNEMEN.
-
 \subsubsection{Ultimate Limit and Serviceability Limit State}
 
 A cantilever sheet pile wall should be designed according to two conditions. These conditions are the Ultimate Limit State (ULS) and the Serviceability Limit State (SLS). In the ULS, the worst possible forces that can occur during the span of the sheet pile should be analyzed with respect to the safety of people and the structure. In the SLS checking the structure under normal conditions where the function and appearance of the structure are concerned.
 
-For the design, this means that safety factors for the ULS and SLS should be included, regarding Eurocode 7, which is not included with the Blum method. For the analysis, multiple combinations should be verified, and the most unfavourable is used for the design. Two combinations, within design approach 1, stated in Eurocode 7, are evaluated in Appendix \ref{appendix:uls_combinations}. However, for the calculation in this section, the most unfavourable combination is taken and elaborated.
+For the design, this means that safety factors for the ULS and SLS should be included, regarding Eurocode 7, which is not included in the simplified Padfield and Mair method. For the analysis, multiple combinations should be verified, and the most unfavourable is used for the design. Two combinations, within design approach 1, stated in Eurocode 7, are evaluated in Appendix \ref{appendix:uls_combinations}. However, for the calculation in this section, the most unfavourable combination is taken and elaborated.
 
 The most unfavourable combination within design approach 1 is combination 2 (DA1-2). The safety factors are shown in Table \ref{tab:partial_factors}, and the partial factors on loads, materials, and actions to protect the sheet pile in ULS are shown. In this calculation, the hydrostatic loads and the earth pressures are permanent. For SLS, all safety factors are set at $1.0$. The combination and safety factors result in the final embedding depth of $t = 10.172$ meters,  shown in Figure \ref{fig:appendix_uls_moments_balance_forces}. However, the acting shear forces and bending moments are greater. From Table \ref{tab:appendix_forces_arms_moments_new}, it can be seen that the balance of moments at this depth is close to zero ($-0.0632 \ kNm/m$).
-
-% WATER PERMANENT VERANDEREN IN BEREKENING.
 
 \begin{equation}
     t_{uls} = 10.172 \ m
@@ -808,7 +718,7 @@ The classification of the steel profile tells whether the profile is behaving el
   \end{tabular}
 \end{table}
 
-For the cross-section verification, the profile AZ 24-700 with the cross-section properties from Table \ref{tab:pu32} in grade S355 GP is classified as Class 3, regarding Equation \ref{eq:class}.
+For cross-section verification, the profile AZ 24-700 with the cross-section properties of Table \ref{tab:pu32} in grade S355 GP is classified as Class 3, with respect to Equation \ref{eq:class}. Therefore, no additional rotation check should be performed.
 
 \begin{equation}
     \frac{b}{t_{f}} = \frac{361}{9.7} = 37.2 \leq 66 \epsilon 
@@ -845,18 +755,9 @@ Following the equation above, the bending moment resistance of the cross-section
     \frac{M_{Ed}}{M_{Rd}} = \frac{404.4}{862.7} = 0.47
 \end{equation}
 
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.90\linewidth]{figures/ch8/bending_moment.png}
-%     \caption{Bending moment distribution $t = 10.196$ m}
-%     \label{fig:uls_moments_line}
-% \end{figure}
-
-% FIGUUR NAAR BIJLAGE
-
 \subsubsection{Shear}
 
-For the verification of shear, it is important that the design shear force, $V_{Ed}$ is smaller than the plastic shear resistance, $V_{pl,Rd}$, of the profile. The maximum shear force, $V_{Ed}$, is $266.6 \ kN/m$, shown in Figure XX. Equation \ref{eq:shear_verification} is used to calculate the shear force resistance.
+For shear verification, it is important that the design shear force, $V_{Ed}$ is smaller than the plastic shear resistance, $V_{pl,Rd}$, of the profile. The maximum shear force, $V_{Ed}$, is $266.6 \ kN/m$, shown in Figure \ref{fig:appendix_shear_forces_DA1_2}. Equation \ref{eq:shear_verification} is used to calculate the shear force resistance.
 
 \begin{equation}
     V_{Ed} \leq V_{pl,Rd}
@@ -892,15 +793,6 @@ Following the equation above, the shear force resistance of the cross-section is
 \begin{equation}
     \frac{V_{Ed}}{V_{pl,Rd}} = \frac{266.6}{1272} = 0.21 
 \end{equation}
-
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.90\linewidth]{figures/ch8/shear_force.png}
-%     \caption{Shear force distribution $t = 10.196$ m}
-%     \label{fig:uls_moments_balance}
-% \end{figure}
-
-% FIGUUR NAAR BIJLAGE
 
 \subsubsection{Combined bending and shear}
 
@@ -947,7 +839,7 @@ The shear buckling resistance of the cross-section must be verified if Equation 
 
 \subsubsection{Local effects of water pressure}
 
-As in the geometry of the cross-section, there is a difference in water levels on both sides of the sheet pile, the bending moments should be reduced by transverse local plate bending. Therefore, the cross-sectional yield strength should be reduced with Equation \ref{eq:reduction_factor}. However, when the difference in the water levels across the wall, for Z sections, is less than $5.0$ meters. From Equation \ref{eq:water_level_difference} it can be seen that the difference in water levels is less than $5.0$ meters, showing that the local effects of water pressure on overall bending may be neglected. 
+As in the geometry of the cross-section, there is a difference in water levels on both sides of the sheet pile, the bending moments should be reduced by transverse local plate bending. Therefore, the cross-sectional yield strength should be reduced with Equation \ref{eq:reduction_factor}. However, when the difference in the water levels across the wall, for Z sections, is less than $5.0$ meters. From Equation \ref{eq:water_level_difference} it can be seen that the difference in water levels is less than $5.0$ meters, showing that the local effects of water pressure on overall flexural bending may be neglected. 
 
 \begin{equation}
     f_{y;red} = \rho_{p} \cdot f_{y}
@@ -1140,3 +1032,45 @@ this part needs to be studied a bit more.
 The final goal of this section is to integrate these solutions into the landscape. This could help establish a clearer picture of what can be achieved with these solutions.
 
 Create a map of the region, incorporating the different options with colours and a legend.
+
+
+\begin{table}[H]
+  \centering
+  \caption{Grading by the seven NBS goals}
+  \label{tab:gradingmatrix}
+  \small
+  \renewcommand{\arraystretch}{1.15}
+  \setlength{\tabcolsep}{3pt}
+
+  \resizebox{\textwidth}{!}{% zodat hij altijd past
+  \begin{tabular}{l
+      >{\centering\arraybackslash}p{2.6cm}
+      >{\centering\arraybackslash}p{2.4cm}
+      >{\centering\arraybackslash}p{2.4cm}
+      >{\centering\arraybackslash}p{2.0cm}
+      >{\centering\arraybackslash}p{2.0cm}
+      >{\centering\arraybackslash}p{2.0cm}
+      >{\centering\arraybackslash}p{2.0cm}
+      >{\centering\arraybackslash}p{2.0cm}@{}}
+    \toprule
+    & Climate change mitigation and adaptation
+    & Disaster risk reduction
+    & Economic and social development
+    & Human health
+    & Food security
+    & Water security
+    & Ecosystem degradation and biodiversity loss 
+    & Overall grading\\
+    \midrule
+    Floodplains            & 4.0 & 7.58  & 11.6 & 280.5 & 220.6 & 7 & 8 & 1\\
+    Metal-tolerant plants  & 4.0 & 10.17 & 14.2 & 404.4 & 266.6 & 7 & 8 & 1\\
+    Vegetated buffer zones & 4.0 & 10.17 & 14.2 & 404.4 & 266.6 & 7 & 8 & 1\\
+    Natural leaky dams     & 4.0 & 10.17 & 14.2 & 404.4 & 266.6 & 7 & 8 & 1\\
+    Mangrove               & 4.0 & 10.17 & 14.2 & 404.4 & 266.6 & 7 & 8 & 1\\
+    \bottomrule
+  \end{tabular}
+  } % einde resizebox
+\end{table}
+
+
+
