@@ -419,7 +419,7 @@ The tidal variance fraction at Brazo Largo is $5.71$. This means that only $5.71
     \label{fig: Tide 1 month Brazo Largo}
 \end{figure}
 
-Although tidal forcing plays a subordinate role in the hydrodynamics in of the Río Paraná Guazú, the shape of the tidal signal still provides insight into the potendial sediment import/export. The computed velocity skewness ($0.48$) and the rising period being shorter than the fall period, suggest a weak flood-dominant asymmetry. This is consistent with the positive $M_4/M_2$ amplitude ratio ($0.11$) and the phase difference of $259^\circ$ between $M_4$ and $M_2$, both indicative of flood dominance \autocite{bosboomCoastalDynamics2023}. Therefore, small net landward sediment transport may occur as a result of tidal asymmetry, although its overall effect is expected to be minor compared to the fluvial and meteorological forcing.
+Although tidal forcing plays a subordinate role in the hydrodynamics of the Río Paraná Guazú, the shape of the tidal signal still provides insight into the potendial sediment import/export. The computed velocity skewness ($0.48$) and the rising period being shorter than the fall period, suggest a weak flood-dominant asymmetry. This is consistent with the positive $M_4/M_2$ amplitude ratio ($0.11$) and the phase difference of $259^\circ$ between $M_4$ and $M_2$, both indicative of flood dominance \autocite{bosboomCoastalDynamics2023}. Therefore, small net landward sediment transport may occur as a result of tidal asymmetry, although its overall effect is expected to be minor compared to the fluvial and meteorological forcing.
 
 
 \newpage
@@ -562,7 +562,7 @@ The computed shear velocity ($u_*$) from the Law of the Wall fit is used to calc
     \label{Rouse profile}
 \end{equation}
 
-The reference depth ($a$) and the near-bed reference concentration ($C_a$) were based on the lowest suspended sediment concentrations measured for each cross section. By inspecting the Rouse profile at the ensemble where the sediment measurements were taken, the settling velocity ($w_s$) was determined, as no information on suspended sediment size was available. The Rouse profile for the location at which the suspended sediment measurement in cross section is shown in Figure \ref{fig:RouseProfile_cs11}. The corresponding velocity profile and Law of the Wall fit are shown in \ref{fig:Vel_profile_cs11}. The velocity profile measurements show a decreased velocity near the water surface, likely due to wind effects, proving why it is important to fit only on the lowest 50\% of the depth.
+The reference depth ($a$) and the near-bed reference concentration ($C_a$) were based on the lowest suspended sediment concentrations measured for each cross section. By inspecting the Rouse profile at the ensemble where the sediment measurements were taken, the settling velocity ($w_s$) was determined, as no information on suspended sediment size was available. The Rouse profile for the location at which the suspended sediment measurement in cross section is shown in Figure \ref{fig:RouseProfile_cs11}. The corresponding velocity profile and Law of the Wall fit are shown in Figure \ref{fig:VelProfile_cs11}. The velocity profile measurements show a decreased velocity near the water surface, likely due to wind effects, proving why it is important to fit only on the lowest 50\% of the depth.
 
 \begin{figure}[H]
     \centering
@@ -641,26 +641,6 @@ Secondly, after plotting the depth averaged velocities along the three cross sec
 To assess the reliability of the measurement concentrations, the estimations are compared to the existing relationship between fine sediment loads and fluvial discharge in Brazo Largo. Figure \ref{fig:fine measurements} shows the measurements conducted around the confluence. It stands out that discharges are quite small, while the loads of section 1 and section 3 are close to the fit. The fine sediment load measured in section 2 is relatively low. This is possibly an underestimation of the real inflow into the confluence, which might affect the sediment balance. 
 
 
-\begin{figure}[h!]
-    \centering
-    % First subfigure
-    \begin{subfigure}[b]{0.48\linewidth}
-        \centering        \includegraphics[width=\linewidth]{figures/ch6/fine measurements.png}
-        \caption{Fine sediment load - discharge relation for Brazo Largo including estimations based on field data}
-        \label{fig:fine measurements}
-    \end{subfigure}
-    \hfill
-    % Second subfigure
-    \begin{subfigure}[b]{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/ch6/course measurements.png}
-        \caption{Course sediment load - discharge relation for Brazo Largo including estimations based on field data }
-        \label{fig:course measurements}
-    \end{subfigure}
-    
-    \caption{Comparison of estimations based on field measurements to historical data of sediment loads}
-    \label{fig:correlationmatrices}
-\end{figure}
 
 \subsection{Bed load}
 \label{sec: Bed load}
@@ -712,6 +692,28 @@ Using a channel width $B$ and a volumetric weight of $\rho_s = 2650 $ kg/m$^3$, 
 
 \subsubsection{Uncertainties}
 The uncertainties in estimating bed load transport are primarily related to the composition of the bed material. Engelund-Hansen is used here, which is predominantly suited for sandy beds. As observed during field measurements, the Paraná Guazú contains significant amounts of fine sediments, such as clays and silts. In some samples, no sand was detected; however, this largely depended on the sampling depth—at deeper locations, sand was indeed present. Therefore, the application of Engelund-Hansen is justified, and it can be assumed that section 3 also contains sand. The sediment diameter is assumed to be similar to that reported by \citeauthor{reMetodologiaParaGeneracion2009}. When comparing the estimated concentrations to historical data, the results appear relatively high. For the given discharge, Engelund-Hansen seems to overestimate the total bed load transport.
+
+
+\begin{figure}[h!]
+    \centering
+    % First subfigure
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering        \includegraphics[width=\linewidth]{figures/ch6/fine measurements.png}
+        \caption{Fine sediment load - discharge relation for Brazo Largo including estimations based on field data}
+        \label{fig:fine measurements}
+    \end{subfigure}
+    \hfill
+    % Second subfigure
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/ch6/course measurements.png}
+        \caption{Course sediment load - discharge relation for Brazo Largo including estimations based on field data }
+        \label{fig:course measurements}
+    \end{subfigure}
+    
+    \caption{Comparison of estimations based on field measurements to historical data of sediment loads}
+    \label{fig:correlationmatrices}
+\end{figure}
 
 
 
