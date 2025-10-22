@@ -1,11 +1,39 @@
 \chapter{Delft3D Model}
 \label{chap:Delft3DModel}
-- Introduction + objective of the modelling \\
-- Physical problem (flow behaviour around the confluence
+
+\begin{itemize}
+    \item Introduction + objective of the modelling
+    \item Physical problem (flow behaviour around the confluence + unknown flow velocity patterns which can be an indicator of areas prone to erosion)
+    \item Aim of the model (reproduce hydrodynamics in the area)
+    \item Modelling scope (2D depth averaged + neglecting sediment transport + no morphological changes)
+\end{itemize}
+
+
 
 \section{Model approach}
-In this section, the Delft3D model set-up used to simulate the hydrodynamical response of the system will be explained. For this simulation the 
+In this section, the Delft3D model setup used to simulate the hydrodynamic response of the system is explained. The setup of the model involves defining the computational grid, processing the bathymetry, specifying boundary and initial conditions and finally selecting appropriate physical and numerical parameters.
 
+Since no existing grid was available for the area of interest, the grid was generated using the RGFGRID-tool in Delft3D. As a starting point, a land boundary file similar to the one shown in Figure \ref{fig:cross section domain} was used. By drawing splines with a decreasing spacing towards the confluence, the grid resolution was refined for the region of hydrodynamic interest. This approach ensures that the model captures the flow behaviour at the confluence with high accuracy while maintaining computational efficiency in less critical areas. After generating the grid, further refinements were made to ensure that the grid contains at least 20 cells in a cross section near the confluence and around 10 cells in a cross section far away from the confluence. The generated grid is shown in Figure \ref{fig: Grid Guazu Delft3D}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/ch7/Grid_Guazu.png}
+    \caption{Generated grid for the Delft3D model.}
+    \label{fig: Grid Guazu Delft3D}
+\end{figure}
+
+The generated computational grid has 
+
+\begin{itemize}
+    \item Computational grid
+    \item Bathymetry
+    \item Boundary conditions + initial condition
+    \item Physical + numerical parameters
+\end{itemize}
+
+\section{Model results}
+
+\subsection{Sensitivity analysis}
 
 
 

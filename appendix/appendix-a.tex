@@ -414,190 +414,190 @@ plt.show()
 % plt.show()
 % \end{lstlisting}
 
-\section{Vertical effective stress}
+% \section{Vertical effective stress}
 
-\begin{lstlisting}[language=Python]
-def layer_at(z_mid, layers):
-    for L in layers:
-        if L.top_depth <= z_mid < L.bottom_depth:
-            return L
-    return layers[-1]
+% \begin{lstlisting}[language=Python]
+% def layer_at(z_mid, layers):
+%     for L in layers:
+%         if L.top_depth <= z_mid < L.bottom_depth:
+%             return L
+%     return layers[-1]
 
-def seg_gamma_eff(L, z1, z2, z_wt, gamma_w=9.81):
-    # segment does not cross GWT (we'll ensure nodes include WT)
-    if z2 <= z_wt:
-        return float(L.params.unit_weight or 0.0)
-    else:
-        if L.params.unit_weight_sat is not None:
-            return float(L.params.unit_weight_sat) - gamma_w
-        return float(L.params.unit_weight or 0.0) - gamma_w
+% def seg_gamma_eff(L, z1, z2, z_wt, gamma_w=9.81):
+%     # segment does not cross GWT (we'll ensure nodes include WT)
+%     if z2 <= z_wt:
+%         return float(L.params.unit_weight or 0.0)
+%     else:
+%         if L.params.unit_weight_sat is not None:
+%             return float(L.params.unit_weight_sat) - gamma_w
+%         return float(L.params.unit_weight or 0.0) - gamma_w
 
-Z = float(params["Z"])
-t = float(params["t"])
-block_w = float(params["dim_offset"])
-xL_face = float(x_face_left)   # left face (passive side)
-xR_face = float(x_face_right)  # right face (active side)
+% Z = float(params["Z"])
+% t = float(params["t"])
+% block_w = float(params["dim_offset"])
+% xL_face = float(x_face_left)   # left face (passive side)
+% xR_face = float(x_face_right)  # right face (active side)
 
-z_wt = float(params["water_table_depth"])
-max_depth = float(Z + t)  # toe depth in absolute coordinates
+% z_wt = float(params["water_table_depth"])
+% max_depth = float(Z + t)  # toe depth in absolute coordinates
 
-z_top_L = Z
-z_bot_L = Z + t
-nodes_L = {z_top_L, z_bot_L}
-if z_top_L < z_wt < z_bot_L:
-    nodes_L.add(z_wt)
-for L in layers:
-    if z_top_L <= L.top_depth    <= z_bot_L: nodes_L.add(L.top_depth)
-    if z_top_L <= L.bottom_depth <= z_bot_L: nodes_L.add(L.bottom_depth)
-z_nodes_L = sorted(nodes_L)
+% z_top_L = Z
+% z_bot_L = Z + t
+% nodes_L = {z_top_L, z_bot_L}
+% if z_top_L < z_wt < z_bot_L:
+%     nodes_L.add(z_wt)
+% for L in layers:
+%     if z_top_L <= L.top_depth    <= z_bot_L: nodes_L.add(L.top_depth)
+%     if z_top_L <= L.bottom_depth <= z_bot_L: nodes_L.add(L.bottom_depth)
+% z_nodes_L = sorted(nodes_L)
 
-sv_L = [0.0]
-for i in range(1, len(z_nodes_L)):
-    z1, z2 = z_nodes_L[i-1], z_nodes_L[i]
-    Lseg = layer_at((z1+z2)/2.0, layers)
-    gamma = seg_gamma_eff(Lseg, z1, z2, z_wt)
-    sv_L.append(sv_L[-1] + gamma * (z2 - z1))
-z_sv_L = np.array(z_nodes_L)
-sv_L = np.array(sv_L)
+% sv_L = [0.0]
+% for i in range(1, len(z_nodes_L)):
+%     z1, z2 = z_nodes_L[i-1], z_nodes_L[i]
+%     Lseg = layer_at((z1+z2)/2.0, layers)
+%     gamma = seg_gamma_eff(Lseg, z1, z2, z_wt)
+%     sv_L.append(sv_L[-1] + gamma * (z2 - z1))
+% z_sv_L = np.array(z_nodes_L)
+% sv_L = np.array(sv_L)
 
-target_L = 0.40 * block_w
-pmax_L = float(np.max(sv_L)) if sv_L.size else 0.0
-scale_L = (target_L / pmax_L) if pmax_L > 1e-12 else 0.0
-y_L = Z - z_sv_L
-x_L = xL_face - sv_L * scale_L
+% target_L = 0.40 * block_w
+% pmax_L = float(np.max(sv_L)) if sv_L.size else 0.0
+% scale_L = (target_L / pmax_L) if pmax_L > 1e-12 else 0.0
+% y_L = Z - z_sv_L
+% x_L = xL_face - sv_L * scale_L
 
-z_top_R = 0.0
-nodes_R = {z_top_R, min(z_wt, max_depth), max_depth}
-for L in layers:
-    if L.top_depth  <= max_depth: nodes_R.add(max(0.0, L.top_depth))
-    if L.bottom_depth <= max_depth: nodes_R.add(max(0.0, L.bottom_depth))
-z_nodes_R = sorted(nodes_R)
+% z_top_R = 0.0
+% nodes_R = {z_top_R, min(z_wt, max_depth), max_depth}
+% for L in layers:
+%     if L.top_depth  <= max_depth: nodes_R.add(max(0.0, L.top_depth))
+%     if L.bottom_depth <= max_depth: nodes_R.add(max(0.0, L.bottom_depth))
+% z_nodes_R = sorted(nodes_R)
 
-sv_R = [0.0]
-for i in range(1, len(z_nodes_R)):
-    z1, z2 = z_nodes_R[i-1], z_nodes_R[i]
-    Lseg = layer_at((z1+z2)/2.0, layers)
-    gamma = seg_gamma_eff(Lseg, z1, z2, z_wt)
-    sv_R.append(sv_R[-1] + gamma * (z2 - z1))
-z_sv_R = np.array(z_nodes_R)
-sv_R = np.array(sv_R)
+% sv_R = [0.0]
+% for i in range(1, len(z_nodes_R)):
+%     z1, z2 = z_nodes_R[i-1], z_nodes_R[i]
+%     Lseg = layer_at((z1+z2)/2.0, layers)
+%     gamma = seg_gamma_eff(Lseg, z1, z2, z_wt)
+%     sv_R.append(sv_R[-1] + gamma * (z2 - z1))
+% z_sv_R = np.array(z_nodes_R)
+% sv_R = np.array(sv_R)
 
-target_R = 1 * block_w
-pmax_R = float(np.max(sv_R)) if sv_R.size else 0.0
-scale_R = (target_R / pmax_R) if pmax_R > 1e-12 else 0.0
-y_R = Z - z_sv_R
-x_R = xR_face + sv_R * scale_R
+% target_R = 1 * block_w
+% pmax_R = float(np.max(sv_R)) if sv_R.size else 0.0
+% scale_R = (target_R / pmax_R) if pmax_R > 1e-12 else 0.0
+% y_R = Z - z_sv_R
+% x_R = xR_face + sv_R * scale_R
 
-fig, ax = plt.subplots(figsize=params["figsize"])
+% fig, ax = plt.subplots(figsize=params["figsize"])
 
-try:
-    ax.plot([p1[0], p2[0], p3[0], p4[0], p1[0]],
-            [p1[1], p2[1], p3[1], p4[1], p1[1]], color="black", linewidth=3)
-except NameError:
-    # simple vertical line at x_wall
-    x_wall = 0.0
-    ax.plot([x_wall, x_wall], [Z, Z - t], color="black", linewidth=3)
+% try:
+%     ax.plot([p1[0], p2[0], p3[0], p4[0], p1[0]],
+%             [p1[1], p2[1], p3[1], p4[1], p1[1]], color="black", linewidth=3)
+% except NameError:
+%     # simple vertical line at x_wall
+%     x_wall = 0.0
+%     ax.plot([x_wall, x_wall], [Z, Z - t], color="black", linewidth=3)
 
-left_end  = np.array([-params['dim_offset'], -np.tan(np.deg2rad(params['beta_left_deg'])) * params['dim_offset']])
-right_end = np.array([params['dim_offset'], Z + np.tan(np.deg2rad(params['beta_right_deg'])) * params['dim_offset']])
-toe = np.array([0.0, 0.0])
-top = np.array([0.0, Z])
-ax.plot([toe[0], left_end[0]], [toe[1], left_end[1]], linewidth=3, color="black")
-ax.plot([top[0], right_end[0]], [top[1], right_end[1]], linewidth=3, color="black")
+% left_end  = np.array([-params['dim_offset'], -np.tan(np.deg2rad(params['beta_left_deg'])) * params['dim_offset']])
+% right_end = np.array([params['dim_offset'], Z + np.tan(np.deg2rad(params['beta_right_deg'])) * params['dim_offset']])
+% toe = np.array([0.0, 0.0])
+% top = np.array([0.0, Z])
+% ax.plot([toe[0], left_end[0]], [toe[1], left_end[1]], linewidth=3, color="black")
+% ax.plot([top[0], right_end[0]], [top[1], right_end[1]], linewidth=3, color="black")
 
-label_horizontal_line(ax, Z, "GS [+2.5]", x=2.25, fs=8, offset_pts=6)
-label_horizontal_line(ax, 0.0, "DL [-1.5]",  x=-4, fs=8, offset_pts=6)
+% label_horizontal_line(ax, Z, "GS [+2.5]", x=2.25, fs=8, offset_pts=6)
+% label_horizontal_line(ax, 0.0, "DL [-1.5]",  x=-4, fs=8, offset_pts=6)
 
-ax.plot([0, 4], [Z - params["water_table_depth"], Z - params["water_table_depth"]], linestyle="--", linewidth=1.5, color="black")
-label_horizontal_line(ax, Z - params["water_table_depth"], "GWT [+1.03]", x=2.25, fs=8, offset_pts=6)
+% ax.plot([0, 4], [Z - params["water_table_depth"], Z - params["water_table_depth"]], linestyle="--", linewidth=1.5, color="black")
+% label_horizontal_line(ax, Z - params["water_table_depth"], "GWT [+1.03]", x=2.25, fs=8, offset_pts=6)
 
-ax.plot([-4, 0], [Z - params["water_level"], Z - params["water_level"]], linestyle="--", linewidth=1.5, color="black")
-label_horizontal_line(ax, Z - params["water_level"], "WL [+0.14]", x=-4, fs=8, offset_pts=6)
+% ax.plot([-4, 0], [Z - params["water_level"], Z - params["water_level"]], linestyle="--", linewidth=1.5, color="black")
+% label_horizontal_line(ax, Z - params["water_level"], "WL [+0.14]", x=-4, fs=8, offset_pts=6)
 
-ax.plot(x_L, y_L, color="green", linewidth=2, label="σ′v")
-ax.fill_betweenx(y_L, x_L, xL_face, color="green", alpha=0.25)
+% ax.plot(x_L, y_L, color="green", linewidth=2, label="σ′v")
+% ax.fill_betweenx(y_L, x_L, xL_face, color="green", alpha=0.25)
 
-ax.plot(x_R, y_R, color="green", linewidth=2, label="σ′v")
-ax.fill_betweenx(y_R, xR_face, x_R, color="green", alpha=0.25)
+% ax.plot(x_R, y_R, color="green", linewidth=2, label="σ′v")
+% ax.fill_betweenx(y_R, xR_face, x_R, color="green", alpha=0.25)
 
-dy = 0.12  # vertical offset for labels
-# simple value labels at key depths (interfaces)
-for z in sorted(set(list(z_sv_L) + list(z_sv_R))):
-    # left val if within left range
-    if z_sv_L.min() <= z <= z_sv_L.max():
-        sv_val = float(np.interp(z, z_sv_L, sv_L))
-        y = Z - z
-        x = xL_face - sv_val * scale_L
-        ax.text(x - 0.03*block_w, y+dy, f"{sv_val:.1f} kN/m²", color="green", fontsize=8, ha="right", va="center")
-    # right val if within right range
-    if z_sv_R.min() <= z <= z_sv_R.max():
-        sv_val = float(np.interp(z, z_sv_R, sv_R))
-        y = Z - z
-        x = xR_face + sv_val * scale_R
-        ax.text(x + 0.03*block_w, y+dy, f"{sv_val:.1f} kN/m²", color="green", fontsize=8, ha="left", va="center")
+% dy = 0.12  # vertical offset for labels
+% # simple value labels at key depths (interfaces)
+% for z in sorted(set(list(z_sv_L) + list(z_sv_R))):
+%     # left val if within left range
+%     if z_sv_L.min() <= z <= z_sv_L.max():
+%         sv_val = float(np.interp(z, z_sv_L, sv_L))
+%         y = Z - z
+%         x = xL_face - sv_val * scale_L
+%         ax.text(x - 0.03*block_w, y+dy, f"{sv_val:.1f} kN/m²", color="green", fontsize=8, ha="right", va="center")
+%     # right val if within right range
+%     if z_sv_R.min() <= z <= z_sv_R.max():
+%         sv_val = float(np.interp(z, z_sv_R, sv_R))
+%         y = Z - z
+%         x = xR_face + sv_val * scale_R
+%         ax.text(x + 0.03*block_w, y+dy, f"{sv_val:.1f} kN/m²", color="green", fontsize=8, ha="left", va="center")
 
-draw_layers_right_dashed(
-    ax,
-    top_point=top,
-    block_width=params["dim_offset"],
-    layers=layers,
-    fs=max(12, params["font_size"]-2),
-    show_params=False,
-    min_thk=params["min_layer_thk_for_params"]
-)
+% draw_layers_right_dashed(
+%     ax,
+%     top_point=top,
+%     block_width=params["dim_offset"],
+%     layers=layers,
+%     fs=max(12, params["font_size"]-2),
+%     show_params=False,
+%     min_thk=params["min_layer_thk_for_params"]
+% )
 
-x_wall_center = (xL_face + xR_face) / 2.0
-half_span = max(abs(COMMON_X_MIN - x_wall_center), abs(COMMON_X_MAX - x_wall_center))
-ax.set_xlim(x_wall_center - half_span, x_wall_center + half_span)
-ax.set_ylim(COMMON_Y_MIN, COMMON_Y_MAX + 1)
-dw = desired_width if 'desired_width' in globals() else 0.6
-dh = desired_height if 'desired_height' in globals() else 0.8
-left = (1.0 - dw) / 2.0
-bottom = (1.0 - dh) / 2.0
-ax.set_position([left, bottom, dw, dh])
-ax.axis("off")
-plt.show()
+% x_wall_center = (xL_face + xR_face) / 2.0
+% half_span = max(abs(COMMON_X_MIN - x_wall_center), abs(COMMON_X_MAX - x_wall_center))
+% ax.set_xlim(x_wall_center - half_span, x_wall_center + half_span)
+% ax.set_ylim(COMMON_Y_MIN, COMMON_Y_MAX + 1)
+% dw = desired_width if 'desired_width' in globals() else 0.6
+% dh = desired_height if 'desired_height' in globals() else 0.8
+% left = (1.0 - dw) / 2.0
+% bottom = (1.0 - dh) / 2.0
+% ax.set_position([left, bottom, dw, dh])
+% ax.axis("off")
+% plt.show()
 
-z_col = "z [m]" if "z [m]" in df_i.columns else "z"
-sv_col = (
-    "σ′v [kN/m²]" if "σ′v [kN/m²]" in df_i.columns
-    else ("σ′v [kPa]" if "σ′v [kPa]" in df_i.columns else "sigma_v")
-)
+% z_col = "z [m]" if "z [m]" in df_i.columns else "z"
+% sv_col = (
+%     "σ′v [kN/m²]" if "σ′v [kN/m²]" in df_i.columns
+%     else ("σ′v [kPa]" if "σ′v [kPa]" in df_i.columns else "sigma_v")
+% )
 
-max_depth = float(Z + t)
-z_wt = float(params["water_table_depth"])
+% max_depth = float(Z + t)
+% z_wt = float(params["water_table_depth"])
 
-df_right = df_i[[z_col, sv_col]].copy()
-df_right = df_right[df_right[z_col] <= max_depth].sort_values(z_col).reset_index(drop=True)
+% df_right = df_i[[z_col, sv_col]].copy()
+% df_right = df_right[df_right[z_col] <= max_depth].sort_values(z_col).reset_index(drop=True)
 
-if "df_sigma_left" in globals():
-    df_left = df_sigma_left.copy().sort_values(z_col).reset_index(drop=True)
-else:
-    df_left = pd.DataFrame({z_col: z_sv_L, "σ′v_left [kN/m²]": sv_L}).sort_values(z_col).reset_index(drop=True)
+% if "df_sigma_left" in globals():
+%     df_left = df_sigma_left.copy().sort_values(z_col).reset_index(drop=True)
+% else:
+%     df_left = pd.DataFrame({z_col: z_sv_L, "σ′v_left [kN/m²]": sv_L}).sort_values(z_col).reset_index(drop=True)
 
-left_sv_col = next(c for c in df_left.columns if c != z_col)
-right_z = df_right[z_col].to_numpy()
-right_sv = df_right[sv_col].to_numpy()
-left_z = df_left[z_col].to_numpy()
-left_sv = df_left[left_sv_col].to_numpy()
+% left_sv_col = next(c for c in df_left.columns if c != z_col)
+% right_z = df_right[z_col].to_numpy()
+% right_sv = df_right[sv_col].to_numpy()
+% left_z = df_left[z_col].to_numpy()
+% left_sv = df_left[left_sv_col].to_numpy()
 
-union_z = np.unique(np.concatenate([right_z, left_z, [z_wt] if (0 <= z_wt <= max_depth) else []]))
-union_z = np.sort(union_z)
+% union_z = np.unique(np.concatenate([right_z, left_z, [z_wt] if (0 <= z_wt <= max_depth) else []]))
+% union_z = np.sort(union_z)
 
-right_interp = np.interp(union_z, right_z, right_sv)
-left_interp = np.interp(union_z, left_z, left_sv)
+% right_interp = np.interp(union_z, right_z, right_sv)
+% left_interp = np.interp(union_z, left_z, left_sv)
 
-df_both = pd.DataFrame({
-    "z [m]": union_z,
-    "σ′v_left [kN/m²]": left_interp,
-    "σ′v_right [kN/m²]": right_interp
-})
+% df_both = pd.DataFrame({
+%     "z [m]": union_z,
+%     "σ′v_left [kN/m²]": left_interp,
+%     "σ′v_right [kN/m²]": right_interp
+% })
 
-from IPython.display import display
-display(
-    df_both.style.format({"z [m]": "{:.2f}", "σ′v_left [kN/m²]": "{:.2f}", "σ′v_right [kN/m²]": "{:.2f}"})
-)
-\end{lstlisting}
+% from IPython.display import display
+% display(
+%     df_both.style.format({"z [m]": "{:.2f}", "σ′v_left [kN/m²]": "{:.2f}", "σ′v_right [kN/m²]": "{:.2f}"})
+% )
+% \end{lstlisting}
 
 \section{Earth pressure and force}
 
@@ -1059,321 +1059,321 @@ ax.axis("off")
 plt.show()
 \end{lstlisting}
 
-\section{Hydrostatic pressure and force}
+% \section{Hydrostatic pressure and force}
 
-\begin{lstlisting}[language=Python]
-def hydro_triangle_resultant(z_top: float, z_bot: float, gamma_w: float = 9.81):
-    """
-    Resultant and centroid for triangular hydrostatic pressure u(z)=γw(z - z_top)
-    acting over [z_top, z_bot] on the RIGHT face of the wall.
-    Returns (F, zc) with F in kN/m and zc in m (depth measured downward).
-    """
-    z_top = float(z_top); z_bot = float(z_bot)
-    if z_bot <= z_top:
-        return 0.0, 0.5*(z_top + z_bot)
-    H  = z_bot - z_top
-    F  = 0.5 * gamma_w * H * H        # area of triangle
-    zc = z_top + (2.0/3.0) * H        # 1/3 above bottom
-    return F, zc
+% \begin{lstlisting}[language=Python]
+% def hydro_triangle_resultant(z_top: float, z_bot: float, gamma_w: float = 9.81):
+%     """
+%     Resultant and centroid for triangular hydrostatic pressure u(z)=γw(z - z_top)
+%     acting over [z_top, z_bot] on the RIGHT face of the wall.
+%     Returns (F, zc) with F in kN/m and zc in m (depth measured downward).
+%     """
+%     z_top = float(z_top); z_bot = float(z_bot)
+%     if z_bot <= z_top:
+%         return 0.0, 0.5*(z_top + z_bot)
+%     H  = z_bot - z_top
+%     F  = 0.5 * gamma_w * H * H        # area of triangle
+%     zc = z_top + (2.0/3.0) * H        # 1/3 above bottom
+%     return F, zc
 
-fig, (axL, axR, axC) = plt.subplots(1, 3, figsize=params["figsize"], sharey=True)
-plt.subplots_adjust(wspace=0.02)
+% fig, (axL, axR, axC) = plt.subplots(1, 3, figsize=params["figsize"], sharey=True)
+% plt.subplots_adjust(wspace=0.02)
 
-Z = params["Z"]
-t = params["t"]
-wall_th = params["wall_thickness"]
-theta_wall = 90.0 - params["alpha_deg"]
-u = np.array([np.cos(np.deg2rad(theta_wall)), np.sin(np.deg2rad(theta_wall))])
-toe  = np.array([0.0, 0.0])
-top  = toe + u * Z
-base = toe - u * t
-n = np.array([-u[1], u[0]])
+% Z = params["Z"]
+% t = params["t"]
+% wall_th = params["wall_thickness"]
+% theta_wall = 90.0 - params["alpha_deg"]
+% u = np.array([np.cos(np.deg2rad(theta_wall)), np.sin(np.deg2rad(theta_wall))])
+% toe  = np.array([0.0, 0.0])
+% top  = toe + u * Z
+% base = toe - u * t
+% n = np.array([-u[1], u[0]])
 
-p1 = top  + n * (wall_th/2)
-p2 = base + n * (wall_th/2)
-p3 = base - n * (wall_th/2)
-p4 = top  - n * (wall_th/2)
+% p1 = top  + n * (wall_th/2)
+% p2 = base + n * (wall_th/2)
+% p3 = base - n * (wall_th/2)
+% p4 = top  - n * (wall_th/2)
 
-x_face_left  = min(p1[0], p2[0], p3[0], p4[0])
-x_face_right = max(p1[0], p2[0], p3[0], p4[0])
+% x_face_left  = min(p1[0], p2[0], p3[0], p4[0])
+% x_face_right = max(p1[0], p2[0], p3[0], p4[0])
 
-gamma_w   = 9.81
-z_top_L   = float(params["water_level"])
-z_top_R   = float(params["water_table_depth"])
-z_toe     = float(Z + t)
+% gamma_w   = 9.81
+% z_top_L   = float(params["water_level"])
+% z_top_R   = float(params["water_table_depth"])
+% z_toe     = float(Z + t)
 
-pR_max = gamma_w * max(0.0, z_toe - z_top_R)
-pL_max = gamma_w * max(0.0, z_toe - z_top_L)
-p_max  = max(pR_max, pL_max, 1e-12)
+% pR_max = gamma_w * max(0.0, z_toe - z_top_R)
+% pL_max = gamma_w * max(0.0, z_toe - z_top_L)
+% p_max  = max(pR_max, pL_max, 1e-12)
 
-block_w  = float(params["dim_offset"])
-target_w = 3 * block_w
-hydro_scale = target_w / p_max
+% block_w  = float(params["dim_offset"])
+% target_w = 3 * block_w
+% hydro_scale = target_w / p_max
 
-# helper lists of z marks (interfaces already available as z_interfaces)
-z_col = "z [m]" if "z [m]" in df_i.columns else "z"
-z_interfaces = df_i[z_col].to_numpy(dtype=float)
+% # helper lists of z marks (interfaces already available as z_interfaces)
+% z_col = "z [m]" if "z [m]" in df_i.columns else "z"
+% z_interfaces = df_i[z_col].to_numpy(dtype=float)
 
-ax = axL
-ax.plot([0, 4], [Z - params["water_table_depth"], Z - params["water_table_depth"]], linestyle="--", linewidth=1.0, color="black")
-ax.plot([-4, 0], [Z - params["water_level"], Z - params["water_level"]], linestyle="--", linewidth=1.0, color="black")
+% ax = axL
+% ax.plot([0, 4], [Z - params["water_table_depth"], Z - params["water_table_depth"]], linestyle="--", linewidth=1.0, color="black")
+% ax.plot([-4, 0], [Z - params["water_level"], Z - params["water_level"]], linestyle="--", linewidth=1.0, color="black")
 
-ax.plot([p1[0], p2[0], p3[0], p4[0], p1[0]],
-    [p1[1], p2[1], p3[1], p4[1], p1[1]], color="black", linewidth=3)
-len_ground = params['dim_offset']
-left_end  = np.array([-len_ground, -np.tan(np.deg2rad(params["beta_left_deg"])) * len_ground])
-right_end = top + np.array([len_ground, np.tan(np.deg2rad(params["beta_right_deg"])) * len_ground])
-ax.plot([toe[0], left_end[0]], [toe[1], left_end[1]], linewidth=3, color="black")
-ax.plot([top[0], right_end[0]], [top[1], right_end[1]], linewidth=3, color="black")
+% ax.plot([p1[0], p2[0], p3[0], p4[0], p1[0]],
+%     [p1[1], p2[1], p3[1], p4[1], p1[1]], color="black", linewidth=3)
+% len_ground = params['dim_offset']
+% left_end  = np.array([-len_ground, -np.tan(np.deg2rad(params["beta_left_deg"])) * len_ground])
+% right_end = top + np.array([len_ground, np.tan(np.deg2rad(params["beta_right_deg"])) * len_ground])
+% ax.plot([toe[0], left_end[0]], [toe[1], left_end[1]], linewidth=3, color="black")
+% ax.plot([top[0], right_end[0]], [top[1], right_end[1]], linewidth=3, color="black")
 
-draw_layers_right_dashed(
-    ax,
-    top_point=top,
-    block_width=params["dim_offset"],
-    layers=layers,
-    fs=max(12, params["font_size"]-2),
-    show_params=False,
-    min_thk=params["min_layer_thk_for_params"]
-)
+% draw_layers_right_dashed(
+%     ax,
+%     top_point=top,
+%     block_width=params["dim_offset"],
+%     layers=layers,
+%     fs=max(12, params["font_size"]-2),
+%     show_params=False,
+%     min_thk=params["min_layer_thk_for_params"]
+% )
 
-# draw hydro wedges (both sides) on axL
-if z_top_R < z_toe:
-    yR = np.array([Z - z_top_R, Z - z_toe], float)
-    pR = np.array([0.0, gamma_w * (z_toe - z_top_R)], float)
-    xR = x_face_right + pR * hydro_scale
-    ax.plot(xR, yR, lw=2, color="blue")
-    ax.fill_betweenx(yR, x_face_right, xR, color="blue", alpha=0.30)
+% # draw hydro wedges (both sides) on axL
+% if z_top_R < z_toe:
+%     yR = np.array([Z - z_top_R, Z - z_toe], float)
+%     pR = np.array([0.0, gamma_w * (z_toe - z_top_R)], float)
+%     xR = x_face_right + pR * hydro_scale
+%     ax.plot(xR, yR, lw=2, color="blue")
+%     ax.fill_betweenx(yR, x_face_right, xR, color="blue", alpha=0.30)
 
-if z_top_L < z_toe:
-    yL = np.array([Z - z_top_L, Z - z_toe], float)
-    pL = np.array([0.0, gamma_w * (z_toe - z_top_L)], float)
-    xL = x_face_left - pL * hydro_scale
-    ax.plot(xL, yL, lw=2, color="blue")
-    ax.fill_betweenx(yL, xL, x_face_left, color="blue", alpha=0.30)
+% if z_top_L < z_toe:
+%     yL = np.array([Z - z_top_L, Z - z_toe], float)
+%     pL = np.array([0.0, gamma_w * (z_toe - z_top_L)], float)
+%     xL = x_face_left - pL * hydro_scale
+%     ax.plot(xL, yL, lw=2, color="blue")
+%     ax.fill_betweenx(yL, xL, x_face_left, color="blue", alpha=0.30)
 
-# labels for hydro pressures (both sides) at important z marks
-def under_water_right(z):  return z > z_top_R and z <= z_toe
-def under_water_left(z):   return z > z_top_L and z <= z_toe
+% # labels for hydro pressures (both sides) at important z marks
+% def under_water_right(z):  return z > z_top_R and z <= z_toe
+% def under_water_left(z):   return z > z_top_L and z <= z_toe
 
-z_marks = {z_toe}
-if z_top_R < z_toe: z_marks.add(z_top_R)
-if z_top_L < z_toe: z_marks.add(z_top_L)
-z_marks.update([z for z in z_interfaces if under_water_left(z) or under_water_right(z)])
-z_marks = sorted(z_marks)
+% z_marks = {z_toe}
+% if z_top_R < z_toe: z_marks.add(z_top_R)
+% if z_top_L < z_toe: z_marks.add(z_top_L)
+% z_marks.update([z for z in z_interfaces if under_water_left(z) or under_water_right(z)])
+% z_marks = sorted(z_marks)
 
-def u_right(z): return gamma_w * max(0.0, z - z_top_R)
-def u_left(z):  return gamma_w * max(0.0, z - z_top_L)
+% def u_right(z): return gamma_w * max(0.0, z - z_top_R)
+% def u_left(z):  return gamma_w * max(0.0, z - z_top_L)
 
-x_min_needed = np.inf
-x_max_needed = -np.inf
-v_off = 0.18
+% x_min_needed = np.inf
+% x_max_needed = -np.inf
+% v_off = 0.18
 
-for i, z in enumerate(z_marks):
-    y = Z - z
+% for i, z in enumerate(z_marks):
+%     y = Z - z
 
-    # Right label (if submerged on right)
-    if z >= z_top_R:
-        uR = u_right(z)
-        xR_tip = x_face_right + uR * hydro_scale
-        xR_txt = xR_tip + 0.03 * target_w
-        ax.text(xR_txt, y + (v_off if i % 2 == 0 else -v_off),
-            f"{uR:.1f} kN/m²", fontsize=8, ha="left", va="center", color="blue")
-        x_max_needed = max(x_max_needed, xR_txt)
+%     # Right label (if submerged on right)
+%     if z >= z_top_R:
+%         uR = u_right(z)
+%         xR_tip = x_face_right + uR * hydro_scale
+%         xR_txt = xR_tip + 0.03 * target_w
+%         ax.text(xR_txt, y + (v_off if i % 2 == 0 else -v_off),
+%             f"{uR:.1f} kN/m²", fontsize=8, ha="left", va="center", color="blue")
+%         x_max_needed = max(x_max_needed, xR_txt)
 
-    # Left label (if submerged on left)
-    if z >= z_top_L:
-        uL = u_left(z)
-        xL_tip = x_face_left - uL * hydro_scale
-        xL_txt = xL_tip - 0.03 * target_w
-        ax.text(xL_txt, y + (v_off if i % 2 == 0 else -v_off),
-            f"{uL:.1f} kN/m²", fontsize=8, ha="right", va="center", color="blue")
-        x_min_needed = min(x_min_needed, xL_txt)
+%     # Left label (if submerged on left)
+%     if z >= z_top_L:
+%         uL = u_left(z)
+%         xL_tip = x_face_left - uL * hydro_scale
+%         xL_txt = xL_tip - 0.03 * target_w
+%         ax.text(xL_txt, y + (v_off if i % 2 == 0 else -v_off),
+%             f"{uL:.1f} kN/m²", fontsize=8, ha="right", va="center", color="blue")
+%         x_min_needed = min(x_min_needed, xL_txt)
 
-# adjust x-limits to show labels (centered on wall)
-xlo, xhi = ax.get_xlim()
-pad = 0.05 * (xhi - xlo if xhi > xlo else 10.0)
-if np.isfinite(x_min_needed): xlo = min(xlo, x_min_needed - pad)
-if np.isfinite(x_max_needed): xhi = max(xhi, x_max_needed + pad)
+% # adjust x-limits to show labels (centered on wall)
+% xlo, xhi = ax.get_xlim()
+% pad = 0.05 * (xhi - xlo if xhi > xlo else 10.0)
+% if np.isfinite(x_min_needed): xlo = min(xlo, x_min_needed - pad)
+% if np.isfinite(x_max_needed): xhi = max(xhi, x_max_needed + pad)
 
-half_span = max(abs(COMMON_X_MIN - x_wall), abs(COMMON_X_MAX - x_wall))
-ax.set_xlim(x_wall - half_span, x_wall + half_span)
-ax.set_ylim(COMMON_Y_MIN, COMMON_Y_MAX + 1)
-ax.axis("off")
+% half_span = max(abs(COMMON_X_MIN - x_wall), abs(COMMON_X_MAX - x_wall))
+% ax.set_xlim(x_wall - half_span, x_wall + half_span)
+% ax.set_ylim(COMMON_Y_MIN, COMMON_Y_MAX + 1)
+% ax.axis("off")
 
-ax = axR
-label_horizontal_line(ax, Z, "GS [+2.5]", x=0.25, fs=8, offset_pts=6)
-label_horizontal_line(ax, 0.0, "DL [-1.5]",  x=-4, fs=8, offset_pts=6)
+% ax = axR
+% label_horizontal_line(ax, Z, "GS [+2.5]", x=0.25, fs=8, offset_pts=6)
+% label_horizontal_line(ax, 0.0, "DL [-1.5]",  x=-4, fs=8, offset_pts=6)
 
-ax.plot([0, 4], [Z - params["water_table_depth"], Z - params["water_table_depth"]], linestyle="--", linewidth=1.5, color="black")
-label_horizontal_line(ax, Z - params["water_table_depth"], "GWT [+1.03]", x=0.25, fs=8, offset_pts=6)
+% ax.plot([0, 4], [Z - params["water_table_depth"], Z - params["water_table_depth"]], linestyle="--", linewidth=1.5, color="black")
+% label_horizontal_line(ax, Z - params["water_table_depth"], "GWT [+1.03]", x=0.25, fs=8, offset_pts=6)
 
-ax.plot([-4, 0], [Z - params["water_level"], Z - params["water_level"]], linestyle="--", linewidth=1.5, color="black")
-label_horizontal_line(ax, Z - params["water_level"], "WL [+0.14]", x=-4, fs=8, offset_pts=6)
+% ax.plot([-4, 0], [Z - params["water_level"], Z - params["water_level"]], linestyle="--", linewidth=1.5, color="black")
+% label_horizontal_line(ax, Z - params["water_level"], "WL [+0.14]", x=-4, fs=8, offset_pts=6)
 
-ax.plot([p1[0], p2[0], p3[0], p4[0], p1[0]],
-    [p1[1], p2[1], p3[1], p4[1], p1[1]], color="black", linewidth=3)
-ax.plot([toe[0], left_end[0]], [toe[1], left_end[1]], linewidth=3, color="black")
-ax.plot([top[0], right_end[0]], [top[1], right_end[1]], linewidth=3, color="black")
+% ax.plot([p1[0], p2[0], p3[0], p4[0], p1[0]],
+%     [p1[1], p2[1], p3[1], p4[1], p1[1]], color="black", linewidth=3)
+% ax.plot([toe[0], left_end[0]], [toe[1], left_end[1]], linewidth=3, color="black")
+% ax.plot([top[0], right_end[0]], [top[1], right_end[1]], linewidth=3, color="black")
 
-draw_layers_right_dashed(
-    ax,
-    top_point=top,
-    block_width=params["dim_offset"],
-    layers=layers,
-    fs=max(12, params["font_size"]-2),
-    show_params=False,
-    min_thk=params["min_layer_thk_for_params"]
-)
+% draw_layers_right_dashed(
+%     ax,
+%     top_point=top,
+%     block_width=params["dim_offset"],
+%     layers=layers,
+%     fs=max(12, params["font_size"]-2),
+%     show_params=False,
+%     min_thk=params["min_layer_thk_for_params"]
+% )
 
-# compute excess values at interface marks
-z_marks = {z_toe}
-if z_top_R < z_toe: z_marks.add(z_top_R)
-if z_top_L < z_toe: z_marks.add(z_top_L)
-z_marks.update([z for z in z_interfaces if (z > z_top_L and z <= z_toe) or (z > z_top_R and z <= z_toe)])
-z_marks = sorted(z_marks)
+% # compute excess values at interface marks
+% z_marks = {z_toe}
+% if z_top_R < z_toe: z_marks.add(z_top_R)
+% if z_top_L < z_toe: z_marks.add(z_top_L)
+% z_marks.update([z for z in z_interfaces if (z > z_top_L and z <= z_toe) or (z > z_top_R and z <= z_toe)])
+% z_marks = sorted(z_marks)
 
-z_plot = np.array(sorted(z_marks), dtype=float)
-y_plot = Z - z_plot
-uR_vals = gamma_w * np.maximum(0.0, z_plot - z_top_R)
-uL_vals = gamma_w * np.maximum(0.0, z_plot - z_top_L)
-uN_vals = uR_vals - uL_vals  # excess R - L
+% z_plot = np.array(sorted(z_marks), dtype=float)
+% y_plot = Z - z_plot
+% uR_vals = gamma_w * np.maximum(0.0, z_plot - z_top_R)
+% uL_vals = gamma_w * np.maximum(0.0, z_plot - z_top_L)
+% uN_vals = uR_vals - uL_vals  # excess R - L
 
-# group contiguous runs where uN positive/negative
-def contiguous_runs(mask):
-    runs = []
-    run = None
-    for i, m in enumerate(mask):
-        if m:
-            if run is None:
-                run = []
-            run.append(i)
-        else:
-            if run is not None:
-                runs.append(run)
-                run = None
-    if run is not None:
-        runs.append(run)
-    return runs
+% # group contiguous runs where uN positive/negative
+% def contiguous_runs(mask):
+%     runs = []
+%     run = None
+%     for i, m in enumerate(mask):
+%         if m:
+%             if run is None:
+%                 run = []
+%             run.append(i)
+%         else:
+%             if run is not None:
+%                 runs.append(run)
+%                 run = None
+%     if run is not None:
+%         runs.append(run)
+%     return runs
 
-pos_mask = uN_vals > 0
-neg_mask = uN_vals < 0
+% pos_mask = uN_vals > 0
+% neg_mask = uN_vals < 0
 
-x_max_needed = -np.inf
-x_min_needed = np.inf
+% x_max_needed = -np.inf
+% x_min_needed = np.inf
 
-# plot positive net (to RIGHT)
-for run in contiguous_runs(pos_mask):
-    idx = np.array(run)
-    if idx.size == 0:
-        continue
-    # include the immediate previous point if it exists and is zero so the wedge anchors at GWT
-    if idx[0] > 0 and np.isclose(uN_vals[idx[0]-1], 0.0):
-        idx = np.concatenate(([idx[0]-1], idx))
-    if idx.size < 2:
-        continue
-    y_seg = y_plot[idx]
-    x_seg = x_face_right + uN_vals[idx] * hydro_scale
-    ax.plot(x_seg, y_seg, lw=2, color="blue")
-    ax.fill_betweenx(y_seg, x_face_right, x_seg, color="blue", alpha=0.30)
+% # plot positive net (to RIGHT)
+% for run in contiguous_runs(pos_mask):
+%     idx = np.array(run)
+%     if idx.size == 0:
+%         continue
+%     # include the immediate previous point if it exists and is zero so the wedge anchors at GWT
+%     if idx[0] > 0 and np.isclose(uN_vals[idx[0]-1], 0.0):
+%         idx = np.concatenate(([idx[0]-1], idx))
+%     if idx.size < 2:
+%         continue
+%     y_seg = y_plot[idx]
+%     x_seg = x_face_right + uN_vals[idx] * hydro_scale
+%     ax.plot(x_seg, y_seg, lw=2, color="blue")
+%     ax.fill_betweenx(y_seg, x_face_right, x_seg, color="blue", alpha=0.30)
 
-# plot negative net (to LEFT)
-for run in contiguous_runs(neg_mask):
-    idx = np.array(run)
-    if idx.size == 0:
-        continue
-    # include the immediate previous point if it exists and is zero so the wedge anchors at GWT
-    if idx[0] > 0 and np.isclose(uN_vals[idx[0]-1], 0.0):
-        idx = np.concatenate(([idx[0]-1], idx))
-    if idx.size < 2:
-        continue
-    y_seg = y_plot[idx]
-    x_seg = x_face_left - (-uN_vals[idx]) * hydro_scale
-    ax.plot(x_seg, y_seg, lw=2, color="blue")
-    ax.fill_betweenx(y_seg, x_seg, x_face_left, color="blue", alpha=0.30)
+% # plot negative net (to LEFT)
+% for run in contiguous_runs(neg_mask):
+%     idx = np.array(run)
+%     if idx.size == 0:
+%         continue
+%     # include the immediate previous point if it exists and is zero so the wedge anchors at GWT
+%     if idx[0] > 0 and np.isclose(uN_vals[idx[0]-1], 0.0):
+%         idx = np.concatenate(([idx[0]-1], idx))
+%     if idx.size < 2:
+%         continue
+%     y_seg = y_plot[idx]
+%     x_seg = x_face_left - (-uN_vals[idx]) * hydro_scale
+%     ax.plot(x_seg, y_seg, lw=2, color="blue")
+%     ax.fill_betweenx(y_seg, x_seg, x_face_left, color="blue", alpha=0.30)
 
-# labels for excess at key levels
-v_off = 0.18
-for i, z in enumerate(z_plot):
-    y = Z - z
-    uN = uN_vals[i]
-    if np.isclose(uN, 0.0):
-        continue
-    if uN > 0:
-        x_tip = x_face_right + uN * hydro_scale
-        x_txt = x_tip + 0.03 * target_w
-        ha = "left"
-    else:
-        x_tip = x_face_left - (-uN) * hydro_scale
-        x_txt = x_tip - 0.03 * target_w
-        ha = "right"
-    ax.text(x_txt, y + (v_off if i % 2 == 0 else -v_off),
-        f"{uN:.1f} kN/m²", fontsize=8, ha=ha, va="center", color="blue")
-    x_max_needed = max(x_max_needed, x_txt)
-    x_min_needed = min(x_min_needed, x_txt)
+% # labels for excess at key levels
+% v_off = 0.18
+% for i, z in enumerate(z_plot):
+%     y = Z - z
+%     uN = uN_vals[i]
+%     if np.isclose(uN, 0.0):
+%         continue
+%     if uN > 0:
+%         x_tip = x_face_right + uN * hydro_scale
+%         x_txt = x_tip + 0.03 * target_w
+%         ha = "left"
+%     else:
+%         x_tip = x_face_left - (-uN) * hydro_scale
+%         x_txt = x_tip - 0.03 * target_w
+%         ha = "right"
+%     ax.text(x_txt, y + (v_off if i % 2 == 0 else -v_off),
+%         f"{uN:.1f} kN/m²", fontsize=8, ha=ha, va="center", color="blue")
+%     x_max_needed = max(x_max_needed, x_txt)
+%     x_min_needed = min(x_min_needed, x_txt)
 
-ax.set_xlim(x_wall - half_span, x_wall + half_span)
-ax.set_ylim(COMMON_Y_MIN, COMMON_Y_MAX + 1)
-ax.axis("off")
+% ax.set_xlim(x_wall - half_span, x_wall + half_span)
+% ax.set_ylim(COMMON_Y_MIN, COMMON_Y_MAX + 1)
+% ax.axis("off")
 
-ax = axC
-ax.plot([p1[0], p2[0], p3[0], p4[0], p1[0]],
-        [p1[1], p2[1], p3[1], p4[1], p1[1]], color="black", linewidth=3)
+% ax = axC
+% ax.plot([p1[0], p2[0], p3[0], p4[0], p1[0]],
+%         [p1[1], p2[1], p3[1], p4[1], p1[1]], color="black", linewidth=3)
 
-FL, zcL = (0.0, None)
-FR, zcR = (0.0, None)
-if z_top_L < z_toe:
-    FL, zcL = hydro_triangle_resultant(z_top_L, z_toe, gamma_w)
-if z_top_R < z_toe:
-    FR, zcR = hydro_triangle_resultant(z_top_R, z_toe, gamma_w)
+% FL, zcL = (0.0, None)
+% FR, zcR = (0.0, None)
+% if z_top_L < z_toe:
+%     FL, zcL = hydro_triangle_resultant(z_top_L, z_toe, gamma_w)
+% if z_top_R < z_toe:
+%     FR, zcR = hydro_triangle_resultant(z_top_R, z_toe, gamma_w)
 
-# Net resultant (positive = to right)
-Fnet = FR - FL
-zc_net = None
-if abs(Fnet) > 1e-12:
-    # take sign into account: right is positive x, left acts opposite
-    # net centroid measured from top: (FR*zcR - FL*zcL) / (FR - FL)
-    zc_net = (FR * zcR - FL * zcL) / (FR - FL)
+% # Net resultant (positive = to right)
+% Fnet = FR - FL
+% zc_net = None
+% if abs(Fnet) > 1e-12:
+%     # take sign into account: right is positive x, left acts opposite
+%     # net centroid measured from top: (FR*zcR - FL*zcL) / (FR - FL)
+%     zc_net = (FR * zcR - FL * zcL) / (FR - FL)
 
-# arrow plotting positions
-off = 2.25 * block_w
-if FL > 0 and zcL is not None:
-    yL = Z - zcL
-    x_start = x_face_left - off
-    x_end   = x_face_left
-    ax.annotate("", xy=(x_end, yL), xytext=(x_start, yL),
-                arrowprops=dict(arrowstyle="-|>", lw=2.0, color="blue", mutation_scale=12))
-    ax.text(x_start - 0.03*block_w, yL, f"FL: {FL:.2f} kN/m",
-            fontsize=8, ha="right", va="center", color="blue")
+% # arrow plotting positions
+% off = 2.25 * block_w
+% if FL > 0 and zcL is not None:
+%     yL = Z - zcL
+%     x_start = x_face_left - off
+%     x_end   = x_face_left
+%     ax.annotate("", xy=(x_end, yL), xytext=(x_start, yL),
+%                 arrowprops=dict(arrowstyle="-|>", lw=2.0, color="blue", mutation_scale=12))
+%     ax.text(x_start - 0.03*block_w, yL, f"FL: {FL:.2f} kN/m",
+%             fontsize=8, ha="right", va="center", color="blue")
 
-if FR > 0 and zcR is not None:
-    yR = Z - zcR
-    x_start = x_face_right + off
-    x_end   = x_face_right
-    ax.annotate("", xy=(x_end, yR), xytext=(x_start, yR),
-                arrowprops=dict(arrowstyle="-|>", lw=2.0, color="blue", mutation_scale=12))
-    ax.text(x_start + 0.03*block_w, yR, f"FR: {FR:.2f} kN/m",
-            fontsize=8, ha="left", va="center", color="blue")
+% if FR > 0 and zcR is not None:
+%     yR = Z - zcR
+%     x_start = x_face_right + off
+%     x_end   = x_face_right
+%     ax.annotate("", xy=(x_end, yR), xytext=(x_start, yR),
+%                 arrowprops=dict(arrowstyle="-|>", lw=2.0, color="blue", mutation_scale=12))
+%     ax.text(x_start + 0.03*block_w, yR, f"FR: {FR:.2f} kN/m",
+%             fontsize=8, ha="left", va="center", color="blue")
     
-label_horizontal_line(ax, Z, "GS [+2.5]", x=0.5, fs=8, offset_pts=6)
-label_horizontal_line(ax, 0.0, "DL [-1.5]",  x=-4, fs=8, offset_pts=6)
+% label_horizontal_line(ax, Z, "GS [+2.5]", x=0.5, fs=8, offset_pts=6)
+% label_horizontal_line(ax, 0.0, "DL [-1.5]",  x=-4, fs=8, offset_pts=6)
 
-ax.plot([0, 4], [Z - params["water_table_depth"], Z - params["water_table_depth"]], linestyle="--", linewidth=1.5, color="black")
-label_horizontal_line(ax, Z - params["water_table_depth"], "GWT [+1.03]", x=0.5, fs=8, offset_pts=6)
+% ax.plot([0, 4], [Z - params["water_table_depth"], Z - params["water_table_depth"]], linestyle="--", linewidth=1.5, color="black")
+% label_horizontal_line(ax, Z - params["water_table_depth"], "GWT [+1.03]", x=0.5, fs=8, offset_pts=6)
 
-ax.plot([-4, 0], [Z - params["water_level"], Z - params["water_level"]], linestyle="--", linewidth=1.5, color="black")
-label_horizontal_line(ax, Z - params["water_level"], "WL [+0.14]", x=-4, fs=8, offset_pts=6)
+% ax.plot([-4, 0], [Z - params["water_level"], Z - params["water_level"]], linestyle="--", linewidth=1.5, color="black")
+% label_horizontal_line(ax, Z - params["water_level"], "WL [+0.14]", x=-4, fs=8, offset_pts=6)
 
-ax.plot([p1[0], p2[0], p3[0], p4[0], p1[0]],
-    [p1[1], p2[1], p3[1], p4[1], p1[1]], color="black", linewidth=3)
-ax.plot([toe[0], left_end[0]], [toe[1], left_end[1]], linewidth=3, color="black")
-ax.plot([top[0], right_end[0]], [top[1], right_end[1]], linewidth=3, color="black")
+% ax.plot([p1[0], p2[0], p3[0], p4[0], p1[0]],
+%     [p1[1], p2[1], p3[1], p4[1], p1[1]], color="black", linewidth=3)
+% ax.plot([toe[0], left_end[0]], [toe[1], left_end[1]], linewidth=3, color="black")
+% ax.plot([top[0], right_end[0]], [top[1], right_end[1]], linewidth=3, color="black")
 
-ax.set_xlim(x_wall - half_span, x_wall + half_span)
-ax.set_ylim(COMMON_Y_MIN, COMMON_Y_MAX + 1)
-ax.axis("off")
+% ax.set_xlim(x_wall - half_span, x_wall + half_span)
+% ax.set_ylim(COMMON_Y_MIN, COMMON_Y_MAX + 1)
+% ax.axis("off")
 
-plt.show()
-\end{lstlisting}
+% plt.show()
+% \end{lstlisting}
 
 \section{Embedding depth $\sum M=0$}
 

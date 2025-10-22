@@ -171,7 +171,7 @@
 
         %% Add the logo in the bottom left
         \node[above right=10mm] at (current page.south west) {%
-            \includegraphics[width=0.35\linewidth]{figures/logo-white.pdf}}
+            \includegraphics[width=0.35\linewidth]{figures/logo-white.pdf}};
         \node[xshift=-35mm , yshift=19mm] at (current page.south east) {
             \includegraphics[width=0.30\linewidth]{figures/logo-fast.png}};        
 
