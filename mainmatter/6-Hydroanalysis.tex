@@ -45,10 +45,9 @@ This section describes the liquid discharge observed in the SNIH measurement sta
     \caption{Comparison of discharge divided between Paraná Guazú and Paraná de las Palmas}
 \end{figure}
 
-The importance of the Paraná Guazú has been identified. In view of the study area, the discharge of Paraná Guazú used above, sums the contribution of the Ibicuy and partly of the Paraná. At Puerto Ibicuy, no active discharge measurements are made. \textcite{brokChannelNetworkMorphodynamics2022}mention a river discharge of approximately 
-1600 m$^3$/s, rendering the contribution of the Ibicuy branch relatively small. Therefore, further analysis is performed on the Brazo Largo station downstream. Here, the first step is to look at water elevations and how these relate to discharge.
+The relative importance of the Paraná Guazú in the delta has been established. Considering the study area, the discharge values used for the Paraná Guazú include contributions from both the Ibicuy and, to some extent, the main Paraná channel. At Puerto Ibicuy, no active discharge measurements are available. \textcite{brokChannelNetworkMorphodynamics2022}report an approximate river discharge of 1600 m³/s, indicating that the contribution of the Ibicuy branch is relatively minor. Consequently, further analysis focuses on the Brazo Largo station, located downstream.
 
-Traditionally, stage-discharge relations are described by rating curves that describe power-law dependencies between variables. This can be written in the following form, with $Q$ the discharge and $h$ the water level or stage:
+First, the relationship between water elevation and discharge is examined. Stage–discharge relations are commonly expressed through rating curves, which describe a power-law dependence between these variables. This can be formulated as:
 
 \begin{equation}
 \label{eq:powerlaw}
@@ -56,11 +55,10 @@ Traditionally, stage-discharge relations are described by rating curves that des
 \end{equation}
 
 
-
-
 % DISCUSSION
 % \textcite{schmidtStageDischargeRelationshipOpen2011} note several limitations related to these rating curves. For example, discharge measurements typically scatter and therefore do not show a unique relation with the stage. Also, the underlying physics of the open channel are not captured in the rating. Nevertheless, the relation as given in Equation \ref{eq:powerlaw} is used to approximate dependencies between the variables. 
 
+In the expression above, $a$ is a constant and $b$ an index exponent.
 The relationship between fluvial discharge and water level at Brazo Largo yields a relatively weak correlation with an $R^2$ of 0.365. This is shown in Figure \ref{fig:waterleveldischarge}. Alternatively, a linear fit was assumed which produced a slightly better result, showing a positive trend with an $R^2$ of 0.444. In contrast, the El Colorado and Túnel Subfluvial stations exhibit a clear power-law dependence. Power-law fits for these stations resulted in higher $R^2$-values of 0.962 and 0.712, respectively, with the El Colorado plot shown in Figure \ref{fig:waterleveldischarge}. Overall, these results suggest that the strength of the water level–discharge relationship decreases as the river flows downstream.
 
 
@@ -756,7 +754,7 @@ $$
 
 Converting units gives:
 $$
-{F_w}= 0.7664 \, \text{[kN/m]}
+{F_w}= 0.766 \, \text{[kN/m]}
 $$
 
 Since there are 6 boats passing by every day, and each boat creates approximately 10 ship induced waves, a dynamic loading system would be required to solve this situation. Due to a lack of information and resources this dynamic loading system is not an option. Therefore, it is chosen to choose for a slight simplification of the model by transforming it into a static system. 
@@ -806,7 +804,15 @@ This is the value that can be used to calculate solutions for bank protection.
 \subsection{Aqua Monitor}
 \label{section:cirtical_location}
 In this section the data from the water gains and losses is explained in more detail.
-Recalling the whole period of time available in Section \ref{Aqua Monitor Water Changes 1985-2025}, it is clear that the outer side of the river curves experience a water surface gain (indicated in blue), and the inner sides of the curves lose water, implying sedimentation (indicated in green). 
+Recalling the whole period of time available in Section \ref{Aqua Monitor Water Changes 1985-2025}, it is clear that the outer side of the river curves experience a water surface gain (indicated in blue), and the inner sides of the curves lose water, implying sedimentation (indicated in green). For simplicity, the Figure is shown below as well.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/ch4/1985-2025.jpg}
+    \caption{Aqua Monitor Water Changes 1985-2025}
+\end{figure}
+\label{Aqua Monitor Water Changes 1985-2025.2}
+
 The location of the 'La Blanqueada' camping  is in the outer side of the curve near Puerto Constanza, as seen in the following Figure \ref{fig:Camping Blanqueada}.
 
 \begin{figure}[H]
@@ -819,9 +825,9 @@ The location of the 'La Blanqueada' camping  is in the outer side of the curve n
 The camping's location matches with the blue part of the water gain map, indicating that the water quantity around the shore of the camping has increased. 
 In order to know if this has always been so, or if the water gains in this precise location have been gradually increasing, several maps with closer intervals have been created. 
 
-There are quite a few comments to be made about the maps. First of all, blue and green zones stay consistent throughout the years, but when going into detailed time periods they can differ. Variations occur on shorter time periods such as the period 2005-2015, which indicated more water gains than losses in the deltas surrounding the region of interest. Another very interesting thing to note is that the flood of 2016 in the Parana Guazu can also be seen through the help of this map, on a time interval of 2015-2017.
+As one can see the blue and green zones stay consistent throughout the years, but when going into detailed time periods they can differ. Variations occur on shorter time periods such as the period 2005-2015, which indicated more water gains than losses in the deltas surrounding the region of interest. Furthermore the flood of 2016 in the Parana Guazu can also be illustrated through the help of this map, on a time interval of 2015-2017 \ref{fig:discharge_series}.
 
-Furthermore, droughts are also illustrated quite well with this application. The perfect example would be the long period of drought in 2022 which led some parts of the Parana to be left dry, as seen in Figure \ref{fig:Discharge Changes in Brazo Largo}. With the Parana Guazu's significant depths of over 40 meters this was unlikely to happen but still, this change in water quantity did not go unnoticed by the Deltares application. This can be seen on the Figure of 2020-2022.
+In addition to that, droughts are well highlighted with this application. An example would be the long period of drought in 2022 which led some parts of the Parana to be left dry, as seen in Figure \ref{fig:Discharge Changes in Brazo Largo}. With the Parana Guazu's significant depths of over 40 meters this was unlikely to happen but still, this change in water quantity did not go unnoticed by the Deltares application. This can be seen on the Figure of 2020-2022.
 
 Other periods of time are more or less stable and have nothing to report. For the sake of these explanations the relevant Figures can be found in the Appendix \ref{Appendix: Satellite Data}.
 
