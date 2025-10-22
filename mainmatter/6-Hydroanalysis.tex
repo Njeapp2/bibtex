@@ -45,9 +45,8 @@ This section describes the liquid discharge observed in the SNIH measurement sta
     \caption{Comparison of discharge divided between Paraná Guazú and Paraná de las Palmas}
 \end{figure}
 
-The importance of the Paraná Guazú has been identified. In view of the study area, the discharge of Paraná Guazú used above, sums the contribution of the Ibicuy and partly of the Paraná. At Puerto Ibicuy, no active discharge measurements are made. 
-
-
+The importance of the Paraná Guazú has been identified. In view of the study area, the discharge of Paraná Guazú used above, sums the contribution of the Ibicuy and partly of the Paraná. At Puerto Ibicuy, no active discharge measurements are made. \textcite{brokChannelNetworkMorphodynamics2022}mention a river discharge of approximately 
+1600 m$^3$/s, rendering the contribution of the Ibicuy branch relatively small. Therefore, further analysis is performed on the Brazo Largo station downstream. Here, the first step is to look at water elevations and how these relate to discharge.
 
 Traditionally, stage-discharge relations are described by rating curves that describe power-law dependencies between variables. This can be written in the following form, with $Q$ the discharge and $h$ the water level or stage:
 
@@ -56,7 +55,11 @@ Traditionally, stage-discharge relations are described by rating curves that des
     Q = a \cdot h^b
 \end{equation}
 
-In the expression above, $a$ is a constant and $b$ an index exponent. \textcite{schmidtStageDischargeRelationshipOpen2011} note several limitations related to these rating curves. For example, discharge measurements typically scatter and therefore do not show a unique relation with the stage. Also, the underlying physics of the open channel are not captured in the rating. Nevertheless, the relation as given in Equation \ref{eq:powerlaw} is used to approximate dependencies between the variables. 
+
+In the expression above, $a$ is a constant and $b$ an index exponent.
+
+% DISCUSSION
+% \textcite{schmidtStageDischargeRelationshipOpen2011} note several limitations related to these rating curves. For example, discharge measurements typically scatter and therefore do not show a unique relation with the stage. Also, the underlying physics of the open channel are not captured in the rating. Nevertheless, the relation as given in Equation \ref{eq:powerlaw} is used to approximate dependencies between the variables. 
 
 The relationship between fluvial discharge and water level at Brazo Largo yields a relatively weak correlation with an $R^2$ of 0.365. This is shown in Figure \ref{fig:waterleveldischarge}. Alternatively, a linear fit was assumed which produced a slightly better result, showing a positive trend with an $R^2$ of 0.444. In contrast, the El Colorado and Túnel Subfluvial stations exhibit a clear power-law dependence. Power-law fits for these stations resulted in higher $R^2$-values of 0.962 and 0.712, respectively, with the El Colorado plot shown in Figure \ref{fig:waterleveldischarge}. Overall, these results suggest that the strength of the water level–discharge relationship decreases as the river flows downstream.
 
@@ -760,7 +763,7 @@ Since there are 6 boats passing by every day, and each boat creates approximatel
 
 Summing all the forces for every wave passing by would be incorrect. In order to successfully choose an approach to the static model the method of cyclic loading, assuming a dynamic load factor, was chosen. According to dynamic wave loading, a factor of 1.2 to 1.5 can be used to determine the cyclic loading of a wave\autocite{Cuomo et all}. This factor depends on the type of structure and soil , is strongest on a concrete, but for a bank made out of clay/sand the value of the factor sits at 1.3. The final value of the ship induced wave load is therefore:
 
-$ F_{w} = 0.7664 * 1.3 = 0.9963  \, \text{kN/m}$ per day. 
+$ F_{w} = 0.766 * 1.3 = 0.996  \, \text{kN/m}$ per day. 
 
 \subsubsection{Current Load}
 For the current load, one may use the drag equation (\textbf{Reference})
@@ -787,19 +790,17 @@ To be able to calculate the force of the current on the bank, one needs to estab
 $$
 F_c = \frac{1}{2} \cdot 1000 \cdot 1.2 \cdot 1.5^2 = 1.350 ~\text{[kN/m]}
 $$
-This also occurs for a short period of time, but 6 times a day. Hence, it is not a static load and needs to be considered at different time intervals. The same approach as for the wave load is used, adding the dynamic load factor of 1.3 to the previously calculated value. 
+This also occurs for a short period of time, but 6 times a day. It is also a dynamic system and should be considered at different time intervals. Hence, the same approach as for the wave load is used, adding the dynamic load factor of 1.3 to the previously calculated value. 
 $$
-F_c = 1.350 * 1.3 = ~\text{[kN/m]}
+F_c = 1.350 * 1.3 = 1.755 ~\text{[kN/m]}
 $$
-
-The total load effect of the ship waves on the bank every day would be:
-
+Therefore the total load effect of the ship waves and current on the bank in a static system would be:
 
 $$
-F = F_w + F_c = 1.350 \cdot 6 + 0.9963 = 54.08 ~\text{[kN/m]}
+F = F_w + F_c = 1.755 + 0.996 = 2.751 ~\text{[kN/m]}
 $$
 
-This value can later be used when calculating solutions for bank protection. 
+This is the value that can be used to calculate solutions for bank protection. 
 
 
 \subsection{Aqua Monitor}
