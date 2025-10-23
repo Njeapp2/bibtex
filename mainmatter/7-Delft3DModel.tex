@@ -55,7 +55,10 @@ The computational grid shown in Figure~\ref{fig: Grid Guazu Delft3D} has four op
 For the initial water level, the water level at the start of the first simulated day was used (1.213 m). As the period of interest is 25 and 26 September 2025 (the days on which field measurements were taken), the simulation was started on 24 September 2025 to allow for model spin-up.
 
 \subsubsection{Physical and numerical parameters}
-For the hydrodynamic simulation, a time step of 0.2 minutes was used to ensure that the Courant number remained below 1.0, thereby maintaining numerical stability while still being computationally efficient. The horizontal eddy viscosity and horizontal eddy diffusity were set to 1 m\textsuperscript{2}/s and 1 m\textsuperscript{2}/s respectively. 
+For the hydrodynamic simulation, a time step of 0.2 minutes was used to ensure that the Courant number remained below 1.0, thereby maintaining numerical stability while remaining computationally efficient. The bed roughness was defined using the Manning formula with a value Manning's roughness coefficient ($n$) of 0.025 in both the longitudinal (U) and lateral (V) directions, which corresponds to moderately rough river beds. In order to account for the secondary flow in river bends and the confluence, a secondary flow coefficient ($\beta_c$) of 0.5 is used. This coefficient determines the fraction of shear stress taken into account in the momentum equation due to secondary flow. 
+
+The horizontal eddy viscosity and horizontal eddy diffusivity were set to 1 m\textsuperscript{2}/s and 2 m\textsuperscript{2}/s respectively. These values were chosen to provide realistic horizontal momentum and scalar transport. Large values for the horizontal eddy viscosity and horizontal eddy diffusivity can lead to excessive numerical smoothing. The HLES turbulence model was not activated to calculate the viscosity and diffusivity in the base run, as simulations with HLES activated are computationally more expensive. HLES resolves smaller turbulent eddies explicitly, which requires a smaller time step, hence why it is computationally more expensive. Instead, the influence of the HLES turbulence model is evaluated in the sensitivity analysis.
+
 
 
 \begin{itemize}

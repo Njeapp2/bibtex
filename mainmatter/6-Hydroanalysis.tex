@@ -673,9 +673,6 @@ Table \ref{tab:standard_values} gives the standard design values for wave height
 
 \subsection{Calculation of Loads and Impacts due to Ships}
 Following the information about tides waves and currents, one might ask how the ship induced waves exerts a force on the river bed. This can be answered with the help of wave theory. The first relevant parameters to take into account are the ship waves in rivers. These are assumed to be between 0.25 and 0.75 meters tall according to Table \ref{tab:standard_values}. Based on observations during the field trip, the value of 0.25 meter wave height is chosen, and a distance of 100 meters from the boat to the bank, as the cargo ships do not travel with a speed significant enough to reach heights of 0.75 m at the riverbank.
-There are two types of currents coming from the ship, the natural and return current.
-
-Since the natural current is the relevant one in this case due to its magnitude of 1.5 [m/s] compared to 0.5 [m/s] \ref{tab:standard_values} will serve as a reference for further calculations \autocite{hasanShipinducedWaveForces2025}.
 
 \subsubsection{Wave Load}
 In this case, one can calculate the force of the wave, assuming that the wave signal given by the boat is uniform. In the calculation one assumes from the video filmed in the field trip that the wave spectrum coming from the ship includes about 10 repetitions, and that the boat is located 100 meters from the shore. This leaves us with the wave theory of \autocite{arrigaLecture2CIEM40002025} which states that there are two types of waves you can get energy from:
@@ -700,7 +697,7 @@ Wave energy is a specific energy and it is calculated per unit of horizontal are
 \noindent where:
 \begin{itemize}
     \item $\rho$ is the density of fresh water: 1000 [kg/m\textsuperscript{3}];
-    \item \(H^2\) is the wave height: 0.25\^2 [m\textsuperscript{2}];
+    \item \(H^2\) is the wave height: \(0.25^2\) [m\textsuperscript{2}];
     \item \(g\) is the gravitational constant: 9.81 [m/s\textsuperscript{2}]
 \end{itemize}
 
@@ -722,49 +719,31 @@ Summing all the forces for every wave passing by would be incorrect. In order to
 $ F_{w} = 0.766 \cdot 1.3 = 0.996  \, ~\text{kN/m}$ per ship. 
 
 \subsubsection{Current Load}
-The current of a river can have different effects on the river bank depending on the degree of impact on the bank. A current working directly in the direction of the bank, in this case 90 degrees, does not have the same effect as a current moving along the bank. The current going along the river bank creates a different type of load, categorised as shear \autocite{chowOpenChannelHydraulics}.
-For the situation of the Parana Guazu, one may use the shear equation from the Open Channel Hydraulic Book cited above to calculate the force exerted by the current on a vertical structure:
-
+The current of a river can have different effects on the river bank depending on the degree of impact on the bank. A current working directly in the direction of the bank, in this case 90 degrees, does not have the same effect as a current moving along the bank. The current going along the river bank creates a different type of load, categorised as shear \autocite{chowOpenChannelHydraulics}. For the situation of the Parana Guazu, one may use the shear equation from the Open Channel Hydraulic Book cited above to calculate the force exerted by the current on a vertical structure:
 
 \begin{equation}
-\label{eq:drag load}
-    t = w\cdot \cdot C_d \cdot A \cdot u^2
-
-    τ=ρghS
+\label{eq:shear load}
+    F_c = \tau \cdot A =\rho\cdot g \cdot h \cdot S \cdot A
 \end{equation}
-
 
 \noindent where:
 \begin{itemize}
-    \item \textbf{$ F_c $}: Force exerted by the current [N]
+    \item \textbf{$ F_c $}: Shear force exerted by the current [N]
     \item \textbf{$ \rho $}: Density of freshwater: 1000 [kg/m$^3$]
-    \item \textbf{$ C_d $}: Drag coefficient, for a vertical wall: 1.2 [-]
-    \item \textbf{$ A $}: Exposed area:  [m$^2$]
-    \item \textbf{$ u $}: Current velocity: 1.5 [m/s]
+    \item \(g\) is the gravitational constant: 9.81 [m/s\textsuperscript{2}]   
+    \item \textbf{$ h $}: water depth at location [m]
+    \item \textbf{$ A $}: Exposed area in  [m$^2$]
+    \item \textbf{$ S $}: River slope [-]
 \end{itemize}
 
-The Drag coefficient value of 1.2 is found for a surface with an angle of 90 degrees to the field \autocite{chhabrarajendraprasadDragCoefficientOverview}.
-To be able to calculate the force of the current on the bank, one needs to establish the exposed surface area. Since it cannot be known exactly how long the relevant bank stretch is, one could calculate with 1 meter riverbank height, so A = 1 [m$^2$] would yield a Force illustrated per meter length of the bank. Filling in these parameters in Equation \ref{eq:drag load} gives:
+The shear force exerted by a river current on its banks is a critical factor in understanding erosion and bank stability. This force is not uniform along the length of a river channel but varies due to changes in bathymetry and bank geometry.
 
-$$
-F_c = \frac{1}{2} \cdot 1000 \cdot 1.2 \cdot 1.5^2 = 1.350 ~\text{[kN/m]}
-$$
-This also occurs for a short period of time, but 6 times a day. It is also a dynamic system and should be considered at different time intervals. Due to the complexity of this method, the same approach as for wave loading is used which consists of adding the dynamic load factor of 1.3 to the previously calculated value. 
-$$
-F_c = 1.350 * 1.3 = 1.755 ~\text{[kN/m]}
-$$
-To that end, the total load effect of the ship waves and current on the bank in a static system would be:
-
-$$
-F = F_w + F_c = 1.755 + 0.996 = 2.751 ~\text{[kN/m]}
-$$
-
-This is the value that can be used to calculate solutions for bank protection. 
+To be able to calculate the force of the current on the bank, one needs to find the parameters of the equation for the exposed surface area. As the water density $\rho$ and the gravitational constant $g$ can be assumed to be constant along the channel, the other parameters can differ in function of the chosen location. Since it cannot be known exactly how tall the relevant bank stretch is over the whole area, one could assume a 1 meter riverbank height constant from field work measurements. So A = 1 [m$^2$] would yield a force illustrated per meter length of the bank. Moreover, parameter of the river slope $S$ is equal to 10\textsuperscript{-5}, a data obtained from previous INA research \autocite{}. Lastly, the parameter of water depth depends on the bathymetry of the location chosen. These values were obtained during the fieldtrip measurements. Based on a chosen location, one can obtain the water depth via the local bathymetry cross section, and inserting this last parameter into the equation \ref{eq:shear load} above. This can be useful for mitigation strategies for bank erosion.
 
 
 \subsection{Aqua Monitor}
 \label{section:cirtical_location}
-Illustrating the bank damages due to local ship waves, currents and tides is important to assess an assessment of small scale. Nevertheless, it makes more sense to add a global scale study of the water gains and losses on top of that in order to sum up the ways water levels can influence the bank erosion. So, in this section the data from the water gains and losses will be explained in more detail. 
+Illustrating the bank damages due to local ship waves, currents and tides is important to assess an assessment of local scale. Nevertheless, it makes more sense to add a global scale study of the water gains and losses on top of that in order to sum up the ways water levels can influence the bank erosion. So, in this section the data from the water gains and losses will be explained in more detail. 
 
 Recalling the whole period of time available in Section \ref{Aqua Monitor Water Changes 1985-2025}, it is clear that the outer side of the river curves experience a water surface gain (indicated in blue), and the inner sides of the curves lose water, implying sedimentation (indicated in green). For simplicity, the Figure is shown below as well.
 
