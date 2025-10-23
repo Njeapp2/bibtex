@@ -33,7 +33,30 @@ The bathymetry was derived from a Digital Elevation Model (DEM) from 2019, which
     \label{fig: Bathymetry Delft3D}
 \end{figure}
 
-The computational grid shown in Figure~\ref{fig:Grid Guazu Delft3D} has four open boundaries where boundary conditions must be imposed. For the downstream boundary at Brazo Largo, a water level time series with measurements taken every 20 minutes was used. For the other three boundaries at Río Talabera, Río Ibicuy, and Río Paraná, total discharge time series were applied. Since no discharge data were available for these locations, discharge results from a one-dimensional HEC-RAS model at Brazo Largo were provided by INA. Using the discharge measurements from the field campaign, assumptions were made of the percentage of total discharge distributed across the domain. These ratios, derived from Table~\ref{tab:discharges fieldwork}, were subsequently multiplied by the Brazo Largo discharge series to determine the appropriate boundary conditions for the remaining boundaries.
+The computational grid shown in Figure~\ref{fig: Grid Guazu Delft3D} has four open boundaries where boundary conditions must be imposed. For the downstream boundary at Brazo Largo, a water level time series with measurements taken every 20 minutes was used, see Figure \ref{fig: Downstream bc}. For the other three boundaries at Río Talabera, Río Ibicuy, and Río Paraná, total discharge time series were applied. Since no discharge data were available for these locations, discharge results from a one-dimensional HEC-RAS model at Brazo Largo were provided by INA. Using the discharge measurements from the field campaign, assumptions were made of the percentage of total discharge distributed across the domain. These ratios, derived from Table~\ref{tab:discharges fieldwork}, were subsequently multiplied by the Brazo Largo discharge series to determine the appropriate boundary conditions for the remaining boundaries. The three upstream boundary conditions are shown in Figure \ref{fig: Upstream bc}.
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.48\linewidth}
+        \centering
+        \includegraphics[height=6cm]{figures/ch7/Downstream_bc.png}
+        \caption{Downstream water level boundary condition.}
+        \label{fig: Downstream bc}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\linewidth}
+        \centering
+        \includegraphics[height=6cm]{figures/ch7/Upstream_bc.png}
+        \caption{Upstream discharge boundary conditions.}
+        \label{fig: Upstream bc}
+    \end{minipage}
+\end{figure}
+
+For the initial water level, the water level at the start of the first simulated day was used (1.213 m). As the period of interest is 25 and 26 September 2025 (the days on which field measurements were taken), the simulation was started on 24 September 2025 to allow for model spin-up.
+
+\subsubsection{Physical and numerical parameters}
+For the hydrodynamic simulation, a time step of 0.2 minutes was used to ensure that the Courant number remained below 1.0, thereby maintaining numerical stability while still being computationally efficient. The horizontal eddy viscosity and horizontal eddy diffusity were set to 1 m\textsuperscript{2}/s and 1 m\textsuperscript{2}/s respectively. 
+
 
 \begin{itemize}
     \item Computational grid
