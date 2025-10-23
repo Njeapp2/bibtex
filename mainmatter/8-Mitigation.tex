@@ -69,7 +69,7 @@ Sheet pile walls can be made of multiple materials, like steel, concrete, or woo
 
 % \subsubsection{Sections and interlocks}
 
-The sections and interlocks for the steel sheet pile walls are crucial for completing a wall when  using it for waterfront structures \autocite{baxterPilingHandbook2022}. Figure \ref{fig:sections_sheetpiles} shows typical steel sections widely used and goes by the names of U and Z sections. In this figure, the interlocks, which give the sections their strength, can also be seen. The interlocks of the U sections are on the neutral axis, and the ones for the Z sections are not. In the neutral axis, the maximum shear stress is obtained, which means the interlocks should be welded or crimped to obtain the full moment of resistance (XX Kelly). When sections meet with water, the walls must be watertight. This can be done with plastic compound materials filling the interlocks or using a preformed polyurethane interlock seal \autocite{baxterPilingHandbook2022}. 
+The sections and interlocks for the steel sheet pile walls are crucial for completing a wall when  using it for waterfront structures \autocite{baxterPilingHandbook2022}. Figure \ref{fig:sections_sheetpiles} shows typical steel sections widely used and goes by the names of U and Z sections. In this figure, the interlocks, which give the sections their strength, can also be seen. The interlocks of the U sections are on the neutral axis, and the ones for the Z sections are not. In the neutral axis, the maximum shear stress is obtained, which means the interlocks should be welded or crimped to obtain the full moment of resistance \autocite{kellyMechanicsLectureNotes}. When sections meet with water, the walls must be watertight. This can be done with plastic compound materials filling the interlocks or using a preformed polyurethane interlock seal \autocite{baxterPilingHandbook2022}. 
 
 % NOG EEN BETERE FOTO LATEN ZIEN VAN INTERLOCKS
 
@@ -84,7 +84,7 @@ The sections and interlocks for the steel sheet pile walls are crucial for compl
 
 Steel will be the material used for the sheet piles. The properties of steel, as a homogeneous material, will be briefly introduced. Steel is an elastic material with a favourable strength-to-weight ratio and a tensile strength ranging between $300 \ N/mm^{2}$ and $2000 \ N/mm^{2}$ \autocite{grabeSheetPilingHandbook2008}. Next, the stress-strain behaviour and specific mechanical properties of steel will be discussed.  
 
-The stress-strain behaviour of steel can be seen in Figure \ref{fig:stress_strain_steel}. The range of elasticity depends on the grade of steel, and the elastic modulus for steel, $E$, is  $ 210000 \ N/mm^{2}$ (XX Schipper). In Figure \ref{fig:stress_strain_steel}, $f_{y}$ is the yield strength, which is the value where the stress will be constant, drop, or reach a strain of $0.2\%$ when the load is removed. Furthermore, $f_{u}$ is the tensile strength, which is according to the grade of steel \autocite{grabeSheetPilingHandbook2008}. The mechanical properties of the steel used for the sheet piles are shown in Table \ref{tab:steel_materialproperties}.
+The stress-strain behaviour of steel can be seen in Figure \ref{fig:stress_strain_steel}. The range of elasticity depends on the grade of steel, and the elastic modulus for steel, $E$, is  $ 210000 \ N/mm^{2}$ \autocite{schipper81MaterialCharacteristics}. In Figure \ref{fig:stress_strain_steel}, $f_{y}$ is the yield strength, which is the value where the stress will be constant, drop, or reach a strain of $0.2\%$ when the load is removed. Furthermore, $f_{u}$ is the tensile strength, which is according to the grade of steel \autocite{grabeSheetPilingHandbook2008}. The mechanical properties of the steel used for the sheet piles are shown in Table \ref{tab:steel_materialproperties}.
 
 \begin{figure}[H]
     \centering
@@ -124,7 +124,7 @@ In Table \ref{tab:env_impacts}, an overview of the materials, concrete, steel an
 
 \begin{table}[H]
   \centering
-  \caption{Environmental impacts by material (XX Schipper)}
+  \caption{Environmental impacts by material \autocite{schipper81MaterialCharacteristics}}
   \label{tab:env_impacts}
   \small
   \setlength{\tabcolsep}{6pt}
@@ -147,7 +147,7 @@ A sustainable solution for sheet piles is found in the EPD ‘EcoSheetPiles™ P
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.90\linewidth]{figures/ch8/eaf_bof.png}
-    \caption{Global warming potential [kg CO2e/t sheet pil] (ArcelorMittal)}
+    \caption{Global warming potential [kg CO2e/t sheet pil] \autocite{arcelormittalGuidelinesSustainabilitySteel2024}}
     \label{fig:eaf_bof}
 \end{figure}
 
@@ -318,11 +318,11 @@ The design of a cantilever sheet pile can be performed using multiple classical 
   \item Spring-supported beam method;
 \end{itemize}
 
-Reviewing Eurocode 7, the calculation for the design of a sheet pile should be based on the spring-supported beam method \autocite{eurocodeGeotechnicalDesignStructures}. However, due to complexity, the sheet pile wall will be calculated using the simplified Padfield and Mair method. This method is a simplified representation of the situation, however, after calculating the embedding depth, the verifications will be according to the ultimate limit and serviceability limit defined in Eurocode 3 and Eurocode 7.
+Reviewing Eurocode 7, the calculation for the design of a sheet pile should be based on the spring-supported beam method \autocite{eurocodeGeotechnicalDesignStructures2025}. However, due to complexity, the sheet pile wall will be calculated using the simplified Padfield and Mair method. This method is a simplified representation of the situation, however, after calculating the embedding depth, the verifications will be according to the ultimate limit and serviceability limit defined in Eurocode 3 and Eurocode 7.
 
 % \subsubsection{Simplified Padfield and Mair}
 
-The simplified Padfield and Mair method \autocite{padfield1984design} used for the cantilever sheet pile is a simplified graphical method, shown in Figure \ref{fig:blum}. The right side of the sheet pile is the "ACTIVE" side, and on the left side, under the dredge level, is the "PASSIVE" side. The simplification step in the figure shows an additional resultant force, R, which acts on the lowest point of the sheet pile. This is done because below this point the “ACTIVE” and “PASSIVE” sides switch, creating a complex situation. Within the method, plastic development of the soil and water table level is assumed to be infinitely stiff. All the support is obtained by the fixity of the soil. To calculate the embedding depth, the sum of moments around the lowest fixed point "O" of the sheet pile wall will be set to zero. The unknown embedding depth can be calculated in multiple ways. In this section, an initial embedding depth will be defined, and iteratively, the moment will be set to zero while increasing or decreasing the embedding depth. However, in this method, no safety factors are taken into account. Therefore, the embedding depth found will have to be increased by $20\%$.
+The simplified Padfield and Mair method XX used for the cantilever sheet pile is a simplified graphical method, shown in Figure \ref{fig:blum}. The right side of the sheet pile is the "ACTIVE" side, and on the left side, under the dredge level, is the "PASSIVE" side. The simplification step in the figure shows an additional resultant force, R, which acts on the lowest point of the sheet pile. This is done because below this point the “ACTIVE” and “PASSIVE” sides switch, creating a complex situation. Within the method, plastic development of the soil and water table level is assumed to be infinitely stiff. All the support is obtained by the fixity of the soil. To calculate the embedding depth, the sum of moments around the lowest fixed point "O" of the sheet pile wall will be set to zero. The unknown embedding depth can be calculated in multiple ways. In this section, an initial embedding depth will be defined, and iteratively, the moment will be set to zero while increasing or decreasing the embedding depth. However, in this method, no safety factors are taken into account. Therefore, the embedding depth found will have to be increased by $20\%$.
 
 \begin{figure}[H]
     \centering
@@ -565,9 +565,9 @@ The balance of moments around the lowest part of the sheet pile should be zero, 
 
 A cantilever sheet pile wall should be designed according to two conditions. These conditions are the Ultimate Limit State (ULS) and the Serviceability Limit State (SLS). In the ULS, the worst possible forces that can occur during the span of the sheet pile should be analyzed with respect to the safety of people and the structure \autocite{baxterPilingHandbook2022}. In the SLS checking the structure under normal conditions where the function and appearance of the structure are concerned \autocite{baxterPilingHandbook2022}. In this section, the ULS GEO is performed.
 
-For the design, this means that safety factors for the ULS and SLS should be included, regarding Eurocode 7 GEO \autocite{eurocodeGeotechnicalDesignStructures}, which is not included in the simplified Padfield and Mair method. For the analysis, multiple combinations should be verified, and the most unfavourable is used for the design. Two combinations, within design approach 1, stated in Eurocode 7, are evaluated in Appendix \ref{appendix:uls_combinations}. However, for the calculation in this section, the most unfavourable combination is taken and elaborated.
+For the design, this means that safety factors for the ULS and SLS should be included, regarding Eurocode 7 GEO \autocite{eurocodeGeotechnicalDesignStructures2025}, which is not included in the simplified Padfield and Mair method. For the analysis, multiple combinations should be verified, and the most unfavourable is used for the design. Two combinations, within design approach 1, stated in Eurocode 7, are evaluated in Appendix \ref{appendix:uls_combinations}. However, for the calculation in this section, the most unfavourable combination is taken and elaborated.
 
-The most unfavourable combination within design approach 1 is combination 2 (DA1-2). The safety factors are shown in Table \ref{tab:partial_factors}, and the partial factors on loads, materials, and actions to protect the sheet pile in ULS are shown \autocite{eurocodeGeotechnicalDesignStructures}. In this calculation, the hydrostatic loads and the earth pressures are permanent. For SLS, all safety factors are set at $1.0$. The combination and safety factors result in the final embedding depth of $t = 10.172$ meters,  shown in Figure \ref{fig:appendix_uls_moments_balance_forces}. However, the acting shear forces and bending moments are greater. From Table \ref{tab:appendix_forces_arms_moments_new}, it can be seen that the balance of moments at this depth is close to zero ($-0.0632 \ kNm/m$).
+The most unfavourable combination within design approach 1 is combination 2 (DA1-2). The safety factors are shown in Table \ref{tab:partial_factors}, and the partial factors on loads, materials, and actions to protect the sheet pile in ULS are shown \autocite{eurocodeGeotechnicalDesignStructures2025}. In this calculation, the hydrostatic loads and the earth pressures are permanent. For SLS, all safety factors are set at $1.0$. The combination and safety factors result in the final embedding depth of $t = 10.172$ meters,  shown in Figure \ref{fig:appendix_uls_moments_balance_forces}. However, the acting shear forces and bending moments are greater. From Table \ref{tab:appendix_forces_arms_moments_new}, it can be seen that the balance of moments at this depth is close to zero ($-0.0632 \ kNm/m$).
 
 \begin{equation}
     t_{GEO} = 10.172 \ m
