@@ -54,10 +54,6 @@ First, the relationship between water elevation and discharge is examined. Stage
     Q = a \cdot h^b
 \end{equation}
 
-
-% DISCUSSION
-\textcite{schmidtStageDischargeRelationshipOpen2011} note several limitations related to these rating curves. For example, discharge measurements typically scatter and therefore do not show a unique relation with the stage. Also, the underlying physics of the open channel are not captured in the rating. Nevertheless, the relation as given in Equation \ref{eq:powerlaw} is used to approximate dependencies between the variables. 
-
 In the expression above, $a$ is a constant and $b$ an index exponent.
 The relationship between fluvial discharge and water level at Brazo Largo yields a relatively weak correlation with an $R^2$ of 0.310. This is shown in Figure \ref{fig:waterleveldischarge}. Alternatively, a linear fit was assumed which produced a slightly better result, showing a positive trend with an $R^2$ of 0.386. In contrast, the El Colorado and Túnel Subfluvial stations exhibit a clear power-law dependence. Power-law fits for these stations resulted in higher $R^2$-values of 0.962 and 0.712, respectively, with the El Colorado plot shown in Figure \ref{fig:waterleveldischarge}. Overall, these results suggest that the strength of the water level–discharge relationship decreases as the river flows downstream.
 
@@ -148,12 +144,7 @@ where \( s \) is the specific gravity of the sediment, \( g \) is the accelerati
 
 \subsection{Correlation between variables}
 \label{sec:correlation of variables}
-As discussed, power-law relationships have been assumed to hold between the variables under consideration. This section describes the correlations encountered during the analysis. The approach to define the relations between measured flow variables is as follows. First, the values in the dataset are logarithmically transformed, after which $R^2$-values are calculated based on a linear fit on the logarithmic values. This procedure is applied to the variables of all measurement stations as described in Section \ref{sec:measurementstations}. Figure \ref{fig:correlationmatrices} gives the results for El Colorado and Brazo Largo in the form of correlation matrices. It stands out that correlations in the Bermejo are very high for all variables. This indicates that the power-law assumption is suitable. Subsequently, it was found that correlations for the Paraná Guazú are much smaller. This is also the case for the Zárate station on the Paraná de las Palmas. As this river is located in the Lower Paraná delta as well, this behaviour is expected. 
-
-Analysis of the flow variables has shown that $R^2$-values tend to decrease, the further downstream the location of the measurements is. This result is in agreement with those found by \textcite{songEvaluatingUnderstandingTideriver2024}, who state that the stage-discharge relationship is considerably affected in the transitional zone and tide-dominated region of the Yangtze estuary. Their research reports $R^2$-values decreasing from 0.9 to 0.4, in a river-dominated and transitional zone, respectively. Therefore, an in-depth study of the tide-river interactions is needed. This includes measurements in both the transitional zone and tide-dominated region, to update the stage-discharge relationship. For this study, the influence of tidal effects are therefore handled in Section \ref{sec: tidal forcing}.
-
-As for the sediment-discharge relationship, the differences in correlations in Brazo Largo can be explained through the sources of the variables. Whereas the fine sediment concentration predominantly originates from the Bermejo basin, the discharge is dominated by the Paraguay and Paraná. This results in a weak correlation downstream of the confluence of these rivers \autocite{lopezweibelSourcesTemporalDynamics2022}. Another factor that may perturb the correlation of variables in the Lower Paraná, is the inflow of the Uruguay river. The variation in elevations that occur due to the presence of this river, can cause disturbances in the rating curves. 
-
+As discussed, power-law relationships have been assumed to hold between the variables under consideration. This section describes the correlations encountered during the analysis. The approach to define the relations between measured flow variables is as follows. First, the values in the dataset are logarithmically transformed, after which $R^2$-values are calculated based on a linear fit on the logarithmic values. This procedure is applied to the variables of all measurement stations as described in Section \ref{sec:measurementstations}. Figure \ref{fig:correlationmatrices} gives the results for El Colorado and Brazo Largo in the form of correlation matrices. It stands out that correlations in the Bermejo are very high for all variables. This indicates that the power-law assumption is suitable. Subsequently, it was found that correlations for the Paraná Guazú are much smaller. This is also the case for the Zárate station on the Paraná de las Palmas.
 
 \begin{figure}[h!]
     \centering
@@ -175,8 +166,6 @@ As for the sediment-discharge relationship, the differences in correlations in B
     \caption{Comparison of $R^2$-values at Brazo Largo and El Colorado}
     \label{fig:correlationmatrices}
 \end{figure}
-
-
 
 \subsection{Tidal forcing }
 \label{sec: tidal forcing}
@@ -291,9 +280,10 @@ The relevant flow measurements of the different cross sections are summarized in
     \label{fig:water elevations fieldwork}
 \end{figure}
 
-
 % DISCUSSION
-The water elevations in Figure \ref{fig:water elevations fieldwork} are expressed with respect to the IGN datum. For that reason, elevations at Puerto Ibicuy are consistently higher than at Brazo Largo on the same time instants. During the two measurement days, water levels drop while discharges increase, which appears to contradict the positive correlation between stage and discharge discussed in Section \ref{sec:correlation of variables}. This discrepancy arises because the standard stage-discharge relationship assumes steady flow and acts on longer timescales. In contrast, on short timescales, water levels in the Paraná Guazú are influenced by variations in the Río de la Plata, including backwater effects and transient downstream control. These factors cause a temporary inverse relation between stage and discharge, leading to the observed short-term response. \textcite{jonesExpandedRatingCurve2019} confirm that traditional rating curves fail in the tidal zone, because tidally influenced discharge is more complex than upstream river discharge, causing non-monotonic behaviour. 
+The water elevations in Figure \ref{fig:water elevations fieldwork} are expressed with respect to the IGN datum. For that reason, elevations at Puerto Ibicuy are consistently higher than at Brazo Largo on the same time instants. During the two measurement days, water levels drop while discharges increase.
+
+
 
 
 
@@ -640,11 +630,11 @@ As stated in Section \ref{sec: Suspended sediment load}, the calculations of the
 
 
 \section{Hydrodynamic effects on the River Banks}
-The river banks are the separation between the river and the land. Therefore, they are an important element to consider when evaluating the hydrodynamic changes of the river due to sand mining. Starting from the wave theory, one create the most realistic approach to the analysed situation, and calculate the loads on the river banks. Furthermore, one can evaluate what the effect is of the water level on the river banks, their correlation with bank erosion and satellite data. 
+The river banks are the separation between the river and the land. Therefore, they are an important to consider when evaluating the hydrodynamic changes of the river due to sand mining. Starting from the wave theory, one can create a realistic approach to the analysed situation, and calculate the hydro loads on the river banks. In addition to that, one should evaluate the variation of the water level on the river banks, their correlation with bank erosion with help of satellite data. These aspects are treated in this section.
 
 \subsection{Damage on the river bank}
 \label{chap 6: effect and damage on the river bank}
-In addition to the study on the effects of sand mining on the river bed, it is as important to look at the effects of water on the river banks. Generally speaking, there are several ways how the water could have a negative impact on the river bank. The river bank failure may be caused by house placement, water saturation, weight on the river bank, vegetation, and/or tectonic activity, but most of them due to the rise of the water level. The reason behind this is that the river bank is naturally eroded when the water exerts a force on it \autocite{governmentofsouthaustraliaRiverbankCollapse2024}.
+Following the study on the effects of sand mining on the river bed, it is relevant to look at the effects of water on the river banks. Generally speaking, there are several ways how the water has potential negative impacts on the river bank. Generally speaking, the bank failure may be caused by house placement, water saturation, weight on the river bank, vegetation, and/or tectonic activity, but most of them due to the rise of the water level. The reason behind this is that the river bank is naturally eroded when the water exerts a force on it \autocite{governmentofsouthaustraliaRiverbankCollapse2024}.
 The river bank is divided in three parts: the toe, the bank and the overbank zone. The toe of the bank is the most susceptible to erosion when in contact with high water levels, which can be seen in the Figure \ref{fig:Effect of Water on Bank after One Year}.
 
 \begin{figure}[H]
