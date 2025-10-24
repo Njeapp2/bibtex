@@ -1,16 +1,6 @@
 \chapter{Delft3D Model}
 \label{chap:Delft3DModel}
-
-\begin{itemize}
-    \item Introduction + objective of the modelling
-    \item Physical problem (flow behaviour around the confluence + unknown flow velocity patterns which can be an indicator of areas prone to erosion)
-    \item Aim of the model (reproduce hydrodynamics in the area)
-    \item Modelling scope (2D depth averaged + neglecting sediment transport + no morphological changes)
-\end{itemize}
-
-This chapter presents the results of the Delft3D model simulations. The model was developed to represent the hydrodynamic conditions within the study area, with particular attention to the flow behaviour near the confluence where dredging activities occur. In addition, the model results are used to identify flow velocity patterns that may indicate areas prone to erosion. The analysis is based on a two-dimensional, depth-averaged model in which sediment transport and morphological changes are not considered.
-
-
+This chapter presents the setup and application of the Delft3D model developed to understand the flow behaviour in the study area, with a focus on the confluence area were sand extraction occurs. In addition the model results are used to identify locations along the river that are prone to erosion. The model was setup as a two-dimensional, depth-averaged model in which sediment transport and morphological changes are not considered. The time period simulated is 25 and 26 September 2025, the two days at which field measurements were taken. The field measurements from these days are used for boundary conditions and calibration of the model.
 
 \section{Model approach}
 In this section, the Delft3D model setup used to simulate the hydrodynamic response of the system is explained. The setup of the model involves defining the computational grid, processing the bathymetry, specifying boundary and initial conditions and finally selecting appropriate physical and numerical parameters.
@@ -32,6 +22,8 @@ The bathymetry was derived from a Digital Elevation Model (DEM) from 2019, which
     \caption{Bathymetry Delft3D model.}
     \label{fig: Bathymetry Delft3D}
 \end{figure}
+
+In order to validate the use of the 2019 DEM for creating the bathymetry, cross sections from the generated bathymetry were compared with measurements obtained by the ADCP during the field campaign. The comparison of the bathymetries of the three cross sections is shown in Figure \ref{fig:bathymetry_cross_sections}. Although the interpolated and measured bathymetries are not exactly the same, the overall shape and depths are very similar, ensuring that the Delft3D simulations accurately represent the current hydraulic conditions.
 
 \begin{figure}[H]
     \centering
@@ -63,8 +55,6 @@ The bathymetry was derived from a Digital Elevation Model (DEM) from 2019, which
     \label{fig:bathymetry_cross_sections}
 \end{figure}
 
-
-
 The computational grid shown in Figure~\ref{fig: Grid Guazu Delft3D} has four open boundaries where boundary conditions must be imposed. For the downstream boundary at Brazo Largo, a water level time series with measurements taken every 20 minutes was used, see Figure \ref{fig: Downstream bc}. For the other three boundaries at Río Talabera, Río Ibicuy, and Río Paraná, total discharge time series were applied. Since no discharge data were available for these locations, discharge results from a one-dimensional HEC-RAS model at Brazo Largo were provided by INA. Using the discharge measurements from the field campaign, assumptions were made of the percentage of total discharge distributed across the domain. These ratios, derived from Table~\ref{tab:discharges fieldwork}, were subsequently multiplied by the Brazo Largo discharge series to determine the appropriate boundary conditions for the remaining boundaries. The three upstream boundary conditions are shown in Figure \ref{fig: Upstream bc}.
 
 \begin{figure}[H]
@@ -84,12 +74,12 @@ The computational grid shown in Figure~\ref{fig: Grid Guazu Delft3D} has four op
     \end{minipage}
 \end{figure}
 
-For the initial water level, the water level was used at the start of the first simulated day (1.213 m). As the period of interest is 25 and 26 September 2025 (the days on which field measurements were taken), the simulation was started on 24 September 2025 to allow for model spin-up.
+For the initial water level, the water level was used at the start of the first simulated day (1.213 m). Since the period of interest is 25 and 26 September 2025, the simulation was started on 24 September 2025 to allow for model spin-up.
 
 \subsubsection{Physical and numerical parameters}
 For the hydrodynamic simulation, a time step of 0.2 minutes was used to ensure that the Courant number remained below 1.0, thereby maintaining numerical stability while remaining computationally efficient. The bed roughness was defined using the Manning formula with a Manning's roughness coefficient ($n$) of 0.025 in both the longitudinal (U) and lateral (V) directions, which corresponds to moderately rough river beds. In order to account for the secondary flow in river bends and the confluence, a secondary flow coefficient ($\beta_c$) of 0.5 is used. This coefficient determines the fraction of shear stress taken into account in the momentum equation due to secondary flow. 
 
-The horizontal eddy viscosity and horizontal eddy diffusivity were set to 1 m\textsuperscript{2}/s and 2 m\textsuperscript{2}/s respectively. These values were chosen to provide realistic horizontal momentum and scalar transport. Large values for the horizontal eddy viscosity and horizontal eddy diffusivity can lead to excessive numerical smoothing. The HLES turbulence model was not activated to calculate the viscosity and diffusivity in the base run, as simulations with HLES activated are computationally more expensive. HLES resolves smaller turbulent eddies explicitly, which requires a smaller time step, hence why it is computationally more expensive. Instead, the influence of the HLES turbulence model is evaluated in the sensitivity analysis.
+The horizontal eddy viscosity and horizontal eddy diffusivity were set to 1 m\textsuperscript{2}/s and 2 m\textsuperscript{2}/s respectively. These values were chosen to provide realistic horizontal momentum and scalar transport. Large values for the horizontal eddy viscosity and horizontal eddy diffusivity can lead to excessive numerical smoothing. The HLES turbulence model was not activated to calculate the viscosity and diffusivity in the base run, because simulations with HLES activated are computationally more expensive. HLES resolves smaller turbulent eddies explicitly, which requires a smaller time step, hence why it is computationally more expensive. Instead, the influence of the HLES turbulence model is evaluated in the sensitivity analysis.
 
 \begin{itemize}
     \item Computational grid
@@ -99,7 +89,7 @@ The horizontal eddy viscosity and horizontal eddy diffusivity were set to 1 m\te
 \end{itemize}
 
 \section{Model Calibration}
-
+The Delft3D model was calibrated to ensure that the simulated hydrodynamic conditions accurately represent the real-life flow conditions. The calibration was done by comparing the model results with the ADCP measurements from the field campaign. Additionally, the simulated water levels near Ibicuy are compared to the measured water level time series. Calibration primarily focussed on adjusting the Manning roughness coefficient, as this parameter has the highest influence on flow velocities and water depth.
 
 \section{Model results}
 
@@ -107,59 +97,3 @@ The horizontal eddy viscosity and horizontal eddy diffusivity were set to 1 m\te
 
 
 
-This chapter describes the simulations that were made using Delft3D software from Deltares. The input parameters are discussed, as well as the process of setting up the model and the output related to previously found behaviour of the Paraná Guazú. 
-
-\section{Two-dimensional hydrodynamic model}
-First, the hydrodynamic conditions of the study area are simulated by setting up a 2D model. For this purpose, the Delft3D 4 Suite version is applied. This software uses structured grids in which the geometry of the cells is fixed. The two-dimensional approach implies that for every cell, depth-averaged flow conditions govern. It is possible to expand to a 3D model by defining sub-layers over the depth profile. For the sake of simplicity, and the level of detail needed in this study, the 2D model is considered sufficient here. 
-
-\subsection{Grid and bathymetry definition}
-\label{section:bathemetry}
-The grid is defined similar to Figure \ref{fig:cross section domain}, including an extension of the Talabera branch. This ensures reliable computations in the confluence of the Paraná Guazú and Talabera. The \textit{RFRGRID}-tool was applied to generate the grid, after importing land boundaries and manually drawing splines. The grid was then refined twice, using a refinement factor of 3. 
-
-The bathymetry is provided by INA through a Digital Elevation Model from 2019. This was converted to a file containing geospatial information and corresponding depths. The DEM has been visually compared to the ADCP cross sections that result from the field campaign, and it was found that the DEM is representative for the current bathymetry of the river. By making use of the \textit{QUICKIN}-tool, the data is interpolated to the computational grid. The resulting grid and depth file, as shown in Figure \ref{fig:delftgrid} and Figure \ref{fig:depthprofile}, were found by implementing the following operations:
-
-\begin{itemize}
-    \item Grid Cell Averaging with 1 as a minimum number of averaging points. This method is preferred over Triangular Interpolation, which is computationally more expensive. In addition, the Grid Cell Averaging approach is suitable when there are more samples than grid points \autocite{deltaresQUICKINUserManual2025}. This is found to be the case when mapping the DEM raster data to a grid. 
-    \item Internal Diffusion with 1000 internal diffusion steps. This approach helps building a smooth transition between 'blank' points (no depth value) and existing bathymetry. 
-\end{itemize}
-
-Subsequently, the grid and depth profile mark the domain to which the flow input can be assigned. In Section \ref{sec:flow input}, this input is described. 
-
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\linewidth]{figures/ch7/delftgrid.PNG}
-    \caption{Delft3D grid for 2D hydrodynamic model}
-    \label{fig:delftgrid}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\linewidth]{figures/ch7/depthprofile.PNG}
-    \caption{Depth profile for 2D hydrodynamic model made by use of QUICKIN}
-    \label{fig:depthprofile}
-\end{figure}
-
-
-
-\subsection{Input for hydrodynamic simulation (Delft3D-FLOW)}
-\label{sec:flow input}
-This section discusses the boundary conditions, hydrodynamic input and parameters that are necessary to run the 2D model simulation. The time frame ran from September 24 to September 26, the dates of the fieldwork. In terms of processes included in the model, only secondary flow is considered. The initial conditions are defined by the water level at the downstream boundary (Brazo Largo) at the start time of the simulation, and a zero secondary flow velocity. In addition, boundary conditions and physical parameters have to be defined. The default settings for the numerical parameters are assumed to be applicable. 
-
-\subsubsection{Boundary conditions}
-In total, there are four boundaries in the domain. To the downstream boundary in Brazo Largo, a time series of water level measurements is assigned. The time series lasts the three days of the time frame, with a measurement every 20 minutes. The other three boundaries have fluvial discharge time series as boundary conditions. There is no measured data available for this. Therefore, the output of a one-dimensional HEC-RAS model was shared by INA. This included discharge time series during the time frame. 
-
-Using the discharge measurements from the field campaign, assumptions are made of the percentages of the discharge that is divided over the domain. These ratios were derived from Table \ref{tab:discharges fieldwork}. Subsequently, the percentages are multiplied by the Brazo Largo discharge series to find appropriate boundary conditions in the remaining boundaries.
-
-\subsubsection{Physical parameters}
-The following physical parameters form the input for the flow model. For other parameters, default settings were applied. 
-
-\begin{itemize}
-    \item Adjustment parameter for near-bed velocity for computation of bed shear stress: $\beta_c = 0.5$
-    \item Bottom roughness is described by uniform Manning values: $U = V = 0.025$
-    \item Uniform value for horizontal eddy viscosity: $1 ~m^2/s$
-    \item Uniform value for horizontal eddy diffusivity: $10 ~m^2/s$
-\end{itemize}
-
-
-\subsection{Output of 2D hydrodynamic model}

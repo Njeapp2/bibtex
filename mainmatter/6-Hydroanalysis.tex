@@ -109,7 +109,6 @@ The analysis is extended to sediment concentrations, relating both fine and coar
 \end{figure}
 
 
-\subsubsection{Estimated fine sediment load}
 The data considered in the previous analysis is recorded approximately every two months over a couple of decades. However, in order to study the balance of sediments in the study area, it is useful to generate time series of sediment loads at a finer resolution. These can provide insight into seasonal effects and sediment flows related to large discharge events. Originally intended for modelling the sedimentological dynamics of the Río de la Plata, \citeauthor{reMetodologiaParaGeneracion2009} have developed a methodology for generating time series of solid discharges. This theory will be applied to the Paraná Guazú under the right considerations.
 
 \vspace{0.2cm}
@@ -119,7 +118,7 @@ Next, this procedure is applied to more recent data to evaluate the methodology.
 \begin{itemize}
     \item A base concentration is set for the Middle Paraná to compensate for low inflow periods of the Bermejo. Therefore, fine sediment load data from Itatí and Puerto Pilcomayo stations (SNIH) are studied in the relevant interval. The sum of the mean loads gives a base concentration of 182.96 kg/s.
     \item To cover the distance between El Colorado and Túnel Subfluvial, a delay of 222 hours is considered (approximately 800 km at a flow velocity of 1 m/s). 
-    \item There is compensated for depositions of wash load in the floodplain between the stations by substracting 10 million tonnes per year from concentration peaks. This holds for all concentrations above a certain threshold value, which in this case was found to be optimal at 350 mg/l.
+    \item There is compensated for depositions of wash load in the floodplain between the stations by subtracting 10 million tons per year from concentration peaks. This holds for all concentrations above a certain threshold value, which in this case was found to be optimal at 350 mg/l.
 \end{itemize}
 
 The result of this time series is given in Figure \ref{fig:timeseries fine sediments}. It is important to note that this relation for fine sediment concentrations is considered useful for the Paraná Guazú as well \autocite{reMetodologiaParaGeneracion2009}. The plot shows that the observations are generally higher than the fit predicts in times of low fine sediment loads. Overall, the fit gives a good estimate of fine sediment concentrations, revealing seasonal aspects and relevant concentration values.
@@ -132,7 +131,6 @@ The result of this time series is given in Figure \ref{fig:timeseries fine sedim
 \end{figure}
 
 
-\subsubsection{Estimated coarse sediment load}
 Similar to fine sediments, an approach for generating time series of coarse sediment concentrations is based on the Engelund–Hansen formulation (\cite{engelundMonographSedimentTransport1967}). This empirical relation predicts the total transport of bed material, which in this case is assumed to consist mainly of coarse sediments or sands. The total volumetric sediment transport rate per unit width is expressed as:
 
 \begin{equation}
@@ -140,8 +138,21 @@ Similar to fine sediments, an approach for generating time series of coarse sedi
     \label{eq:engelund_hansen}
 \end{equation}
 
-where \( s \) is the specific gravity of the sediment, \( g \) is the acceleration due to gravity, \( d_{50} \) is the median grain diameter, and \( S_{f} \) is the friction slope. The variables \( u \) and \( h \) represent the mean flow velocity and the flow depth, respectively. The value for $d_{50}$ is assumed to be 200 ~$\mu$ m \autocite{reMetodologiaParaGeneracion2009}. The values for $u$, $h$ and $S_f$ were gathered by running a one-dimensional hydrodynamic model in HEC-RAS. 
+where \( s \) is the specific gravity of the sediment, \( g \) is the acceleration due to gravity, \( d_{50} \) is the median grain diameter, and \( S_{f} \) is the friction slope. The variables \( u \) and \( h \) represent the flow velocity and the hydraulic depth, respectively. The value for $d_{50}$ is assumed to be 200 ~$\mu$m \autocite{reMetodologiaParaGeneracion2009}. The values for $u$, $h$ and $S_f$ were gathered by running a one-dimensional hydrodynamic model in HEC-RAS. The model output provided relationships between friction slope, flow velocity, and hydraulic depth as functions of discharge. To generate a time series of sediment transport rates, it was therefore sufficient to obtain a single discharge time series. For this purpose, a recent hydrodynamic simulation of water levels and discharges was used for the Brazo Largo section, located downstream of the confluence of the Talabera and Paraná Guazú rivers. The dataset spans approximately two months with hourly intervals. Using interpolation, time series for the friction slope, velocity, and hydraulic depth were derived from the discharge data. These were then used as inputs to Equation \ref{eq:engelund_hansen} to compute the time series of coarse sediment transport rates. The time series of the discharge is given in Figure \ref{fig:discharge time series} and the corresponding coarse sediment load time series in Figure \ref{fig:engelund hansen time series}. The relatively low discharge values are representative for the time frame of this study, and therefore the time series serve as a comparison to the fieldwork. 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/ch6/discharge time series brazo.png}
+    \caption{Discharge time series from HEC-RAS output in Brazo Largo as input for Engelund-Hansen}
+    \label{fig:discharge time series}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/ch6/engelund hansen time series.png}
+    \caption{Time series of coarse sediment load estimated by Engelund-Hansen}
+    \label{fig:engelund hansen time series}
+\end{figure}
 
 \subsection{Correlation between variables}
 \label{sec:correlation of variables}
@@ -217,7 +228,7 @@ M4 & 0.0085 & 238.09  \\
 \end{tabular}
 \end{table}
 
-Figure \ref{fig: Tide 1 month Brazo Largo} shows the detrended water levels for a period of 1 month compared to the calculated tidal signal at Brazo Largo. The tide does indeed show mixed tidal dynamics with a moderate spring-neap cycle and slight asymetries. The period of the spring-neap tide cycle is approximately 15 days. The computed astronomical tide has an amplitude of 0.19 m and a tidal range of 0.39 m. By computing the residual water level ($r$), defined as the difference between the measured water level and the calculated tide, the tidal variance fraction ($f_\text{tide}$) can be calculated (see Equation \ref{eq: Tidal variance fraction}).
+Figure \ref{fig: Tide 1 month Brazo Largo} shows the detrended water levels for a period of 1 month compared to the calculated tidal signal at Brazo Largo. The tide does indeed show mixed tidal dynamics with a moderate spring-neap cycle and slight asymmetries. The period of the spring-neap tide cycle is approximately 15 days. The computed astronomical tide has an amplitude of 0.19 m and a tidal range of 0.39 m. By computing the residual water level ($r$), defined as the difference between the measured water level and the calculated tide, the tidal variance fraction ($f_\text{tide}$) can be calculated (see Equation \ref{eq: Tidal variance fraction}).
 
 \begin{equation}
     f_{\text{tide}} = 1 - \frac{\mathrm{Var}(r)}{\mathrm{Var}(h)}
@@ -251,7 +262,7 @@ Estimates are needed for the discharge of Río Ibicuy and Río Talabera, in orde
     \label{fig:cross section domain}
 \end{figure}
 
-The relevant flow measurements of the different cross sections are summarized in Table \ref{tab:discharges fieldwork}. Note that the water levels are recorded on different dates from nearby measurement stations, i.e. Brazo Largo and Ibicuy. Figure \ref{fig:water elevations fieldwork} gives an overview of the evolution of water elevations during the measurement campaign. The values in the table correspond to the location and time of each measurement. For Section 5, the water level is linearly interpolated between the stations. The remaining cross sections are assumed to be close enough to their corresponding measurement station.  Also, the flow velocity is a mean velocity taken over the entire cross section of the two measured sections per measurement location. The bathymetries and velocity profiles that result from the ACDP measurements can be found in Appendix \ref{appendix:fieldwork results}, where the output of the \textit{RiverSurveyor} software is given. Note that of each cross section, only one of the two measured sections is displayed. The water elevations in Figure \ref{fig:water elevations fieldwork} are expressed with respect to the IGN datum. For that reason, elevations at Puerto Ibicuy are consistently higher than at Brazo Largo on the same time instants. During the two measurement days, water levels drop while discharges increase.
+The relevant flow measurements of the different cross sections are summarized in Table \ref{tab:discharges fieldwork}. Note that the water levels are recorded on different dates from nearby measurement stations, i.e. Brazo Largo and Ibicuy. Figure \ref{fig:water elevations fieldwork} gives an overview of the evolution of water elevations during the measurement campaign. The values in the table correspond to the location and time of each measurement. For section 5, the water level is linearly interpolated between the stations. The remaining cross sections are assumed to be close enough to their corresponding measurement station.  Also, the flow velocity is a mean velocity taken over the entire cross section of the two measured sections per measurement location. The bathymetries and velocity profiles that result from the ACDP measurements can be found in Appendix \ref{appendix:fieldwork results}, where the output of the \textit{RiverSurveyor} software is given. Note that of each cross section, only one of the two measured sections is displayed. The water elevations in Figure \ref{fig:water elevations fieldwork} are expressed with respect to the IGN datum. For that reason, elevations at Puerto Ibicuy are consistently higher than at Brazo Largo on the same time instants. During the two measurement days, water levels drop while discharges increase.
 
 \begin{table}[H]
     \centering
@@ -294,7 +305,7 @@ When processing the samples, it was decided to start with a 0.5 mm sieve size fo
     \caption{Calculated median diameters of samples}
     \begin{tabular}{lc}
         \toprule
-        Sample & D50 (mm) \\
+        Sample & D50 [mm] \\
         \midrule
         1-1  & 0.080     \\
         1-2  & 0.262     \\
@@ -311,20 +322,20 @@ When processing the samples, it was decided to start with a 0.5 mm sieve size fo
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{figures//ch6/CUMU.png}
+    \includegraphics[width=0.70\linewidth]{figures//ch6/CUMU.png}
     \caption{Cumulative grain size distribution of bed load samples}
     \label{fig:Cumu}
 \end{figure}
 
 Figure \ref{fig:Cumu} clearly shows that 1-2 and 2-2 are sand samples and the other samples are clay and silt samples. During the test, possible organic materials were also looked at. When seeing something that could be organic, the sample was tested with hydrochloric acid to see if this was the case. However, no organic particles have been found in the samples. 
 
-Figure \ref{fig:Cumu}, also shows that sand is more frequently encountered at 15 m depth than at 10 m depth. This suggests that coarser sediments tend to occur in the deeper parts of the channel, which are typically subject to stronger flow and higher bed shear stresses. Since there are no sediment samples available in the study area, this cannot be validated directly. Nevertheless, INA has recently recovered multiple samples in the river near the city of Rosario. Two of those samples were taken at a depth of 30 meters. These are presented in Figure \ref{fig:rd}, together with the Paraná Guazú sand samples and a grain size distribution of Ottawa fracking sand. As can be read in Section \ref{sec: fracking in argentina}, the demand for fracking is increasing throughout the years, raising the question if river sand can also be used for these practices.
+Figure \ref{fig:Cumu}, also shows that sand is more frequently encountered at 15 m depth than at 10 m depth. This suggests that coarser sediments tend to occur in the deeper parts of the channel, which are typically subject to stronger flow and higher bed shear stresses. Since there are no sediment samples available in the study area, this cannot be validated directly. Nevertheless, INA has recently recovered multiple samples in the river near the city of Rosario. Two of those samples were taken at a depth of 30 meters. These are presented in Figure \ref{fig:rd}, together with the Paraná Guazú sand samples and a grain size distribution of Ottawa fracking sand. As said in Section \ref{sec: fracking in argentina}, the demand for fracking is increasing throughout the years, raising the question if river sand can also be used for these practices.
 That's why some data about fracking sand from Section \ref{sec:Charact. of fs} is combined with the gained data in this Section. 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{figures//ch6/comparison2.png}
-    \caption{CGZD of multiple samples with homogneneous demand lines \autocite{bensonFracSandUnited2015}}
+    \includegraphics[width=0.70\linewidth]{figures//ch6/comparison2.png}
+    \caption{CGZD of multiple samples with homogeneous demand lines \autocite{bensonFracSandUnited2015}}
     \label{fig:rd}
 \end{figure}
 
@@ -337,14 +348,14 @@ In this section, the measured suspended sediment concentrations and flow velocit
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{figures/ch6/Measured_SSC.png}
+    \includegraphics[width=0.70\linewidth]{figures/ch6/Measured_SSC.png}
     \caption{Measured suspended sediment concentrations.}
     \label{fig:Measured suspended sediment concentrations}
 \end{figure}
 
 Figure \ref{fig:Measured suspended sediment concentrations} shows, that for all three cross sections, the suspended sediment concentration is the highest near the bed. Further, cross section 2 shows a steeper profile than cross sections 1 and 3.
 
-The Acoustic Doppler Current Profiler (ADCP) measures the flow velocity and depth across a river cross section by dividing the measurements into vertical bins for every ensemble. These data can be used to create a flow velocity field for the whole cross section, see Appendix \ref{appendix:fieldwork results}, and velocity profiles for every ensemble along the cross section. These velocity profiles are used to determine the Law of the Wall fit, see Equation \ref{eq:law_of_the_wall}.
+The Acoustic Doppler Current Profiler (ADCP) measures the flow velocity and depth across a river cross section by dividing the measurements into vertical bins for every ensemble. These data can be used to create a flow velocity field for the whole cross section, see Appendix \ref{appendix:fieldwork results}, and velocity profiles for every ensemble along the cross section. These velocity profiles are used to determine the Law of the Wall fit. see Equation \ref{eq:law_of_the_wall}.
 
 \begin{equation}
     u = \left( \frac{u_*}{\kappa} \right) \ln\left( \frac{z}{z_0} \right)
@@ -408,7 +419,7 @@ The reference depth ($a$) and the near-bed reference concentration ($C_a$) were 
 
 As stated above, the settling velocity is determined by fitting the Rouse profile to the measured concentrations. 
 The estimated settling velocities are shown in Table~\ref{tab: Overview settling velocity} for the three cross sections. 
-Additionally, the corresponding sediment grain diameter is given, which is calculated using the Ferguson and Church \autocite{fergusonSimpleUniversalEquation2004} formula (Eq.~\ref{eq: Settling vel formula}). The surbmerged specific density ($R$) is 1.65 for quartz in water and the kinematic viscosity ($\nu$) of the fluid is 1.0 $\times 10^{-6}~\ \text{m}^2\text{/s}$ for water at 20~\textdegree C. The empirical shape coefficients $C_1$ and $C_2$ which reflect viscous and turbulent drag and have a value of 18 and 0.4 respectively.
+Additionally, the corresponding sediment grain diameter is given, which is calculated using the Ferguson and Church \autocite{fergusonSimpleUniversalEquation2004} formula (Eq.~\ref{eq: Settling vel formula}). The submerged specific density ($R$) is 1.65 for quartz in water and the kinematic viscosity ($\nu$) of the fluid is 1.0 $\times 10^{-6}~\ \text{m}^2\text{/s}$ for water at 20~\textdegree C. The empirical shape coefficients $C_1$ and $C_2$ which reflect viscous and turbulent drag and have a value of 18 and 0.4 respectively.
 
 \begin{equation}
     w_s = \frac{R g d^2}{C_1 \nu + \sqrt{0.75\, C_2\, R g d^3}}
@@ -440,7 +451,7 @@ The suspended sediment flux per cross section is calculated by first multiplying
     \label{eq: sediment flux formula}
 \end{equation}
 
-The total suspended sediment flux for every cross section is calculated by summing the ensemble fluxes. These calculated total suspended fluxes in kg/s are displayed in Table \ref{tab:Calculated suspended sediment flux}. For every cross section two different ADCP measurements were taken. The table shows the computed suspended sediment flux based on the velocity profiles of these two tracks and the mean suspended sediment flux for the three cross sections. This mean flux is the value that will be used to set up the sediment balance in Section \ref{sec: Sediment Balance}. To assess the reliability of the measurement concentrations, the estimations are compared to the existing relationship between fine sediment loads and fluvial discharge in Brazo Largo. Figure \ref{fig:fine measurements} shows the measurements conducted around the confluence. It stands out that discharges are quite small, while the loads of section 1 and section 3 are close to the fit. The fine sediment load measured in section 2 is relatively low.
+The total suspended sediment flux for every cross section is calculated by summing the ensemble fluxes. These calculated total suspended fluxes in kg/s are displayed in Table \ref{tab:Calculated suspended sediment flux}. For every cross section two different ADCP measurements were taken. The table shows the computed suspended sediment flux based on the velocity profiles of these two tracks and the mean suspended sediment flux for the three cross sections. This mean flux is the value that is used to set up the sediment balance in Section \ref{sec: Sediment Balance}. To assess the reliability of the measurement concentrations, the estimations are compared to the existing relationship between fine sediment loads and fluvial discharge in Brazo Largo. Figure \ref{fig:fine measurements} shows the measurements conducted around the confluence. It stands out that discharges are quite small, while the loads of section 1 and section 3 are close to the fit. The fine sediment load measured in section 2 is relatively low.
  
 \begin{table}[H]
     \centering
@@ -552,7 +563,7 @@ In this section, the sediment balance of the region of interest will be derived.
     \label{fig:Area sediment balance}
 \end{figure}
 
-The computed suspended sediment fluxes from Section \ref{sec: Suspended sediment load} and bedload sediment fluxes from Section \ref{sec: Bed load} are shown in Table \ref{tab: Overview sediment fluxes}. From these fluxes, the total sediment flux per cross section is calculated, using Formula \ref{eq: Total sediment flux}. In addition, the total sediment flux in kg/s is converted to a flux in tonnes per day, as the calculated flux is only representative of the day the measurements were taken. For all three cross sections it can be seen that suspended sediment largely contributes to the total sediment flux. For cross section 1 and 3 around 85\% of the total flux is suspended sediment. For cross section 2 this fraction is slightly lower with 74\%. 
+The computed suspended sediment fluxes from Section \ref{sec: Suspended sediment load} and bedload sediment fluxes from Section \ref{sec: Bed load} are shown in Table \ref{tab: Overview sediment fluxes}. From these fluxes, the total sediment flux per cross section is calculated, using Equation \ref{eq: Total sediment flux}. In addition, the total sediment flux in kg/s is converted to a flux in tons per day, as the calculated flux is only representative of the day the measurements were taken. For all three cross sections it can be seen that suspended sediment largely contributes to the total sediment flux. For cross section 1 and 3 around 85\% of the total flux is suspended sediment. For cross section 2 this fraction is slightly lower with 74\%. 
 
 \begin{equation}
     Q_t = Q_s + Q_b
@@ -566,7 +577,7 @@ The computed suspended sediment fluxes from Section \ref{sec: Suspended sediment
     \setlength{\tabcolsep}{8pt}
     \begin{tabular}{c c c c c}
         \hline
-        Cross Section & $Q_s~[kg/s]$ & $Q_b~[kg/s]$ & $Q_t~[kg/s]$ &  $Q_t~[tonnes/day]$ \\
+        Cross Section & $Q_s~[kg/s]$ & $Q_b~[kg/s]$ & $Q_t~[kg/s]$ &  $Q_t~[tons/day]$ \\
         \hline
         1 & 121.38 &  18.43 & 139.81 & 12079.58\\
         2 & 76.17  &  26.92 & 103.09 & 8906.98\\
@@ -575,7 +586,7 @@ The computed suspended sediment fluxes from Section \ref{sec: Suspended sediment
     \end{tabular}
 \end{table}
 
-The volume of sand extraction estimated in Section \ref{sec: Dredging activities} is 100,000 m\textsuperscript{3}/month. Using a sand density of 1600 kg/m\textsuperscript{3}, the amount of sand extracted from the river yields 5333.33 tonnes/day. Sand extraction in the river can be included in the sediment balance using the following formula:
+The volume of sand extraction estimated in Section \ref{sec: Dredging activities} is 30600 m\textsuperscript{3}/month. Using a sand density of 1500 kg/m\textsuperscript{3}, the amount of sand extracted from the river yields 1530 tons/day. Sand extraction in the river can be included in the sediment balance using the following formula:
 
 \begin{equation}
     \Sigma Q_\text{t,in}  - \Sigma Q_\text{t,out} - Q_\text{Dredging}  = \Delta S \
@@ -584,42 +595,20 @@ The volume of sand extraction estimated in Section \ref{sec: Dredging activities
 
 In this formula, dredging is the only sink of sediment identified inside the control volume. There are no additional sources of sediment besides the computed fluxes. From Section \ref{sec: Longitudinal profiles} it was concluded that there is no sediment trapped in bars which can act as a sediment source. Local bank erosion is neglected as there is no information available and it is expected to be minimal on a daily scale.
 
-By substituting the sediment fluxes from Table \ref{tab: Overview sediment fluxes} and the estimated sand extraction into Formula \ref{eq: general formula sediment balance}, the 
+By substituting the sediment fluxes from Table \ref{tab: Overview sediment fluxes} and the estimated sand extraction into Equation \ref{eq: general formula sediment balance}, the 
 change in sediment storage ($\Delta S$) can be computed. The change in sediment storage is an indicator of net deposition (if positive) or net erosion (if negative).
 
-\begin{subequations}\label{eq:sediment_balance}
-    \begin{gather}
-        Q_\text{t,1} + Q_\text{t,2} - Q_\text{t,3} - Q_\text{Dredging} = \Delta S \label{eq:sediment_balance_a} \\
-        12079.58 + 8906.98 - 34826.11 - 5333.33 = \Delta S \label{eq:sediment_balance_b} \\
-        -19{,}172.88~[\text{tonnes/day}] = \Delta S
-        \label{eq:sediment_balance_c}
-    \end{gather}
-\end{subequations}
+$$Q_\text{t,1} + Q_\text{t,2} - Q_\text{t,3} - Q_\text{Dredging} = \Delta S$$
+$$12079.58 + 8906.98 - 34826.11 - 1530 = \Delta S$$ \newline
+$$-15{,}369.55~[\text{tons/day}] = \Delta S$$
 
 Due to the negative change in sediment storage, the deficit must be supplied by sediment already stored in the control volume, which causes bed/bank erosion. However, as the sediment balance is set up closely around the confluence, hydrodynamic effects at the confluence should be taken into consideration when interpreting the sediment balance. The meeting of two flows can create high turbulence and concentration of flow velocities. The increased turbulence enhances the sediment mixing and sediment resuspension, increasing the suspended sediment flux right after the confluence. Higher flow velocities as a result of a confluence, lead to an increased sediment carry capacity, which can potentially lead to scour of the river bed. The sediment deficit may be partly explained by the effects of the confluence still being present in the outgoing sediment flux.
 
 \section{Hydrodynamic effects on the River Banks}
-The river banks are the separation between the river and the land. Therefore, it is important to evaluate the reaction of this interface to hydrodynamic changes in the river due to sand mining? Wave theory will be applied to estimate hydrodynamic loads, reflecting erosive processes at the banks. In addition to that, one should evaluate the variation of the water level on the river banks, as well as their correlation with bank erosion through the use help of satellite data. These aspects are treated in this section.
-
-\subsection{Damage on the river bank}
-\label{chap 6: effect and damage on the river bank}
-Following the study on the effects of sand mining on the river bed, it is relevant to look at the effects of water on the river banks. In general, there are several ways that the water has potential negative impacts on the river bank. Bank failure can be caused by house placement, soil saturation, weight on the river bank, vegetation, and/or tectonic activity, but most of them are due to the variation of the water level and waves. The reason behind this is that the river bank is naturally eroded when the water exerts a force on it \autocite{governmentofsouthaustraliaRiverbankCollapse2024}.
-The river bank is divided in three parts: the toe, the bank and the overbank zone. The toe of the bank is the most susceptible to erosion when in contact with high water levels, which can be seen in the Figure \ref{fig:Effect of Water on Bank after One Year}.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\linewidth]{figures/ch2/Erosion.png}
-    \caption{Effect of Water on Bank after One Year}
-    \label{fig:Effect of Water on Bank after One Year}
-\end{figure}
-
-When the combination of high water level with a strong current is highest, the bank zone is affected by the tidal currents or waves. This is because, as seen in Figure \ref{fig:Effect of Water on Bank after One Year}, water erodes the layer of the bank where the extra water level pushes, creating a dent inside the soil layer.
-Consequently, after some time the upper overbank area has less and less support underneath, thus becoming unstable and collapsing. 
-Repeating this process takes the river bank further inside the land, increasing the channel width and absorbing the land near the river bank. 
-
+River banks are the separation between the river and the land. Therefore, it is important to evaluate the reaction of this interface to hydrodynamic changes in the river due to sand mining? Wave theory will be applied to estimate hydrodynamic loads, reflecting erosive processes at the banks. In addition to that, one should evaluate the variation of the water level on the river banks, as well as their correlation with bank erosion through the use help of satellite data. These aspects are treated in this section.
 
 \subsection{Waves, currents and tides}
-Relevant to the previous subsection, the situations that contribute to this problem should be investigated. Consequently, the elevation of the water level due to the high astronomical tide, and the elevation of the water level due to the waves will be explained.
+Relevant to the theory of Chapter \ref{chapter:background}, the situations that contribute to the problem of bank erosion should be investigated. Consequently, the elevation of the water level due to the high astronomical tide, and the elevation of the water level due to the waves will be explained.
 
 The gravitational forces of the astronomical tide yield a change in water level, and are also responsible for tidal waves. These forces are induced by the gravitational pull, in the direction of the moving current. The tidal forcing has been treated in Section \ref{sec: tidal forcing}. Based on this, the astronomical tide does not contribute enough to the water elevation and wave load impact to be considered in this section.
 
@@ -648,7 +637,7 @@ The last part of the waves treated in this subsection are the ship waves. These 
     \label{Fig:Ship Waves Effect on Water and Bank}
 \end{figure}
 
-The effect of current loads on river banks needs to be taken into consideration as well. Using the standard values of the Netherlands and the given facts about the size of the ships circulating and the currents in the Rio Paraná Guazú, one could assume the wave height and current amplitudes for this case. This can be reflected once the field measurements are known, as described in Section \ref{sec:field study}.
+The effect of current loads on river banks needs to be taken into consideration as well. Using the standard values of the Netherlands and the given facts about the size of the ships circulating and the currents in the Rio Paraná Guazú, one could assume the wave height and current amplitudes for this case. This was reflected once the field measurements are known, as described in Section \ref{sec:field study}.
 Table \ref{tab:standard_values} gives the standard design values for wave heights and currents. The relevant row for this project is the 'Rivers' category. Hinting to the fact that big ships are usually present in the channel, one might take values towards the upper boundary of the table.
 
 \begin{table}[H]
@@ -714,8 +703,9 @@ $$
 There are 6 boats passing by every day and each boat creates approximately 10 ship-induced waves. Accordingly, a dynamic loading system would be required to solve this situation. Due to a lack of information the implementation of a dynamic loading system is not an option. Therefore, it is chosen to use a slight simplification of the situation by considering a static system. 
 
 Summing all the forces for every wave passing by would be incorrect. In order to successfully choose an approach for the static model, the method of cyclic loading assuming a dynamic load factor was chosen. According to dynamic wave loading, a factor of 1.2 to 1.5 can be used to determine the cyclic loading of a wave \autocite{cuomoDynamicWaveLoads2004}. This factor depends on the type of structure and soil which is the strongest on a concrete structure, but for a bank made out of clay/sand the value of the factor sits at 1.3. The final value of the ship induced wave load is therefore:
-
-$ F_{w} = 0.766 \cdot 1.3 = 0.996  \, ~\text{kN/m}$ per ship. 
+$$
+ F_{w} = 0.766 \cdot 1.3 = 0.996  \, ~\text{kN/m} 
+$$
 
 \subsubsection{Current Load}
 The current of a river can have different effects on the river bank depending on the degree of impact on the bank. A current working directly in the direction of the bank, in this case 90 degrees, does not have the same effect as a current moving along the bank. The current going along the river bank creates a different type of load, categorised as shear \autocite{chowOpenChannelHydraulics1919}. For the situation of the Parana Guazu, one may use the shear equation from the Open Channel Hydraulic Book cited above to calculate the force exerted by the current on a vertical structure:
@@ -737,13 +727,36 @@ The current of a river can have different effects on the river bank depending on
 
 The shear force exerted by a river current on its banks is a critical factor in understanding erosion and bank stability. This force is not uniform along the length of a river channel but varies due to changes in bathymetry and bank geometry.
 
-To be able to calculate the force of the current on the bank, one needs to find the parameters of the equation for the exposed surface area. As the water density $\rho$ and the gravitational constant $g$ can be assumed to be constant along the channel, the other parameters can differ in function of the chosen location. Since it cannot be known exactly how tall the relevant bank stretch is over the whole area, one could assume a 1 meter riverbank height constant from field work measurements. So A = 1 [m$^2$] would yield a force illustrated per meter length of the bank. Moreover, parameter of the river slope $S$ is equal to 10\textsuperscript{-5}, a data obtained from previous INA research \autocite{institutonacionaldelaguaProposalTUDelft2025}. Lastly, the parameter of water depth depends on the bathymetry of the location chosen. These values were obtained during the field trip measurements. Based on a chosen location, one can obtain the water depth via the local bathymetry cross section, and inserting this last parameter into the equation \ref{eq:shear load} above. This can be useful for mitigation strategies for bank erosion.
+To be able to calculate the force of the current on the bank, one needs to find the parameters of the equation for the exposed surface area. As the water density $\rho$ and the gravitational constant $g$ can be assumed to be constant along the channel, the other parameters can differ in function of the chosen location. Since it cannot be known exactly how tall the relevant bank stretch is over the whole area, one could assume a 1 meter riverbank height constant from field work measurements. So A = 1 [m$^2$] would yield a force illustrated per meter length of the bank. Moreover, parameter of the river slope $S$ is equal to 10\textsuperscript{-5}, a data obtained from previous INA research \autocite{institutonacionaldelaguaProposalTUDelft2025}. Lastly, the parameter of water depth depends on the bathymetry of the location chosen. These values were obtained during the field trip measurements. Based on a chosen location, one can obtain the water depth via the local bathymetry cross section, and inserting this last parameter into the equation \ref{eq:shear load} above. This can be useful for mitigation strategies regarding bank erosion.
 
-\subsection{Aqua Monitor}
+The relevant location for erosion was chosen in Chapter \ref{chap:methodology}, near Camping La Blanqueada. When analysing the current bank conditions, it was seen that the land was highly eroded, some trees were on the verge of being in the water, while others were already sucked up by the river. This is highlighted in the Figure \ref{bankerosion} below taken during the field trip.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.6\textwidth}
+        \includegraphics[width=\linewidth, height=6cm]{figures/ch4/bankerosioncamping.jpg}
+        \caption{Bank Erosion La Blanqueada}
+        
+    \end{subfigure}
+    
+    \vspace{0.5cm}
+    
+
+    \begin{subfigure}[b]{0.6\textwidth}
+        \includegraphics[width=\linewidth, height=6cm]{figures/ch4/bankerosioncamping2.jpg}
+        \caption{Bank Erosion Closeup}
+        
+    \end{subfigure}
+    \caption{Bank Erosion Shots from fieldwork}
+    \label{fig:Bank Erosion shots from fieldwork}
+\end{figure}
+\label{bankerosion}
+
+\subsection{Implementing Aqua Monitor data}
 \label{section:cirtical_location}
-Illustrating the bank damages due to local ship waves, currents and tides is important to assess an assessment of local scale. Nevertheless, it makes more sense to add a global scale study of the water gains and losses on top of that in order to sum up the ways water levels can influence the bank erosion. So, in this section the data from the water gains and losses will be explained in more detail. 
+Illustrating the bank damages due to local ship waves, currents and tides is important to understand the local scale. Nevertheless, it makes more sense to add a global scale study of the water gains and losses on top of that in order to sum up the ways water levels can influence the bank erosion. So, in this section the data from the water gains and losses will be explained in more detail. 
 
-Recalling the whole period of time available in Section \ref{Aqua Monitor Water Changes 1985-2025}, it is clear that the outer side of the river curves experience a water surface gain (indicated in blue), and the inner sides of the curves lose water, implying sedimentation (indicated in green). For simplicity, the Figure is shown below as well.
+Recalling the whole period of time available in Section \ref{Aqua Monitor Water Changes 1985-2025}, it is clear that the outer side of the river curves experience a water surface gain (indicated in blue), and the inner sides of the curves lose water, implying sedimentation (indicated in green). For simplicity, the \ref{Aqua Monitor Water Changes 1985-2025} is shown below as well.
 
 \begin{figure}[H]
     \centering
@@ -752,16 +765,9 @@ Recalling the whole period of time available in Section \ref{Aqua Monitor Water 
 \end{figure}
 \label{Aqua Monitor Water Changes 1985-2025.2}
 
-The location of the 'La Blanqueada' camping  is in the outer side of the curve near Puerto Constanza, as seen in the following Figure \ref{fig:Camping Blanqueada}.
+The location of the 'La Blanqueada' camping  is situated on the outer side of the curve near Puerto Constanza, as seen in Chapter \ref{chap:methodology}, Figure \ref{fig:Camping Blanqueada}.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\linewidth]{figures/ch5/Camping Blanqueada.png}
-    \caption{Location of the Camping La Blanqueada}
-    \label{fig:Camping Blanqueada}
-\end{figure}
-
-The camping's location matches with the blue part of the water gain map, indicating that the water quantity around the shore of the camping has increased. 
+The Camping's location matches with the blue part of the water gain map, indicating that the water quantity around the shore of the camping has increased. 
 In order to know if this has always been so, or if the water gains in this precise location have been gradually increasing, several maps with closer intervals have been created. 
 
 As one can see the blue and green zones stay consistent throughout the years, but when going into detailed time periods they can differ. Variations occur on shorter time periods such as the period 2005-2015, which indicated more water gains than losses in the deltas surrounding the region of interest. Furthermore the flood of 2016 in the Parana Guazu can also be illustrated through the help of this map, on a time interval of 2015-2017 \ref{fig:discharge_series}.
@@ -814,7 +820,7 @@ Other periods of time are more or less stable and have nothing to report. For th
 Using the software's satellite data, one can draw a surface around the area of the Camping La Blanqueada in 2022, the most recent available, and then compare it to historical data. 
 This gives a dataset of historical data from 1985 until 2022 but since the satellite images have been improving with time, the only relevant data can be taken from 2003 on.
 
-Thus, it was chosen to take the difference in surface area from 2022 until 2003. Initially, only the East side of the camping was taken into account due to its matching with the drone pictures taken of the area during the field trip (see Figure \ref{fig:Bank Erosion shots from field work}). Nevertheless on Google Earth it quickly became obvious that the necessity rose to take the West part of the Camping in consideration as well since its surface was eroded even further.
+Thus, it was chosen to take the difference in surface area from 2022 until 2003. Initially, only the East side of the camping was taken into account due to its matching with the drone pictures taken of the area during the field trip as seen in Figure \ref{fig:Bank Erosion shots from fieldwork}. Nevertheless on Google Earth it quickly became obvious that the necessity rose to take the West part of the Camping in consideration as well since its surface was eroded even further.
 
 A summary of the data gathered from this study can be found in Figure \ref{fig:surface_comparison}. First the measurement of the East part of the Camping, then the comparison with 2003, 2017, 2018 and then for both sides the added surface lost since 2003.
 
@@ -873,7 +879,7 @@ Lastly, both sides of the Camping and the difference between 2003 and 2022 can b
 \label{section:quantitative_results}
 
 The values of these areas can be found in the Table \ref{tab:Surface Lost Camping La Blanqueada in 2022}.
-It is important to note that the green part of the area is very likely to be digged out by the owner himself to build a channel for the boats. This probably contributes to an acceleration of the erosion around it, but it is still relevant to mention.
+It is important to note that the green part of the area is very likely to be dug out by the owner himself to build a channel for the boats. This probably contributes to an acceleration of the erosion around this part of the land.
 
 \begin{table}[H]
 \centering
@@ -914,7 +920,7 @@ In the most extreme case down south east of the camping zone, which can be seen 
     \label{fig:lengthlost_comparison}
 \end{figure}
 
-The lengths of the measured segments as well as the lost length have been calculated and put in the Table \ref{Table:Loss of Land for Camping La Blanqueada in 2022} below.
+The lengths of the measured segments as well as the lost length have been calculated and put in the Table \ref{Table:Loss of Land for Camping La Blanqueada in 2022} below. The loss ratio's of the Camping surface are calculated in the Appendix \ref{Appendix: Satellite Data}.
 
 
 \begin{table}[H]
@@ -931,5 +937,3 @@ Section 3 & 276 & 138 \\
 \label{Table:Loss of Land for Camping La Blanqueada in 2022}
 \end{tabular}
 \end{table}
-
-Lastly, the loss ratio's of the Camping surface are calculated in the Appendix \ref{Appendix: Satellite Data}.

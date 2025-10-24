@@ -1,7 +1,7 @@
 \chapter{Methodology}
 \label{chap:methodology}
 
-This chapter captures all methods that were used to be able to answer the research questions. It describes the collection of data through various sources, such as publicly available time series and field data that were recorded in this particular study. With these data, models were made, which were used for answering the sub-questions which lead to answering the main research question. 
+This chapter captures all methods that were used to be able to answer the research questions. It describes the collection of data through various sources, such as publicly available time series and field data that were recorded in this particular study. With these data, models were made, which were used for answering the sub-questions which lead to answering the main research question.
 
 \section{Analysis of existing data sets}
 \label{sec:desk study}
@@ -73,7 +73,7 @@ As explained in Chapter \ref{chapter:background}, the two main tributaries of th
 \subsection{Sand mining quantities}
 The number of vessels involved in river dredging activities on the Paraná Guazú was determined using AIS (Automatic Identification System) data. Vessel movements between dredging sites and ports were monitored through MarineTraffic. Although historical records were not considered, the daily activity observed during the study period provided an estimate of the sand extraction volumes. 
 
-Alternatively, a collection of dredging permits in the river was considered. To avoid adverse impacts on the hydraulic regime of the river due to dredging, companies must first obtain permits from the \textit{National Water Institute }(INA). These permits specify the locations and volumes of the proposed dredging activities. The information they provide serves as a reliable estimate of the total material being removed from the river, thereby influencing the sediment balance. Therefore, the permits were analysed for the area of interest.
+Alternatively, a collection of dredging permits in the river was considered. To avoid adverse impacts on the hydraulic regime of the river due to dredging, companies must first obtain permits from the \textit{National Water Institute} (INA). These permits specify the locations and volumes of the proposed dredging activities. The information they provide serves as a reliable estimate of the total material being removed from the river, thereby influencing the sediment balance. Therefore, the permits were analysed for the area of interest.
 Subsequently, the information gathered from AIS data and extraction permits were combined, resulting in estimates of volumes that are dredged in the study area. In addition, conversations with stakeholders provided insights and made a comparison with the results of the data collection possible.
 
 The information about dry sand mining was gained through different sources. The main sources were a literature review and the semi-structured interviews, which are explained Section \ref{sec:stakeholder methods}. These were used to gather data on dry sand mining quantities, usage purposes, and the factors influencing demand for sand from the region. The literature review provided background and quantitative information, while interviews offered insights from stakeholders directly involved in sand extraction and use in the study area.
@@ -134,7 +134,7 @@ The first measured type of data is the flow velocity profile of the river. This 
     \label{fig:SonTekmeasurement}
 \end{figure}
 
-The speciality of the SonTek M9 is that it uses multiple acoustic frequencies to find a high resolution range of depths and flow velocities, while still tracking the geo-referenced position of the vessel using GNSS \autocite{xy}. The flow velocity [m/s] is expressed in the form of a vector and the significance of this data lies in the fact that flow velocity is needed to compute the discharge.
+The speciality of the SonTek M9 is that it uses multiple acoustic frequencies to find a high resolution range of depths and flow velocities, while still tracking the geo-referenced position of the vessel using GNSS \autocite{xylemSonTekM9}. The flow velocity is expressed in the form of a vector and the significance of this data lies in the fact that flow velocity is needed to compute the discharge.
 
 Secondly, the bathymetry, the depth of a channel at the position of the boat on a given timestep, was recorded by using two different methods: the ADCP and the Garmin echosounder. Moving over the whole width of the channel yielded a longitudinal profile, indicating what depth lies at what coordinate.
 The echosounder was attached to a pole on the side of the boat, and dipped into the water while the boat was moving. This pole was connected to the Garmin screen showing depth and bathymetry of the channel, as can be seen in Figure \ref{fig:Garmin}. In addition, this screen allowed for monitoring of possible disruption of the river bed. The profile was taken on the whole trajectory between Puerto Guazú to Ibicuy in both upstream and downstream directions. The profile is shown in Figure \ref{fig:measurements day2}.
@@ -156,32 +156,26 @@ The echosounder was attached to a pole on the side of the boat, and dipped into 
     \label{fig:Garmin}
 \end{figure}
 
+From the bathymetry and flow velocity, the discharge can be determined. The flow velocity \(\mathbf{v}\) was integrated over the depth and width of the channel (through a cross-section) which in the end yielded the discharge. Equation \ref{eq:discharge_integration} summarizes this procedure.
 
-From the bathymetry and the flow velocity one can find the discharge. The flow velocity \(\mathbf{v}\) is integrated over the depth and the width of the channel (through a cross-section) which in the end yields the discharge \(Q\) of the river at a given location, with a unit of m\textsuperscript{3}/s.
 \begin{equation}
     Q = \iint_A \mathbf{v} \cdot d\mathbf{A}
     \label{eq:discharge_integration}
 \end{equation}
 
-\noindent where:
+\noindent Where:
 \begin{itemize}
-    \item \(Q\) is the discharge, expressed in cubic meters per second [m\textsuperscript{3}/s];
-    \item \(\mathbf{v}\) is the flow velocity vector, expressed in meters per second [m/s];
-    \item \(A\) is the cross-sectional area perpendicular to the flow, expressed in square meters [m\textsuperscript{2}];
+    \item \(Q\) is the discharge, cubic meters per second [m\textsuperscript{3}/s];
+    \item \(\mathbf{v}\) is the flow velocity vector, meters per second [m/s];
+    \item \(A\) is the cross-sectional area perpendicular to the flow, square meters [m\textsuperscript{2}];
     \item \(d\mathbf{A}\) is an infinitesimal area element.
 \end{itemize}
 
-The number of required measurements of a single cross section is defined by the variability of the measurements. That is, a minimum of two measurements exists, which is sufficient when the second discharge measurement is within 10\% of the first one. In addition, correct operation of the vessel's velocity is essential for reliable discharge results. Therefore, the boat speed should never exceed the flow velocity perpendicular to the cross section under consideration. 
-
-
+The number of required measurements of a single cross section was defined by the variability of the measurements. That is, a minimum of two measurements was carried out, which was deemed to suffice when the second discharge measurement fell within 10\% of the first one. In addition, correct operation of the vessel's velocity was essential for reliable discharge results: it was made sure that the boat speed never exceeded the flow velocity perpendicular to the cross section under consideration. 
 
 % The aim of the fieldwork was to obtain the data of flow velocity and discharge at the three critical points around the bifurcation of interest during different times, one in the morning and in the afternoon. Consequently this would indicate some changes in discharge for different times, flows, circumstances hence solidifying our data base of examples. 
 
-
-
-Thirdly, it is in the report's interest to gather data on the suspended sediment concentration of the river. This is done by collecting water with the help of an APEMA BS6A peristaltic pump connected to two plastic tubes. The first tube is short and is used to insert the water into the plastic bottles on the boat. The second tube is long and is connected to a weight, which can be lowered into the river to a certain depth. At the desired depth, the fluid was pumped to the water surface and collected in the plastic bottles.
-
-Then, the samples were sealed in order to be sent to the water quality lab in the hydraulic section on the INA site, as seen in Figure \ref{fig:suspended-sediment}. These samples help to indicate the concentration of fine sediments in the channel, at different locations and elevations. The evolution of the concentrations along the study area will be studied in Chapter \ref{chap:hydroanalysis}.
+Further, data was gathered on the suspended sediment concentration of the river. This was done by collecting water with the help of an APEMA BS6A peristaltic pump connected to two plastic tubes. The first tube was short and was used to insert water into the plastic bottles on the boat. The second, long, tube was connected to a weight, which could be lowered into the river until a certain depth. At the desired depth, the fluid was pumped to the surface and collected in the plastic bottles. Then, samples were sealed in order to be sent to the water quality lab in the hydraulic section on the INA site, as seen in Figure \ref{fig:suspended-sediment}. Here, concentrations of fine sediments were determined for all samples. The evolution of the concentrations along the study area is studied in Chapter \ref{chap:hydroanalysis}.
 
 \begin{figure}[H]
     \centering
@@ -202,14 +196,10 @@ Then, the samples were sealed in order to be sent to the water quality lab in th
     \label{fig:suspended-sediment}
 \end{figure}
 
-
-
-
 % In theory, since it was done at different levels of the river, it could potentially indicate a change in concentration from one point upper at Ibicuy to Brazo Largo in the southern, lower part of the study area. From this data, the group could draw even further conclusions.
 
-
-Fourthly, the bed load was a necessary measurement for the complete analysis. The method used for this parameter is scraping the bottom layer of the channel with a metal shaped container. The goal is to retrieve samples that represent the granulometry of the bed at different depths. 
-The strategy for this measurement is tying a rope to the metal container, dropping it until it reaches the maximum depth of the location. Then, with help of the current or the boat, the person who holds the rope drags the container along with the horizontal movement which gradually collects sediment from the surface. Once this is done, the rope and the container are pulled up and restored in the boat. The last step is to collect some sediment and put it in a plastic bag.  Later on, the captured sediment was sent to the lab where the soil was dried out to find the components, quality and other parameters of the soil such as porosity which would add up to the results. The metal container, as well as the extracts of the sediment samples in the oven are shown in Figure \ref{fig:bed-load}.
+Finally, the bed load was a necessary measurement for a complete analysis. The method used for this parameter was scraping the bottom layer of the channel with a metal shaped container. The goal was to retrieve samples that represent the granulometry of the bed at different depths. 
+During the measurements, a rope was tied to the metal container, which was dropped until it reached the local bed. Then, with help of the current and the movement of the boat, the container was dragged along with the horizontal movement and sediment was gradually collected. Once this was done, the rope and the container were pulled up and restored in the boat. The last step was to collect sediment and put it in a plastic bag. These samples were later analyzed in the lab. The metal container as well as the sediment samples are shown in Figure \ref{fig:bed-load}.
 
 \begin{figure}[H]
     \centering
@@ -239,90 +229,69 @@ The strategy for this measurement is tying a rope to the metal container, droppi
     \label{fig:bed-load}
 \end{figure}
 
+A total of 7 samples from 4 different locations was collected. The first three locations were the cross sections around the extracting point in the bifurcation of the Paraná Guazú with the Talabera river. For each of these three cross sections, two samples were taken from the soil, one at 10 meters depth and one at 15 meters depth. The final sample was taken at 10 meters depth in the cross section upstream close to Puerto Ibicuy. 
 
-The bed load samples were all weighed before they were put in the oven. There are 7 samples collected at 4 different locations. The first three locations are the cross sections around the extracting point in the bifurcation of the Paraná Guazú with the Talabera river. For these three cross sections two samples were taken from the soil, one at 10 meters depth and one at 15 meters depth, approximately. 
-The last sample was taken at 10 meters depth in the cross section upstream close to Puerto Ibicuy. 
+During the analysis, the soil was dried out to find the components, quality and other parameters of the soil such as porosity which would add up to the results. T
 
-All samples were sieved with six different sizes of sieves. The sieving was done 10 minutes per sample. Before the sieving, the samples also been crushed to get the particles loose from clustering. The sieving machine is presented in Figure \ref{fig:siev} The whole collection of the annotated samples can be seen in Appendix \ref{appendix:Lab data}.
+The bed load samples were all weighed before they were put in the oven. 
+
+All samples were sieved with six differently sized sieves, which took 10 minutes per sample. Before sieving, the samples were crushed to prevent particles from clustering. The sieving machine is presented in Figure \ref{fig:siev} and the whole collection of annotated samples can be found in Appendix \ref{appendix:Lab data}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures//ch3/siev.png}
+    \includegraphics[width=0.35\linewidth]{figures//ch3/siev.jpeg}
     \caption{Sieving machine}
     \label{fig:siev}
 \end{figure}
 
-
 \subsection{Locations of interest}
-The locations are divided in two different interest. The measurements locations and the bank erosion locations. Firstly are the measurements locations prescribed and secondly are the bank erosion locations prescribed. 
-
-The measurement campaign was divided into two main locations. The first location, contains a number of cross sections and sediment samples recorded at the confluence of the Talabera and the Paraná Guazú. Figure \ref{fig:measurements day1} shows a summary of the performed measurements. In total, three sections were studied with the following measurements per cross section:
+The measurement campaign was spread out over two main locations. The first location contains a number of cross sections and sediment samples recorded at the confluence of the Talabera and the Paraná Guazú. Figure \ref{fig:measurements day1} shows a summary of the performed measurements. In total, three sections were studied with the following measurements per cross section:
 \begin{itemize}
-    \item 2 ADCP profiles, yielding bathymetry, discharge and flow velocity
-    \item 2 bed load samples at different locations with different depths
-    \item 5 suspended sediment samples at a single location with varying depths
+    \item 2 ADCP profiles, yielding bathymetry, discharge and flow velocity;
+    \item 2 bed load samples at different locations with different depths;
+    \item 5 suspended sediment samples at a single location with varying depths.
 \end{itemize}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{figures/ch4/day1.png}
-    \caption{Measurement locations Day 1}
+    \caption{Measurement location confluence Talabera-Paraná Guazú}
     \label{fig:measurements day1}
 \end{figure}
 
-The second location, contains measurements at Puerto Ibicuy. There, some cross sections were measured in the vicinity of the confluence of the Ibicuy and the Paraná Guazú. In addition, the echosounder was active all day long. Its recorded tracks can be found in Figure \ref{fig:measurements day2}. The following results have been found on day 2:
+The second location contains measurements at Puerto Ibicuy. Here, cross sections were measured in the vicinity of the confluence of the Ibicuy and the Paraná Guazú. In addition, the echosounder was active. Its recorded tracks can be found in Figure \ref{fig:measurements day2}. The following results were found for location 2:
 \begin{itemize}
-    \item 6 ADCP profiles. 2 profiles each for the most upstream and most downstream cross section, respectively. 1 profile for those in between. 
-    \item 1 bed load sample near Puerto Ibicuy
-    \item 2 longitudinal profiles along the confluence of Talabera and Paraná Guazú (dredging location), measured at the beginning and end of the day to study dune migration. While navigating, GPS applications were used to make sure the paths were identical (See Figure \ref{fig:longprofiles map}).
+    \item 6 ADCP profiles: 2 profiles each for the most upstream and most downstream cross section, respectively. 1 profile for those in between; 
+    \item 1 bed load sample near Puerto Ibicuy;
+    \item 2 longitudinal profiles along the confluence of Talabera and Paraná Guazú (dredging location), measured upstream and downstream to study dune migration. While navigating, GPS applications were used to make sure the paths were identical (see Figure \ref{fig:longprofiles map}).
 \end{itemize}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{figures/ch4/day2.png}
-    \caption{Measurement locations Day 2}
+    \caption{Measurement locations Puerto Ibicuy-Puerto Guazu}
     \label{fig:measurements day2}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{figures/ch3/longprofiles.png}
     \caption{Measurement tracks of longitudinal profiles}
     \label{fig:longprofiles map}
 \end{figure}
 
-
-In this paragraph, the methodology is explained as to how one has studied this matter, and how the data was found to get to conclusions.
-
-During the fieldwork it was noticed through the interviews that a significant amount of people living along the riverside were affected by bank erosion \ref{chap:interviews}. The research group took multiple pictures from the actual conditions in 2025, so that a comparison could be established once older data was obtained. From what was seen, the land was highly eroded, some trees were on the verge of being in the water, while others were already sucked up by the river. This can be seen in the Figures \ref{bankerosion} below taken during the field trip.
+Bank erosion is a theme of significant importance to this study. During the field trip, critical locations of erosion were visited to understand the stakes at play. These analysis's were often accompanied with pictures taken with a professional drone. The chosen critical location for erosion is the river bank down at the Camping the 'La Blanqueada', situated in the outer side of the curve near Puerto Constanza as seen in Figure \ref{fig:Camping Blanqueada}.
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.6\textwidth}
-        \includegraphics[width=\linewidth, height=6cm]{figures/ch4/bankerosioncamping.jpg}
-        \caption{Bank Erosion La Blanqueada}
-        
-    \end{subfigure}
-    
-    \vspace{0.5cm}
-    
-
-    \begin{subfigure}[b]{0.6\textwidth}
-        \includegraphics[width=\linewidth, height=6cm]{figures/ch4/bankerosioncamping2.jpg}
-        \caption{Bank Erosion Closeup}
-        
-    \end{subfigure}
-    \caption{Bank Erosion Shots from fieldwork}
-    \label{fig:Bank Erosion shots from fieldwork}
+    \includegraphics[width=0.75\linewidth]{figures/ch5/Camping Blanqueada.png}
+    \caption{Location of the Camping La Blanqueada}
+    \label{fig:Camping Blanqueada}
 \end{figure}
-\label{bankerosion}
 
+This would allow for a comparison with satellite data obtained in the future from software such as Aqua Monitor from Deltares. This software was used to alert critical erosion points along the Paraná Guazú in a broader scale. After the first map data was obtained from the satellite imagery, it was deemed necessary to investigate actual areas and lengths of land that have been subject to water gains and losses. Then the precise location of coast erosion was in turn analysed using Google Earth. The satellite database of Deltares was used for different time stamps, starting from 1984. The reason behind this is that the Deltares Aqua Monitor contains satellite imagery from 1984 until today. The choice was made to analyse the data in time batches of 10 years from 1985 until 2005, then in 5 years from 2005 to 2015, and lastly every 2.5 years in the last decade.
 
-From the owner of the Camping la Blanqueada and the landowner a few hundred meters from the same location, it was informed that they saw their land was erode up to 30 meters every few years. This was quite a serious take and therefore it questioned us leading to an initiative to study this narrative.
-
-From the Aqua Monitor Software, one can establish which regions are of interest in a broad scope surrounding the Paraná Guazú bend near Puerto Constanza. Decreasing the scope makes it relevant to investigate the actual areas and lengths of land that have been subject to these water gains. Therefore, it was chosen to investigate further into the details of the coast erosion with Google Earth. The satellite database of Deltares was used for different time stamps, starting from 1984. The reason behind this is that the Deltares Aqua Monitor is a tool using Google Earth Engine, containing satellite imagery from 1984 until today. The choice was made to analyze the data in time batches of 10 years from 1985 until 2005, then in 5 years from 2005 to 2015, and lastly every 2.5 years in the last decade.
-
-A preview of the maps can be seen in Figure \ref{Aqua Monitor Water Changes 1985-2025}below, but the final analysis and conclusions are explained in Chapter \ref{chap:hydroanalysis}. 
+A preview of the maps can be seen in Figure \ref{Aqua Monitor Water Changes 1985-2025}, but the final analysis and conclusions are explained in Chapter \ref{chap:hydroanalysis}. The green parts indicate water losses and the blue parts show water gains over time. For the whole collection of figures, see Appendix \ref{Appendix: Satellite Data}.
 
 \begin{figure}[H]
     \centering
@@ -331,53 +300,20 @@ A preview of the maps can be seen in Figure \ref{Aqua Monitor Water Changes 1985
 \end{figure}
 \label{Aqua Monitor Water Changes 1985-2025}
 
-For more clarity, the green parts of Figure \ref{Aqua Monitor Water Changes 1985-2025} are water losses and the blue parts are water gains over time. For the whole collection of Figures see Appendix \ref{Appendix: Satellite Data}.
-
 \section{Modelling approach}
-This section explains the approach that was used to make the Delft 3D model and the sheet pile model. These models are made to answer the research question. 
+This section explains the approach that was taken to create the Delft 3D model and the sheet pile model.  
 
 Firstly, ..... .Using the flow velocity one can derive the concentration of the sediment in the study area. This can be done for several locations in order to get an idea of the quantities of sediment that come in through the Rio Ibicuy. Then the last critical point will help us determine the continuation of the concentration of the sediment in the Rio Parana so that any inconsistencies can be linked with the amount of extracted sand in the intersection of the Parana Guazú and Rio Talabera (in the middle of the three critical points on the right hand side of Figure 4.2).
 
+Secondly, a sheet pile model was developed. This resulted in a design that acts as a mitigation strategy against bank erosion. Prior to designing this specific solution, an overview of structural mitigation measures was compiled, and all potential options were evaluated. Subsequently, the design for the selected solution (sheet pile) was created. A flow chart was used to outline the modelling methodology. The flow chart shown in Figure \ref{fig:flow_chart} is divided into three phases. In the first phase, data analysis, literature research was performed to gain a better understanding of the critical locations and parameters necessary for the design. First of all, geological soil conditions including borehole findings were used to assess the different layers and the accompanying soil parameters. Further, hydraulic parameters including bathymetry were provided by INA to assess water level and river bed formation along the banks and finally, structural standards and regulations, the Eurocode, were used to perform structural verifications regarding the ultimate limit and the serviceability limit state.
 
-Secondly, a sheet pile model is made. For the design of the sheet pile model as a mitigation strategy for bank erosion, a flow chart is used as a methodology. The flow chart shown in Figure \ref{fig:flow_chart} is divided into three phases. In the first phase, data analysis, research will be performed to gain a better understanding of the critical locations and parameters necessary for the design. Apart from these, structural regulations, stated in the Eurocode, were specified. 
+In the second phase of the model, a sheet pile type was chosen and the gathered data was used to analyse the earth and hydrostatic pressures. Multiple design methods were reviewed, and finally the simplified Padfield and Mair method was chosen to perform the earth and hydraulic pressure analysis. The procedure for calculating the embedding depth of the sheet pile came from the simplified Padfield and Mair method, and the pressure diagrams for the earth and hydrostatic pressure were analysed in Python. By combining the earth and hydrostatic pressures, the balance of moments and the final embedding depth were calculated. Then, the acting components such as shear, bending, and shear buckling were compared to the resistance of the chosen sheet pile profile to access the safety of the design. The final part of phase two consisted of drawing the sheet pile, including unknown design parameters and structural verifications. In the final phase, sustainability aspects for the sheet pile model were considered. More specifically, CO\textsubscript{2} emissions and energy consumption were compared for different materials. This was considered when choosing the material of the sheet pile.
 
-\textit{Data analysis}
-
-\begin{itemize}
-    \item Aqua Monitor will be used to alert critical erosion points along the Paraná Guazú, while during the field trip, these critical points will be visited to better understand the situation.
-    \item Literature research was performed to assess critical parameters and data for the sheet pile model.
-    \begin{itemize}
-        \item Soil conditions include borehole findings to assess the different layers and the accompanying soil parameters.
-        \item Hydraulic parameters include bathymetry findings provided by INA to assess water level and river bed formation along the banks.
-        \item Structural standards and regulations, the Eurocode, are used to perform structural verifications regarding the ultimate limit and the serviceability limit state.
-    \end{itemize}
-\end{itemize}   
-
-In the second phase of the sheet pile model, a sheet pile type was chosen and the gathered data is used to analyse the earth and hydrostatic pressure. The method chosen is the simplified Padfield and Mair method, which provides a plan to design a sheet pile. Combining the method and analysis, the sheet pile model and its unknown design parameters, including structural verifications, can be drawn. 
-
-\textit{Design}
-
-\begin{itemize}
-    \item Multiple design methods were reviewed, and the simplified Padfield and Mair method is used to perform the earth and hydraulic pressure analysis.
-    \item The procedure for calculating the embedding depth of the sheet pile is related to the simplified Padfield and Mair method, and the pressure diagrams for the earth and hydrostatic pressure are analysed in Python.
-    \item The sheet pile design, made in Python, is a combination of both earth and hydrostatic pressure, which is used to compute the balance of moments and the final embedding depth.
-    \item The acting components such as shear, bending, and shear buckling are compared with the resistance of the chosen sheet pile profile to access the safety of the design.
-\end{itemize}
-
-The final phase will conduct the sustainability aspects for the sheet pile model. The final phase will be explained in more detail in the following.
-
-\textit{Sustainability}
-
-\begin{itemize}
-    \item The sustainability of the sheet pile profile is assessed and a suitable profile which is sustainable is used. 
-\end{itemize}
-
+\begin{landscape}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{figures/ch3/FlowChart Structural (3).png}
     \caption{Flow chart sheet pile model}
     \label{fig:flow_chart}
 \end{figure}
-
-
-
+\end{landscape}

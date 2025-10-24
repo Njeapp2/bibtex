@@ -6,7 +6,7 @@ In this Chapter 'Mitigation Strategies' solutions to the discovered problems are
 \section{Structural Solutions for Bank Erosion}
 \label{section_8.2}
 
-Several retaining structures that can be used to stabilize the river banks. Possibilities include:
+There are several retaining structures that can be used to stabilize the river banks. Multiple possibilities include:
 \begin{itemize}
     \item Sheet pile wall\\
     Sheet pile walls are a common retaining structure and consist of vertical barriers made of interlocking sections. They are a lightweight option and can be removed, which makes them reusable across multiple projects. Another advantage is the fact that installation is relatively easy and therefore cheap. However, sheet pile walls also have limitations. In hard soils and soils with boulders or cobbles, installation becomes difficult. Further, installation can disturb nearby areas through sounds and vibrations. These vibrations can even cause settlements to occur \autocite{korffReaderDeepExcavations2023}.
@@ -116,7 +116,7 @@ The stress-strain behaviour of steel can be seen in Figure \ref{fig:stress_strai
   \end{tabularx}
 \end{table}
 
-Steel sheet piles are made of hot-rolled sections, which are made in the process of heating steel to temperatures of around $850$ and $1200$ $^{\circ}$C  above the recrystallization temperature before rolling \autocite{samarasekeraHotRolling2001}. This allows for the various shapes and larger sizes that are of importance with sheet piles. Compared with cold-rolled sections, hot-rolled sections have a slightly rougher surface and are cheaper because reheating is not required \autocite{chesterfieldWhatDifferenceHot}. 
+Steel sheet piles are made of hot-rolled sections, which are made in the process of heating steel to temperatures of around $850$ and $1200$ $^{\circ}$C  above the recrystallization temperature before rolling \autocite{samarasekeraHotRolling2001}. This allows for the various shapes and larger sizes that are of importance with sheet piles. Compared with cold-rolled sections, hot-rolled sections have a slightly rougher surface and are cheaper because reheating is not required \autocite{chesterfieldsteelWhatDifferenceHot}. 
 
 \subsubsection{Sustainability}
 
@@ -255,15 +255,15 @@ To determine the level of the riverbed, the bathymetry of the location analysed 
 
 \subsection{Design of Steel Sheet Pile}
 
-The design of steel sheet piles begins with defining the design location and problem description to get a better understanding of the situation. After defining these conditions, a method should be considered to calculate the earth pressure and water pressure. These will later balance the moments to iteratively define the embedding depth of the sheet pile wall. After calculating the embedding depth based on the balance of moments, the sheet pile will be verified according to structural verifications, including bending moments, shear force, and deflection.  
+The design of steel sheet piles begins with defining the design location and problem description to get a better understanding of the situation. After defining these conditions, a method is considered to calculate the earth pressure and water pressure. These will later balance the moments to iteratively define the embedding depth of the sheet pile wall. After calculating the embedding depth based on the balance of moments, the sheet pile will be verified according to structural verifications, including bending moments, shear force, and deflection.  
 
 To set up the balance of moments for defining the embedding depth, the loads acting on the wall need to be defined. The lateral loads acting on the wall include soil and water pressure, which need to be defined to calculate the forces. The soil parameters are defined, and the soil profile is taken from Section \ref{section:geotechnical_parameters}. With the soil profile and its parameters, the earth pressures can be defined on both sides of the sheet pile wall. The hydraulic pressure due to the water levels is of importance, and these are defined in Section \ref{section:hydraulic_parameters}. 
 
-With the problem description defined, a plan to calculate the embedding depth of the sheet pile is set up by using Python code. The plan begins by defining the soil and water parameters, which will be transformed to effective stresses, active and passive earth, and hydrostatic water pressures. From the stresses, the resulting forces acting on the sheet pile wall are defined, and a balance of moments is obtained. Setting the moment to zero at the bottom of the sheet pile wall, the embedding depth is iteratively calculated.
+With the problem description defined, a plan to calculate the embedding depth of the sheet pile is set up by using Python code. The plan begins by defining the soil and water parameters, which will be transformed to effective stresses, active and passive earth, and hydrostatic water pressures. From the stresses, the resulting forces acting on the sheet pile wall are defined, and a balance of moments is obtained. Setting the moment to zero at the bottom of the sheet pile wall, the embedding depth is calculated iteratively.
 
 % \subsubsection{Location}
 
-The determination of the critical erosion points along the river has been done in Section \ref{section:cirtical_location}. The location analyzed here will be the location for which the design of the steel sheet pile will be based. In Figure \ref{fig:critical_location_google}, the critical point is shown in Aqua Monitor, and during the field trip, images were taken to verify if erosion was visible. The total length is $215$ meters, which is drawn and shown in Table \ref{tab:Surface Lost Camping La Blanqueada in 2022}.
+The determination of the critical erosion points along the river has been done in Section \ref{section:cirtical_location}. The location analysed here will be the location for which the design of the steel sheet pile will be based. In Figure \ref{fig:critical_location_google}, the critical point is shown in Aqua Monitor, and during the field trip, images were taken to verify if erosion was visible. The total length is $215$ meters, which is drawn and shown in Table \ref{tab:Surface Lost Camping La Blanqueada in 2022}.
 
 \begin{figure}[H]
     \centering
@@ -284,7 +284,7 @@ The determination of the critical erosion points along the river has been done i
 
 \subsubsection{Geometry of the problem}
 
-The design of the sheet pile wall is based on the cantilever sheet pile wall. As briefly touched on in Section \ref{section:sheet_pile_wall}, the cantilever sheet pile is used to maintain heights up to $5$ meters and is supported by the soil and hydrostatic pressure. In Figure \ref{fig:problem_description_sheetpiles}, a sketch of the situation is provided, which is written in Python. The height that must be retained, $4.0$ meters, is indicated by $Z$. The embedding depth of the cantilever sheet pile, which will need to be determined iteratively, is noted as $t$. In  Section \ref{section:hydraulic_parameters}, the levels of the groundwater table, the water level and the dredge level are derived. The water level of the river is indicated as $WL$, which in this situation is $+0.14$ meters. The dredge level is $-1.5$ meters. The groundwater table is $+1.03$ meters, indicated as $GWT$. The ground surface is derived from comparing the water elevation on 25 September 14:00:00 from the time series, with Figure \ref{fig:critical_location_fieldtrip}. The ground surface level is assumed to be $1.5$ meters higher than the time series value of $1.0$ meters, resulting in $+2.5$ meters IGN
+The design of the sheet pile wall is based on the cantilever sheet pile wall. As briefly touched on in Section \ref{section:sheet_pile_wall}, the cantilever sheet pile is used to maintain heights up to $5$ meters and is supported by the soil and hydrostatic pressure. In Figure \ref{fig:problem_description_sheetpiles}, a sketch of the situation is provided, which is written in Python. The height that must be retained, $4.0$ meters, is indicated by $Z$. The embedding depth of the cantilever sheet pile, which will need to be determined iteratively, is noted as $t$. In  Section \ref{section:hydraulic_parameters}, the levels of the groundwater table, the water level and the dredge level are derived. The water level of the river is indicated as $WL$, which in this situation is $+0.14$ meters. The dredge level is $-1.5$ meters. The groundwater table is $+1.03$ meters, indicated as $GWT$. The ground surface is derived from comparing the water elevation on 25 September 14:00:00 from the time series, with Figure \ref{fig:critical_location_fieldtrip}. The ground surface level is assumed to be $1.5$ meters higher than the time series value of $1.0$ meters, resulting in $+2.5$ meters IGN.
 
 \begin{figure}[H]
     \centering
@@ -353,7 +353,7 @@ The simplified Padfield and Mair method XX used for the cantilever sheet pile is
 \subsection{Calculation of the Embedding Depth}
 \label{section:embedding_depth}
 
-The embedding depth of the sheet pile is derived from the balance of moment around the lowest point. The balance of moments should be set to zero, providing the minimal embedding depth. To make up the balance of moments, the pressures acting on the sheet pile should be defined to transform these into forces. The horizontal pressure acting on the sheet pile is the earth and hydrostatic pressure. First, the earth pressures will be analyzed by the Python code. Hereafter, the hydrostatic analysis will be performed, and the forces will be calculated. 
+The embedding depth of the sheet pile is derived from the balance of moment around the lowest point. The balance of moments should be set to zero, providing the minimal embedding depth. To make up the balance of moments, the pressures acting on the sheet pile should be defined to transform these into forces. The horizontal pressure acting on the sheet pile is the earth and hydrostatic pressure. First, the earth pressures will be analysed by the Python code. Hereafter, the hydrostatic analysis will be performed, and the forces will be calculated. 
 
 The depth can be defined in multiple ways. A method is to keep the depth as an unknown parameter, $t$. This will provide an explicit formula for moving below the dredge line, for the pressure and resulting forces. As the forces will be related to the balance of moments, roots will be held to get the unknown $t$. However, another approach is to begin with an estimated depth and calculate the sum of moments around the lowest point. As this balance will not be zero, an iterative solution can be used to make sure the depth is increasing while optimizing the moment balance to zero at the lowest part of the sheet pile. In this design, the depth of the sheet pile is based on the second approach. The first value of the embedding depth is taken as $6.0$ meters, which can be seen in Figure \ref{fig:problem_description_sheetpiles}.
 
@@ -880,13 +880,13 @@ With the structural verifications in the ultimate limit state analysis the minim
 
 \newpage
 \section{Nature-based solutions}
-As stressed in Chapters \ref{chap:hydroanalysis}, \ref{chap:sand extraction}, riverbank erosion is a common problem in the Rio Parana Guazu which is due to changes of the hydrodynamic parameters of the river. Besides that, there is natural damage of the ecosystems on locations where dry sand mining occurs. To mitigate these problems, it is the group's intend to use Nature-based solutions.
+As stressed in Chapter \ref{chap:sand extraction}, natural damage of the ecosystems occurs on locations where dry sand mines are active. Besides that, in Chapter \ref{chap:hydroanalysis} it was explained that riverbank erosion is a common problem in the Rio Parana Guazu, due to changes of the hydrodynamic parameters of the river. To mitigate these problems, it is the group's intend to use Nature-based solutions.
 
 \subsection{Implementing NbS in this project}
 In this section, several NbS will be presented to create a cost-efficient long-lasting, sustainable riverbank. In a first instance, NbS will be explained in detail according to the topics of dry sand mining. Following this, other solutions will be discussed with aim to mitigate the damage done to river banks. Consequently, when it comes to weighing the different NbS against each other this report will make use of the seven goals of the IUCN which must be achieved as good as possible. The seven goals are presented Chapter \ref{chapter:background}, Figure \ref{fig:7g}.
 
 \subsection{Overcoming NbS resilience}
-The implementation of NbS often faces resistance from stakeholders, particularly when compared to traditional, engineered approaches. This resistance stems from several key factors:
+Implementations of NbS often face resistance from stakeholders, particularly when these solutions are compared to traditional engineered approaches. This resistance stems from several key factors:
 \begin{itemize}
     \item Lack of Knowledge: Local communities and stakeholders may be sceptical of NbS due to their less straightforward approach compared to conventional infrastructure such as concrete walls or revetments. The abstract or long-term benefits of NbS such as ecosystem restoration, flood regulation, or biodiversity enhancement can be harder to accept as a plan.
     \item Natural Uncertainties: NbS often rely on natural processes, which can introduce risks in terms of feasibility and maintenance. Stakeholders may question whether these solutions can deliver the same level of protection or economic return as traditional non sustainable engineering solutions.
@@ -896,7 +896,7 @@ The implementation of NbS often faces resistance from stakeholders, particularly
 Therefore, the NbS must be clear, easy to implement and without a lot of financial constraints. This is because without funding of the project, there is no execution of the plans. This chapter will work on NbS which are both simple and understandable to all the stakeholders. 
 
 
-\section{Nature-based Solutions for dry sand mining}
+\section{Nature-based solutions for dry sand mining}
 %Meer overheidsingrijpen nodig? Zie interview burgemeester: The judiciary forced the government to get involved: do controls, plan and regulate. Now there’s a limit to extract, approx. 2 – 3 m. Before, there wasn’t. En sed de arena report, overheid niet proactief genoeg
 
 %https://www.unep.org/resources/report/sand-and-sustainability-10-strategic-recommendations-avert-crisis
@@ -964,7 +964,7 @@ From an economic feasibility perspective, these solutions are relatively cost-ef
 Nature-Based Solutions (NbS) use natural processes and ecosystems to address environmental challenges such as dry sand mining, but also river bank erosion and flood risk. These will be treated in this section. For river bank protection, NbS can include restoring wetlands, planting vegetation, and implementing natural flood management techniques. These solutions not only protect the river banks and infrastructure, but also improve water quality, support wildlife, and create recreational spaces.
 
 
-\subsection{Natural Flood Management}
+\subsection{Natural flood management}
 Natural Flood Management (NFM) is a NbS that consists of using natural materials to slow the flow of water through the land and reduce the chance of flash flooding, as well as increasing water storage throughout the landscape \autocite{therivertrust5EasyWays}. Using NFM upstream means that water takes a lot longer to reach lowlands and downstream areas. 
 
 A number of techniques are used in NFM, such as Natural leaky dams. This technique means placing a series of logs across a watercourse mimics the effect of naturally fallen trees. Whilst it’s important not to block the water completely, slowing the flow eases pressure downstream and reduces the risk of flooding, especially after heavy rain. The pathway of the cargo boats found on Marine Traffic is as follows: along the Rio Parana Guazu, leaving out the Rio Ibicuy, and up until Puerto Ibicuy a few times a year. 
