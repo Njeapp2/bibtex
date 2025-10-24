@@ -1,16 +1,16 @@
 \chapter{Methodology}
 \label{chap:methodology}
 
-This chapter captures all methods that were used in the research to be able to answer the questions. It describes the collection of data through various sources, such as publicly available time series and field data that are recorded in this particular study. With these data are models made, which are used for answering the sub-questions which lead to the research question. 
+This chapter captures all methods that were used to be able to answer the research questions. It describes the collection of data through various sources, such as publicly available time series and field data that were recorded in this particular study. With these data, models were made, which were used for answering the sub-questions which lead to answering the main research question. 
 
-\section{Data analysis existing data sets}
+\section{Analysis of existing data sets}
 \label{sec:desk study}
 In order to analyse and draw conclusions about the situation, the data sets used are explained in the following paragraphs. A summary is provided in Table \ref{tab:data collection summary}.
 
-The first source of data is the National Institute of Water (INA). Since collaboration between TU Delft and INA is a central aim of this study, an “our data is your data” policy was applied, under which data are openly exchanged. Through this approach, INA provided a large number of datasets, which are presented in Table \ref{tab:data collection summary} to support the research. In addition, background knowledge about water discharge, erosion and negative impacts was shared in the form of publications and reports produced by INA staff and contacts. Furthermore, INA supplied geospatial datasets, including bathymetric surveys and a Digital Elevation Model (DEM) of the study area.
+The first source of data was the Instituto Nacional del Agua (INA). Since collaboration between TU Delft and INA is a central aim of this study, an “our data is your data” policy was applied, under which data were openly exchanged. Through this approach, INA provided a large number of datasets, which are presented in Table \ref{tab:data collection summary}. In addition, background knowledge about water discharge, erosion and negative impacts was shared in the form of publications and reports produced by INA staff and contacts. Furthermore, INA supplied geospatial datasets, including bathymetric surveys and a Digital Elevation Model (DEM) of the study area.
 
-INA also directed us to a number of public sources for further hydrodynamic analysis and GIS applications. These included flow data from multiple gauging stations and publicly available bathymetric datasets. Examples are the Sistema Nacional de Información Hídrica (SNIH), point-based water level measurements from the governmental department Alerta, and water level records from the Prefectura Naval Argentina (PNA). An overview of these datasets is provided in Table \ref{tab:data collection summary}.
-Finally, additional data were obtained through other stakeholder contacts. For example, the Dutch Embassy provided a case study on nature-based solutions (NBS) for the Paraguay River, while YPF supplied soil profile data related to dry sand mining activities in the Paraná region. More information on the approach with stakeholders can be found in Section \ref{sec:stakeholder methods}.
+INA also provided a number of public sources for further hydrodynamic analysis and GIS applications. These included flow data from multiple gauging stations and publicly available bathymetric datasets. Examples are the Sistema Nacional de Información Hídrica (SNIH), point-based water level measurements from the governmental department Alerta, and water level records from the Prefectura Naval Argentina (PNA). An overview of these datasets is provided in Table \ref{tab:data collection summary}.
+Finally, additional data were obtained through other stakeholder contacts. For example, the Dutch Embassy provided a case study on Nature-based solutions (NbS) for the Paraguay River. More information on the approach with stakeholders can be found in Section \ref{sec:stakeholder methods}.
 
 \begin{table}[H]
     \centering
@@ -39,21 +39,18 @@ Finally, additional data were obtained through other stakeholder contacts. For e
 
 \subsection{SNIH measurement stations}
 \label{sec:measurementstations}
-The measurement stations from the \textit{Sistema Nacional de Informacíon Hídrica} that were used for the data collection are discussed in this section. In order to have accurate estimations of the sediment content in the lower Paraná, it is interesting to consider its origin. As discussed in Section \ref{sec:origin sediment content}, most of the sediments in the middle Paraná originate from the Bermejo river in northern Argentina. A representative measurement station for this river is found near El Colorado, Formosa province. Here, the SNIH reports long series of measurements of water elevation, discharge and sediment concentrations.
+The measurement stations from the SNIH that were used for the data collection are discussed in this section. In order to have accurate estimations of the sediment content in the Lower Paraná, it is interesting to consider its origin. As discussed in Section \ref{sec:origin sediment content}, most of the sediments in the Middle Paraná originate from the Bermejo river in northern Argentina. A representative measurement station for this river is found near El Colorado, Formosa province. Here, the SNIH reports long series of measurements of water elevation, discharge and sediment concentrations.
 
-Moving downstream, the Bermejo confluences with the Paraguay river. Merely 80 kilometers further downstream, the confluence of the Paraguay and Paraná river is located, near the city of Corrientes. Here, a drastic change in fluvial discharge occurs. Therefore, a station that represents the flow in the Middle Paraná is sought. Approximately 500 kilometers downstream of the confluence, the Túnel Subfluvial station near Santa Fe has a good amount of data. See Figure \ref{fig:rio parana map} for the location of El Colorado and Paraná (near Santa Fe). 
+Moving downstream, the Bermejo confluences with the Paraguay river. Merely 80 kilometers further downstream, the confluence of the Paraguay and Paraná river is located, near the city of Corrientes. Here, a drastic change in fluvial discharge occurs. Therefore, a station that represents the flow in the Middle Paraná was sought. Approximately 500 kilometers downstream of the confluence, the Túnel subfluvial station near Santa Fe provides data. See Figure \ref{fig:rio parana map} for the location of El Colorado and Paraná (near Santa Fe). 
 
-The two main tributaries of the Paraná that later flow into the Río de la Plata are the Paraná de las Palmas, and the Paraná-Guazú. To examine the distribution of discharge and sediment concentrations over these tributaries, two stations are selected and shown in Figure \ref{fig:flow partition}. First, the Zárate station is considered on the Paraná de las Palmas. On the Paraná-Guazú, the Brazo Largo station is selected for data analysis. Table \ref{tab:stations data collection} presents the data for all stations considered. Note that every dataset contains measurements of water level, discharge, fine sediment concentration and course sediment concentration. Most of the data is measured monthly, however some information is recorded on shorter time intervals. 
+As explained in Chapter \ref{chapter:background}, the two main tributaries of the Paraná that later flow into the Río de la Plata are the Paraná de las Palmas and the Paraná Guazú. To examine the distribution of discharge and sediment concentrations over these tributaries, two stations were selected and are shown in Figure \ref{fig:flow partition}. First, the Zárate station was considered on the Paraná de las Palmas. On the Paraná Guazú, the Brazo Largo station was selected for data analysis. Table \ref{tab:stations data collection} presents the data for all stations considered. Note that every dataset contains measurements of water level, discharge, fine sediment concentration and course sediment concentration. Most of the data is measured monthly, however some information is recorded on shorter time intervals. 
 
-
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{figures/ch4/Flow partition1.png}
-    \caption{Measurement stations of interest on Paraná de las Palmas and Paraná-Guazú}
+    \caption{Measurement stations of interest on Paraná de las Palmas and Paraná Guazú}
     \label{fig:flow partition}
 \end{figure}
-
-
 
 \begin{table}[H]
     \centering
@@ -66,36 +63,32 @@ The two main tributaries of the Paraná that later flow into the Río de la Plat
         El Colorado         & 2602 & Bermejo               & 1968--2025 \\
         Túnel Subfluvial    & 3050 & Middle Paraná         & 1983--2025 \\
         Zárate              & 4001 & Paraná de las Palmas  & 1993--2025 \\
-        Brazo Largo         & 4002 & Paraná-Guazú          & 1993--2025 \\
+        Brazo Largo         & 4002 & Paraná Guazú          & 1993--2025 \\
         \bottomrule
     \end{tabular}
     \caption{Selection of SNIH measurement stations.}
     \label{tab:stations data collection}
 \end{table}
 
-
-
 \subsection{Sand mining quantities}
-The number of vessels involved in river dredging activities on the Paraná Guazú was determined using AIS (Automatic Identification System) data. Vessel movements between dredging sites and ports were monitored through \textit{MarineTraffic}. Although historical records were not considered, the daily activity observed during the study period provides a reliable estimate of the sand extraction volumes. 
+The number of vessels involved in river dredging activities on the Paraná Guazú was determined using AIS (Automatic Identification System) data. Vessel movements between dredging sites and ports were monitored through MarineTraffic. Although historical records were not considered, the daily activity observed during the study period provided an estimate of the sand extraction volumes. 
 
-Alternatively, a collection of dredging permits in the river is considered. To avoid adverse impacts on the hydraulic regime of the river due to dredging, companies must first obtain permits from the \textit{National Water Institute }(INA). These permits specify the locations and volumes of the proposed dredging activities. The information they provide serves as a reliable estimate of the total material being removed from the river, thereby influencing the sediment balance. Therefore, the permits were analysed for the area of interest.
-Subsequently, the information gathered from AIS data and extraction permits were combined, resulting in estimates of volumes that are dredged in the study area. In addition, conversations with stakeholders were of valuable insight and supported the comparison with the results of the data collection.
+Alternatively, a collection of dredging permits in the river was considered. To avoid adverse impacts on the hydraulic regime of the river due to dredging, companies must first obtain permits from the \textit{National Water Institute }(INA). These permits specify the locations and volumes of the proposed dredging activities. The information they provide serves as a reliable estimate of the total material being removed from the river, thereby influencing the sediment balance. Therefore, the permits were analysed for the area of interest.
+Subsequently, the information gathered from AIS data and extraction permits were combined, resulting in estimates of volumes that are dredged in the study area. In addition, conversations with stakeholders provided insights and made a comparison with the results of the data collection possible.
 
-The information about dry sand mining is however gained through different sources. The main sources were a literature review and the semi-structured interviews (which are explained Section \ref{sec:stakeholder methods}. These were used to gather data on dry sand mining quantities, usage purposes, and the factors influencing demand for sand from the region. The literature review provided background and quantitative information, while interviews offered insights from stakeholders directly involved in sand extraction and use.
+The information about dry sand mining was gained through different sources. The main sources were a literature review and the semi-structured interviews, which are explained Section \ref{sec:stakeholder methods}. These were used to gather data on dry sand mining quantities, usage purposes, and the factors influencing demand for sand from the region. The literature review provided background and quantitative information, while interviews offered insights from stakeholders directly involved in sand extraction and use in the study area.
 
 \section{Field study}
 \label{sec:field study}
-The goal of the field work was to obtain data from measurements on the boat using different devices, as well as obtaining resourceful information from chosen stakeholders in the area of the field work. This data would then be filtered, analysed and used to take give answers on the research question of the report.
-
-The field work divided the group of six students in two, leaving one group of three on the boat with two supervisors of INA to take the required measurements, and one group of three with another colleague of INA for the interviews.
+The goal of the fieldwork was to obtain data from measurements on the boat using different devices, as well as obtaining resourceful information from chosen stakeholders in the area of the fieldwork. This data would then be filtered and analyse to help support conclusions. The fieldwork divided the group of six students in two, leaving one group of three on the boat with two supervisors of INA to take the required measurements, and one group of three with another colleague of INA for the interviews.
 
 \subsection{Stakeholders}
 \label{sec:stakeholder methods}
-In this study qualitative research was conducted to explore perceptions and experiences related to the river. For this, interviews were conducted to capture insights from participants with diverse perspectives.
+In this study, a qualitative research was carried out to explore perceptions and experiences related to sand extraction in the lower delta area. For this, interviews were conducted to capture insights from participants with diverse perspectives.
 
-A qualitative approach was chosen because it allows for a detailed understanding of participant's views and interpretations of the river. This design is particularly suited to capture the complexity of social and environmental issues and to highlight the ways in which different stakeholders experience and assign meaning to the river.Data were collected through semi-structured interviews, a method that combines prepared guiding questions with the flexibility to follow up on unexpected but relevant topics raised by participants. This format ensured that key themes were consistently addressed in interviews while also allowing interviewees to elaborate on issues they considered important. In practice, a topic guide with questions per stakeholder was developed to provide structure, but the interviewer encouraged open-ended responses and probed further where clarification or depth was needed. During the interview, responses were written down in key words. The prepared questions for the specific stakeholders are given in Appendix \ref{chap:interviews}.
+A qualitative approach was chosen because it allows for a detailed understanding of participant's views and interpretations. This design is particularly suited to capture the complexity of social and environmental issues and to highlight the ways in which different stakeholders experience the delta region and the activities related to it. Data were collected through semi-structured interviews, a method that combines prepared guiding questions with the flexibility to follow up on unexpected but relevant topics raised by participants. This format ensured that key themes were consistently addressed in interviews while also allowing interviewees to elaborate on issues they considered important. In practice, a topic guide with questions per stakeholder was developed to provide structure, but the interviewer encouraged open-ended responses and probed further where clarification or depth was needed. During the interview, responses were written down in key words. The prepared questions for specific stakeholders as well as their unprocessed responses are given in Appendix \ref{chap:interviews}.
 
-In case of language barriers the questions and responses are translated. Most stakeholders were approached by mail to get in contact and reached on-site. After each interview, permission is asked to quote and name the stakeholder in the report. Table \ref{tab:stakeholders} gives an overview of the stakeholders who were contacted, when and by what method. 
+In case of language barriers, the questions and responses were translated to English by INA staff members. Most stakeholders were approached by email to get in contact or were reached on-site. After each interview, permission was asked to quote and name the stakeholder in the report. Table \ref{tab:stakeholders} gives an overview of stakeholders who were contacted, when and by which method. 
 
 \begin{table}[H]
     \centering
@@ -103,27 +96,25 @@ In case of language barriers the questions and responses are translated. Most st
         \toprule
         Date & Occupation & Method \\
         \midrule
-        12-09-2025 & Fishers & Mail \\
-        12-09-2025 & Ports & Mail \\
+        12-09-2025 & Fishers & Email \\
+        12-09-2025 & Ports & Email \\
         12-09-2025 & Filmmakers & Whatsapp \\
         24-09-2025 & Landowners & Whatsapp and On-site \\
-        25-09-2025 & Agencia Nacional de Puertos y Navegación (ANPYN) &  Mail \\
+        25-09-2025 & Agencia Nacional de Puertos y Navegación (ANPYN) &  Email \\
         25-09-2025 & Dredgers & On-site \\
-        25-09-2025 & Camping owner & Mail and On-site \\
-        30-09-2025 & Prefectura Naval Argentina (PNA) & Mail \\
+        25-09-2025 & Camping owner & Email and On-site \\
+        30-09-2025 & Prefectura Naval Argentina (PNA) & Email \\
         \bottomrule
     \end{tabularx}
-    \caption{Stakeholder overview}
+    \caption{Overview of stakeholder approach}
     \label{tab:stakeholders}
 \end{table}
 
-% TABEL AANPASSEN. WIE HOE WANNER. LOCATION AND LANGUAGE NAAR DE RESULTATEN. OOK DE BENAMING SPECIFIEK IN DE RESULTATEN BENOEMEN EN HIER ALGEMEEN BLIJVEN. EXTRA KOLOM HOE TEOVOEGEN; MAIL, WHATSAPP, TEAMS
+% TABEL AANPASSEN. WIE HOE WANNER. LOCATION AND LANGUAGE NAAR DE RESULTATEN. OOK DE BENAMING SPECIFIEK IN DE RESULTATEN BENOEMEN EN HIER ALGEMEEN BLIJVEN. EXTRA KOLOM HOE TEOVOEGEN; Email, WHATSAPP, TEAMS
 
 \subsection{Measurement variables and equipment}
 \label{Measurement variables and equipment}
-In this section are the location and type of measurements explained. The goal of the field work was to obtain data from critical sections in the study area. These locations were selected in such a way that they were as useful as possible for establishing the sediment balance. Two important locations in the study area are the confluence from the Ibicuy and Paraná Guazú, and that of the Paraná Guazú and Talabera. In these sections, sediment samples and flow measurements were recorded.
-Once this data was gathered, it was analysed and compared to previously obtained data to draw conclusions. 
-
+In this section, the types of measurements are explained as well as the locations of measurements taken. The goal of the fieldwork was to obtain data from critical sections in the study area, specifically those sections that were deemed critical for establishing the sediment balance. Two important locations in the study area are the confluence from the Ibicuy and Paraná Guazú, and that of the Paraná Guazú and Talabera. In these sections, sediment samples and flow measurements were recorded. Once this data was gathered, it was analysed and compared to previously obtained data to draw conclusions. 
 
 % \begin{figure}[H]
 %     \centering
@@ -134,8 +125,7 @@ Once this data was gathered, it was analysed and compared to previously obtained
 
 % The program of the boat days consisted of going over the indicated critical cross sections (in red on Figure 4.2) a total of 4 times, using the equipment of INA to save the necessary information of the river. 
 
-
-Firstly is the Flow velocity measured profile of the river. This is recorded by a SonTek RiverSurveyor M9 Acoustic Doppler Current Profiler (ACDP). This device consists of two components both placed on a floating board held next to the boat while advancing. The components are a vertical acoustic echo sounder beam placed on the back end of the floating board, and a rectangle shape box containing a microprocessor that computes the data on the front end of the board, as seen in Figure \ref{fig:SonTekmeasurement}.
+The first measured type of data is the flow velocity profile of the river. This was recorded by a SonTek RiverSurveyor M9 Acoustic Doppler Current Profiler (ACDP). This device consists of two components both placed on a floating board held next to the boat while advancing. The components are a vertical acoustic echo sounder beam placed on the back end of the floating board, and a rectangle shape box containing a microprocessor that computes the data on the front end of the board, as seen in Figure \ref{fig:SonTekmeasurement}.
 
 \begin{figure}[H]
     \centering
@@ -167,7 +157,7 @@ The echosounder is attached to a pole on the side of the boat, and dipped into t
 \end{figure}
 
 
-From the Bathymetry and the flow velocity is the Discharge researched. The flow velocity \(\mathbf{v}\) is integrated over the depth and the width of the channel (through a cross-section) which in the end yields the discharge \(Q\) of the river at a given location, with a unit of \si{\cubic\metre}/s.
+From the bathymetry and the flow velocity one can find the discharge. The flow velocity \(\mathbf{v}\) is integrated over the depth and the width of the channel (through a cross-section) which in the end yields the discharge \(Q\) of the river at a given location, with a unit of m\textsuperscript{3}/s.
 \begin{equation}
     Q = \iint_A \mathbf{v} \cdot d\mathbf{A}
     \label{eq:discharge_integration}
@@ -185,7 +175,7 @@ The number of required measurements of a single cross section is defined by the 
 
 
 
-% The aim of the field work was to obtain the data of flow velocity and discharge at the three critical points around the bifurcation of interest during different times, one in the morning and in the afternoon. Consequently this would indicate some changes in discharge for different times, flows, circumstances hence solidifying our data base of examples. 
+% The aim of the fieldwork was to obtain the data of flow velocity and discharge at the three critical points around the bifurcation of interest during different times, one in the morning and in the afternoon. Consequently this would indicate some changes in discharge for different times, flows, circumstances hence solidifying our data base of examples. 
 
 
 
@@ -219,7 +209,7 @@ Then, the samples were sealed in order to be sent to the water quality lab in th
 
 
 Fourthly, the bed load was a necessary measurement for the complete analysis. The method used for this parameter is scraping the bottom layer of the channel with a metal shaped container. The goal is to retrieve samples that represent the granulometry of the bed at different depths. 
-The strategy for this measurement is tying a rope to the metal container, dropping it until it reaches the maximum depth of the location. Then, with help of the current or the boat, the person who holds the rope drags the container along with the horizontal movement which gradually collects sediment from the surface. Once this is done, the rope and the container are pulled up and restored in the boat. The last step is to collect some sediment and put it in a plastic bag.  Later on, the captured sediment was sent to the lab where the soil was dried out to find the components, quality and other parameters of the soil such as porosity which would add up to the results. The metal container, as well as the extracts of the sediment samples in the oven are shown in Figure \ref{fig:bed-load}. 
+The strategy for this measurement is tying a rope to the metal container, dropping it until it reaches the maximum depth of the location. Then, with help of the current or the boat, the person who holds the rope drags the container along with the horizontal movement which gradually collects sediment from the surface. Once this is done, the rope and the container are pulled up and restored in the boat. The last step is to collect some sediment and put it in a plastic bag.  Later on, the captured sediment was sent to the lab where the soil was dried out to find the components, quality and other parameters of the soil such as porosity which would add up to the results. The metal container, as well as the extracts of the sediment samples in the oven are shown in Figure \ref{fig:bed-load}.
 
 \begin{figure}[H]
     \centering
@@ -304,7 +294,7 @@ The second location, contains measurements at Puerto Ibicuy. There, some cross s
 
 In this paragraph, the methodology is explained as to how one has studied this matter, and how the data was found to get to conclusions.
 
-During the field work it was noticed through the interviews that a significant amount of people living along the riverside were affected by bank erosion \ref{chap:interviews}. The research group took multiple pictures from the actual conditions in 2025, so that a comparison could be established once older data was obtained. From what was seen, the land was highly eroded, some trees were on the verge of being in the water, while others were already sucked up by the river. This can be seen in the Figures \ref{bankerosion} below taken during the field trip.
+During the fieldwork it was noticed through the interviews that a significant amount of people living along the riverside were affected by bank erosion \ref{chap:interviews}. The research group took multiple pictures from the actual conditions in 2025, so that a comparison could be established once older data was obtained. From what was seen, the land was highly eroded, some trees were on the verge of being in the water, while others were already sucked up by the river. This can be seen in the Figures \ref{bankerosion} below taken during the field trip.
 
 \begin{figure}[H]
     \centering
@@ -322,8 +312,8 @@ During the field work it was noticed through the interviews that a significant a
         \caption{Bank Erosion Closeup}
         
     \end{subfigure}
-    \caption{Bank Erosion Shots from Field Work}
-    \label{fig:Bank Erosion shots from field work}
+    \caption{Bank Erosion Shots from fieldwork}
+    \label{fig:Bank Erosion shots from fieldwork}
 \end{figure}
 \label{bankerosion}
 

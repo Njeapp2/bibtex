@@ -82,6 +82,7 @@ The relationship between fluvial discharge and water level at Brazo Largo yields
 
 
 \subsection{Sediment loads}
+\label{sec:sediment loads}
 The analysis is extended to sediment concentrations, relating both fine and coarse sediment loads to liquid discharge. Figure \ref{fig:discharge sediment brazo} shows this relation for the Brazo Largo station. The same trend occurs as in the rating curves: in the Bermejo river, fine and coarse sediment discharges are closely related to large flow events through power-law relations. This behaviour is found to a lesser extent in the Lower Paraná, where the correlations are weak. Overall, a power-law fit is a suitable approach to model the relation. The fine sediment concentration is generally higher than the coarse sediment concentration. In addition, the coarse sediment concentration increases more significantly for an increasing fluvial discharge. Note that the $R^2$ of both relationships is small in comparison to the Bermejo river, for which the same variables are related in Figure \ref{fig:discharge sediment bermejo}. 
 
 
@@ -111,14 +112,14 @@ The analysis is extended to sediment concentrations, relating both fine and coar
 \subsubsection{Estimated fine sediment load}
 The data considered in the previous analysis is recorded approximately every two months over a couple of decades. However, in order to study the balance of sediments in the study area, it is useful to generate time series of sediment loads at a finer resolution. These can provide insight into seasonal effects and sediment flows related to large discharge events. Originally intended for modelling the sedimentological dynamics of the Río de la Plata, \citeauthor{reMetodologiaParaGeneracion2009} have developed a methodology for generating time series of solid discharges. This theory will be applied to the Paraná Guazú under the right considerations.
 
-
+\vspace{0.2cm}
 The first assumption is that the flow of solid sediments in the Middle Paraná can be represented by the sediment flows from Bermejo, disregarding the sediment contribution of the Upper Paraná. Consequently, the flow in the Middle Paraná is regarded as a combination of the fluvial discharge in Santa Fe (Túnel Subfluvial station) and the fine sediment load recorded in El Colorado (see Section \ref{sec:measurementstations}). In order to estimate the fine sediment concentration in Túnel Subfluvial, the fine sediment-discharge relation for Bermejo is used as shown in Figure \ref{fig:discharge sediment bermejo}.
 Next, this procedure is applied to more recent data to evaluate the methodology. The most recent, relevantly long interval with continuous data for both measurement stations is 2017 to 2019. A number of assumptions is used to find the time series of fine sediment concentration:
 
 \begin{itemize}
     \item A base concentration is set for the Middle Paraná to compensate for low inflow periods of the Bermejo. Therefore, fine sediment load data from Itatí and Puerto Pilcomayo stations (SNIH) are studied in the relevant interval. The sum of the mean loads gives a base concentration of 182.96 kg/s.
     \item To cover the distance between El Colorado and Túnel Subfluvial, a delay of 222 hours is considered (approximately 800 km at a flow velocity of 1 m/s). 
-    \item Depositions of wash load in the floodplain between the stations is compensated for by substracting 10 million tonnes per year from concentration peaks. This holds for all concentrations above a certain threshold value, which in this case was found to be optimal at 350 mg/l.
+    \item There is compensated for depositions of wash load in the floodplain between the stations by substracting 10 million tonnes per year from concentration peaks. This holds for all concentrations above a certain threshold value, which in this case was found to be optimal at 350 mg/l.
 \end{itemize}
 
 The result of this time series is given in Figure \ref{fig:timeseries fine sediments}. It is important to note that this relation for fine sediment concentrations is considered useful for the Paraná Guazú as well \autocite{reMetodologiaParaGeneracion2009}. The plot shows that the observations are generally higher than the fit predicts in times of low fine sediment loads. Overall, the fit gives a good estimate of fine sediment concentrations, revealing seasonal aspects and relevant concentration values.
@@ -236,7 +237,6 @@ The tidal variance fraction at Brazo Largo is 5.71. This means that only 5.71\% 
 Although the tidal variance fraction is low, the shape of the tidal signal still provides insight into the potendial sediment import/export. The computed velocity skewness (0.48) and the rising period being shorter than the fall period, suggest a weak flood-dominant asymmetry. This is consistent with the positive $M_4/M_2$ amplitude ratio (0.11) and the phase difference of 259$^\circ$ between $M_4$ and $M_2$, both indicative of flood dominance \autocite{bosboomCoastalDynamics2023}. Therefore, small net landward sediment transport may occur as a result of tidal asymmetry, although its overall effect is expected to be minor compared to the fluvial and meteorological forcing.
 
 
-\newpage
 \section{Field work measurements}
 This section describes the results of the field campaign introduced in Section \ref{sec:field study}. The measurements are compared to the results found in Section \ref{sec:Hydrodynamic data}.
 First, discharge and flow velocities are considered in the sections of interest. Then, measurement samples are processed to desribe grain size distributions, suspended and bed sediment loads. Finally, an explanation is given on longitudinal profiles.
@@ -541,7 +541,6 @@ No clear results are found in the context of dune migration or bed forms. Nevert
 \end{figure}
 
 
-\newpage
 \section{Sediment Balance}
 \label{sec: Sediment Balance}
 In this section, the sediment balance of the region of interest will be derived. The control volume around the confluence of the Rió Paraná Guazú and the Río Talabera is shown in Figure \ref{fig:Area sediment balance}. The boundaries of this volume are defined by the cross sections in which discharge and sediment measurements were taken during fieldwork. These measurements are used to calculate the ingoing and outgoing sediment fluxes. As only measurements of a single day are available, the derived balance will be a momentary assessment of the amount of sediment entering and leaving the area, rather than a long-term sediment balance. However, since one of the main goals of this study is to investigate the effects of sand extraction on the river, a momentary sediment balance can still provide insights into the significance of the amount of sand that is being extracted.
@@ -719,7 +718,7 @@ Summing all the forces for every wave passing by would be incorrect. In order to
 $ F_{w} = 0.766 \cdot 1.3 = 0.996  \, ~\text{kN/m}$ per ship. 
 
 \subsubsection{Current Load}
-The current of a river can have different effects on the river bank depending on the degree of impact on the bank. A current working directly in the direction of the bank, in this case 90 degrees, does not have the same effect as a current moving along the bank. The current going along the river bank creates a different type of load, categorised as shear \autocite{chowOpenChannelHydraulics}. For the situation of the Parana Guazu, one may use the shear equation from the Open Channel Hydraulic Book cited above to calculate the force exerted by the current on a vertical structure:
+The current of a river can have different effects on the river bank depending on the degree of impact on the bank. A current working directly in the direction of the bank, in this case 90 degrees, does not have the same effect as a current moving along the bank. The current going along the river bank creates a different type of load, categorised as shear \autocite{chowOpenChannelHydraulics1919}. For the situation of the Parana Guazu, one may use the shear equation from the Open Channel Hydraulic Book cited above to calculate the force exerted by the current on a vertical structure:
 
 \begin{equation}
 \label{eq:shear load}
@@ -738,7 +737,7 @@ The current of a river can have different effects on the river bank depending on
 
 The shear force exerted by a river current on its banks is a critical factor in understanding erosion and bank stability. This force is not uniform along the length of a river channel but varies due to changes in bathymetry and bank geometry.
 
-To be able to calculate the force of the current on the bank, one needs to find the parameters of the equation for the exposed surface area. As the water density $\rho$ and the gravitational constant $g$ can be assumed to be constant along the channel, the other parameters can differ in function of the chosen location. Since it cannot be known exactly how tall the relevant bank stretch is over the whole area, one could assume a 1 meter riverbank height constant from field work measurements. So A = 1 [m$^2$] would yield a force illustrated per meter length of the bank. Moreover, parameter of the river slope $S$ is equal to 10\textsuperscript{-5}, a data obtained from previous INA research \autocite{}. Lastly, the parameter of water depth depends on the bathymetry of the location chosen. These values were obtained during the field trip measurements. Based on a chosen location, one can obtain the water depth via the local bathymetry cross section, and inserting this last parameter into the equation \ref{eq:shear load} above. This can be useful for mitigation strategies for bank erosion. 
+To be able to calculate the force of the current on the bank, one needs to find the parameters of the equation for the exposed surface area. As the water density $\rho$ and the gravitational constant $g$ can be assumed to be constant along the channel, the other parameters can differ in function of the chosen location. Since it cannot be known exactly how tall the relevant bank stretch is over the whole area, one could assume a 1 meter riverbank height constant from field work measurements. So A = 1 [m$^2$] would yield a force illustrated per meter length of the bank. Moreover, parameter of the river slope $S$ is equal to 10\textsuperscript{-5}, a data obtained from previous INA research \autocite{institutonacionaldelaguaProposalTUDelft2025}. Lastly, the parameter of water depth depends on the bathymetry of the location chosen. These values were obtained during the field trip measurements. Based on a chosen location, one can obtain the water depth via the local bathymetry cross section, and inserting this last parameter into the equation \ref{eq:shear load} above. This can be useful for mitigation strategies for bank erosion.
 
 \subsection{Aqua Monitor}
 \label{section:cirtical_location}
