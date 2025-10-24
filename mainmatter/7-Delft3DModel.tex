@@ -81,13 +81,6 @@ For the hydrodynamic simulation, a time step of 0.2 minutes was used to ensure t
 
 The horizontal eddy viscosity and horizontal eddy diffusivity were set to 1 m\textsuperscript{2}/s and 2 m\textsuperscript{2}/s respectively. These values were chosen to provide realistic horizontal momentum and scalar transport. Large values for the horizontal eddy viscosity and horizontal eddy diffusivity can lead to excessive numerical smoothing. The HLES turbulence model was not activated to calculate the viscosity and diffusivity in the base run, because simulations with HLES activated are computationally more expensive. HLES resolves smaller turbulent eddies explicitly, which requires a smaller time step, hence why it is computationally more expensive. Instead, the influence of the HLES turbulence model is evaluated in the sensitivity analysis.
 
-\begin{itemize}
-    \item Computational grid
-    \item Bathymetry
-    \item Boundary conditions + initial condition
-    \item Physical + numerical parameters
-\end{itemize}
-
 \section{Model Calibration}
 The Delft3D model was calibrated to ensure that the simulated hydrodynamic conditions accurately represent the real-life flow conditions. The calibration was done by comparing the model results with the ADCP measurements from the field campaign. Additionally, the simulated water levels near Ibicuy are compared to the measured water level time series. Calibration primarily focussed on adjusting the Manning roughness coefficient, as this parameter has the highest influence on flow velocities and water depth.
 
