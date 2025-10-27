@@ -64,7 +64,7 @@ The sections and interlocks for the steel sheet pile walls are crucial for compl
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.50\linewidth]{figures/ch8/u_profile_z_profile.png}
+    \includegraphics[width=0.60\linewidth]{figures/ch8/u_profile_z_profile.png}
     \caption{U and Z sections \autocite{sheetpilinggroupSheetPiles2018}}
     \label{fig:sections_sheetpiles}
 \end{figure}
@@ -296,7 +296,7 @@ The design of the sheet pile wall is based on the cantilever sheet pile wall. As
 
 The design of a cantilever sheet pile can be performed using multiple classical design methods or numerical analysis. Common approaches applicable to sheet pile walls include the methods of Bishop, Homberg, Padfield, and Mair, Bowles, Day, and Das, as well as the free earth method, the spring-supported beam method, and numerical models such as PLAXIS FEM.
 
-Reviewing Eurocode 7, the calculation for the design of a sheet pile should be based on the spring-supported beam method \autocite{eurocodeGeotechnicalDesignStructures2025}. However, due to complexity, the sheet pile wall will be calculated using the simplified Padfield and Mair method. This method is a simplified representation of the situation, however, after calculating the embedding depth, the verifications will be according to the ultimate limit and serviceability limit defined in Eurocode 3 and Eurocode 7.
+Reviewing Eurocode 7, the calculation for the design of a sheet pile should be based on the spring-supported beam method \autocite{stichtingkoninklijknederlandsnormalisatieinstituutNederlandseNormNEN2025}. However, due to complexity, the sheet pile wall will be calculated using the simplified Padfield and Mair method. This method is a simplified representation of the situation, however, after calculating the embedding depth, the verifications will be according to the ultimate limit and serviceability limit defined in Eurocode 3 and Eurocode 7.
 
 % \subsubsection{Simplified Padfield and Mair}
 
@@ -343,7 +343,7 @@ The horizontal pressure of the soil can be calculated based on the effective str
 
 \subsubsection{Earth pressure and force}
 
-The pressure the wall feels from the soil is the lateral earth pressure. This earth pressure can be calculated with the effective vertical stress and a coefficient. While soil is largely dependent on nature, the stresses differ, just like the vertical effective stress along the profile. Equation \ref{eq:earth_pressure} shows how the earth pressures are calculated for both the active and passive sides. For the active and passive sides, the coefficients K\textsubscript{a} and \textsubscript{a} will be used.
+The pressure the wall feels from the soil is the lateral earth pressure. This earth pressure can be calculated with the effective vertical stress and a coefficient. While soil is largely dependent on nature, the stresses differ, just like the vertical effective stress along the profile. Equation \ref{eq:earth_pressure} shows how the earth pressures are calculated for both the active and passive sides. For the active and passive sides, the coefficients K\textsubscript{a} and K\textsubscript{p} will be used.
 
 \begin{equation}
     p_{ea,h,z} = z \cdot \gamma \cdot K_{\gamma}
@@ -531,7 +531,7 @@ $$
 
 A cantilever sheet pile wall should be designed according to two conditions. These conditions are the Ultimate Limit State (ULS) and the Serviceability Limit State (SLS). In the ULS, the worst possible forces that can occur during the span of the sheet pile should be analyzed with respect to the safety of people and the structure \autocite{baxterPilingHandbook2022}. In the SLS checking the structure under normal conditions where the function and appearance of the structure are concerned \autocite{baxterPilingHandbook2022}. In this section, the ULS GEO is performed.
 
-For the design, this means that safety factors for the ULS and SLS should be included, regarding Eurocode 7 GEO \autocite{stichtingkoninklijknederlandsnormalisatieinstituutNederlandseNormNEN2025}, which is not included in the simplified Padfield and Mair method. For the analysis, multiple combinations should be verified, and the most unfavourable is used for the design. Two combinations, within design approach 1, stated in Eurocode 7, are evaluated in Appendix \ref{appendix:uls_combinations}. However, for the calculation in this section, the most unfavourable combination is taken and elaborated.
+For the design, this means that safety factors for the ULS and SLS should be included, regarding Eurocode 7 GEO, which is not included in the simplified Padfield and Mair method. For the analysis, multiple combinations should be verified, and the most unfavourable is used for the design. Two combinations, within design approach 1, stated in Eurocode 7, are evaluated in Appendix \ref{appendix:uls_combinations}. However, for the calculation in this section, the most unfavourable combination is taken and elaborated.
 
 The most unfavourable combination within design approach 1 is combination 2 (DA1-2). The safety factors are shown in Table \ref{tab:partial_factors}, and the partial factors on loads, materials, and actions to protect the sheet pile in ULS are shown \autocite{stichtingkoninklijknederlandsnormalisatieinstituutNederlandseNormNEN2025}. In this calculation, the hydrostatic loads and the earth pressures are permanent. For SLS, all safety factors are set at $1.0$. The combination and safety factors result in the final embedding depth of t = 10.172 meters,  shown in Figure \ref{fig:appendix_uls_moments_balance_forces}. However, the acting shear forces and bending moments are greater. From Table \ref{tab:appendix_forces_arms_moments_new}, it can be seen that the balance of moments at this depth is close to zero (-0.0632 kNm/m).
 
@@ -732,6 +732,8 @@ For shear verification, it is important that the design shear force, V\textsubsc
     \label{eq:shear_verification}
 \end{equation}
 
+\newpage
+
 \begin{itemize}
     \item $A_{v}$ is the projected shear area of each web [mm\textsuperscript{2}];
     \item $t_w$ is the web’s thickness [mm];
@@ -820,21 +822,23 @@ $$
 
 \subsection{Final design}
 
-With the structural verifications in the ultimate limit state analysis the minimal embedding depth for the final design of the cantilever sheet pile wall have been derived. From Section \ref{section:structural_verification_uls}, it becomes clear that all relevant checks are met and the profile AZ24 700 is verified. With the final embedding depth found in Section \ref{section:embedding_depth}, the minimal depth in ULS verification is set at t = 10.172 meters. With this information, the final 2D design can be obtained in Figure \ref{fig:final_design}. In Figure \ref{fig:3D_final_design}, an 3D impression of the sheet pile can be seen.
+With the structural verifications in the ultimate limit state analysis the minimal embedding depth for the final design of the cantilever sheet pile wall have been derived. From Section \ref{section:structural_verification_uls}, it becomes clear that all relevant checks are met and the profile AZ24 700 is verified. With the final embedding depth found in Section \ref{section:embedding_depth}, the minimal depth in ULS verification is set at t = 10.172 meters. With this information, the final 2D design can be obtained in Figure \ref{fig:final_design}. 
+
+% In Figure \ref{fig:3D_final_design}, an 3D impression of the sheet pile can be seen.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.90\linewidth]{figures/ch8/final_design.png}
+    \includegraphics[width=1.00\linewidth]{figures/ch8/final_design.png}
     \caption{2D design cantilever sheet pile}
     \label{fig:final_design}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.70\linewidth]{figures/ch8/3D_final_desgin.png}
-    \caption{3D design cantilever sheet pile}
-    \label{fig:3D_final_design}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.70\linewidth]{figures/ch8/3D_final_desgin.png}
+%     \caption{3D design cantilever sheet pile}
+%     \label{fig:3D_final_design}
+% \end{figure}
 
 \newpage
 \section{Nature-based solutions}
