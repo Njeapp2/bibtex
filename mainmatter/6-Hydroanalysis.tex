@@ -140,8 +140,7 @@ Similar to fine sediments, an approach for generating time series of coarse sedi
 
 where \( s \) is the specific gravity of the sediment, \( g \) is the acceleration due to gravity, \( d_{50} \) is the median grain diameter, and \( S_{f} \) is the friction slope. The variables \( u \) and \( h \) represent the flow velocity and the hydraulic depth, respectively. The value for $d_{50}$ is assumed to be 200 ~$\mu$m \autocite{reMetodologiaParaGeneracion2009}. The values for $u$, $h$ and $S_f$ were gathered by running a one-dimensional hydrodynamic model in HEC-RAS. The model output provided relationships between friction slope, flow velocity, and hydraulic depth as functions of discharge. To generate a time series of sediment transport rates, it was therefore sufficient to obtain a single discharge time series. For this purpose, a recent hydrodynamic simulation of water levels and discharges was used for the Brazo Largo section, located downstream of the confluence of the Talabera and Paraná Guazú rivers. The dataset spans approximately two months with hourly intervals. Using interpolation, time series for the friction slope, velocity, and hydraulic depth were derived from the discharge data. These were then used as inputs to Equation \ref{eq:engelund_hansen} to compute the time series of coarse sediment transport rates. The time series of the discharge is given in Figure \ref{fig:discharge time series} and the corresponding coarse sediment load time series in Figure \ref{fig:engelund hansen time series}. 
 
-In comparison to the study of \textcite{reMetodologiaParaGeneracion2009}, the amount of yearly sediment transport is significantly lower; this estimation yields approximately 1.78 millions tons per year, as opposed to 3.85 million tons per year. This  
-The relatively low discharge values are representative for the time frame of this study, and therefore the time series serve as a comparison to the fieldwork. 
+In comparison to the study of \textcite{reMetodologiaParaGeneracion2009}, the amount of yearly sediment transport is significantly lower; this estimation yields approximately 1.78 millions tons per year, as opposed to 3.85 million tons per year. This discrepancy is attributed to the difference in friction slope. The HEC-RAS output suggests mean friction slopes of the order of $6 \cdot 10^{-6}$, which is again smaller. In addition, smaller discharge values have been considered, which directly result in smaller flow velocities. The relatively low discharge values are representative for the time frame of this study, and therefore the time series serve as a comparison to the fieldwork. Finally, two methods have been proposed to estimate time series of fine sediment and coarse sediment loads, respectively. These provide estimates of the sediment concentrations encountered in the study area. 
 
 \begin{figure}[H]
     \centering
@@ -152,7 +151,7 @@ The relatively low discharge values are representative for the time frame of thi
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{figures/ch6/engelund hansen time series.png}
+    \includegraphics[width=0.75\linewidth]{figures/ch6/coarse sediment load time series.png}
     \caption{Time series of coarse sediment load estimated by Engelund-Hansen}
     \label{fig:engelund hansen time series}
 \end{figure}
@@ -562,7 +561,7 @@ In this section, the sediment balance of the region of interest will be derived.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{figures/ch6/Map_sed_balance.png}
-    \caption{Control volume for the sediment balance.}
+    \caption{Control volume for the sediment balance (\cite{googleearth2025}).}
     \label{fig:Area sediment balance}
 \end{figure}
 

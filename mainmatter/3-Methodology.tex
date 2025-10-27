@@ -15,7 +15,8 @@ Finally, additional data were obtained through other stakeholder contacts. For e
 \begin{table}[H]
     \centering
     \renewcommand{\arraystretch}{1.2} % row spacing
-    \setlength{\tabcolsep}{4pt}       % column padding
+    \setlength{\tabcolsep}{4pt}
+    \caption{Summary of data sources}% column padding
     \begin{tabularx}{\textwidth}{p{3.5cm}p{8cm}p{3.5cm}}
         \toprule
         Name & Description of data type & Source \\
@@ -25,15 +26,14 @@ Finally, additional data were obtained through other stakeholder contacts. For e
         DEM of lower Paraná & GeoTIFF file containing a Digital Elevation Model of the study area & INA \\
         Bathymetry (GIS) & Results from field campaigns in and around study area (2011, 2015, 2018) & INA \\
         Sand extraction permits & Agreements on locations and volumes of dredged sand & INA \\
-        MarineTraffic & Live AIS vessel data & MarineTraffic \\
-        Prefectura Naval Argentina  & Water level measurements & Prefectura Naval Argentina   \\
-        Sistema Nacional de Informacíon Hídrica & Water level, discharge, fine and course sediment concentration & SNIH \\
-        AquaMonitor & Deltares tool that represents water gains and losses based on historical satellite imagery & Deltares, Github, Google Earth Engine \\
-        Bathymetry (pdf) & Detailed bathymetries along Paraná river in pdf-format & Secretaría de Transporte \\
-        Google Earth & Tool that gives away satellite imagery of the globe. Can be used for a chosen time period of 1984-now & Google Earth  \\
+        MarineTraffic & Live AIS vessel data & \cite{marinetraffic2025} \\
+        Prefectura Naval Argentina  & Water level measurements & \cite{prefecturanaval2025} \\
+        SNIH & Water level, discharge, fine and course sediment concentration & \cite{snih2025} \\
+        AquaMonitor & Deltares tool that represents water gains and losses based on historical satellite imagery & \cite{aquaMonitor2025} \\
+        Bathymetry (pdf) & Detailed bathymetries along Paraná river in pdf-format & \cite{agencianacionaldepuertosynavegacionNavegableTroncal2025} \\
+        Google Earth & Satellite imagery of the globe. Can be used for a chosen time period of 1984-now & \cite{googleearth2025}  \\
         \bottomrule
     \end{tabularx}
-    \caption{Summary of data sources}
     \label{tab:data collection summary}
 \end{table}
 
@@ -48,7 +48,7 @@ As explained in Chapter \ref{chapter:background}, the two main tributaries of th
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{figures/ch4/Flow partition1.png}
-    \caption{Measurement stations of interest on Paraná de las Palmas and Paraná Guazú}
+    \caption{Measurement stations of interest on Paraná de las Palmas and Paraná Guazú (\cite{googleearth2025})}
     \label{fig:flow partition}
 \end{figure}
 
@@ -56,6 +56,7 @@ As explained in Chapter \ref{chapter:background}, the two main tributaries of th
     \centering
     \renewcommand{\arraystretch}{1.2} % extra row spacing
     \setlength{\tabcolsep}{8pt}       % extra column spacing
+    \caption{Selection of SNIH measurement stations}
     \begin{tabular}{lllc}
         \toprule
         Station & SNIH ID & River & Data availability \\
@@ -66,7 +67,7 @@ As explained in Chapter \ref{chapter:background}, the two main tributaries of th
         Brazo Largo         & 4002 & Paraná Guazú          & 1993--2025 \\
         \bottomrule
     \end{tabular}
-    \caption{Selection of SNIH measurement stations.}
+    
     \label{tab:stations data collection}
 \end{table}
 
@@ -92,6 +93,7 @@ In case of language barriers, the questions and responses were translated to Eng
 
 \begin{table}[H]
     \centering
+    \caption{Overview of stakeholder approach}
     \begin{tabularx}{\textwidth}{l l l}
         \toprule
         Date & Occupation & Method \\
@@ -106,7 +108,7 @@ In case of language barriers, the questions and responses were translated to Eng
         30-09-2025 & Prefectura Naval Argentina (PNA) & Email \\
         \bottomrule
     \end{tabularx}
-    \caption{Overview of stakeholder approach}
+    
     \label{tab:stakeholders}
 \end{table}
 
@@ -125,7 +127,7 @@ In this section, the types of measurements are explained as well as the location
 
 % The program of the boat days consisted of going over the indicated critical cross sections (in red on Figure 4.2) a total of 4 times, using the equipment of INA to save the necessary information of the river. 
 
-The first measured type of data is the flow velocity profile of the river. This was recorded by a SonTek RiverSurveyor M9 Acoustic Doppler Current Profiler (ACDP). This device consists of two components both placed on a floating board held next to the boat while advancing. The components are a vertical acoustic echo sounder beam placed on the back end of the floating board, and a rectangle shape box containing a microprocessor that computes the data on the front end of the board, as seen in Figure \ref{fig:SonTekmeasurement}.
+The first measured type of data is the flow velocity profile of the river. This was recorded by a SonTek RiverSurveyor M9 Acoustic Doppler Current Profiler (ADCP). This device consists of two components both placed on a floating board held next to the boat while advancing. The components are a vertical acoustic echo sounder beam placed on the back end of the floating board, and a rectangle shape box containing a microprocessor that computes the data on the front end of the board, as seen in Figure \ref{fig:SonTekmeasurement}.
 
 \begin{figure}[H]
     \centering
@@ -208,7 +210,7 @@ During the measurements, a rope was tied to the metal container, which was dropp
     \begin{subfigure}{0.7\textwidth}
         \centering
         \includegraphics[width=\linewidth]{figures/appendixE/soilsamples.jpg}
-        \caption{Bed Load Samples from the Fieldwork}
+        \caption{Bed load samples from the fieldwork}
     \end{subfigure}
 
     \par\vspace{0.5cm} % use this instead of \vspace alone
@@ -217,7 +219,7 @@ During the measurements, a rope was tied to the metal container, which was dropp
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics[width=\linewidth]{figures/appendixE/metalcontainer.jpg}
-        \caption{Metal Container used}
+        \caption{Metal container used}
     \end{subfigure}\hfill
     \begin{subfigure}{0.48\textwidth}
         \centering
@@ -225,15 +227,15 @@ During the measurements, a rope was tied to the metal container, which was dropp
         \caption{Oven to dry samples}
     \end{subfigure}
 
-    \caption{Bed Load Measurements}
+    \caption{Bed load measurements}
     \label{fig:bed-load}
 \end{figure}
 
 A total of 7 samples from 4 different locations was collected. The first three locations were the cross sections around the extracting point in the bifurcation of the Paraná Guazú with the Talabera river. For each of these three cross sections, two samples were taken from the soil, one at 10 meters depth and one at 15 meters depth. The final sample was taken at 10 meters depth in the cross section upstream close to Puerto Ibicuy. 
 
-During the analysis, the soil was dried out to find the components, quality and other parameters of the soil such as porosity which would add up to the results. T
+% During the analysis, the soil was dried out to find the components, quality and other parameters of the soil such as porosity which would add up to the results. T
 
-The bed load samples were all weighed before they were put in the oven. 
+% The bed load samples were all weighed before they were put in the oven. 
 
 All samples were sieved with six differently sized sieves, which took 10 minutes per sample. Before sieving, the samples were crushed to prevent particles from clustering. The sieving machine is presented in Figure \ref{fig:siev} and the whole collection of annotated samples can be found in Appendix \ref{appendix:Lab data}.
 
@@ -255,7 +257,7 @@ The measurement campaign was spread out over two main locations. The first locat
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{figures/ch4/day1.png}
-    \caption{Measurement location confluence Talabera-Paraná Guazú}
+    \caption{Measurement location confluence Talabera-Paraná Guazú (\cite{googleearth2025})}
     \label{fig:measurements day1}
 \end{figure}
 
@@ -269,14 +271,14 @@ The second location contains measurements at Puerto Ibicuy. Here, cross sections
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{figures/ch4/day2.png}
-    \caption{Measurement locations Puerto Ibicuy-Puerto Guazu}
+    \caption{Measurement locations Puerto Ibicuy-Puerto Guazu (\cite{googleearth2025})}
     \label{fig:measurements day2}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{figures/ch3/longprofiles.png}
-    \caption{Measurement tracks of longitudinal profiles}
+    \caption{Measurement tracks of longitudinal profiles (\cite{googleearth2025})}
     \label{fig:longprofiles map}
 \end{figure}
 
@@ -285,7 +287,7 @@ Bank erosion is a theme of significant importance to this study. During the fiel
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{figures/ch5/Camping Blanqueada.png}
-    \caption{Location of the Camping La Blanqueada}
+    \caption{Location of camping La Blanqueada (\cite{googleearth2025})}
     \label{fig:Camping Blanqueada}
 \end{figure}
 
@@ -296,7 +298,7 @@ A preview of the maps can be seen in Figure \ref{Aqua Monitor Water Changes 1985
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{figures/ch4/1985-2025.jpg}
-    \caption{Aqua Monitor Water Changes 1985-2025}
+    \caption{Aqua Monitor water surface changes over the period 1985-2025 (\cite{googleearth2025})}
 \end{figure}
 \label{Aqua Monitor Water Changes 1985-2025}
 

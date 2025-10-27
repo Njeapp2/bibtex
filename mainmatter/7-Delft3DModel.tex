@@ -51,7 +51,7 @@ In order to validate the use of the 2019 DEM for creating the bathymetry, cross 
         \label{fig:bathy_cs3}
     \end{subfigure}
 
-    \caption{Bed levels along the three analyzed cross sections: (a) Cross section 1, (b) Cross section 2, and (c) Cross section 3.}
+    \caption{Bed levels along the three analysed cross sections: (a) Cross section 1, (b) Cross section 2, and (c) Cross section 3.}
     \label{fig:bathymetry_cross_sections}
 \end{figure}
 
@@ -82,9 +82,50 @@ For the hydrodynamic simulation, a time step of 0.2 minutes was used to ensure t
 The horizontal eddy viscosity and horizontal eddy diffusivity were set to 1 m\textsuperscript{2}/s and 2 m\textsuperscript{2}/s respectively. These values were chosen to provide realistic horizontal momentum and scalar transport. Large values for the horizontal eddy viscosity and horizontal eddy diffusivity can lead to excessive numerical smoothing. The HLES turbulence model was not activated to calculate the viscosity and diffusivity in the base run, because simulations with HLES activated are computationally more expensive. HLES resolves smaller turbulent eddies explicitly, which requires a smaller time step, hence why it is computationally more expensive. Instead, the influence of the HLES turbulence model is evaluated in the sensitivity analysis.
 
 \section{Model Calibration}
-The Delft3D model was calibrated to ensure that the simulated hydrodynamic conditions accurately represent the real-life flow conditions. The calibration was done by comparing the model results with the ADCP measurements from the field campaign. Additionally, the simulated water levels near Ibicuy are compared to the measured water level time series. Calibration primarily focussed on adjusting the Manning roughness coefficient, as this parameter has the highest influence on flow velocities and water depth.
+The Delft3D model was calibrated to ensure that the simulated hydrodynamic conditions accurately represent the real-life flow conditions. The calibration was done by comparing the model's water elevation near Ibicuy to a measured water elevation time series. Additionally, the simulated depth-averaged velocities in the three cross sections near the confluence are compared to the ADCP measurements from the field campaign. The calibration primarily focused on adjusting the Manning roughness coefficient, as this parameter has the highest influence on flow velocities and water depth.
+
+In addition to the initial Manning roughness coefficient ($n$) of 0.025, the model was tested with roughness coefficients of 0.01, 0.02, and 0.05.The resulting water levels at Ibicuy are shown in Figure \ref{fig: WL calibration}. It can be clearly observed that a higher bed roughness leads to higher water elevations. Of all the values tested, a Manning coefficient of 0.02 was found to result in the most accurate water elevations.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/ch7/WL_calibration.png}
+    \caption{Water elevations near Ibicuy for measurements (solid line) and model output (dashed line).}
+    \label{fig: WL calibration}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % Top row: two subfigures side by side
+    \begin{subfigure}[t]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth, height=6cm, keepaspectratio]{figures/ch7/dav_cal_1.png}
+        \caption{Cross section 1}
+        \label{fig: dav cal cs1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth, height=6cm, keepaspectratio]{figures/ch7/dav_cal_2.png}
+        \caption{Cross section 2}
+        \label{fig: dav cal cs1}
+    \end{subfigure}
+    % Bottom row: one centered subfigure
+    \vspace{1em}
+    \begin{subfigure}[t]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth, height=6cm, keepaspectratio]{figures/ch7/dav_cal_3.png}
+        \caption{Cross section 3}
+        \label{fig: dav cal cs1}
+    \end{subfigure}
+    \caption{Measured and simulated depth-averaged velocities for the three cross sections.}
+    \label{fig: Depth-averaged velocity calibration}
+\end{figure}
+
+Figure \ref{fig: Depth-averaged velocity calibration} shows the measured and simulated depth-averaged velocities for different Manning coefficients. In general, lower bed roughness leads to higher flow velocities. However, the effect of the bed roughness on the flow velocities is less strong than the effect on the water elevation. In addition, different values for the roughness coefficient were found to slightly affect the shape of the depth-averaged velocities profiles. From Figure \ref{fig: Depth-averaged velocity calibration} it can be seen that using a Manning coefficient of 0.02 results in realistic depth-averaged velocities for cross section 2 and 3, both located in the Paraná Guazú. While the magnitude of the flow velocities is correct for cross section 1 (located in the Río Talabera), the shape of the velocity profile does not match the measured data. This discrepancy can be explained by the use of a uniform bed roughness coefficient for the entire area of interest, which may not accurately represent the different rivers.
 
 \section{Model results}
+
+
 
 \subsection{Sensitivity analysis}
 
