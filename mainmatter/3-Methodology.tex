@@ -260,7 +260,7 @@ The second location contains measurements at Puerto Ibicuy. Here, cross sections
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.70\linewidth]{figures/ch4/day2.png}
-    \caption{Measurement locations Puerto Ibicuy-Puerto Guazu \autocite{googleGoogleEarth2025}}
+    \caption{Measurement locations Puerto Ibicuy-Puerto Guazú \autocite{googleGoogleEarth2025}}
     \label{fig:measurements day2}
 \end{figure}
 
@@ -292,13 +292,13 @@ A preview of the maps can be seen in Figure \ref{Aqua Monitor Water Changes 1985
 \label{Aqua Monitor Water Changes 1985-2025}
 
 \section{Modelling approach}
-This section explains the approach that was taken for the models used in the report. Firstly, a two-dimensional model
+This section explains the approach for the models used in the report. Firstly, a two-dimensional hydrodynamic model was set up in Delft3D software. The model was designed to simulate flow velocities, water levels, and bed shear stresses in the confluence area where dredging activities take place. Delft3D was selected because it provides a robust framework to simulate complex river systems, while maintaining computational efficiency.
+
+The model setup is described in Chapter \ref{chap:Delft3DModel}, including the generation of the bathymetry and computational grid. The hydrological inputs were based on field measurements taken during the campaign of 25–26 September 2025, complemented by discharge data from a one-dimensional HEC-RAS model provided by INA. Model calibration and sensitivity analyses were conducted to examine the influence of roughness and turbulence parameters on the simulated hydrodynamics and to evaluate model robustness. The resulting Delft3D simulations provided spatially detailed insight into the flow structure, highlighting high-velocity zones, areas of recirculation, and regions with elevated bed shear stresses.
 
 Secondly, a sheet pile model was developed. This resulted in a design that acts as a mitigation strategy against bank erosion. Prior to designing this specific solution, an overview of structural mitigation measures was compiled, and all potential options were evaluated. Subsequently, the design for the selected solution (sheet pile) was created. A flow chart was used to outline the modelling methodology. The flow chart shown in Figure \ref{fig:flow_chart} is divided into three phases. In the first phase, data analysis, literature research was performed to gain a better understanding of the critical locations and parameters necessary for the design. First of all, geological soil conditions including borehole findings were used to assess the different layers and the accompanying soil parameters. Further, hydraulic parameters including bathymetry were provided by INA to assess water level and river bed formation along the banks and finally, structural standards and regulations, the Eurocode, were used to perform structural verifications regarding the ultimate limit and the serviceability limit state.
 
-In the second phase of the model, a sheet pile type was chosen and the gathered data was used to analyse the earth and hydrostatic pressures. Multiple design methods were reviewed, and finally the simplified Padfield and Mair method was chosen to perform the earth and hydraulic pressure analysis. The procedure for calculating the embedding depth of the sheet pile came from the simplified Padfield and Mair method, and the pressure diagrams for the earth and hydrostatic pressure were analysed in Python. By combining the earth and hydrostatic pressures, the balance of moments and the final embedding depth were calculated. Then, the acting components such as shear, bending, and shear buckling were compared to the resistance of the chosen sheet pile profile to access the safety of the design. The final phase includes the structural verification of the profile and design, along with drawing of the final sheet pile design.
-
-% In the final phase, sustainability aspects for the sheet pile model were considered. More specifically, CO\textsubscript{2} emissions and energy consumption were compared for different materials. This was considered when choosing the material of the sheet pile.
+In the second phase of the model, a sheet pile type was chosen and the gathered data was used to analyse the earth and hydrostatic pressures. Multiple design methods were reviewed, and finally the simplified Padfield and Mair method was chosen to perform the earth and hydraulic pressure analysis. The procedure for calculating the embedding depth of the sheet pile came from the simplified Padfield and Mair method, and the pressure diagrams for the earth and hydrostatic pressure were analysed in Python. By combining the earth and hydrostatic pressures, the balance of moments and the final embedding depth were calculated. Then, the acting components such as shear, bending, and shear buckling were compared to the resistance of the chosen sheet pile profile to access the safety of the design. The final phase includes structural verification of the profile and design, along with drawing of the final sheet pile design.
 
 \begin{landscape}
 \begin{figure}[H]
