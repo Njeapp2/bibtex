@@ -465,14 +465,14 @@ When there is an excess of hydrostatic pressure, meaning that the water levels o
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{figures/ch8/water_overview.png}
+    \includegraphics[width=1.0\linewidth]{figures/ch8/overview_water.png}
     \caption{Hydrostatic pressure (left), excess hydrostatic pressure (center), and forces (right)}
     \label{fig:hydrostatic_excess_pressure}
 \end{figure}
 
 \subsubsection{Bending moment}
 
-The balance of moments around the lowest part of the sheet pile should be zero,  stated in Equation \ref{eq:moment}. For $t = 6.0$ meters, in Figure \ref{fig:appendix_moments_balance_6000}, this point, "O", is indicated, and the forces acting due to both the earth and hydrostatic pressure are shown. From the acting forces and the distance to point "O", the moments are computed. In Table \ref{tab:appendix_forces_arms_moments_now}, it can be seen that the balance of moments, for t = 6.0 meters, is not equal to zero, but 156.3 kNm/m. Indicating an iterative calculation, increasing the embedding depth, and checking at which depth the moments are equal to zero, is required.
+The balance of moments around the lowest part of the sheet pile should be zero,  stated in Equation \ref{eq:moment}. For t = 6.0 meters, in Figure \ref{fig:appendix_moments_balance_6000}, this point, "O", is indicated, and the forces acting due to both the earth and hydrostatic pressure are shown. From the acting forces and the distance to point "O", the moments are computed. In Table \ref{tab:appendix_forces_arms_moments_now}, it can be seen that the balance of moments, for t = 6.0 meters, is not equal to zero, but 156.3 kNm/m. Indicating an iterative calculation, increasing the embedding depth, and checking at which depth the moments are equal to zero, is required.
 
 \begin{equation}
     \sum{M_{t}} = 0
@@ -481,9 +481,9 @@ The balance of moments around the lowest part of the sheet pile should be zero, 
 
  After an iteration process, in Python, the embedding depth is set to 7.574 meters. In Figure \ref{fig:appendix_moments_balance_6000}, the forces related to this depth are shown. In Table \ref{tab:forces_arms_moments_9713}, the values of the forces and moments are shown, and the resulting moment around the point "O" is close to zero, 0.0512 kNm/m. Regarding the safety factor, the simplified Padfield and Mair method says that the depth of embedding found should be increased by 20\%, giving the following depth:
 
-\begin{equation}
+$$
     t_{simplified} = 1.20 \cdot 7.574 = 9.09 \ m
-\end{equation}
+$$
 
 \begin{figure}[H]
     \centering
@@ -535,12 +535,13 @@ For the design, this means that safety factors for the ULS and SLS should be inc
 
 The most unfavourable combination within design approach 1 is combination 2 (DA1-2). The safety factors are shown in Table \ref{tab:partial_factors}, and the partial factors on loads, materials, and actions to protect the sheet pile in ULS are shown \autocite{stichtingkoninklijknederlandsnormalisatieinstituutNederlandseNormNEN2025}. In this calculation, the hydrostatic loads and the earth pressures are permanent. For SLS, all safety factors are set at $1.0$. The combination and safety factors result in the final embedding depth of t = 10.172 meters,  shown in Figure \ref{fig:appendix_uls_moments_balance_forces}. However, the acting shear forces and bending moments are greater. From Table \ref{tab:appendix_forces_arms_moments_new}, it can be seen that the balance of moments at this depth is close to zero (-0.0632 kNm/m).
 
-\begin{equation}
+$$
     t_{GEO} = 10.172 \ m
-\end{equation}
+$$
 
 \begin{table}[H]
 \centering
+\caption{Partial factors for actions, material properties, and earth resistance.}
 \small
 \setlength{\tabcolsep}{8pt}
 \renewcommand{\arraystretch}{1.2}
@@ -569,7 +570,6 @@ The most unfavourable combination within design approach 1 is combination 2 (DA1
 \textit{Earth resistance} & & $\gamma_{Re}$ & 1.00 & 1.00 \\
 \bottomrule
 \end{tabular}
-\caption{Partial factors for actions, material properties, and earth resistance.}
 \label{tab:partial_factors}
 \end{table}
 
@@ -611,9 +611,9 @@ In this structural verification of the cantilever sheet pile, a profile should b
 
 In this section, the cross section AZ 24-700 from ArcelorMittal is verified \autocite{baxterPilingHandbook2022}. As this section will be placed in the river and is assumed to have fresh water, a corrosion factor should be incorporated. This means that the properties of the cross-section after corrosion will have a loss of thickness. From Eurocode 3, the total thickness loss, for a design working life of t\textsubscript{DWL} = 50 years, is calculated as follows:
 
-\begin{equation}
+$$
     \Delta_{t} = \Delta_{tfront} +  \Delta_{tback} = 0.9 + 0.6 = 1.5 \ mm 
-\end{equation}
+$$
 
 With a loss of thickness of 1.5 millimetres, the properties regarding height, flange thickness, web thickness, sectional area, elastic section modulus, and plastic section modulus will be reduced. The reduced properties after erosion of this section are shown in Table \ref{tab:pu32}.
 
@@ -624,7 +624,7 @@ With a loss of thickness of 1.5 millimetres, the properties regarding height, fl
   \small
   \setlength{\tabcolsep}{6pt}
   \renewcommand{\arraystretch}{1.15}
-  \caption{Geometrical and mechanical properties of sheet pile section AZ 24-700 \autocite{baxterPilingHandbook2022}} 
+  \caption{Reduced geometrical and mechanical properties of profile AZ 24-700 \autocite{baxterPilingHandbook2022}} 
   \label{tab:pu32}
   \begin{tabular}{@{}l l l c@{}}
     \toprule
@@ -710,13 +710,13 @@ For the verification of bending, it is important that the design bending moment,
 
 Following the equation above, the bending moment resistance of the cross-section is calculated and verified with the following equations:
 
-\begin{equation}
+$$
     M_{c,Rd} = \frac{1.00 \cdot 2430 \cdot 355}{1.0} = 862.7 \ kNm/m
-\end{equation}
+$$
 
-\begin{equation}
+$$
     \frac{M_{Ed}}{M_{Rd}} = \frac{404.4}{862.7} = 0.47
-\end{equation}
+$$
 
 \subsubsection{Shear}
 
@@ -741,21 +741,21 @@ For shear verification, it is important that the design shear force, V\textsubsc
 
 Following the equation above, the shear force resistance of the cross-section is calculated and verified with the following equations:
 
-\begin{equation}
+$$
     A_v = 9.7 \cdot (457.5 - 9.7) = 4343.7 \ mm^2
-\end{equation}
+$$
 
-\begin{equation}
+$$
     V_{pl,Rd} = \frac{4343.7 \cdot 355}{\sqrt{3} \cdot 1.0 \cdot 10^3} = 890.4 \ kN 
-\end{equation}
+$$
 
-\begin{equation}
+$$
     V'_{pl,Rd} = \frac{890.4}{0.7} = 1272 \ kN/m 
-\end{equation}
+$$
 
-\begin{equation}
+$$
     \frac{V_{Ed}}{V_{pl,Rd}} = \frac{266.6}{1272} = 0.21 
-\end{equation}
+$$
 
 \subsubsection{Combined bending and shear}
 
@@ -778,31 +778,31 @@ For the verification of the combinations of bending and shear, Equation \ref{eq:
 
 From the following equation is may be concluded that no explicit check is needed for combined bending and moment. 
 
-\begin{equation}
+$$
     V_{Ed} \leq \frac{1272}{2} = 636.0 \ kN/m 
-\end{equation}
+$$
 
 \subsubsection{Shear buckling}
 
-The shear buckling resistance of the cross-section must be verified if Equation \ref{eq:shear_buckling} is valid. However, this is not satisfied, as can be seen in Equation \ref{eq:no_shear_buckling}.
+The shear buckling resistance of the cross-section must be verified if Equation \ref{eq:shear_buckling} is valid. However, this is not satisfied, as can be seen in the following equations.
 
 \begin{equation}
     \frac{c}{t_{w}} \geq 72 \cdot \epsilon
     \label{eq:shear_buckling}
 \end{equation}
 
-\begin{equation}
+$$
     c = \frac{h - t_{f}}{sin(\alpha)} = \frac{457.5 - 9.7}{sin(55.2)} = 546.7 
-\end{equation}
+$$
 
-\begin{equation}
+$$
     \frac{546.7}{9.7} = 56.4 \ngeq 72 \cdot \epsilon 
     \label{eq:no_shear_buckling}
-\end{equation}
+$$
 
 \subsubsection{Local effects of water pressure}
 
-As in the geometry of the cross-section, there is a difference in water levels on both sides of the sheet pile, the bending moments should be reduced by transverse local plate bending. Therefore, the cross-sectional yield strength should be reduced with Equation \ref{eq:reduction_factor}. However, when the difference in the water levels across the wall, for Z sections, is less than 5.0 meters. From Equation \ref{eq:water_level_difference} it can be seen that the difference in water levels is less than 5.0 meters, showing that the local effects of water pressure on overall flexural bending may be neglected. 
+As in the geometry of the cross-section, there is a difference in water levels on both sides of the sheet pile, the bending moments should be reduced by transverse local plate bending. Therefore, the cross-sectional yield strength should be reduced with Equation \ref{eq:reduction_factor}. However, when the difference in the water levels across the wall, for Z sections, is less than 5.0 meters. From the following equations it can be seen that the difference in water levels is less than 5.0 meters, showing that the local effects of water pressure on overall flexural bending can be neglected. 
 
 \begin{equation}
     f_{y;red} = \rho_{p} \cdot f_{y}
@@ -813,10 +813,10 @@ As in the geometry of the cross-section, there is a difference in water levels o
     \item $\rho_{p}$ is a reduction factor that depends on the slenderness ratio [-]. 
 \end{itemize}
 
-\begin{equation}
+$$
     \Delta h_w = 1.03 - 0.14 = 0.89 \ m
     \label{eq:water_level_difference}
-\end{equation}
+$$
 
 \subsection{Final design}
 
