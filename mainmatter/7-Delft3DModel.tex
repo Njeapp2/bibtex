@@ -9,18 +9,19 @@ Since no existing grid was available for the area of interest, the grid was gene
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.75, height=7cm\linewidth]{figures/ch7/Grid_Guazu.png}
+    \includegraphics[width=0.75\textwidth, height=8cm]{figures/ch7/Grid_Guazu.png}
     \caption{Generated grid for the Delft3D model.}
-    \label{fig: Grid Guazu Delft3D}
+    \label{fig:Grid_Guazu_Delft3D}
 \end{figure}
+
 
 The bathymetry was derived from a Digital Elevation Model (DEM) from 2019, which was provided by INA. This DEM was used to create samples containing geospatial coordinates and the corresponding depths. Using the QUICKIN tool in Delft3D, these samples were interpolated onto the computational grid. For this interpolation, Grid Cell Averaging was applied with the minimum number of averaging points set to one. Grid Cell Averaging was preferred over Triangular Interpolation as it is computationally less expensive, and more samples were available than grid points \autocite{deltaresQUICKINUserManual2025}. Lastly, Internal Diffusion was applied, with the number of internal diffusion steps set to 1000, to smooth sharp gradients and fill in missing values. The interpolated bathymetry is shown in Figure \ref{fig: Bathymetry Delft3D}. The maximum depth of 40.403 m occurs just downstream of the confluence. 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75, height =7cm\linewidth]{figures/ch7/Bathymetry_Gueazu_Delft3D.png}
+    \includegraphics[width=0.75\textwidth, height=8cm]{figures/ch7/Bathymetry_Gueazu_Delft3D.png}
     \caption{Bathymetry Delft3D model.}
-    \label{fig: Bathymetry Delft3D}
+    \label{fig:Bathymetry_Delft3D}
 \end{figure}
 
 In order to validate the use of the 2019 DEM for creating the bathymetry, cross sections from the generated bathymetry were compared with measurements obtained by the ADCP during the field campaign. The comparison of the bathymetries of the three cross sections is shown in Figure \ref{fig:bathymetry_cross_sections}. Although the interpolated and measured bathymetries are not exactly the same, the overall shape and depths are very similar, ensuring that the Delft3D simulations accurately represent the current hydraulic conditions.
@@ -30,14 +31,14 @@ In order to validate the use of the 2019 DEM for creating the bathymetry, cross 
     % Top row: two subfigures side by side
     \begin{subfigure}[t]{0.48\linewidth}
         \centering
-        \includegraphics[width=\linewidth,height=0.8\linewidth]{figures/ch7/Bathymetry_cs1.png}
+        \includegraphics[width=\linewidth,height=0.7\linewidth]{figures/ch7/Bathymetry_cs1.png}
         \caption{Cross section 1}
         \label{fig:bathy_cs1}
     \end{subfigure}
     \hfill
     \begin{subfigure}[t]{0.48\linewidth}
         \centering
-        \includegraphics[width=\linewidth,height=0.8\linewidth]{figures/ch7/Bathymetry_cs2.png}
+        \includegraphics[width=\linewidth,height=0.7\linewidth]{figures/ch7/Bathymetry_cs2.png}
         \caption{Cross section 2}
         \label{fig:bathy_cs2}
     \end{subfigure}
@@ -46,7 +47,7 @@ In order to validate the use of the 2019 DEM for creating the bathymetry, cross 
     \vspace{1em}
     \begin{subfigure}[t]{0.48\linewidth}
         \centering
-        \includegraphics[width=\linewidth,height=0.8\linewidth,keepaspectratio]{figures/ch7/Bathymetry_cs3.png}
+        \includegraphics[width=\linewidth,height=0.7\linewidth,keepaspectratio]{figures/ch7/Bathymetry_cs3.png}
         \caption{Cross section 3}
         \label{fig:bathy_cs3}
     \end{subfigure}
@@ -126,6 +127,22 @@ Figure \ref{fig: Depth-averaged velocity calibration} shows the measured and sim
 \section{Model results}
 
 
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.48\linewidth}
+        \centering
+        \includegraphics[height=6.5cm]{figures/ch7/dav_confluence.jpg}
+        \caption{}
+        \label{fig: dav confluence}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\linewidth}
+        \centering
+        \includegraphics[height=6.5cm]{figures/ch7/Bed_shear_confluence.jpg}
+        \caption{}
+        \label{fig: bed shear confluence}
+    \end{minipage}
+\end{figure}
 
 \subsection{Sensitivity analysis}
 

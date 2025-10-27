@@ -216,14 +216,14 @@ To determine the level of the riverbed, the bathymetry of the location analysed 
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{0.6\linewidth}
+    \begin{subfigure}{0.65\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures/ch8/bathemetry_1.png}
         \caption{Location of bathymetry}
         \label{fig:bath}
     \end{subfigure}
 
-    \begin{subfigure}{0.6\linewidth}
+    \begin{subfigure}{0.65\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures/ch8/bathemetry_2.png}
         \caption{Bathymetry riverbed cross-section}
@@ -278,7 +278,7 @@ The design of the sheet pile wall is based on the cantilever sheet pile wall. As
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.90\linewidth]{figures/ch8/cross_section.png}
+    \includegraphics[width=1.0\linewidth]{figures/ch8/cross_section.png}
     \caption{Cross-section for sheet pile}
     \label{fig:problem_description_sheetpiles}
 \end{figure}
@@ -300,17 +300,16 @@ Reviewing Eurocode 7, the calculation for the design of a sheet pile should be b
 
 % \subsubsection{Simplified Padfield and Mair}
 
-The simplified Padfield and Mair method XX used for the cantilever sheet pile is a simplified graphical method, shown in Figure \ref{fig:blum}. The right side of the sheet pile is the active side, and on the left side, under the dredge level, is the passive side. The simplification step in the figure shows an additional resultant force, R, which acts on the lowest point of the sheet pile. This is done because below this point the active and passive sides switch, creating a complex situation. Within the method, plastic development of the soil and water table level is assumed to be infinitely stiff. All the support is obtained by the fixity of the soil. To calculate the embedding depth, the sum of moments around the lowest fixed point "O" of the sheet pile wall will be set to zero. The unknown embedding depth can be calculated in multiple ways. In this section, an initial embedding depth will be defined, and iteratively, the moment will be set to zero while increasing or decreasing the embedding depth. However, in this method, no safety factors are taken into account. Therefore, the embedding depth found will have to be increased by 20\%.
+The simplified Padfield and Mair method XX used for the cantilever sheet pile is a simplified graphical method, shown in Figure \ref{fig:blum}. The right side of the sheet pile is the active side, and the left side, below the dredge level, is the passive side. The simplification step in the figure shows an additional resultant force, R, which acts on the lowest point of the sheet pile. This is done because below this point the active and passive sides switch, creating a complex situation. Within the method, plastic development of the soil and water table level is assumed to be infinitely stiff. All the support is obtained by the fixity of the soil. To calculate the embedding depth, the sum of moments around the lowest fixed point "O" of the sheet pile wall will be set to zero. The unknown embedding depth can be calculated in multiple ways. In this section, an initial embedding depth will be defined, and iteratively, the moment will be set to zero while increasing or decreasing the embedding depth. However, in this method, no safety factors are taken into account. Therefore, the embedding depth must be increased by 20\%.
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \includegraphics[width=\linewidth, height=5cm]{figures/ch8/blum_1.png}
         \caption{Full method}
         \label{fig:conventional_design}
     \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.35\textwidth}
         \includegraphics[width=\linewidth, height=5cm]{figures/ch8/blum_2.png}
         \caption{Simplified method}
         \label{fig:blum_simplification}
@@ -704,7 +703,7 @@ For the verification of bending, it is important that the design bending moment,
 
 \begin{itemize}
   \item $\beta_B$ is a factor that accounts for possible lack of shear force transmission in the interlocks between adjacent [-];
-  \item $W_{el}$ is the cross-section’s elastic section modulus [N/mm\textsuperscript{3}];
+  \item $W_{el}$ is the cross-section’s elastic section modulus [cm\textsuperscript{3}/m];
   \item $f_y$ is the yield strength of steel [N/mm\textsuperscript{2}];
   \item $\gamma_{M0}$ is a partial factor [-].
 \end{itemize}
@@ -734,10 +733,10 @@ For shear verification, it is important that the design shear force, V\textsubsc
 \end{equation}
 
 \begin{itemize}
-    \item $A_{v}$ is the projected shear area of each web;
-    \item $t_w$ is the web’s thickness;
-    \item $t_f$ the flange thickness;
-    \item $h$ the overall height of the cross-section.
+    \item $A_{v}$ is the projected shear area of each web [mm\textsuperscript{2}];
+    \item $t_w$ is the web’s thickness [mm];
+    \item $t_f$ the flange thickness [mm];
+    \item $h$ the overall height of the cross-section [mm].
 \end{itemize}
 
 Following the equation above, the shear force resistance of the cross-section is calculated and verified with the following equations:
@@ -811,7 +810,7 @@ As in the geometry of the cross-section, there is a difference in water levels o
 \end{equation}
 
 \begin{itemize}
-    \item $\rho_{p}$ is a reduction factor that depends on the slenderness ratio. 
+    \item $\rho_{p}$ is a reduction factor that depends on the slenderness ratio [-]. 
 \end{itemize}
 
 \begin{equation}
