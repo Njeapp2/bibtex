@@ -254,7 +254,7 @@ To determine the level of the riverbed, the bathymetry of the location analysed 
 
 \subsection{Design of Steel Sheet Pile}
 
-The design of steel sheet piles begins with defining the design location and problem description to get a better understanding of the situation. After defining these conditions, a method is considered to calculate the earth pressure and water pressure. These will later balance the moments to iteratively define the embedding depth of the sheet pile wall. After calculating the embedding depth based on the balance of moments, the sheet pile will be verified according to structural verifications, including bending moments, shear force, and deflection.  
+The design of steel sheet piles begins with defining the design location and problem description to get a better understanding of the situation. After defining these conditions, a method is considered to calculate the earth pressure and water pressure. These pressures are then used to balance the moments and iteratively define the embedding depth of the sheet pile wall. After calculating the embedding depth based on the balance of moments, the sheet pile is verified according to structural verifications, including bending moments, shear force, and deflection.  
 
 To set up the balance of moments for defining the embedding depth, the loads acting on the wall need to be defined. The lateral loads acting on the wall include soil and water pressure, which need to be defined to calculate the forces. The soil parameters are defined, and the soil profile is taken from Section \ref{section:geotechnical_parameters}. With the soil profile and its parameters, the earth pressures can be defined on both sides of the sheet pile wall. The hydraulic pressure due to the water levels is of importance, and these are defined in Section \ref{section:hydraulic_parameters}. 
 
@@ -292,30 +292,18 @@ The design of the sheet pile wall is based on the cantilever sheet pile wall. As
     \label{fig:problem_description_sheetpiles}
 \end{figure}
 
-\begin{itemize}
-    \item WL is the water level;
-    \item GWT is the ground water table;
-    \item Z is the retained height;
-    \item t is the embedding depth;
-    \item $Z_{1}$ is the unsaturated soil height;
-    \item $Z_{2}$ is the saturated soil height.
-\end{itemize}
+% \begin{itemize}
+%     \item WL is the water level;
+%     \item GWT is the ground water table;
+%     \item Z is the retained height;
+%     \item t is the embedding depth;
+%     \item $Z_{1}$ is the unsaturated soil height;
+%     \item $Z_{2}$ is the saturated soil height.
+% \end{itemize}
 
 \subsubsection{Method}
 
-The design of a cantilever sheet pile can be performed using multiple classical design methods or numerical analysis. Common classical methods and numerical analysis that are applicable for sheet pile walls are listed below:
-
-\begin{itemize}
-  \item Method Bishop;
-  \item Method Homberg;
-  \item Method Padfield and Mair;
-  \item Method Bowles;
-  \item Method Day;
-  \item Method Das;
-  \item Free earth method;
-  \item PLAXIS FEM;
-  \item Spring-supported beam method;
-\end{itemize}
+The design of a cantilever sheet pile can be performed using multiple classical design methods or numerical analysis. Common approaches applicable to sheet pile walls include the methods of Bishop, Homberg, Padfield, and Mair, Bowles, Day, and Das, as well as the free earth method, the spring-supported beam method, and numerical models such as PLAXIS FEM.
 
 Reviewing Eurocode 7, the calculation for the design of a sheet pile should be based on the spring-supported beam method \autocite{eurocodeGeotechnicalDesignStructures2025}. However, due to complexity, the sheet pile wall will be calculated using the simplified Padfield and Mair method. This method is a simplified representation of the situation, however, after calculating the embedding depth, the verifications will be according to the ultimate limit and serviceability limit defined in Eurocode 3 and Eurocode 7.
 
