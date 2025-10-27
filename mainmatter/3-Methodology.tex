@@ -24,7 +24,7 @@ Finally, additional data were obtained through other stakeholder contacts. For e
         DEM of lower Paraná & GeoTIFF file containing a Digital Elevation Model of the study area & INA \\
         Bathymetry (GIS) & Results from field campaigns in and around study area (2011, 2015, 2018) & INA \\
         Sand extraction permits & Agreements on locations and volumes of dredged sand & INA \\
-        MarineTraffic & Live AIS vessel data & \cite{marinetraffic2025} \\
+        MarineTraffic & Live AIS vessel data & \autocite{aisMarineTraffic2025} \\
         Prefectura Naval Argentina  & Water level measurements & \cite{prefecturanaval2025} \\
         SNIH & Water level, discharge, fine and course sediment concentration & \cite{snih2025} \\
         AquaMonitor & Deltares tool that represents water gains and losses based on historical satellite imagery & \cite{aquaMonitor2025} \\
@@ -260,7 +260,7 @@ The second location contains measurements at Puerto Ibicuy. Here, cross sections
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.70\linewidth]{figures/ch4/day2.png}
-    \caption{Measurement locations Puerto Ibicuy-Puerto Guazu (\autocite{googleGoogleEarth2025})}
+    \caption{Measurement locations Puerto Ibicuy-Puerto Guazu \autocite{googleGoogleEarth2025}}
     \label{fig:measurements day2}
 \end{figure}
 
@@ -292,18 +292,18 @@ A preview of the maps can be seen in Figure \ref{Aqua Monitor Water Changes 1985
 \label{Aqua Monitor Water Changes 1985-2025}
 
 \section{Modelling approach}
-This section explains the approach that was taken to create the Delft 3D model and the sheet pile model.  
-
-Firstly, ..... .Using the flow velocity one can derive the concentration of the sediment in the study area. This can be done for several locations in order to get an idea of the quantities of sediment that come in through the Rio Ibicuy. Then the last critical point will help us determine the continuation of the concentration of the sediment in the Rio Parana so that any inconsistencies can be linked with the amount of extracted sand in the intersection of the Parana Guazú and Rio Talabera (in the middle of the three critical points on the right hand side of Figure 4.2).
+This section explains the approach that was taken for the models used in the report. Firstly, a two-dimensional model
 
 Secondly, a sheet pile model was developed. This resulted in a design that acts as a mitigation strategy against bank erosion. Prior to designing this specific solution, an overview of structural mitigation measures was compiled, and all potential options were evaluated. Subsequently, the design for the selected solution (sheet pile) was created. A flow chart was used to outline the modelling methodology. The flow chart shown in Figure \ref{fig:flow_chart} is divided into three phases. In the first phase, data analysis, literature research was performed to gain a better understanding of the critical locations and parameters necessary for the design. First of all, geological soil conditions including borehole findings were used to assess the different layers and the accompanying soil parameters. Further, hydraulic parameters including bathymetry were provided by INA to assess water level and river bed formation along the banks and finally, structural standards and regulations, the Eurocode, were used to perform structural verifications regarding the ultimate limit and the serviceability limit state.
 
-In the second phase of the model, a sheet pile type was chosen and the gathered data was used to analyse the earth and hydrostatic pressures. Multiple design methods were reviewed, and finally the simplified Padfield and Mair method was chosen to perform the earth and hydraulic pressure analysis. The procedure for calculating the embedding depth of the sheet pile came from the simplified Padfield and Mair method, and the pressure diagrams for the earth and hydrostatic pressure were analysed in Python. By combining the earth and hydrostatic pressures, the balance of moments and the final embedding depth were calculated. Then, the acting components such as shear, bending, and shear buckling were compared to the resistance of the chosen sheet pile profile to access the safety of the design. The final part of phase two consisted of drawing the sheet pile, including unknown design parameters and structural verifications. In the final phase, sustainability aspects for the sheet pile model were considered. More specifically, CO\textsubscript{2} emissions and energy consumption were compared for different materials. This was considered when choosing the material of the sheet pile.
+In the second phase of the model, a sheet pile type was chosen and the gathered data was used to analyse the earth and hydrostatic pressures. Multiple design methods were reviewed, and finally the simplified Padfield and Mair method was chosen to perform the earth and hydraulic pressure analysis. The procedure for calculating the embedding depth of the sheet pile came from the simplified Padfield and Mair method, and the pressure diagrams for the earth and hydrostatic pressure were analysed in Python. By combining the earth and hydrostatic pressures, the balance of moments and the final embedding depth were calculated. Then, the acting components such as shear, bending, and shear buckling were compared to the resistance of the chosen sheet pile profile to access the safety of the design. In the final phase, structural verifications of the profile and design, and the final de drawing the sheet pile, including unknown design parameters and structural verifications. 
+
+% In the final phase, sustainability aspects for the sheet pile model were considered. More specifically, CO\textsubscript{2} emissions and energy consumption were compared for different materials. This was considered when choosing the material of the sheet pile.
 
 \begin{landscape}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{figures/ch3/FlowChart Structural (3).png}
+    \includegraphics[width=\linewidth]{figures/ch3/FlowChart Structural (4).png}
     \caption{Flow chart sheet pile model}
     \label{fig:flow_chart}
 \end{figure}
