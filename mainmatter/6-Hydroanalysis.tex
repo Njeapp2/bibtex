@@ -1,8 +1,18 @@
 \chapter{Hydrodynamic and sedimentary analysis}
 \label{chap:hydroanalysis}
+This chapter includes the analysis of the hydrodynamic elements of the study area. The extra data acquired from the fieldwork is added together with the data already found to derive an expression of the sediment balance. Lastly, this chapter explores the hydrodynamic effects on riverbanks with the help of satellite data. 
 \section{Hydrodynamic analysis}
 \label{sec:Hydrodynamic data}
-In this section, analysis on the hydrodynamic variables is performed. This includes relations between water elevations, discharge and sediment concentrations - through data sources as described in Section \ref{sec:desk study}. Additionally, tidal effects in the study area are considered. A uniform approach is needed to describe water levels and depths of the river. Therefore, these variables will be expressed in terms of a reference level, IGN, which is set by the \textit{Instituto Geográfico Nacional}. It is based on sea level measurements from a tide gauge in Mar del Plata, Buenos Aires province \autocite{donofrioReferenciaVertical1999}. Figure \ref{fig:waterelevationreference} gives an overview of the quantities with respect to an arbitrary measurement station. Here, $d$ is the vertical depth as measured by the ADCP or echosounder. Moreover, each station has a specific distance between its local zero reference and the zero IGN level, which is indicated by $l_{station-IGN}$. Next, all variables should be expressed in terms of IGN level. Defining $wl_{station}$ as the water level recorded in an arbitrary station, water elevations and depths expressed in elevation are defined as follows:
+In this section, analysis on the hydrodynamic variables is performed. This includes relations between water elevations, discharge and sediment concentrations - through data sources as described in Section \ref{sec:desk study}. Additionally, tidal effects in the study area are considered. A uniform approach is needed to describe water levels and depths of the river. Therefore, these variables will be expressed in terms of a reference level, IGN, which is set by the \textit{Instituto Geográfico Nacional}. It is based on sea level measurements from a tide gauge in Mar del Plata, Buenos Aires province \autocite{donofrioReferenciaVertical1999}. Figure \ref{fig:waterelevationreference} gives an overview of the quantities with respect to an arbitrary measurement station. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/ch5/waterelevations.png}
+    \caption{Water elevation reference}
+    \label{fig:waterelevationreference}
+\end{figure}
+
+Here, $d$ is the vertical depth as measured by the ADCP or echosounder. Moreover, each station has a specific distance between its local zero reference and the zero IGN level, which is indicated by $l_{station-IGN}$. Next, all variables should be expressed in terms of IGN level. Defining $wl_{station}$ as the water level recorded in an arbitrary station, water elevations and depths expressed in elevation are defined as follows:
 
 \begin{equation}
     we_{station} = wl_{station} + l_{station-IGN} ~[m~IGN]
@@ -12,13 +22,6 @@ In this section, analysis on the hydrodynamic variables is performed. This inclu
     d_{el} = we_{station}-d ~[m~IGN]
 \end{equation}
 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{figures/ch5/waterelevations.png}
-    \caption{Water elevation reference}
-    \label{fig:waterelevationreference}
-\end{figure}
 
 
 \subsection{Water elevations and discharge}
@@ -348,13 +351,6 @@ Furthermore, this acceptable range tends to widen as the target grain size incre
 \label{sec: Suspended sediment load}
 In this section, the measured suspended sediment concentrations and flow velocity profiles are analysed in order to calculate the total suspended sediment flux. The sediment concentrations were obtained by lowering an intake tube connected to a rope and a weight into the water, as described in Section \ref{Measurement variables and equipment}. By assuming a constant angle of the rope at different depths in a cross section and measuring the length of the rope, the depth at which the measurements were taken could be determined. The measured suspended sediment concentrations at different depths are shown in Figure \ref{fig:Measured suspended sediment concentrations}.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.70\linewidth]{figures/ch6/Measured_SSC.png}
-    \caption{Measured suspended sediment concentrations.}
-    \label{fig:Measured suspended sediment concentrations}
-\end{figure}
-
 Figure \ref{fig:Measured suspended sediment concentrations} shows, that for all three cross sections, the suspended sediment concentration is the highest near the bed. Further, cross section 2 shows a steeper profile than cross sections 1 and 3.
 
 The Acoustic Doppler Current Profiler (ADCP) measures the flow velocity and depth across a river cross section by dividing the measurements into vertical bins for every ensemble. These data can be used to create a flow velocity field for the whole cross section, see Appendix \ref{appendix:fieldwork results}, and velocity profiles for every ensemble along the cross section. These velocity profiles are used to determine the Law of the Wall fit. see Equation \ref{eq:law_of_the_wall}.
@@ -363,6 +359,13 @@ The Acoustic Doppler Current Profiler (ADCP) measures the flow velocity and dept
     u = \left( \frac{u_*}{\kappa} \right) \ln\left( \frac{z}{z_0} \right)
     \label{eq:law_of_the_wall}
 \end{equation}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figures/ch6/Measured_SSC.png}
+    \caption{Measured suspended sediment concentrations.}
+    \label{fig:Measured suspended sediment concentrations}
+\end{figure}
 
 The Law of the Wall describes the velocity profile of a turbulent flow near a boundary. Therefore, the log-law is fitted on only the velocity points in the lowest 50\% of the water column. Additionally, the Law of the Wall is used to calculate the shear velocity ($u_*$), which is most accuratly determined from the near-bed region. By fitting only on the lower 50\%, the fit is not affected by upper flow deviations such as wind, waves and secondary flow. 
 
@@ -606,7 +609,8 @@ $$-15{,}369.55~[\text{tons/day}] = \Delta S$$
 
 Due to the negative change in sediment storage, the deficit must be supplied by sediment already stored in the control volume, which causes bed/bank erosion. However, as the sediment balance is set up closely around the confluence, hydrodynamic effects at the confluence should be taken into consideration when interpreting the sediment balance. The meeting of two flows can create high turbulence and concentration of flow velocities. The increased turbulence enhances the sediment mixing and sediment resuspension, increasing the suspended sediment flux right after the confluence. Higher flow velocities as a result of a confluence, lead to an increased sediment carry capacity, which can potentially lead to scour of the river bed. The sediment deficit may be partly explained by the effects of the confluence still being present in the outgoing sediment flux.
 
-\section{Hydrodynamic effects on the River Banks}
+
+\section{Hydrodynamic effects on riverbanks}
 River banks are the separation between the river and the land. Therefore, it is important to evaluate the reaction of this interface to hydrodynamic changes in the river due to sand mining? Wave theory will be applied to estimate hydrodynamic loads, reflecting erosive processes at the banks. In addition to that, one should evaluate the variation of the water level on the river banks, as well as their correlation with bank erosion through the use help of satellite data. These aspects are treated in this section.
 
 \subsection{Waves, currents and tides}
@@ -661,10 +665,10 @@ Table \ref{tab:standard_values} gives the standard design values for wave height
 \end{table}
 
 
-\subsection{Calculation of Loads and Impacts due to Ships}
+\subsection{Calculation of loads and impacts due to ships}
 Following the information about tides waves and currents, one might ask how the ship induced waves exerts a force on the river bed. This can be answered with the help of wave theory. The first relevant parameters to take into account are the ship waves in rivers. These are assumed to be between 0.25 and 0.75 meters tall according to Table \ref{tab:standard_values}. Based on observations during the field trip, the value of 0.25 meter wave height is chosen, and a distance of 100 meters from the boat to the bank, as the cargo ships do not travel with a speed significant enough to reach heights of 0.75 m at the riverbank.
 
-\subsubsection{Wave Load}
+\subsubsection{Wave load}
 In this case, one can calculate the force of the wave, assuming that the wave signal given by the boat is uniform. In the calculation one assumes from the video filmed in the field trip that the wave spectrum coming from the ship includes about 10 repetitions, and that the boat is located 100 meters from the shore. This leaves us with the wave theory of \autocite{arrigaLecture2CIEM40002025} which states that there are two types of waves you can get energy from:
 
 \begin{itemize}
@@ -709,7 +713,7 @@ $$
  F_{w} = 0.766 \cdot 1.3 = 0.996  \, ~\text{kN/m} 
 $$
 
-\subsubsection{Current Load}
+\subsubsection{Current load}
 The current of a river can have different effects on the river bank depending on the degree of impact on the bank. A current working directly in the direction of the bank, in this case 90 degrees, does not have the same effect as a current moving along the bank. The current going along the river bank creates a different type of load, categorised as shear \autocite{chowOpenChannelHydraulics1919}. For the situation of the Parana Guazu, one may use the shear equation from the Open Channel Hydraulic Book cited above to calculate the force exerted by the current on a vertical structure:
 
 \begin{equation}
@@ -746,7 +750,7 @@ The relevant location for erosion was chosen in Chapter \ref{chap:methodology}, 
 
     \begin{subfigure}[b]{0.6\textwidth}
         \includegraphics[width=\linewidth, height=6cm]{figures/ch4/bankerosioncamping2.jpg}
-        \caption{Bank Erosion Closeup}
+        \caption{Bank erosion close-up}
         
     \end{subfigure}
     \caption{Bank Erosion Shots from fieldwork}
@@ -760,27 +764,23 @@ Illustrating the bank damages due to local ship waves, currents and tides is imp
 
 Recalling the whole period of time available in Section \ref{Aqua Monitor Water Changes 1985-2025}, it is clear that the outer side of the river curves experience a water surface gain (indicated in blue), and the inner sides of the curves lose water, implying sedimentation (indicated in green). For simplicity, the \ref{Aqua Monitor Water Changes 1985-2025} is shown below as well.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.75\linewidth]{figures/ch4/1985-2025.jpg}
     \caption{Aqua Monitor Water Changes 1985-2025}
 \end{figure}
 \label{Aqua Monitor Water Changes 1985-2025.2}
 
-The location of the 'La Blanqueada' camping  is situated on the outer side of the curve near Puerto Constanza, as seen in Chapter \ref{chap:methodology}, Figure \ref{fig:Camping Blanqueada}.
-
-The Camping's location matches with the blue part of the water gain map, indicating that the water quantity around the shore of the camping has increased. 
+The location of the 'La Blanqueada' camping  is situated on the outer side of the curve near Puerto Constanza, as seen in Chapter \ref{chap:methodology}, Figure \ref{fig:Camping Blanqueada}. The Camping's location matches with the blue part of the water gain map, indicating that the water quantity around the shore of the camping has increased. 
 In order to know if this has always been so, or if the water gains in this precise location have been gradually increasing, several maps with closer intervals have been created. 
 
-As one can see the blue and green zones stay consistent throughout the years, but when going into detailed time periods they can differ. Variations occur on shorter time periods such as the period 2005-2015, which indicated more water gains than losses in the deltas surrounding the region of interest. Furthermore the flood of 2016 in the Parana Guazu can also be illustrated through the help of this map, on a time interval of 2015-2017 \ref{fig:discharge_series}.
+As one can see the blue and green zones stay consistent throughout the years, but when going into detailed time periods they can differ. Variations occur on shorter time periods such as the period 2005-2015, which indicated more water gains than losses in the deltas surrounding the region of interest. Furthermore the flood of 2016 in the Parana Guazu can also be illustrated through the help of this map, on a time interval of 2015-2017 \ref{fig:discharge_series}. 
 
-In addition to that, droughts are well highlighted with this application. An example would be the long period of drought in 2022 which led some parts of the Parana to be left dry, as seen in Figure \ref{fig:Discharge Changes in Brazo Largo}. With the Parana Guazu's significant depths of over 40 meters this was unlikely to happen but still, this change in water quantity did not go unnoticed by the Deltares application. This can be seen on the Figure of 2020-2022.
-
-Other periods of time are more or less stable and have nothing to report. For the sake of these explanations the relevant Figures can be found in the Appendix \ref{Appendix: Satellite Data}.
+In addition to that, droughts are well highlighted with this application. An example would be the long period of drought in 2022 which led some parts of the Parana to be left dry, as seen in Figure \ref{fig:Discharge Changes in Brazo Largo}. With the Parana Guazu's significant depths of over 40 meters this was unlikely to happen but still, this change in water quantity did not go unnoticed by the Deltares application. This can be seen on the Figure of 2020-2022. Other periods of time are more or less stable and have nothing to report. For the sake of these explanations the relevant Figures can be found in the Appendix \ref{Appendix: Satellite Data}.
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[a]{0.6\textwidth}
+    \begin{subfigure}[a]{0.75\linewidth}
         \includegraphics[width=\linewidth, height=5cm]{figures/ch5/2005-2015.jpg}
         \caption{Period 2005-2015}
         \label{fig:Period 2005-2015}
@@ -789,7 +789,7 @@ Other periods of time are more or less stable and have nothing to report. For th
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.6\textwidth}
+    \begin{subfigure}[b]{0.75\textwidth}
         \includegraphics[width=\linewidth, height=5cm]{figures/ch5/2015-2017.jpg}
         \caption{Period 2015-2017}
         \label{fig:Period 2015-2017}
@@ -798,7 +798,7 @@ Other periods of time are more or less stable and have nothing to report. For th
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[c]{0.6\textwidth}
+    \begin{subfigure}[c]{0.75\textwidth}
         \includegraphics[width=\linewidth, height=5cm]{figures/ch5/2020-2022.jpg}
         \caption{Period 2020-2022}
         \label{fig:Period 2020-2022}
@@ -810,7 +810,7 @@ Other periods of time are more or less stable and have nothing to report. For th
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.6\textwidth}
         \includegraphics[width=\linewidth]{figures/ch5/dischargepeak.jpg}
     \end{subfigure}
     
@@ -822,11 +822,9 @@ Other periods of time are more or less stable and have nothing to report. For th
 Using the software's satellite data, one can draw a surface around the area of the Camping La Blanqueada in 2022, the most recent available, and then compare it to historical data. 
 This gives a dataset of historical data from 1985 until 2022 but since the satellite images have been improving with time, the only relevant data can be taken from 2003 on.
 
-Thus, it was chosen to take the difference in surface area from 2022 until 2003. Initially, only the East side of the camping was taken into account due to its matching with the drone pictures taken of the area during the field trip as seen in Figure \ref{fig:Bank Erosion shots from fieldwork}. Nevertheless on Google Earth it quickly became obvious that the necessity rose to take the West part of the Camping in consideration as well since its surface was eroded even further.
+Thus, it was chosen to take the difference in surface area from 2022 until 2003. Initially, only the East side of the camping was taken into account due to its matching with the drone pictures taken of the area during the field trip as seen in Figure \ref{fig:Bank Erosion shots from fieldwork}. Nevertheless on Google Earth it quickly became obvious that the necessity rose to take the West part of the Camping in consideration as well since its surface was eroded even further. A summary of the data gathered from this study can be found in Figure \ref{fig:surface_comparison}. First the measurement of the East part of the Camping, then the comparison with 2003, 2017, 2018 and then for both sides the added surface lost since 2003.
 
-A summary of the data gathered from this study can be found in Figure \ref{fig:surface_comparison}. First the measurement of the East part of the Camping, then the comparison with 2003, 2017, 2018 and then for both sides the added surface lost since 2003.
-
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \begin{subfigure}[b]{0.45\textwidth} % Adjusted width to fit both images side by side
         \includegraphics[width=\linewidth, height=5cm]{figures/appendix-g/opp2022.png}
@@ -880,8 +878,7 @@ Lastly, both sides of the Camping and the difference between 2003 and 2022 can b
 \subsection{Quantitative Results}
 \label{section:quantitative_results}
 
-The values of these areas can be found in the Table \ref{tab:Surface Lost Camping La Blanqueada in 2022}.
-It is important to note that the green part of the area is very likely to be dug out by the owner himself to build a channel for the boats. This probably contributes to an acceleration of the erosion around this part of the land.
+The values of these areas can be found in the Table \ref{tab:Surface Lost Camping La Blanqueada in 2022}. It is important to note that the green part of the area is very likely to be dug out by the owner himself to build a channel for the boats. This probably contributes to an acceleration of the erosion around this part of the land.
 
 \begin{table}[H]
 \centering

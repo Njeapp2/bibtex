@@ -7,9 +7,9 @@ In this section, the Delft3D model setup used to simulate the hydrodynamic respo
 
 Since no existing grid was available for the area of interest, the grid was generated using the RGFGRID tool in Delft3D. As a starting point, a land boundary file similar to the one shown in Figure \ref{fig:cross section domain} was used. By drawing splines with a decreasing spacing towards the confluence, the grid resolution was refined for the region of hydrodynamic interest. This approach ensures that the model captures the flow behaviour at the confluence with high accuracy while maintaining computational efficiency in less critical areas. After generating the grid, further refinements were made to ensure that the grid contains at least 20 cells in a cross section near the confluence and around 10 cells in a cross section far away from the confluence. When generating the grid, it was made sure to limit the aspect ratio to 2.0. The generated grid is shown in Figure \ref{fig: Grid Guazu Delft3D}. The generated computational grid has 1044 grid cells in M-direction, 1043 cells in N-direction, and 91706 grid elements. The grid size at the confluence is around 20x20 meters and the grid size at the upstream boundary near Ibicuy is 75x125 meters. 
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.75\linewidth]{figures/ch7/Grid_Guazu.png}
+    \includegraphics[width=0.75, height=7cm\linewidth]{figures/ch7/Grid_Guazu.png}
     \caption{Generated grid for the Delft3D model.}
     \label{fig: Grid Guazu Delft3D}
 \end{figure}
@@ -18,7 +18,7 @@ The bathymetry was derived from a Digital Elevation Model (DEM) from 2019, which
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{figures/ch7/Bathymetry_Gueazu_Delft3D.png}
+    \includegraphics[width=0.75, height =7cm\linewidth]{figures/ch7/Bathymetry_Gueazu_Delft3D.png}
     \caption{Bathymetry Delft3D model.}
     \label{fig: Bathymetry Delft3D}
 \end{figure}
@@ -30,14 +30,14 @@ In order to validate the use of the 2019 DEM for creating the bathymetry, cross 
     % Top row: two subfigures side by side
     \begin{subfigure}[t]{0.48\linewidth}
         \centering
-        \includegraphics[width=\linewidth,height=0.7\linewidth,keepaspectratio]{figures/ch7/Bathymetry_cs1.png}
+        \includegraphics[width=\linewidth,height=0.8\linewidth]{figures/ch7/Bathymetry_cs1.png}
         \caption{Cross section 1}
         \label{fig:bathy_cs1}
     \end{subfigure}
     \hfill
     \begin{subfigure}[t]{0.48\linewidth}
         \centering
-        \includegraphics[width=\linewidth,height=0.7\linewidth,keepaspectratio]{figures/ch7/Bathymetry_cs2.png}
+        \includegraphics[width=\linewidth,height=0.8\linewidth]{figures/ch7/Bathymetry_cs2.png}
         \caption{Cross section 2}
         \label{fig:bathy_cs2}
     \end{subfigure}
@@ -46,7 +46,7 @@ In order to validate the use of the 2019 DEM for creating the bathymetry, cross 
     \vspace{1em}
     \begin{subfigure}[t]{0.48\linewidth}
         \centering
-        \includegraphics[width=\linewidth,height=0.7\linewidth,keepaspectratio]{figures/ch7/Bathymetry_cs3.png}
+        \includegraphics[width=\linewidth,height=0.8\linewidth,keepaspectratio]{figures/ch7/Bathymetry_cs3.png}
         \caption{Cross section 3}
         \label{fig:bathy_cs3}
     \end{subfigure}
